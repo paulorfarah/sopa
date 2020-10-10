@@ -1,0 +1,14 @@
+"328a7efc17e8c77853fea42a84808dd1d26c8d5a, testFileCleanerDirectory_ForceStrategy, 2.4672518e+06, -8.800939e+08, -8.8256115e+08
+%!(EXTRA float32=-357.7102)","328a7efc17e8c77853fea42a84808dd1d26c8d5a, testFileCleanerDirectory, 1.5269228e+06, -9.758514e+08, -9.773783e+08
+%!(EXTRA float32=-640.09674)","328a7efc17e8c77853fea42a84808dd1d26c8d5a, testFileCleanerDirectory_NullStrategy, 1.5197355e+06, -9.75951e+08, -9.774707e+08
+%!(EXTRA float32=-643.18475)","53615435dbb357c140a5eb6a15f7a1c10a434458, testFileCleanerExitWhenFinishedFirst, 14576.549, -5.4813317e+09, -5.481346e+09
+%!(EXTRA float32=-376038.7)","59ffcad15d220c2bc1f70f01d58bc31dec04b423, testStopWithNoFile, 2.005672e+07, 2.0017156e+07, -39564
+%!(EXTRA float32=-0.0019725568)","6eca4c05986bac88d1b65af83348a754efa36559, testCopy_stringToOutputStream, 1379.3691, -1158.3403, -2537.7095
+%!(EXTRA float32=-1.839761)","6eca4c05986bac88d1b65af83348a754efa36559, testCopy_readerToOutputStream, 1461.2922, 4530.1226, 3068.8303
+%!(EXTRA float32=2.1000798)","6eca4c05986bac88d1b65af83348a754efa36559, testWrite_stringToOutputStream_nullEncoding, 1173.0049, 4258.4375, 3085.4326
+%!(EXTRA float32=2.630366)","6eca4c05986bac88d1b65af83348a754efa36559, testWrite_byteArrayToWriter, 1389.7164, -14833.438, -16223.155
+%!(EXTRA float32=-11.673717)","6eca4c05986bac88d1b65af83348a754efa36559, testWrite_stringToWriter, 1371.3577, -1483.7312, -2855.0889
+%!(EXTRA float32=-2.0819433)","6eca4c05986bac88d1b65af83348a754efa36559, testWrite_byteArrayToWriter_Encoding_nullEncoding, 1388.5707, -2165.477, -3554.0479
+%!(EXTRA float32=-2.5595007)","6eca4c05986bac88d1b65af83348a754efa36559, testWrite_charArrayToWriter, 1306.0044, -10805.248, -12111.252
+%!(EXTRA float32=-9.273516)","6eca4c05986bac88d1b65af83348a754efa36559, testStream, 262.81754, -4546.5244, -4809.342
+%!(EXTRA float32=-18.299166)"

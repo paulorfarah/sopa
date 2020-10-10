@@ -1,0 +1,5 @@
+"61cbf0afe04d86a546e7094513328c9f7a7363ae, testAbbreviateForUpperLimit, 14.825029, -30.180853, -45.005882
+%!(EXTRA float32=-3.035804)","61cbf0afe04d86a546e7094513328c9f7a7363ae, testAbbreviateForUpperLimitAndAppendedString, 14.455483, -79.68, -94.13548
+%!(EXTRA float32=-6.512095)","61cbf0afe04d86a546e7094513328c9f7a7363ae, testWrap_StringIntStringBoolean, 51.873486, 275.02185, 223.14836
+%!(EXTRA float32=4.301781)","61cbf0afe04d86a546e7094513328c9f7a7363ae, testAbbreviateForLowerValueAndAppendedString, 14.638, -43.508343, -58.146343
+%!(EXTRA float32=-3.9722874)"

@@ -55,7 +55,7 @@ func ParsePeassResults() {
 			fmt.Println(err)
 		}
 		resFilename := strings.ReplaceAll(filename, ".json", ".csv")
-		file, err := os.Create("results/" + resFilename)
+		file, err := os.Create("results/peass_" + resFilename)
 		if err != nil {
 			log.Fatal("Cannot create file", err)
 		}
@@ -70,7 +70,9 @@ func ParsePeassResults() {
 		for commit, v := range result.VersionChanges {
 			for _, w := range v.TestCaseChanges {
 				for _, j := range w {
-					s := fmt.Sprintf("%v, %v, %v, %v, %v\n", commit, j.Diff, j.Method, j.OldTime, j.ChangePercent)
+					currTime := j.OldTime + (j.OldTime * j.ChangePercent)
+					diffTime := currTime - j.OldTime
+					s := fmt.Sprintf("%v, %v, %v, %v, %v\n", commit, j.Method, j.OldTime, currTime, diffTime, j.ChangePercent)
 					data = append(data, s)
 				}
 			}
