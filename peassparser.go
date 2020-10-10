@@ -24,7 +24,7 @@ type TestCaseChanges struct {
 type Measurement struct {
 	Diff string `json:"diff"`
 	Method string `json:"method"`
-	OldTime string `json:"oldTime"`
+	OldTime float32 `json:"oldTime"`
 	ChangePercent  float32 `json:"changePercent"`
 	TValue float32 `json:"tvalue"`
 	VMS int `json:"vms"`
@@ -58,7 +58,7 @@ func main() {
 	for commit, v := range result.VersionChanges {
 		for _, w := range v.TestCaseChanges {
 			for _, j := range w {
-				s:= fmt.Sprintf("%v, %v, %v\n", commit, j.OldTime, j.ChangePercent)
+				s := fmt.Sprintf("%v, %v, %v, %v, %v\n", commit, j.Diff, j.Method, j.OldTime, j.ChangePercent)
 				data = append(data, s)
 			}
 		}
