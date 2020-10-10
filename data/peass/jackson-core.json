@@ -1,0 +1,604 @@
+{
+  "versionCount" : 22,
+  "changeCount" : 68,
+  "testcaseCount" : 881,
+  "versionChanges" : {
+    "6d86230edf3bece2e9c06da893d0b08324348b3a" : {
+      "testcaseChanges" : {
+        "org.apache.commons.imaging.formats.xmp.XmpDumpTest" : [ {
+          "diff" : "view_6d86230edf3bece2e9c06da893d0b08324348b3a/diffs/XmpDumpTest#test.txt",
+          "method" : "test",
+          "oldTime" : 1230118.8243135165,
+          "changePercent" : 87.45733777008678,
+          "tvalue" : 679.6491854246907,
+          "vms" : 31
+        } ]
+      }
+    },
+    "8fc4243d0f15813c9caf37635113489854cbd655" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.json.TestCustomEscaping" : [ {
+          "diff" : "view_8fc4243d0f15813c9caf37635113489854cbd655/diffs/TestCustomEscaping#testEscapeCustomWithUTF8Stream.txt",
+          "method" : "testEscapeCustomWithUTF8Stream",
+          "oldTime" : 190.46047826086956,
+          "changePercent" : -4.351079568944005,
+          "tvalue" : -2.693382797850926,
+          "vms" : 46
+        } ],
+        "com.fasterxml.jackson.core.json.TestJsonGenerator" : [ {
+          "diff" : "view_8fc4243d0f15813c9caf37635113489854cbd655/diffs/TestJsonGenerator#testStringWrite.txt",
+          "method" : "testStringWrite",
+          "oldTime" : 1500.859894736842,
+          "changePercent" : 1.1260562278368245,
+          "tvalue" : 2.689624060085918,
+          "vms" : 38
+        } ]
+      }
+    },
+    "ac956fe5eed337c516beb504aadf82917c26d6ba" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.json.TestJsonParser" : [ {
+          "diff" : "view_ac956fe5eed337c516beb504aadf82917c26d6ba/diffs/TestJsonParser#testLongText.txt",
+          "method" : "testLongText",
+          "oldTime" : 274674.1811612903,
+          "changePercent" : 3.3785352379191136,
+          "tvalue" : 10.524482546287606,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.main.TestStringGeneration" : [ {
+          "diff" : "view_ac956fe5eed337c516beb504aadf82917c26d6ba/diffs/TestStringGeneration#testBasicEscaping.txt",
+          "method" : "testBasicEscaping",
+          "oldTime" : 1409.702129032258,
+          "changePercent" : -2.8748466331231044,
+          "tvalue" : -6.738068123278226,
+          "vms" : 31
+        } ]
+      }
+    },
+    "ef860da507ef31a604624a434040bde984d310e8" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.json.TestComments" : [ {
+          "diff" : "view_ef860da507ef31a604624a434040bde984d310e8/diffs/TestComments#testCommentsWithUTF8.txt",
+          "method" : "testCommentsWithUTF8",
+          "oldTime" : 191.6289523809524,
+          "changePercent" : -4.0440752565473685,
+          "tvalue" : -2.8757893186694736,
+          "vms" : 42
+        } ],
+        "com.fasterxml.jackson.core.json.TestNextXxx" : [ {
+          "diff" : "view_ef860da507ef31a604624a434040bde984d310e8/diffs/TestNextXxx#testIssue34.txt",
+          "method" : "testIssue34",
+          "oldTime" : 6308.327870967742,
+          "changePercent" : 0.5254804908068076,
+          "tvalue" : 2.7300150927046474,
+          "vms" : 31
+        }, {
+          "diff" : "view_ef860da507ef31a604624a434040bde984d310e8/diffs/TestNextXxx#testIssue38.txt",
+          "method" : "testIssue38",
+          "oldTime" : 204.03294444444444,
+          "changePercent" : 3.261319726961306,
+          "tvalue" : 2.728277179123865,
+          "vms" : 72
+        } ],
+        "com.fasterxml.jackson.core.json.TestParserErrorHandling" : [ {
+          "diff" : "view_ef860da507ef31a604624a434040bde984d310e8/diffs/TestParserErrorHandling#testInvalidKeywordsStream.txt",
+          "method" : "testInvalidKeywordsStream",
+          "oldTime" : 12153.805870967743,
+          "changePercent" : 1.604608748309204,
+          "tvalue" : 3.2157689293341996,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.json.TestParserNonStandard" : [ {
+          "diff" : "view_ef860da507ef31a604624a434040bde984d310e8/diffs/TestParserNonStandard#testSingleQuotesEnabled.txt",
+          "method" : "testSingleQuotesEnabled",
+          "oldTime" : 458.1429811320755,
+          "changePercent" : 2.1688541000094785,
+          "tvalue" : 2.7473752736669335,
+          "vms" : 53
+        } ],
+        "com.fasterxml.jackson.core.main.TestParserClosing" : [ {
+          "diff" : "view_ef860da507ef31a604624a434040bde984d310e8/diffs/TestParserClosing#testNoAutoCloseInputStream.txt",
+          "method" : "testNoAutoCloseInputStream",
+          "oldTime" : 138.57390243902438,
+          "changePercent" : 5.099929068402343,
+          "tvalue" : 2.645365108698465,
+          "vms" : 41
+        } ]
+      }
+    },
+    "ea1fd86638ccaff3b707c508dd95b3b696bd6b11" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.json.TestComments" : [ {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestComments#testYAMLCommentsBytes.txt",
+          "method" : "testYAMLCommentsBytes",
+          "oldTime" : 191.93922580645162,
+          "changePercent" : -300.5997194004285,
+          "tvalue" : -78.49569159605772,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.json.TestJsonParser" : [ {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestJsonParser#testSkipping.txt",
+          "method" : "testSkipping",
+          "oldTime" : 285.84576470588235,
+          "changePercent" : 3.1526257064175747,
+          "tvalue" : 2.714309309750468,
+          "vms" : 51
+        } ],
+        "com.fasterxml.jackson.core.json.TestNextXxx" : [ {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestNextXxx#testIssue34.txt",
+          "method" : "testIssue34",
+          "oldTime" : 6308.401741935484,
+          "changePercent" : 5.448131144142269,
+          "tvalue" : 23.52373661447587,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.json.TestParserDupHandling" : [ {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestParserDupHandling#testSimpleDups.txt",
+          "method" : "testSimpleDups",
+          "oldTime" : 6703.053181818182,
+          "changePercent" : 1.9705084189246937,
+          "tvalue" : 2.7197785552800173,
+          "vms" : 44
+        } ],
+        "com.fasterxml.jackson.core.json.TestUtf8Parser" : [ {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestUtf8Parser#testUtf8StringTrivial.txt",
+          "method" : "testUtf8StringTrivial",
+          "oldTime" : 830.14975,
+          "changePercent" : 1.0123775860921533,
+          "tvalue" : 2.7196568967582992,
+          "vms" : 32
+        }, {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestUtf8Parser#testEmptyName.txt",
+          "method" : "testEmptyName",
+          "oldTime" : 132.89141935483872,
+          "changePercent" : 6.795555139121601,
+          "tvalue" : 2.6899873343118323,
+          "vms" : 31
+        }, {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestUtf8Parser#testNextFieldName.txt",
+          "method" : "testNextFieldName",
+          "oldTime" : 3160.2332903225806,
+          "changePercent" : 21.604176792501395,
+          "tvalue" : 27.14453843516423,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.json.TestValueConversions" : [ {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestValueConversions#testAsInt.txt",
+          "method" : "testAsInt",
+          "oldTime" : 1126.0068055555555,
+          "changePercent" : 1.7700652835505586,
+          "tvalue" : 2.6247962944177554,
+          "vms" : 72
+        } ],
+        "com.fasterxml.jackson.core.main.TestGeneratorMisc" : [ {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestGeneratorMisc#testBinaryWrite.txt",
+          "method" : "testBinaryWrite",
+          "oldTime" : 1673.9110256410256,
+          "changePercent" : 0.798112450605084,
+          "tvalue" : 2.7023100679043988,
+          "vms" : 39
+        } ],
+        "com.fasterxml.jackson.core.main.TestParserLinefeeds" : [ {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestParserLinefeeds#testCRLF.txt",
+          "method" : "testCRLF",
+          "oldTime" : 303.80205633802814,
+          "changePercent" : 2.309027570120015,
+          "tvalue" : 2.619032106534628,
+          "vms" : 71
+        } ],
+        "com.fasterxml.jackson.core.main.TestParserWithObjects" : [ {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestParserWithObjects#testIsClosed.txt",
+          "method" : "testIsClosed",
+          "oldTime" : 275.5460344827586,
+          "changePercent" : 2.5528245796590716,
+          "tvalue" : 2.7066752854399794,
+          "vms" : 58
+        }, {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestParserWithObjects#testNextValueNested.txt",
+          "method" : "testNextValueNested",
+          "oldTime" : 415.92936363636363,
+          "changePercent" : 2.5470671047072444,
+          "tvalue" : 2.8717920928107494,
+          "vms" : 44
+        } ],
+        "com.fasterxml.jackson.core.main.TestScopeMatching" : [ {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestScopeMatching#testMismatchArrayToObject.txt",
+          "method" : "testMismatchArrayToObject",
+          "oldTime" : 994.357488372093,
+          "changePercent" : 2.045897488741828,
+          "tvalue" : 2.6414414387063174,
+          "vms" : 43
+        } ],
+        "com.fasterxml.jackson.core.sym.TestByteBasedSymbols" : [ {
+          "diff" : "view_ea1fd86638ccaff3b707c508dd95b3b696bd6b11/diffs/TestByteBasedSymbols#testSharedSymbols.txt",
+          "method" : "testSharedSymbols",
+          "oldTime" : 3296.1765806451613,
+          "changePercent" : 3.119320827178515,
+          "tvalue" : 12.7751508404794,
+          "vms" : 31
+        } ]
+      }
+    },
+    "48b57265f6344ccb3ca5b4c57bee2d8db9817a95" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.json.TestNextXxx" : [ {
+          "diff" : "view_48b57265f6344ccb3ca5b4c57bee2d8db9817a95/diffs/TestNextXxx#testIssue34.txt",
+          "method" : "testIssue34",
+          "oldTime" : 5434.056571428571,
+          "changePercent" : 0.9219018243215735,
+          "tvalue" : 2.650387133236696,
+          "vms" : 42
+        } ],
+        "com.fasterxml.jackson.core.json.TestUtf8Parser" : [ {
+          "diff" : "view_48b57265f6344ccb3ca5b4c57bee2d8db9817a95/diffs/TestUtf8Parser#testNextFieldName.txt",
+          "method" : "testNextFieldName",
+          "oldTime" : 2135.224114285714,
+          "changePercent" : -3.3327782895563263,
+          "tvalue" : -2.6550265195094975,
+          "vms" : 35
+        } ]
+      }
+    },
+    "1d97b5396e198a05a99508eaf64ece4451526a4e" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.json.TestComments" : [ {
+          "diff" : "view_1d97b5396e198a05a99508eaf64ece4451526a4e/diffs/TestComments#testCommentsEnabled.txt",
+          "method" : "testCommentsEnabled",
+          "oldTime" : 308.25942857142854,
+          "changePercent" : 1.7418352630622764,
+          "tvalue" : 2.6221492320602,
+          "vms" : 70
+        } ],
+        "com.fasterxml.jackson.core.json.TestCustomEscaping" : [ {
+          "diff" : "view_1d97b5396e198a05a99508eaf64ece4451526a4e/diffs/TestCustomEscaping#testAboveAsciiEscapeWithReader.txt",
+          "method" : "testAboveAsciiEscapeWithReader",
+          "oldTime" : 628.2948837209302,
+          "changePercent" : -1.3885199809895294,
+          "tvalue" : -2.8207800268990093,
+          "vms" : 43
+        } ],
+        "com.fasterxml.jackson.core.json.TestGeneratorWithSerializedString" : [ {
+          "diff" : "view_1d97b5396e198a05a99508eaf64ece4451526a4e/diffs/TestGeneratorWithSerializedString#testSimple.txt",
+          "method" : "testSimple",
+          "oldTime" : 331.09916129032257,
+          "changePercent" : 5.2703828908482215,
+          "tvalue" : 3.098408510758453,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.json.TestParserNonStandard" : [ {
+          "diff" : "view_1d97b5396e198a05a99508eaf64ece4451526a4e/diffs/TestParserNonStandard#testNonStandardAnyCharQuoting.txt",
+          "method" : "testNonStandardAnyCharQuoting",
+          "oldTime" : 928.821,
+          "changePercent" : 1.775351989808926,
+          "tvalue" : 2.64407949382767,
+          "vms" : 76
+        } ],
+        "com.fasterxml.jackson.core.main.TestGeneratorObject" : [ {
+          "diff" : "view_1d97b5396e198a05a99508eaf64ece4451526a4e/diffs/TestGeneratorObject#testSimpleObjectWrite.txt",
+          "method" : "testSimpleObjectWrite",
+          "oldTime" : 212.68612903225807,
+          "changePercent" : -5.152890750720054,
+          "tvalue" : -2.8533998411665142,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.main.TestParserLinefeeds" : [ {
+          "diff" : "view_1d97b5396e198a05a99508eaf64ece4451526a4e/diffs/TestParserLinefeeds#testCR.txt",
+          "method" : "testCR",
+          "oldTime" : 271.921962962963,
+          "changePercent" : -3.640205598201972,
+          "tvalue" : -2.702797900264975,
+          "vms" : 54
+        } ]
+      }
+    },
+    "322accee786d188d2ae25d9a5721508784ecf471" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.TestJsonPointer" : [ {
+          "diff" : "view_322accee786d188d2ae25d9a5721508784ecf471/diffs/TestJsonPointer#testSimplePathLonger.txt",
+          "method" : "testSimplePathLonger",
+          "oldTime" : 136.2446046511628,
+          "changePercent" : 4.76420828612289,
+          "tvalue" : 2.7176593912875835,
+          "vms" : 43
+        } ]
+      }
+    },
+    "8db559f7c0ba108f7b8c4a76b2ba00825e3fe8cb" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.json.TestGeneratorWithSerializedString" : [ {
+          "diff" : "view_8db559f7c0ba108f7b8c4a76b2ba00825e3fe8cb/diffs/TestGeneratorWithSerializedString#testSimple.txt",
+          "method" : "testSimple",
+          "oldTime" : 456.93774193548387,
+          "changePercent" : -3.2062248898169927,
+          "tvalue" : -2.920940344645417,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.json.TestUtf8Parser" : [ {
+          "diff" : "view_8db559f7c0ba108f7b8c4a76b2ba00825e3fe8cb/diffs/TestUtf8Parser#testUtf8Name2Bytes.txt",
+          "method" : "testUtf8Name2Bytes",
+          "oldTime" : 1615.8626451612904,
+          "changePercent" : -0.836656868511371,
+          "tvalue" : -3.1849149822491873,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.sym.TestByteBasedSymbols" : [ {
+          "diff" : "view_8db559f7c0ba108f7b8c4a76b2ba00825e3fe8cb/diffs/TestByteBasedSymbols#testSharedSymbols.txt",
+          "method" : "testSharedSymbols",
+          "oldTime" : 3731.491483870968,
+          "changePercent" : 1.4013388194961742,
+          "tvalue" : 2.8613127011418067,
+          "vms" : 31
+        } ]
+      }
+    },
+    "ad3a43eb9ad2f6b26c3a3c8be3c13ed090e5e0aa" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.util.TestDefaultPrettyPrinter" : [ {
+          "diff" : "view_ad3a43eb9ad2f6b26c3a3c8be3c13ed090e5e0aa/diffs/TestDefaultPrettyPrinter#testWithIndent.txt",
+          "method" : "testWithIndent",
+          "oldTime" : 207.87735483870966,
+          "changePercent" : 5.295150769731157,
+          "tvalue" : 2.7616219964595055,
+          "vms" : 31
+        } ]
+      }
+    },
+    "e22dbdb8ef603d6bf629c51f4a852a4083779a9b" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.json.TestCustomEscaping" : [ {
+          "diff" : "view_e22dbdb8ef603d6bf629c51f4a852a4083779a9b/diffs/TestCustomEscaping#testAboveAsciiEscapeWithUTF8Stream.txt",
+          "method" : "testAboveAsciiEscapeWithUTF8Stream",
+          "oldTime" : 273.22025806451614,
+          "changePercent" : 3.685930812290404,
+          "tvalue" : 2.778270260694487,
+          "vms" : 31
+        }, {
+          "diff" : "view_e22dbdb8ef603d6bf629c51f4a852a4083779a9b/diffs/TestCustomEscaping#testEscapeCustomWithUTF8Stream.txt",
+          "method" : "testEscapeCustomWithUTF8Stream",
+          "oldTime" : 245.96371428571427,
+          "changePercent" : -2.763096298757192,
+          "tvalue" : -2.68519133984544,
+          "vms" : 56
+        } ]
+      }
+    },
+    "5e3d980f704ceca91b263ac42efa30bedcf5a76f" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.sym.TestSymbolTables" : [ {
+          "diff" : "view_5e3d980f704ceca91b263ac42efa30bedcf5a76f/diffs/TestSymbolTables#testShortNameCollisionsViaParser.txt",
+          "method" : "testShortNameCollisionsViaParser",
+          "oldTime" : 45363.14251612903,
+          "changePercent" : 2.3345017476736203,
+          "tvalue" : 7.739171151256136,
+          "vms" : 31
+        }, {
+          "diff" : "view_5e3d980f704ceca91b263ac42efa30bedcf5a76f/diffs/TestSymbolTables#testShortNameCollisionsDirectNew.txt",
+          "method" : "testShortNameCollisionsDirectNew",
+          "oldTime" : 38344.20290322581,
+          "changePercent" : 2.4598483066317733,
+          "tvalue" : 6.444359045273206,
+          "vms" : 31
+        } ]
+      }
+    },
+    "df00f77936879607478725c70cd4dfdce5a87a7b" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.filter.BasicParserFilteringTest" : [ {
+          "diff" : "view_df00f77936879607478725c70cd4dfdce5a87a7b/diffs/BasicParserFilteringTest#testNonFiltering.txt",
+          "method" : "testNonFiltering",
+          "oldTime" : 207.94853846153848,
+          "changePercent" : -3.9166494964915466,
+          "tvalue" : -2.8054866631372133,
+          "vms" : 52
+        } ]
+      }
+    },
+    "b55cfc2bd2ccda918235f0afdd80e7bfcb5c01f2" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.json.ParserSequenceTest" : [ {
+          "diff" : "view_b55cfc2bd2ccda918235f0afdd80e7bfcb5c01f2/diffs/ParserSequenceTest#testSimple.txt",
+          "method" : "testSimple",
+          "oldTime" : 219.6378064516129,
+          "changePercent" : -4.234684316055822,
+          "tvalue" : -2.9653245232429075,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.json.TestCharEscaping" : [ {
+          "diff" : "view_b55cfc2bd2ccda918235f0afdd80e7bfcb5c01f2/diffs/TestCharEscaping#testMissingEscaping.txt",
+          "method" : "testMissingEscaping",
+          "oldTime" : 499.1357837837838,
+          "changePercent" : 2.4217425751666757,
+          "tvalue" : 2.9032028366486595,
+          "vms" : 37
+        } ],
+        "com.fasterxml.jackson.core.json.TestComments" : [ {
+          "diff" : "view_b55cfc2bd2ccda918235f0afdd80e7bfcb5c01f2/diffs/TestComments#testCommentsWithUTF8.txt",
+          "method" : "testCommentsWithUTF8",
+          "oldTime" : 264.1415,
+          "changePercent" : -2.9761424360531237,
+          "tvalue" : -2.7393218418973113,
+          "vms" : 44
+        } ],
+        "com.fasterxml.jackson.core.json.TestJsonGeneratorFeatures" : [ {
+          "diff" : "view_b55cfc2bd2ccda918235f0afdd80e7bfcb5c01f2/diffs/TestJsonGeneratorFeatures#testBigDecimalAsPlain.txt",
+          "method" : "testBigDecimalAsPlain",
+          "oldTime" : 160.93054838709676,
+          "changePercent" : -4.279505865784222,
+          "tvalue" : -2.6452641977504285,
+          "vms" : 62
+        } ],
+        "com.fasterxml.jackson.core.json.TestJsonParser" : [ {
+          "diff" : "view_b55cfc2bd2ccda918235f0afdd80e7bfcb5c01f2/diffs/TestJsonParser#testNameEscaping.txt",
+          "method" : "testNameEscaping",
+          "oldTime" : 849.6966857142858,
+          "changePercent" : -1.103075974942855,
+          "tvalue" : -2.7882024429955448,
+          "vms" : 35
+        } ],
+        "com.fasterxml.jackson.core.json.TestNextXxx" : [ {
+          "diff" : "view_b55cfc2bd2ccda918235f0afdd80e7bfcb5c01f2/diffs/TestNextXxx#testIsNextTokenName3.txt",
+          "method" : "testIsNextTokenName3",
+          "oldTime" : 184.96836,
+          "changePercent" : 2.847687031446883,
+          "tvalue" : 2.7359976602230747,
+          "vms" : 100
+        }, {
+          "diff" : "view_b55cfc2bd2ccda918235f0afdd80e7bfcb5c01f2/diffs/TestNextXxx#testNextLongValue.txt",
+          "method" : "testNextLongValue",
+          "oldTime" : 389.56664516129035,
+          "changePercent" : -3.1753894277561847,
+          "tvalue" : -2.838537944215584,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.main.TestParserWithObjects" : [ {
+          "diff" : "view_b55cfc2bd2ccda918235f0afdd80e7bfcb5c01f2/diffs/TestParserWithObjects#testIsClosed.txt",
+          "method" : "testIsClosed",
+          "oldTime" : 421.4899591836735,
+          "changePercent" : -1.7879816828618877,
+          "tvalue" : -2.651485901808845,
+          "vms" : 49
+        } ],
+        "com.fasterxml.jackson.core.util.TestDefaultPrettyPrinter" : [ {
+          "diff" : "view_b55cfc2bd2ccda918235f0afdd80e7bfcb5c01f2/diffs/TestDefaultPrettyPrinter#testRootSeparator.txt",
+          "method" : "testRootSeparator",
+          "oldTime" : 135.20557142857143,
+          "changePercent" : -4.871365190994874,
+          "tvalue" : -2.643856237043003,
+          "vms" : 56
+        } ]
+      }
+    },
+    "b6c54cf06167b7ef8b45a67e8ddfa427e63c6c20" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.read.NumberCoercionTest" : [ {
+          "diff" : "view_b6c54cf06167b7ef8b45a67e8ddfa427e63c6c20/diffs/NumberCoercionTest#testToBigIntegerCoercion.txt",
+          "method" : "testToBigIntegerCoercion",
+          "oldTime" : 434.99585294117645,
+          "changePercent" : -1.1042160712958786,
+          "tvalue" : -2.6599651126215993,
+          "vms" : 68
+        }, {
+          "diff" : "view_b6c54cf06167b7ef8b45a67e8ddfa427e63c6c20/diffs/NumberCoercionTest#testToLongFailing.txt",
+          "method" : "testToLongFailing",
+          "oldTime" : 4167.662823529412,
+          "changePercent" : 1.1232128766730098,
+          "tvalue" : 2.698732258378614,
+          "vms" : 51
+        }, {
+          "diff" : "view_b6c54cf06167b7ef8b45a67e8ddfa427e63c6c20/diffs/NumberCoercionTest#testToBigDecimalCoercion.txt",
+          "method" : "testToBigDecimalCoercion",
+          "oldTime" : 512.9300430107527,
+          "changePercent" : -0.8952655599097114,
+          "tvalue" : -2.616071419330973,
+          "vms" : 93
+        } ]
+      }
+    },
+    "8cd1e24ad7cb031b14d90db64c49ba0a68669463" : {
+      "testcaseChanges" : {
+        "com.fasterxml.jackson.core.filter.BasicParserFilteringTest" : [ {
+          "diff" : "view_8cd1e24ad7cb031b14d90db64c49ba0a68669463/diffs/BasicParserFilteringTest#testNotAllowMultipleMatchesWithPath3.txt",
+          "method" : "testNotAllowMultipleMatchesWithPath3",
+          "oldTime" : 281.58495833333336,
+          "changePercent" : -2.3642657285641424,
+          "tvalue" : -2.8413608526055563,
+          "vms" : 48
+        } ],
+        "com.fasterxml.jackson.core.filter.JsonPointerGeneratorFilteringTest" : [ {
+          "diff" : "view_8cd1e24ad7cb031b14d90db64c49ba0a68669463/diffs/JsonPointerGeneratorFilteringTest#testArrayNestedWithPath.txt",
+          "method" : "testArrayNestedWithPath",
+          "oldTime" : 1158.452129032258,
+          "changePercent" : -1.9219138240526545,
+          "tvalue" : -3.3429665493872234,
+          "vms" : 31
+        }, {
+          "diff" : "view_8cd1e24ad7cb031b14d90db64c49ba0a68669463/diffs/JsonPointerGeneratorFilteringTest#testArrayNestedWithoutPath.txt",
+          "method" : "testArrayNestedWithoutPath",
+          "oldTime" : 910.7494838709678,
+          "changePercent" : -1.7614985233360096,
+          "tvalue" : -2.74219209230021,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.json.ParserSequenceTest" : [ {
+          "diff" : "view_8cd1e24ad7cb031b14d90db64c49ba0a68669463/diffs/ParserSequenceTest#testInitializationEnabled.txt",
+          "method" : "testInitializationEnabled",
+          "oldTime" : 228.80834146341462,
+          "changePercent" : -3.829597718486734,
+          "tvalue" : -2.844359168034734,
+          "vms" : 41
+        } ],
+        "com.fasterxml.jackson.core.json.TestRootValues" : [ {
+          "diff" : "view_8cd1e24ad7cb031b14d90db64c49ba0a68669463/diffs/TestRootValues#testSimpleNumbers.txt",
+          "method" : "testSimpleNumbers",
+          "oldTime" : 171.6093548387097,
+          "changePercent" : -6.349153835887583,
+          "tvalue" : -3.129662531241427,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.json.async.AsyncNonStdParsingTest" : [ {
+          "diff" : "view_8cd1e24ad7cb031b14d90db64c49ba0a68669463/diffs/AsyncNonStdParsingTest#testAposQuotingEnabled.txt",
+          "method" : "testAposQuotingEnabled",
+          "oldTime" : 6388.749726315789,
+          "changePercent" : -0.931796845568123,
+          "tvalue" : -2.676084087015523,
+          "vms" : 95
+        } ],
+        "com.fasterxml.jackson.core.json.async.AsyncParserNamesTest" : [ {
+          "diff" : "view_8cd1e24ad7cb031b14d90db64c49ba0a68669463/diffs/AsyncParserNamesTest#testEvenLongerName.txt",
+          "method" : "testEvenLongerName",
+          "oldTime" : 10120.634903225806,
+          "changePercent" : -0.9679451386707397,
+          "tvalue" : -3.868535006670847,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.json.async.AsyncRootNumbersTest" : [ {
+          "diff" : "view_8cd1e24ad7cb031b14d90db64c49ba0a68669463/diffs/AsyncRootNumbersTest#testRootInts.txt",
+          "method" : "testRootInts",
+          "oldTime" : 1254.0252258064515,
+          "changePercent" : -2.159909218269069,
+          "tvalue" : -3.607827700786138,
+          "vms" : 31
+        }, {
+          "diff" : "view_8cd1e24ad7cb031b14d90db64c49ba0a68669463/diffs/AsyncRootNumbersTest#testRootInts.txt",
+          "method" : "testRootInts",
+          "oldTime" : 1339.1188,
+          "changePercent" : -2.264946172064796,
+          "tvalue" : -2.7835447871103187,
+          "vms" : 50
+        } ],
+        "com.fasterxml.jackson.core.read.JsonParserTest" : [ {
+          "diff" : "view_8cd1e24ad7cb031b14d90db64c49ba0a68669463/diffs/JsonParserTest#testBytesAsSource.txt",
+          "method" : "testBytesAsSource",
+          "oldTime" : 127.54845161290325,
+          "changePercent" : -12.118557350249143,
+          "tvalue" : -3.5407138681583543,
+          "vms" : 31
+        } ],
+        "com.fasterxml.jackson.core.read.NumberParsingTest" : [ {
+          "diff" : "view_8cd1e24ad7cb031b14d90db64c49ba0a68669463/diffs/NumberParsingTest#testLongRange.txt",
+          "method" : "testLongRange",
+          "oldTime" : 568.7639428571429,
+          "changePercent" : -5.444528380290116,
+          "tvalue" : -2.767275282596603,
+          "vms" : 35
+        } ],
+        "com.fasterxml.jackson.core.read.ValueConversionsTest" : [ {
+          "diff" : "view_8cd1e24ad7cb031b14d90db64c49ba0a68669463/diffs/ValueConversionsTest#testAsBoolean.txt",
+          "method" : "testAsBoolean",
+          "oldTime" : 485.8013142857144,
+          "changePercent" : -4.995222620699841,
+          "tvalue" : -2.745495766763587,
+          "vms" : 35
+        } ],
+        "com.fasterxml.jackson.core.sym.TestByteBasedSymbols" : [ {
+          "diff" : "view_8cd1e24ad7cb031b14d90db64c49ba0a68669463/diffs/TestByteBasedSymbols#testSharedSymbols.txt",
+          "method" : "testSharedSymbols",
+          "oldTime" : 3283.56,
+          "changePercent" : -1.5417137732885504,
+          "tvalue" : -3.887283198417137,
+          "vms" : 31
+        } ]
+      }
+    }
+  }
+}

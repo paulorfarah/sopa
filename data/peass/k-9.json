@@ -1,0 +1,463 @@
+{
+  "versionCount" : 5,
+  "changeCount" : 61,
+  "testcaseCount" : 347,
+  "versionChanges" : {
+    "8def88afcbc9ee1d227f0b2773a301884a35b1d3" : {
+      "testcaseChanges" : {
+        "com.fsck.k9.crypto.MessageDecryptVerifierTest" : [ {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubEncrypted__shouldReturnRoot.txt",
+          "method" : "findEncrypted__withMultipartMixedSubEncrypted__shouldReturnRoot",
+          "oldTime" : 96.93961290322581,
+          "changePercent" : 3.347877361629847,
+          "tvalue" : 8.454850161535381,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubEncrypted__shouldReturnRoot.txt",
+          "method" : "findEncrypted__withMultipartMixedSubEncrypted__shouldReturnRoot",
+          "oldTime" : 102.75548387096775,
+          "changePercent" : 3.5463455368522854,
+          "tvalue" : 9.944655680716235,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubEncrypted__shouldReturnRoot.txt",
+          "method" : "findEncrypted__withMultipartMixedSubEncrypted__shouldReturnRoot",
+          "oldTime" : 95.71388571428571,
+          "changePercent" : 3.0185797791393636,
+          "tvalue" : 2.7233391427010916,
+          "vms" : 35
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubEncryptedAndText__shouldReturnEncrypted.txt",
+          "method" : "findEncrypted__withMultipartMixedSubEncryptedAndText__shouldReturnEncrypted",
+          "oldTime" : 104.81516129032258,
+          "changePercent" : 4.773564523723779,
+          "tvalue" : 3.859686415712139,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubEncryptedAndText__shouldReturnEncrypted.txt",
+          "method" : "findEncrypted__withMultipartMixedSubEncryptedAndText__shouldReturnEncrypted",
+          "oldTime" : 97.44677419354838,
+          "changePercent" : 2.3296754224804292,
+          "tvalue" : 4.618499234384289,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubEncryptedAndText__shouldReturnEncrypted.txt",
+          "method" : "findEncrypted__withMultipartMixedSubEncryptedAndText__shouldReturnEncrypted",
+          "oldTime" : 95.91735483870967,
+          "changePercent" : 3.044825552104997,
+          "tvalue" : 2.969959814948073,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubTextAndEncrypted__shouldReturnEncrypted.txt",
+          "method" : "findEncrypted__withMultipartMixedSubTextAndEncrypted__shouldReturnEncrypted",
+          "oldTime" : 106.27567741935484,
+          "changePercent" : 4.8750267866953365,
+          "tvalue" : 3.8454046575716108,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubTextAndEncrypted__shouldReturnEncrypted.txt",
+          "method" : "findEncrypted__withMultipartMixedSubTextAndEncrypted__shouldReturnEncrypted",
+          "oldTime" : 97.75387096774193,
+          "changePercent" : 2.6980863722911725,
+          "tvalue" : 6.383598006980195,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubTextAndEncrypted__shouldReturnEncrypted.txt",
+          "method" : "findEncrypted__withMultipartMixedSubTextAndEncrypted__shouldReturnEncrypted",
+          "oldTime" : 98.54161290322581,
+          "changePercent" : 2.7474228997738113,
+          "tvalue" : 4.736545834600577,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubEncryptedAndEncrypted__shouldReturnBoth.txt",
+          "method" : "findEncrypted__withMultipartMixedSubEncryptedAndEncrypted__shouldReturnBoth",
+          "oldTime" : 102.98432258064516,
+          "changePercent" : 5.142279720621433,
+          "tvalue" : 10.218524309058672,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubEncryptedAndEncrypted__shouldReturnBoth.txt",
+          "method" : "findEncrypted__withMultipartMixedSubEncryptedAndEncrypted__shouldReturnBoth",
+          "oldTime" : 103.15290322580647,
+          "changePercent" : 5.110421735350601,
+          "tvalue" : 12.26185232759824,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubEncryptedAndEncrypted__shouldReturnBoth.txt",
+          "method" : "findEncrypted__withMultipartMixedSubEncryptedAndEncrypted__shouldReturnBoth",
+          "oldTime" : 92.29909677419354,
+          "changePercent" : 4.262999113680902,
+          "tvalue" : 7.615892108481682,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncryptedPartsShouldReturnEmptyEncryptedPart.txt",
+          "method" : "findEncryptedPartsShouldReturnEmptyEncryptedPart",
+          "oldTime" : 89.39309677419355,
+          "changePercent" : 1.9944529165490856,
+          "tvalue" : 3.9374224778390814,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncryptedPartsShouldReturnEmptyEncryptedPart.txt",
+          "method" : "findEncryptedPartsShouldReturnEmptyEncryptedPart",
+          "oldTime" : 85.26787096774193,
+          "changePercent" : 3.076679791654678,
+          "tvalue" : 8.244477089827972,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncryptedPartsShouldReturnEmptyEncryptedPart.txt",
+          "method" : "findEncryptedPartsShouldReturnEmptyEncryptedPart",
+          "oldTime" : 76.96412903225807,
+          "changePercent" : 2.076375756112622,
+          "tvalue" : 2.858615621592623,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncryptedPartsShouldReturnMultipleEncryptedParts.txt",
+          "method" : "findEncryptedPartsShouldReturnMultipleEncryptedParts",
+          "oldTime" : 111.43232258064516,
+          "changePercent" : 4.746870804266554,
+          "tvalue" : 5.858476407939715,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncryptedPartsShouldReturnMultipleEncryptedParts.txt",
+          "method" : "findEncryptedPartsShouldReturnMultipleEncryptedParts",
+          "oldTime" : 108.41,
+          "changePercent" : 4.7294768069842315,
+          "tvalue" : 3.8330985848815993,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncryptedPartsShouldReturnMultipleEncryptedParts.txt",
+          "method" : "findEncryptedPartsShouldReturnMultipleEncryptedParts",
+          "oldTime" : 108.05116129032257,
+          "changePercent" : 2.5133255273935293,
+          "tvalue" : 2.687342723467532,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findSigned__withComplexMultipartSigned__shouldReturnRoot.txt",
+          "method" : "findSigned__withComplexMultipartSigned__shouldReturnRoot",
+          "oldTime" : 151.44703225806452,
+          "changePercent" : 2.8449422751444486,
+          "tvalue" : 3.092253932186025,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findSigned__withComplexMultipartSigned__shouldReturnRoot.txt",
+          "method" : "findSigned__withComplexMultipartSigned__shouldReturnRoot",
+          "oldTime" : 156.86329032258064,
+          "changePercent" : 2.69558740485345,
+          "tvalue" : 4.111940229556711,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findSigned__withComplexMultipartSigned__shouldReturnRoot.txt",
+          "method" : "findSigned__withComplexMultipartSigned__shouldReturnRoot",
+          "oldTime" : 151.0701935483871,
+          "changePercent" : 3.206584591311537,
+          "tvalue" : 3.887394236091282,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findSigned__withSimpleMultipartSigned__shouldReturnRoot.txt",
+          "method" : "findSigned__withSimpleMultipartSigned__shouldReturnRoot",
+          "oldTime" : 152.8386170212766,
+          "changePercent" : 1.0407584693352536,
+          "tvalue" : 2.6574218741157964,
+          "vms" : 94
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubTextAndSigned__shouldReturnSigned.txt",
+          "method" : "findEncrypted__withMultipartMixedSubTextAndSigned__shouldReturnSigned",
+          "oldTime" : 170.23722580645162,
+          "changePercent" : 1.377319012520292,
+          "tvalue" : 2.950987027200112,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubTextAndSigned__shouldReturnSigned.txt",
+          "method" : "findEncrypted__withMultipartMixedSubTextAndSigned__shouldReturnSigned",
+          "oldTime" : 167.68825806451613,
+          "changePercent" : 1.7613713311336532,
+          "tvalue" : 4.043147065202572,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubTextAndSigned__shouldReturnSigned.txt",
+          "method" : "findEncrypted__withMultipartMixedSubTextAndSigned__shouldReturnSigned",
+          "oldTime" : 171.46135483870967,
+          "changePercent" : 2.087444890243306,
+          "tvalue" : 2.906482975358056,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubSigned__shouldReturnSigned.txt",
+          "method" : "findEncrypted__withMultipartMixedSubSigned__shouldReturnSigned",
+          "oldTime" : 162.15645161290323,
+          "changePercent" : 2.309080239115947,
+          "tvalue" : 6.910066848993349,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubSigned__shouldReturnSigned.txt",
+          "method" : "findEncrypted__withMultipartMixedSubSigned__shouldReturnSigned",
+          "oldTime" : 157.08154838709677,
+          "changePercent" : 2.05958359824607,
+          "tvalue" : 2.7150037783778562,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubSigned__shouldReturnSigned.txt",
+          "method" : "findEncrypted__withMultipartMixedSubSigned__shouldReturnSigned",
+          "oldTime" : 157.8220294117647,
+          "changePercent" : 1.4763092232147537,
+          "tvalue" : 2.6452261624429343,
+          "vms" : 68
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartEncrypted__shouldReturnRoot.txt",
+          "method" : "findEncrypted__withMultipartEncrypted__shouldReturnRoot",
+          "oldTime" : 91.65741935483871,
+          "changePercent" : 2.45796056845617,
+          "tvalue" : 6.286213731381709,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartEncrypted__shouldReturnRoot.txt",
+          "method" : "findEncrypted__withMultipartEncrypted__shouldReturnRoot",
+          "oldTime" : 87.96387096774194,
+          "changePercent" : 2.113110954644149,
+          "tvalue" : 4.847208945593302,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartEncrypted__shouldReturnRoot.txt",
+          "method" : "findEncrypted__withMultipartEncrypted__shouldReturnRoot",
+          "oldTime" : 89.70180645161291,
+          "changePercent" : 2.3273527055232552,
+          "tvalue" : 3.846483675888948,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubSignedAndText__shouldReturnSigned.txt",
+          "method" : "findEncrypted__withMultipartMixedSubSignedAndText__shouldReturnSigned",
+          "oldTime" : 173.65967741935484,
+          "changePercent" : 2.30536180330458,
+          "tvalue" : 7.603570673531277,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubSignedAndText__shouldReturnSigned.txt",
+          "method" : "findEncrypted__withMultipartMixedSubSignedAndText__shouldReturnSigned",
+          "oldTime" : 170.68070967741934,
+          "changePercent" : 2.1334308051517414,
+          "tvalue" : 5.889839475988459,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageDecryptVerifierTest#findEncrypted__withMultipartMixedSubSignedAndText__shouldReturnSigned.txt",
+          "method" : "findEncrypted__withMultipartMixedSubSignedAndText__shouldReturnSigned",
+          "oldTime" : 169.4001212121212,
+          "changePercent" : 2.227646790707463,
+          "tvalue" : 2.6551640795422644,
+          "vms" : 33
+        } ],
+        "com.fsck.k9.mail.BoundaryGeneratorTest" : [ {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/BoundaryGeneratorTest#generateBoundary_allZeros.txt",
+          "method" : "generateBoundary_allZeros",
+          "oldTime" : 224.98009836065575,
+          "changePercent" : 1.8593411468234808,
+          "tvalue" : 2.6518236343955897,
+          "vms" : 61
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/BoundaryGeneratorTest#generateBoundary.txt",
+          "method" : "generateBoundary",
+          "oldTime" : 213.91225641025642,
+          "changePercent" : 2.415584247459239,
+          "tvalue" : 2.716234206554469,
+          "vms" : 39
+        } ],
+        "com.fsck.k9.mailstore.AttachmentResolverTest" : [ {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/AttachmentResolverTest#buildCidMap__onMultipartWithEmptyBodyPart__shouldReturnEmptyMap.txt",
+          "method" : "buildCidMap__onMultipartWithEmptyBodyPart__shouldReturnEmptyMap",
+          "oldTime" : 216.1096129032258,
+          "changePercent" : 1.3740339057330275,
+          "tvalue" : 3.6346140698931086,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/AttachmentResolverTest#buildCidMap__onMultipartWithEmptyBodyPart__shouldReturnEmptyMap.txt",
+          "method" : "buildCidMap__onMultipartWithEmptyBodyPart__shouldReturnEmptyMap",
+          "oldTime" : 214.49542307692306,
+          "changePercent" : 0.8103274930915549,
+          "tvalue" : 2.6851872495447586,
+          "vms" : 52
+        } ],
+        "com.fsck.k9.mailstore.MessageViewInfoExtractorTest" : [ {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageViewInfoExtractorTest#testMultipartPlainTextMessage.txt",
+          "method" : "testMultipartPlainTextMessage",
+          "oldTime" : 227.6273548387097,
+          "changePercent" : 1.9790126703973496,
+          "tvalue" : 2.809968495470681,
+          "vms" : 31
+        }, {
+          "diff" : "view_8def88afcbc9ee1d227f0b2773a301884a35b1d3/diffs/MessageViewInfoExtractorTest#testMultipartPlainTextMessage.txt",
+          "method" : "testMultipartPlainTextMessage",
+          "oldTime" : 180.71180645161292,
+          "changePercent" : 1.2702813569136964,
+          "tvalue" : 4.919331368647989,
+          "vms" : 31
+        } ]
+      }
+    },
+    "79c65d4cff60ef6dd3e452591ae8f8dcec18630a" : {
+      "testcaseChanges" : {
+        "com.fsck.k9.controller.MessagingControllerTest" : [ {
+          "diff" : "view_79c65d4cff60ef6dd3e452591ae8f8dcec18630a/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withNoRemoteFolderProvided_shouldCloseRemoteFolderFromStore.txt",
+          "method" : "synchronizeMailboxSynchronous_withNoRemoteFolderProvided_shouldCloseRemoteFolderFromStore",
+          "oldTime" : 846.3730243902439,
+          "changePercent" : -1.1974164421649538,
+          "tvalue" : -2.6953251201963297,
+          "vms" : 82
+        }, {
+          "diff" : "view_79c65d4cff60ef6dd3e452591ae8f8dcec18630a/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate.txt",
+          "method" : "synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate",
+          "oldTime" : 1307.7308387096773,
+          "changePercent" : -8.59363976842825,
+          "tvalue" : -5.729170494214364,
+          "vms" : 31
+        }, {
+          "diff" : "view_79c65d4cff60ef6dd3e452591ae8f8dcec18630a/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate.txt",
+          "method" : "synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate",
+          "oldTime" : 887.3925806451613,
+          "changePercent" : -9.341270565415092,
+          "tvalue" : -12.480692822157437,
+          "vms" : 31
+        }, {
+          "diff" : "view_79c65d4cff60ef6dd3e452591ae8f8dcec18630a/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfDeletedMessages.txt",
+          "method" : "synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfDeletedMessages",
+          "oldTime" : 855.6552903225806,
+          "changePercent" : -2.568738677325378,
+          "tvalue" : -2.7880143449423183,
+          "vms" : 31
+        }, {
+          "diff" : "view_79c65d4cff60ef6dd3e452591ae8f8dcec18630a/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfDeletedMessages.txt",
+          "method" : "synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfDeletedMessages",
+          "oldTime" : 790.3074838709678,
+          "changePercent" : -6.141252004324002,
+          "tvalue" : -2.978827244143696,
+          "vms" : 31
+        }, {
+          "diff" : "view_79c65d4cff60ef6dd3e452591ae8f8dcec18630a/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withRemoteFolderProvided_shouldNotCloseRemoteFolder.txt",
+          "method" : "synchronizeMailboxSynchronous_withRemoteFolderProvided_shouldNotCloseRemoteFolder",
+          "oldTime" : 820.2615,
+          "changePercent" : 1.1732105842883156,
+          "tvalue" : 2.713389150510231,
+          "vms" : 76
+        }, {
+          "diff" : "view_79c65d4cff60ef6dd3e452591ae8f8dcec18630a/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withOneMessageInRemoteFolder_shouldFinishWithoutError.txt",
+          "method" : "synchronizeMailboxSynchronous_withOneMessageInRemoteFolder_shouldFinishWithoutError",
+          "oldTime" : 816.7391428571428,
+          "changePercent" : 1.496617423612123,
+          "tvalue" : 2.7789793165767644,
+          "vms" : 63
+        } ]
+      }
+    },
+    "c60f97fb7e6eb400fe8e4a85f635c89215ac685d" : {
+      "testcaseChanges" : {
+        "com.fsck.k9.controller.MessagingControllerTest" : [ {
+          "diff" : "view_c60f97fb7e6eb400fe8e4a85f635c89215ac685d/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate.txt",
+          "method" : "synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate",
+          "oldTime" : 1338.7558709677419,
+          "changePercent" : -10.535954518388676,
+          "tvalue" : -5.4398390725231245,
+          "vms" : 31
+        }, {
+          "diff" : "view_c60f97fb7e6eb400fe8e4a85f635c89215ac685d/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate.txt",
+          "method" : "synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate",
+          "oldTime" : 910.5756129032258,
+          "changePercent" : -8.801494014208105,
+          "tvalue" : -10.850627301275793,
+          "vms" : 31
+        }, {
+          "diff" : "view_c60f97fb7e6eb400fe8e4a85f635c89215ac685d/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withAccountPolicySetToExpungeManually_shouldNotExpungeRemoteFolder.txt",
+          "method" : "synchronizeMailboxSynchronous_withAccountPolicySetToExpungeManually_shouldNotExpungeRemoteFolder",
+          "oldTime" : 906.655052631579,
+          "changePercent" : 1.456694356262846,
+          "tvalue" : 2.7514137805641843,
+          "vms" : 57
+        }, {
+          "diff" : "view_c60f97fb7e6eb400fe8e4a85f635c89215ac685d/diffs/MessagingControllerTest#searchLocalMessagesSynchronous_shouldCallSearchForMessagesOnLocalStore.txt",
+          "method" : "searchLocalMessagesSynchronous_shouldCallSearchForMessagesOnLocalStore",
+          "oldTime" : 601.6407727272727,
+          "changePercent" : 1.7450348089773096,
+          "tvalue" : 2.7046173473599313,
+          "vms" : 88
+        }, {
+          "diff" : "view_c60f97fb7e6eb400fe8e4a85f635c89215ac685d/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withAccountPolicySetToExpungeOnPoll_shouldExpungeRemoteFolder.txt",
+          "method" : "synchronizeMailboxSynchronous_withAccountPolicySetToExpungeOnPoll_shouldExpungeRemoteFolder",
+          "oldTime" : 841.1608974358975,
+          "changePercent" : -1.494716931956821,
+          "tvalue" : -2.718919811793525,
+          "vms" : 78
+        }, {
+          "diff" : "view_c60f97fb7e6eb400fe8e4a85f635c89215ac685d/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withAccountSetNotToSyncRemoteDeletions_shouldNotDeleteLocalCopiesOfMessages.txt",
+          "method" : "synchronizeMailboxSynchronous_withAccountSetNotToSyncRemoteDeletions_shouldNotDeleteLocalCopiesOfMessages",
+          "oldTime" : 862.0518800000001,
+          "changePercent" : 2.33555780888733,
+          "tvalue" : 2.709399648994456,
+          "vms" : 50
+        } ]
+      }
+    },
+    "7d1f87082d49377c67b046df8dbbabad482b224b" : {
+      "testcaseChanges" : {
+        "com.fsck.k9.controller.MessagingControllerTest" : [ {
+          "diff" : "view_7d1f87082d49377c67b046df8dbbabad482b224b/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate.txt",
+          "method" : "synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate",
+          "oldTime" : 1348.9953548387098,
+          "changePercent" : -9.89314485312557,
+          "tvalue" : -5.137464016096796,
+          "vms" : 31
+        }, {
+          "diff" : "view_7d1f87082d49377c67b046df8dbbabad482b224b/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate.txt",
+          "method" : "synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate",
+          "oldTime" : 893.8021290322581,
+          "changePercent" : -9.785105789092519,
+          "tvalue" : -15.733931335406991,
+          "vms" : 31
+        }, {
+          "diff" : "view_7d1f87082d49377c67b046df8dbbabad482b224b/diffs/MessagingControllerTest#synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfDeletedMessages.txt",
+          "method" : "synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfDeletedMessages",
+          "oldTime" : 870.192,
+          "changePercent" : -2.007337333472259,
+          "tvalue" : -2.7996681689770893,
+          "vms" : 45
+        } ]
+      }
+    },
+    "5b605f25ab7c837279347cf9895c82c5705eb813" : {
+      "testcaseChanges" : {
+        "com.fsck.k9.mail.store.imap.ImapConnectionTest" : [ {
+          "diff" : "view_5b605f25ab7c837279347cf9895c82c5705eb813/diffs/ImapConnectionTest#open_withNegativeResponseToCompressionCommand_shouldContinue.txt",
+          "method" : "open_withNegativeResponseToCompressionCommand_shouldContinue",
+          "oldTime" : 80628.80748387097,
+          "changePercent" : 0.03442714138360929,
+          "tvalue" : 3.2089497143202768,
+          "vms" : 31
+        }, {
+          "diff" : "view_5b605f25ab7c837279347cf9895c82c5705eb813/diffs/ImapConnectionTest#open_withNegativeResponseToListCommand.txt",
+          "method" : "open_withNegativeResponseToListCommand",
+          "oldTime" : 40645.17701960784,
+          "changePercent" : 0.025768969174868362,
+          "tvalue" : 2.696810564625042,
+          "vms" : 51
+        } ],
+        "com.fsck.k9.mail.store.imap.ImapFolderTest" : [ {
+          "diff" : "view_5b605f25ab7c837279347cf9895c82c5705eb813/diffs/ImapFolderTest#fetchPart_withTextSection_shouldIssueRespectiveCommand.txt",
+          "method" : "fetchPart_withTextSection_shouldIssueRespectiveCommand",
+          "oldTime" : 565.5349818181818,
+          "changePercent" : -0.9280158989602222,
+          "tvalue" : -2.630469172161837,
+          "vms" : 55
+        }, {
+          "diff" : "view_5b605f25ab7c837279347cf9895c82c5705eb813/diffs/ImapFolderTest#getHighestUid_imapConnectionThrowsIOException_shouldThrowMessagingException.txt",
+          "method" : "getHighestUid_imapConnectionThrowsIOException_shouldThrowMessagingException",
+          "oldTime" : 645.8369090909091,
+          "changePercent" : 1.0085199293676654,
+          "tvalue" : 2.6353564723239433,
+          "vms" : 66
+        }, {
+          "diff" : "view_5b605f25ab7c837279347cf9895c82c5705eb813/diffs/ImapFolderTest#open_shouldMakeExistReturnTrueWithoutExecutingAdditionalCommands.txt",
+          "method" : "open_shouldMakeExistReturnTrueWithoutExecutingAdditionalCommands",
+          "oldTime" : 451.9662580645161,
+          "changePercent" : -1.5867727493788133,
+          "tvalue" : -3.6218120873864175,
+          "vms" : 31
+        } ]
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "versionCount" : 3,
+  "changeCount" : 2,
+  "testcaseCount" : 13,
+  "versionChanges" : {
+    "6d86230edf3bece2e9c06da893d0b08324348b3a" : {
+      "testcaseChanges" : {
+        "org.apache.commons.imaging.formats.xmp.XmpDumpTest" : [ {
+          "diff" : "view_6d86230edf3bece2e9c06da893d0b08324348b3a/diffs/XmpDumpTest#test.txt",
+          "method" : "test",
+          "oldTime" : 2523597.305327869,
+          "changePercent" : 87.02080956781474,
+          "tvalue" : 210.41031728819667,
+          "vms" : 8
+        } ]
+      }
+    },
+    "b39f72ddcbac2eda7f89339c3c5bfce4c10d0801" : {
+      "testcaseChanges" : {
+        "org.apache.commons.imaging.formats.xmp.XmpDumpTest" : [ {
+          "diff" : "view_b39f72ddcbac2eda7f89339c3c5bfce4c10d0801/diffs/XmpDumpTest#test.txt",
+          "method" : "test",
+          "oldTime" : 4011.4385263157897,
+          "changePercent" : 0.8383228808551576,
+          "tvalue" : 2.6904457412521947,
+          "vms" : 57
+        } ]
+      }
+    }
+  }
+}

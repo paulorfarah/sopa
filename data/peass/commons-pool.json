@@ -1,0 +1,1427 @@
+{
+  "versionCount" : 10,
+  "changeCount" : 194,
+  "testcaseCount" : 747,
+  "versionChanges" : {
+    "16a2ef563c9d87253a2347628f796776d0987851" : {
+      "testcaseChanges" : {
+        "org.apache.commons.pool.composite.TestCompositeKeyedObjectPool2" : [ {
+          "diff" : "view_16a2ef563c9d87253a2347628f796776d0987851/diffs/TestCompositeKeyedObjectPool2#testKPOFCloseUsages.txt",
+          "method" : "testKPOFCloseUsages",
+          "oldTime" : 1132.944037037037,
+          "changePercent" : 1.6293145661897155,
+          "tvalue" : 2.6438377078984954,
+          "vms" : 54
+        } ],
+        "org.apache.commons.pool.impl.TestGenericKeyedObjectPool" : [ {
+          "diff" : "view_16a2ef563c9d87253a2347628f796776d0987851/diffs/TestGenericKeyedObjectPool#testBaseNumActiveNumIdle2.txt",
+          "method" : "testBaseNumActiveNumIdle2",
+          "oldTime" : 942.3992903225807,
+          "changePercent" : -1.4946544472040386,
+          "tvalue" : -2.757440736014646,
+          "vms" : 31
+        }, {
+          "diff" : "view_16a2ef563c9d87253a2347628f796776d0987851/diffs/TestGenericKeyedObjectPool#testMinIdleNoPreparePool.txt",
+          "method" : "testMinIdleNoPreparePool",
+          "oldTime" : 3.0024574080645163E7,
+          "changePercent" : -0.039612874248423295,
+          "tvalue" : -40.894162997972344,
+          "vms" : 31
+        }, {
+          "diff" : "view_16a2ef563c9d87253a2347628f796776d0987851/diffs/TestGenericKeyedObjectPool#testMinIdleNoPreparePool.txt",
+          "method" : "testMinIdleNoPreparePool",
+          "oldTime" : 3.002510868548387E7,
+          "changePercent" : -0.03930049430508944,
+          "tvalue" : -49.96193895315448,
+          "vms" : 31
+        }, {
+          "diff" : "view_16a2ef563c9d87253a2347628f796776d0987851/diffs/TestGenericKeyedObjectPool#testMinIdleMaxActive.txt",
+          "method" : "testMinIdleMaxActive",
+          "oldTime" : 9008454.709677419,
+          "changePercent" : -0.019190842856100686,
+          "tvalue" : -18.962679653353558,
+          "vms" : 31
+        }, {
+          "diff" : "view_16a2ef563c9d87253a2347628f796776d0987851/diffs/TestGenericKeyedObjectPool#testMinIdle.txt",
+          "method" : "testMinIdle",
+          "oldTime" : 6.004299610483871E7,
+          "changePercent" : -0.02021508372815187,
+          "tvalue" : -26.438598631882417,
+          "vms" : 31
+        } ],
+        "org.apache.commons.pool.impl.TestGenericKeyedObjectPoolFactory" : [ {
+          "diff" : "view_16a2ef563c9d87253a2347628f796776d0987851/diffs/TestGenericKeyedObjectPoolFactory#testConstructors.txt",
+          "method" : "testConstructors",
+          "oldTime" : 640.7964516129032,
+          "changePercent" : -2346.37450672525,
+          "tvalue" : -208.57283682473798,
+          "vms" : 31
+        } ],
+        "org.apache.commons.pool.impl.TestGenericObjectPool" : [ {
+          "diff" : "view_16a2ef563c9d87253a2347628f796776d0987851/diffs/TestGenericObjectPool#testStartAndStopEvictor.txt",
+          "method" : "testStartAndStopEvictor",
+          "oldTime" : 4.002737038709678E7,
+          "changePercent" : -0.054353231662320194,
+          "tvalue" : -152.84845536866777,
+          "vms" : 31
+        }, {
+          "diff" : "view_16a2ef563c9d87253a2347628f796776d0987851/diffs/TestGenericObjectPool#testSettersAndGetters.txt",
+          "method" : "testSettersAndGetters",
+          "oldTime" : 168.42993548387096,
+          "changePercent" : -7.8052556744184605,
+          "tvalue" : -4.379061399501312,
+          "vms" : 31
+        }, {
+          "diff" : "view_16a2ef563c9d87253a2347628f796776d0987851/diffs/TestGenericObjectPool#testEvictionWithNegativeNumTests.txt",
+          "method" : "testEvictionWithNegativeNumTests",
+          "oldTime" : 4.004755005645161E7,
+          "changePercent" : -0.03358135028374688,
+          "tvalue" : -19.70956567704384,
+          "vms" : 31
+        }, {
+          "diff" : "view_16a2ef563c9d87253a2347628f796776d0987851/diffs/TestGenericObjectPool#testMinIdle.txt",
+          "method" : "testMinIdle",
+          "oldTime" : 6.004399760483871E7,
+          "changePercent" : -0.021203389865907134,
+          "tvalue" : -19.490277329352786,
+          "vms" : 31
+        }, {
+          "diff" : "view_16a2ef563c9d87253a2347628f796776d0987851/diffs/TestGenericObjectPool#testBaseClosePool.txt",
+          "method" : "testBaseClosePool",
+          "oldTime" : 446.3427741935484,
+          "changePercent" : 0.8019151489676815,
+          "tvalue" : 2.7586349786048445,
+          "vms" : 31
+        } ],
+        "org.apache.commons.pool.impl.TestGenericObjectPoolFactory" : [ {
+          "diff" : "view_16a2ef563c9d87253a2347628f796776d0987851/diffs/TestGenericObjectPoolFactory#testConstructors.txt",
+          "method" : "testConstructors",
+          "oldTime" : 1.2520016991935484E7,
+          "changePercent" : -0.22617386597679676,
+          "tvalue" : -96.2963555895637,
+          "vms" : 31
+        } ]
+      }
+    },
+    "094266f6a51a974ffb6dc264bcb6f7c13801fd96" : {
+      "testcaseChanges" : {
+        "org.apache.commons.pool.composite.TestCompositeKeyedObjectPool2" : [ {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestCompositeKeyedObjectPool2#testKPOFClearUsages.txt",
+          "method" : "testKPOFClearUsages",
+          "oldTime" : 892.0638064516129,
+          "changePercent" : -1.2341515567850738,
+          "tvalue" : -3.065607080208322,
+          "vms" : 31
+        } ],
+        "org.apache.commons.pool.impl.TestGenericKeyedObjectPool" : [ {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericKeyedObjectPool#testKPOFCloseUsages.txt",
+          "method" : "testKPOFCloseUsages",
+          "oldTime" : 1042.3760930232559,
+          "changePercent" : 0.860583016815871,
+          "tvalue" : 2.6955583669184513,
+          "vms" : 43
+        }, {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericKeyedObjectPool#testLIFO.txt",
+          "method" : "testLIFO",
+          "oldTime" : 529.3207083333333,
+          "changePercent" : 2.5139296064759664,
+          "tvalue" : 2.690210266658263,
+          "vms" : 48
+        }, {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericKeyedObjectPool#testLIFO.txt",
+          "method" : "testLIFO",
+          "oldTime" : 480.5641030927835,
+          "changePercent" : 1.430900000296044,
+          "tvalue" : 2.618583257871032,
+          "vms" : 97
+        }, {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericKeyedObjectPool#testKPOFReturnObjectUsages.txt",
+          "method" : "testKPOFReturnObjectUsages",
+          "oldTime" : 943.1646451612903,
+          "changePercent" : -11.139463762766558,
+          "tvalue" : -14.224311088438325,
+          "vms" : 31
+        }, {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericKeyedObjectPool#testBaseAddObject.txt",
+          "method" : "testBaseAddObject",
+          "oldTime" : 223.05290322580646,
+          "changePercent" : 1.7728182522879024,
+          "tvalue" : 3.348960266754028,
+          "vms" : 31
+        }, {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericKeyedObjectPool#testMaxTotalLRU.txt",
+          "method" : "testMaxTotalLRU",
+          "oldTime" : 1.2553480058064517E7,
+          "changePercent" : 0.004936312714820458,
+          "tvalue" : 5.421946650917735,
+          "vms" : 31
+        }, {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericKeyedObjectPool#testFIFO.txt",
+          "method" : "testFIFO",
+          "oldTime" : 450.36128947368417,
+          "changePercent" : 1.7058935548178744,
+          "tvalue" : 2.7676750844925846,
+          "vms" : 76
+        }, {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericKeyedObjectPool#testMaxIdle.txt",
+          "method" : "testMaxIdle",
+          "oldTime" : 16505.739285714288,
+          "changePercent" : 0.6284532631182261,
+          "tvalue" : 2.6439859953878675,
+          "vms" : 42
+        }, {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericKeyedObjectPool#testKPOFAddObjectUsage.txt",
+          "method" : "testKPOFAddObjectUsage",
+          "oldTime" : 542.871935483871,
+          "changePercent" : -3.006970692903861,
+          "tvalue" : -3.8900369101859438,
+          "vms" : 31
+        }, {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericKeyedObjectPool#testClosedPoolBehavior.txt",
+          "method" : "testClosedPoolBehavior",
+          "oldTime" : 805.5065806451613,
+          "changePercent" : -2.4714801793333434,
+          "tvalue" : -3.212250272789481,
+          "vms" : 31
+        } ],
+        "org.apache.commons.pool.impl.TestGenericObjectPool" : [ {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericObjectPool#testBaseBorrow.txt",
+          "method" : "testBaseBorrow",
+          "oldTime" : 524.9050843373494,
+          "changePercent" : 1.4715133122633153,
+          "tvalue" : 2.670937147313803,
+          "vms" : 83
+        }, {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericObjectPool#testFIFO.txt",
+          "method" : "testFIFO",
+          "oldTime" : 462.63451612903225,
+          "changePercent" : 3.171597171040741,
+          "tvalue" : 3.046439348303976,
+          "vms" : 31
+        }, {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericObjectPool#testBaseAddObject.txt",
+          "method" : "testBaseAddObject",
+          "oldTime" : 161.23073469387757,
+          "changePercent" : 0.7829063836261594,
+          "tvalue" : 2.767297618917318,
+          "vms" : 49
+        }, {
+          "diff" : "view_094266f6a51a974ffb6dc264bcb6f7c13801fd96/diffs/TestGenericObjectPool#testBaseClosePool.txt",
+          "method" : "testBaseClosePool",
+          "oldTime" : 445.3018064516129,
+          "changePercent" : 3.907940363172323,
+          "tvalue" : 6.2276566935691475,
+          "vms" : 31
+        } ]
+      }
+    },
+    "2113166ed6a359adfcde240310960f1aee3f2607" : {
+      "testcaseChanges" : {
+        "org.apache.commons.pool.impl.TestGenericKeyedObjectPool" : [ {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericKeyedObjectPool#testMinIdleNoPreparePool.txt",
+          "method" : "testMinIdleNoPreparePool",
+          "oldTime" : 3.003749064516129E7,
+          "changePercent" : -0.004177924059015684,
+          "tvalue" : -7.741990582048594,
+          "vms" : 31
+        }, {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericKeyedObjectPool#testMinIdleNoPreparePool.txt",
+          "method" : "testMinIdleNoPreparePool",
+          "oldTime" : 3.003761525E7,
+          "changePercent" : -0.0039618872593796236,
+          "tvalue" : -3.2357074107281547,
+          "vms" : 31
+        }, {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericKeyedObjectPool#testMinIdleMaxActive.txt",
+          "method" : "testMinIdleMaxActive",
+          "oldTime" : 9009231.482558139,
+          "changePercent" : -0.0014013403945100072,
+          "tvalue" : -2.674247344828725,
+          "vms" : 43
+        }, {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericKeyedObjectPool#testMinIdle.txt",
+          "method" : "testMinIdle",
+          "oldTime" : 6.0056627161290325E7,
+          "changePercent" : -0.0021481741961191614,
+          "tvalue" : -11.061698109266652,
+          "vms" : 31
+        }, {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericKeyedObjectPool#testConstructors.txt",
+          "method" : "testConstructors",
+          "oldTime" : 1243.6865217391305,
+          "changePercent" : 1.9241637501970903,
+          "tvalue" : 2.807271396898509,
+          "vms" : 92
+        } ],
+        "org.apache.commons.pool.impl.TestGenericKeyedObjectPoolFactory" : [ {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericKeyedObjectPoolFactory#testConstructors.txt",
+          "method" : "testConstructors",
+          "oldTime" : 15074.258625,
+          "changePercent" : -3.69559136444762,
+          "tvalue" : -2.7195974870374204,
+          "vms" : 32
+        } ],
+        "org.apache.commons.pool.impl.TestGenericObjectPool" : [ {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericObjectPool#testMinIdleMaxActive.txt",
+          "method" : "testMinIdleMaxActive",
+          "oldTime" : 9009282.25,
+          "changePercent" : -0.0013203554085016423,
+          "tvalue" : -2.7167209236053567,
+          "vms" : 33
+        }, {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericObjectPool#testStartAndStopEvictor.txt",
+          "method" : "testStartAndStopEvictor",
+          "oldTime" : 4.004707911290322E7,
+          "changePercent" : -0.0038582814689319678,
+          "tvalue" : -10.591132740705511,
+          "vms" : 31
+        }, {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericObjectPool#testStartAndStopEvictor.txt",
+          "method" : "testStartAndStopEvictor",
+          "oldTime" : 4.004994116935484E7,
+          "changePercent" : -0.00429089269503085,
+          "tvalue" : -7.14325486966967,
+          "vms" : 31
+        }, {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericObjectPool#testEvictionWithNegativeNumTests.txt",
+          "method" : "testEvictionWithNegativeNumTests",
+          "oldTime" : 4.005897065322581E7,
+          "changePercent" : -0.003357409155676907,
+          "tvalue" : -8.504693698523473,
+          "vms" : 31
+        }, {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericObjectPool#testEvictionWithNegativeNumTests.txt",
+          "method" : "testEvictionWithNegativeNumTests",
+          "oldTime" : 4.005728995967742E7,
+          "changePercent" : -0.0022350448270378746,
+          "tvalue" : -4.3014494481892465,
+          "vms" : 31
+        }, {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericObjectPool#testMinIdle.txt",
+          "method" : "testMinIdle",
+          "oldTime" : 6.005544880645161E7,
+          "changePercent" : -0.002439170579567191,
+          "tvalue" : -11.190066438864656,
+          "vms" : 31
+        } ],
+        "org.apache.commons.pool.impl.TestGenericObjectPoolFactory" : [ {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericObjectPoolFactory#testConstructors.txt",
+          "method" : "testConstructors",
+          "oldTime" : 1.2552943848387096E7,
+          "changePercent" : -0.014490162287461687,
+          "tvalue" : -8.781752507618835,
+          "vms" : 31
+        }, {
+          "diff" : "view_2113166ed6a359adfcde240310960f1aee3f2607/diffs/TestGenericObjectPoolFactory#testConstructors.txt",
+          "method" : "testConstructors",
+          "oldTime" : 1.2545031039473685E7,
+          "changePercent" : -0.012230389351149411,
+          "tvalue" : -2.6363340904254144,
+          "vms" : 57
+        } ]
+      }
+    },
+    "1d9e39095ccecdf3668236177bc17b4561382316" : {
+      "testcaseChanges" : {
+        "org.apache.commons.pool.impl.TestGenericKeyedObjectPool" : [ {
+          "diff" : "view_1d9e39095ccecdf3668236177bc17b4561382316/diffs/TestGenericKeyedObjectPool#testSettersAndGetters.txt",
+          "method" : "testSettersAndGetters",
+          "oldTime" : 222.79883870967743,
+          "changePercent" : -9.00053918159069,
+          "tvalue" : -3.4325247866776207,
+          "vms" : 31
+        }, {
+          "diff" : "view_1d9e39095ccecdf3668236177bc17b4561382316/diffs/TestGenericKeyedObjectPool#testSettersAndGetters.txt",
+          "method" : "testSettersAndGetters",
+          "oldTime" : 222.87167741935482,
+          "changePercent" : -13.130020428361652,
+          "tvalue" : -5.047753970386011,
+          "vms" : 31
+        }, {
+          "diff" : "view_1d9e39095ccecdf3668236177bc17b4561382316/diffs/TestGenericKeyedObjectPool#testMaxTotalZero.txt",
+          "method" : "testMaxTotalZero",
+          "oldTime" : 278.7694929577465,
+          "changePercent" : 2.9579489015964215,
+          "tvalue" : 2.6173244650958636,
+          "vms" : 71
+        }, {
+          "diff" : "view_1d9e39095ccecdf3668236177bc17b4561382316/diffs/TestGenericKeyedObjectPool#testNegativeMaxActive.txt",
+          "method" : "testNegativeMaxActive",
+          "oldTime" : 267.35121212121214,
+          "changePercent" : -3.9401128240119845,
+          "tvalue" : -2.65817181518062,
+          "vms" : 33
+        }, {
+          "diff" : "view_1d9e39095ccecdf3668236177bc17b4561382316/diffs/TestGenericKeyedObjectPool#testKPOFAddObjectUsage.txt",
+          "method" : "testKPOFAddObjectUsage",
+          "oldTime" : 513.8684615384615,
+          "changePercent" : -2.4122725211031444,
+          "tvalue" : -2.6217507166193412,
+          "vms" : 65
+        } ],
+        "org.apache.commons.pool.impl.TestGenericObjectPool" : [ {
+          "diff" : "view_1d9e39095ccecdf3668236177bc17b4561382316/diffs/TestGenericObjectPool#testPOFBorrowObjectUsages.txt",
+          "method" : "testPOFBorrowObjectUsages",
+          "oldTime" : 1324.295,
+          "changePercent" : 1.5451617653166467,
+          "tvalue" : 2.6758801847528244,
+          "vms" : 52
+        }, {
+          "diff" : "view_1d9e39095ccecdf3668236177bc17b4561382316/diffs/TestGenericObjectPool#testEvictionWithNegativeNumTests.txt",
+          "method" : "testEvictionWithNegativeNumTests",
+          "oldTime" : 4.0056151861445785E7,
+          "changePercent" : -4.7586812255486264E-4,
+          "tvalue" : -2.6749317097292864,
+          "vms" : 83
+        }, {
+          "diff" : "view_1d9e39095ccecdf3668236177bc17b4561382316/diffs/TestGenericObjectPool#testPOFAddObjectUsage.txt",
+          "method" : "testPOFAddObjectUsage",
+          "oldTime" : 541.6314133333333,
+          "changePercent" : 1.1127173421452796,
+          "tvalue" : 2.6109806370141557,
+          "vms" : 75
+        } ]
+      }
+    },
+    "6979917d99021f44432d089588477439bee37d05" : {
+      "testcaseChanges" : {
+        "org.apache.commons.pool2.impl.TestGenericKeyedObjectPool" : [ {
+          "diff" : "view_6979917d99021f44432d089588477439bee37d05/diffs/TestGenericKeyedObjectPool#testMaxIdlePerKey.txt",
+          "method" : "testMaxIdlePerKey",
+          "oldTime" : 300.1546666666667,
+          "changePercent" : -0.9874908935837519,
+          "tvalue" : -2.7357686049256023,
+          "vms" : 36
+        } ],
+        "org.apache.commons.pool2.impl.TestGenericKeyedObjectPoolFactory" : [ {
+          "diff" : "view_6979917d99021f44432d089588477439bee37d05/diffs/TestGenericKeyedObjectPoolFactory#testCreatePool.txt",
+          "method" : "testCreatePool",
+          "oldTime" : 17.29284705882353,
+          "changePercent" : -3.3334421848680025,
+          "tvalue" : -2.609098700606206,
+          "vms" : 85
+        } ],
+        "org.apache.commons.pool2.impl.TestGenericObjectPool" : [ {
+          "diff" : "view_6979917d99021f44432d089588477439bee37d05/diffs/TestGenericObjectPool#testBaseNumActiveNumIdle.txt",
+          "method" : "testBaseNumActiveNumIdle",
+          "oldTime" : 42.25625,
+          "changePercent" : -1.2437213429965874,
+          "tvalue" : -2.644913191202705,
+          "vms" : 40
+        } ]
+      }
+    },
+    "f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c" : {
+      "testcaseChanges" : {
+        "org.apache.commons.pool2.TestPoolUtils" : [ {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestPoolUtils#testCheckMinIdleKeyedObjectPool.txt",
+          "method" : "testCheckMinIdleKeyedObjectPool",
+          "oldTime" : 1450518.3422580645,
+          "changePercent" : 0.006102223487225453,
+          "tvalue" : 14.507398527518284,
+          "vms" : 31
+        } ],
+        "org.apache.commons.pool2.impl.TestGenericKeyedObjectPool" : [ {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testMaxActive.txt",
+          "method" : "testMaxActive",
+          "oldTime" : 55.08212903225807,
+          "changePercent" : -12.58812354103491,
+          "tvalue" : -19.71972147051409,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testMinIdle.txt",
+          "method" : "testMinIdle",
+          "oldTime" : 600652.3619354839,
+          "changePercent" : -0.005752455206064099,
+          "tvalue" : -5.567337365903357,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testKPOFAddObjectUsage.txt",
+          "method" : "testKPOFAddObjectUsage",
+          "oldTime" : 85.15006451612904,
+          "changePercent" : -8.815934827772743,
+          "tvalue" : -16.1458410347179,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testLIFO.txt",
+          "method" : "testLIFO",
+          "oldTime" : 43.56251612903226,
+          "changePercent" : -8.097965252755012,
+          "tvalue" : -6.82073999639218,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testKPOFCloseUsages.txt",
+          "method" : "testKPOFCloseUsages",
+          "oldTime" : 58.83483870967743,
+          "changePercent" : -5.842051012127985,
+          "tvalue" : -3.00433911368649,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testBaseBorrowReturn.txt",
+          "method" : "testBaseBorrowReturn",
+          "oldTime" : 34.160322580645165,
+          "changePercent" : -14.02117151571808,
+          "tvalue" : -4.629896564565326,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testMaxTotalZero.txt",
+          "method" : "testMaxTotalZero",
+          "oldTime" : 46.38154838709678,
+          "changePercent" : -39.5036123931374,
+          "tvalue" : -60.84353376200199,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testBaseClear.txt",
+          "method" : "testBaseClear",
+          "oldTime" : 37.73890322580645,
+          "changePercent" : -18.509008416060766,
+          "tvalue" : -12.662405289441372,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testMaxWaitMultiThreaded.txt",
+          "method" : "testMaxWaitMultiThreaded",
+          "oldTime" : 1002031.9190322581,
+          "changePercent" : -0.058618923352048,
+          "tvalue" : -8.435762867759806,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testNumActiveNumIdle2.txt",
+          "method" : "testNumActiveNumIdle2",
+          "oldTime" : 65.23748387096775,
+          "changePercent" : -9.051297443286568,
+          "tvalue" : -3.9635353211608146,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testWhenExhaustedGrow.txt",
+          "method" : "testWhenExhaustedGrow",
+          "oldTime" : 35.361483870967746,
+          "changePercent" : -11.972019857581504,
+          "tvalue" : -10.914541505761425,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testBlockedKeyDoesNotBlockPool.txt",
+          "method" : "testBlockedKeyDoesNotBlockPool",
+          "oldTime" : 1000353.406451613,
+          "changePercent" : -0.004615272158841276,
+          "tvalue" : -6.658441461891646,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testClosedPoolBehavior.txt",
+          "method" : "testClosedPoolBehavior",
+          "oldTime" : 70.12909677419354,
+          "changePercent" : -12.092353180907848,
+          "tvalue" : -16.409814262298532,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testExceptionOnActivateDuringBorrow.txt",
+          "method" : "testExceptionOnActivateDuringBorrow",
+          "oldTime" : 91.24283870967741,
+          "changePercent" : -10.825348025545459,
+          "tvalue" : -7.433074436834184,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testFIFO.txt",
+          "method" : "testFIFO",
+          "oldTime" : 42.9501935483871,
+          "changePercent" : -8.010478754085744,
+          "tvalue" : -5.673084132375235,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testBaseNumActiveNumIdle.txt",
+          "method" : "testBaseNumActiveNumIdle",
+          "oldTime" : 44.46574193548388,
+          "changePercent" : -16.401608197104245,
+          "tvalue" : -17.441302835246066,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testBaseBorrow.txt",
+          "method" : "testBaseBorrow",
+          "oldTime" : 40.3821935483871,
+          "changePercent" : -14.602252030597956,
+          "tvalue" : -10.777656580847577,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testMinIdleNoPreparePool.txt",
+          "method" : "testMinIdleNoPreparePool",
+          "oldTime" : 300325.29526086955,
+          "changePercent" : -0.003060652295542988,
+          "tvalue" : -2.7815820097928077,
+          "vms" : 46
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testMaxActiveZero.txt",
+          "method" : "testMaxActiveZero",
+          "oldTime" : 43.40767741935484,
+          "changePercent" : -15.402062070185295,
+          "tvalue" : -3.1135837099482053,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testBaseNumActiveNumIdle2.txt",
+          "method" : "testBaseNumActiveNumIdle2",
+          "oldTime" : 630.7432258064516,
+          "changePercent" : -16.931566651528364,
+          "tvalue" : -4.453544226410568,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testMaxIdle.txt",
+          "method" : "testMaxIdle",
+          "oldTime" : 307.95109677419356,
+          "changePercent" : -7.3438975019494,
+          "tvalue" : -16.154971865092286,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testExceptionOnDestroyDuringBorrow.txt",
+          "method" : "testExceptionOnDestroyDuringBorrow",
+          "oldTime" : 78.91187096774193,
+          "changePercent" : -9.15410739951633,
+          "tvalue" : -6.310174796163846,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testBaseAddObject.txt",
+          "method" : "testBaseAddObject",
+          "oldTime" : 46.66361290322581,
+          "changePercent" : -14.686859693122766,
+          "tvalue" : -4.918804000713053,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testMaxTotal.txt",
+          "method" : "testMaxTotal",
+          "oldTime" : 66.62761290322581,
+          "changePercent" : -11.490634513637659,
+          "tvalue" : -7.798253556149645,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testMinIdleMaxActive.txt",
+          "method" : "testMinIdleMaxActive",
+          "oldTime" : 900890.3996774193,
+          "changePercent" : -0.0018507496375157414,
+          "tvalue" : -3.4356269271827324,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testBaseInvalidateObject.txt",
+          "method" : "testBaseInvalidateObject",
+          "oldTime" : 33.56412903225807,
+          "changePercent" : -23.059372140764697,
+          "tvalue" : -8.190446475973243,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testNegativeMaxActive.txt",
+          "method" : "testNegativeMaxActive",
+          "oldTime" : 53.08425806451612,
+          "changePercent" : -12.717214021288152,
+          "tvalue" : -4.583813553975909,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testKPOFBorrowObjectUsages.txt",
+          "method" : "testKPOFBorrowObjectUsages",
+          "oldTime" : 88.75791111111111,
+          "changePercent" : -3.890282331014751,
+          "tvalue" : -2.6667299570003804,
+          "vms" : 45
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testKPOFInvalidateObjectUsages.txt",
+          "method" : "testKPOFInvalidateObjectUsages",
+          "oldTime" : 250146.21429166666,
+          "changePercent" : -0.003217518211416942,
+          "tvalue" : -2.6454167201526615,
+          "vms" : 48
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testExceptionOnDestroyDuringReturn.txt",
+          "method" : "testExceptionOnDestroyDuringReturn",
+          "oldTime" : 75.40793548387097,
+          "changePercent" : -12.61799263019293,
+          "tvalue" : -8.644306900101899,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testKPOFReturnObjectUsages.txt",
+          "method" : "testKPOFReturnObjectUsages",
+          "oldTime" : 95.56845161290322,
+          "changePercent" : -3.087467790355993,
+          "tvalue" : -4.954757956703746,
+          "vms" : 31
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testEvictionOrder.txt",
+          "method" : "testEvictionOrder",
+          "oldTime" : 2001256.0881967214,
+          "changePercent" : -0.0010927563237846133,
+          "tvalue" : -2.6916586064204875,
+          "vms" : 61
+        }, {
+          "diff" : "view_f7a6d7ae57ee0ed9e1da7967730def2c5ffe3e8c/diffs/TestGenericKeyedObjectPool#testExceptionOnPassivateDuringReturn.txt",
+          "method" : "testExceptionOnPassivateDuringReturn",
+          "oldTime" : 65.47225806451613,
+          "changePercent" : -16.47799609783016,
+          "tvalue" : -6.219124278723057,
+          "vms" : 31
+        } ]
+      }
+    },
+    "5392bccc645803a66541ec1e01172a22f50da7d9" : {
+      "testcaseChanges" : {
+        "org.apache.commons.pool2.TestPoolUtils" : [ {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestPoolUtils#testCheckMinIdleKeyedObjectPool.txt",
+          "method" : "testCheckMinIdleKeyedObjectPool",
+          "oldTime" : 1450975.1883870969,
+          "changePercent" : -0.007947736001430273,
+          "tvalue" : -8.82286873537396,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestPoolUtils#testCheckMinIdleObjectPool.txt",
+          "method" : "testCheckMinIdleObjectPool",
+          "oldTime" : 1450658.726451613,
+          "changePercent" : -0.008240127526386119,
+          "tvalue" : -23.67269145553648,
+          "vms" : 31
+        } ],
+        "org.apache.commons.pool2.impl.TestGenericKeyedObjectPool" : [ {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testMinIdle.txt",
+          "method" : "testMinIdle",
+          "oldTime" : 601384.5567741935,
+          "changePercent" : -0.016074894906260098,
+          "tvalue" : -8.982515313617771,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testKPOFAddObjectUsage.txt",
+          "method" : "testKPOFAddObjectUsage",
+          "oldTime" : 407.3875483870968,
+          "changePercent" : -29.542638879013047,
+          "tvalue" : -34.133614939503886,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testMaxTotalLRU.txt",
+          "method" : "testMaxTotalLRU",
+          "oldTime" : 125906.28541935484,
+          "changePercent" : -0.05668030335294993,
+          "tvalue" : -11.593164248643296,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testLIFO.txt",
+          "method" : "testLIFO",
+          "oldTime" : 439.48851612903223,
+          "changePercent" : -17.301520007422127,
+          "tvalue" : -15.47445960257746,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testKPOFClearUsages.txt",
+          "method" : "testKPOFClearUsages",
+          "oldTime" : 607.1687096774193,
+          "changePercent" : -13.467617811492044,
+          "tvalue" : -29.67787747917981,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testMaxTotalPerKeyZero.txt",
+          "method" : "testMaxTotalPerKeyZero",
+          "oldTime" : 418.94038709677415,
+          "changePercent" : -20.22078435672426,
+          "tvalue" : -14.454413216970034,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testKPOFCloseUsages.txt",
+          "method" : "testKPOFCloseUsages",
+          "oldTime" : 623.5536129032258,
+          "changePercent" : -18.5142680128599,
+          "tvalue" : -28.577010613435785,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testToString.txt",
+          "method" : "testToString",
+          "oldTime" : 350.92819354838707,
+          "changePercent" : -34.056889131073056,
+          "tvalue" : -35.712462602804074,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testWhenExhaustedBlockClosePool.txt",
+          "method" : "testWhenExhaustedBlockClosePool",
+          "oldTime" : 400771.6309032258,
+          "changePercent" : -0.029346388549249026,
+          "tvalue" : -13.222756643938427,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testBaseBorrowReturn.txt",
+          "method" : "testBaseBorrowReturn",
+          "oldTime" : 328.79535483870967,
+          "changePercent" : -33.45345903952808,
+          "tvalue" : -29.66939188454659,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testMaxTotalZero.txt",
+          "method" : "testMaxTotalZero",
+          "oldTime" : 390.29316129032253,
+          "changePercent" : -18.206777238086055,
+          "tvalue" : -7.359290812711267,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testBaseClear.txt",
+          "method" : "testBaseClear",
+          "oldTime" : 341.32567741935486,
+          "changePercent" : -29.74075653410572,
+          "tvalue" : -22.572006053870748,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testMaxWaitMultiThreaded.txt",
+          "method" : "testMaxWaitMultiThreaded",
+          "oldTime" : 2002280.0374193548,
+          "changePercent" : -0.009428396109294359,
+          "tvalue" : -3.6522420283955435,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testNumActiveNumIdle2.txt",
+          "method" : "testNumActiveNumIdle2",
+          "oldTime" : 468.9496774193548,
+          "changePercent" : -17.94992791027859,
+          "tvalue" : -18.094771528523687,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testBlockedKeyDoesNotBlockPool.txt",
+          "method" : "testBlockedKeyDoesNotBlockPool",
+          "oldTime" : 1001342.5525806452,
+          "changePercent" : -0.007471163119056815,
+          "tvalue" : -4.157022620882901,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testClosedPoolBehavior.txt",
+          "method" : "testClosedPoolBehavior",
+          "oldTime" : 349.10258064516125,
+          "changePercent" : -30.810151004695914,
+          "tvalue" : -21.848919905991966,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testClearOldest.txt",
+          "method" : "testClearOldest",
+          "oldTime" : 1316145.0141935484,
+          "changePercent" : -0.01174669559355486,
+          "tvalue" : -8.822886397309317,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testExceptionOnActivateDuringBorrow.txt",
+          "method" : "testExceptionOnActivateDuringBorrow",
+          "oldTime" : 436.6642580645161,
+          "changePercent" : -17.50628223115538,
+          "tvalue" : -7.080287953870796,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testFIFO.txt",
+          "method" : "testFIFO",
+          "oldTime" : 451.2464516129032,
+          "changePercent" : -17.40339303892303,
+          "tvalue" : -21.134026070467208,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testClear.txt",
+          "method" : "testClear",
+          "oldTime" : 551.5385806451612,
+          "changePercent" : -21.65682440487888,
+          "tvalue" : -19.55614537904719,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testConstructors.txt",
+          "method" : "testConstructors",
+          "oldTime" : 542.1366451612904,
+          "changePercent" : -30.848192301952658,
+          "tvalue" : -39.089615523960276,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testBaseNumActiveNumIdle.txt",
+          "method" : "testBaseNumActiveNumIdle",
+          "oldTime" : 397.21509677419357,
+          "changePercent" : -30.72933264076957,
+          "tvalue" : -55.83361570113578,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testBaseBorrow.txt",
+          "method" : "testBaseBorrow",
+          "oldTime" : 407.50129032258064,
+          "changePercent" : -32.32599303069692,
+          "tvalue" : -44.19580306462144,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testMinIdleNoPreparePool.txt",
+          "method" : "testMinIdleNoPreparePool",
+          "oldTime" : 300706.27716129035,
+          "changePercent" : -0.022427586788985873,
+          "tvalue" : -12.808567114492321,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testBaseNumActiveNumIdle2.txt",
+          "method" : "testBaseNumActiveNumIdle2",
+          "oldTime" : 401.85845161290325,
+          "changePercent" : -30.84107933366361,
+          "tvalue" : -44.36782228888249,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testMaxIdle.txt",
+          "method" : "testMaxIdle",
+          "oldTime" : 772.6344516129033,
+          "changePercent" : -11.134581524760614,
+          "tvalue" : -23.0504010720641,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testExceptionOnDestroyDuringBorrow.txt",
+          "method" : "testExceptionOnDestroyDuringBorrow",
+          "oldTime" : 483.7730322580645,
+          "changePercent" : -15.621121715035137,
+          "tvalue" : -22.06367278578535,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testBaseAddObject.txt",
+          "method" : "testBaseAddObject",
+          "oldTime" : 393.52567741935485,
+          "changePercent" : -32.62425962940814,
+          "tvalue" : -54.78587509074978,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testMaxTotal.txt",
+          "method" : "testMaxTotal",
+          "oldTime" : 456.74832258064515,
+          "changePercent" : -17.548395043278603,
+          "tvalue" : -12.501576393854362,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testSettersAndGetters.txt",
+          "method" : "testSettersAndGetters",
+          "oldTime" : 489.7309032258064,
+          "changePercent" : -15.78267670105598,
+          "tvalue" : -11.4852006755107,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testBaseInvalidateObject.txt",
+          "method" : "testBaseInvalidateObject",
+          "oldTime" : 339.6163870967742,
+          "changePercent" : -34.57246069284244,
+          "tvalue" : -32.39026193781251,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testKPOFBorrowObjectUsages.txt",
+          "method" : "testKPOFBorrowObjectUsages",
+          "oldTime" : 455.0202580645161,
+          "changePercent" : -29.11632151365398,
+          "tvalue" : -48.12245984440491,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testKPOFInvalidateObjectUsages.txt",
+          "method" : "testKPOFInvalidateObjectUsages",
+          "oldTime" : 250445.1090967742,
+          "changePercent" : -0.04365159723695927,
+          "tvalue" : -10.46518259682801,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testMaxTotalPerKey.txt",
+          "method" : "testMaxTotalPerKey",
+          "oldTime" : 414.3240645161291,
+          "changePercent" : -17.650045787752532,
+          "tvalue" : -17.87285961021148,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testJmxRegistration.txt",
+          "method" : "testJmxRegistration",
+          "oldTime" : 435.4506451612903,
+          "changePercent" : -18.90172361298678,
+          "tvalue" : -16.206713781937715,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testExceptionOnDestroyDuringReturn.txt",
+          "method" : "testExceptionOnDestroyDuringReturn",
+          "oldTime" : 547.5327096774195,
+          "changePercent" : -9.185133968134089,
+          "tvalue" : -12.146045646848005,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testKPOFReturnObjectUsages.txt",
+          "method" : "testKPOFReturnObjectUsages",
+          "oldTime" : 560.3652903225807,
+          "changePercent" : -15.268588623411766,
+          "tvalue" : -28.153639949254824,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testEvictionOrder.txt",
+          "method" : "testEvictionOrder",
+          "oldTime" : 2002710.063548387,
+          "changePercent" : -0.010050671343562063,
+          "tvalue" : -9.516707894785602,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testNegativeMaxTotalPerKey.txt",
+          "method" : "testNegativeMaxTotalPerKey",
+          "oldTime" : 408.00954838709686,
+          "changePercent" : -19.257787768407663,
+          "tvalue" : -8.03477197335955,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testMinIdleMaxTotalPerKey.txt",
+          "method" : "testMinIdleMaxTotalPerKey",
+          "oldTime" : 901526.5458064516,
+          "changePercent" : -0.012352846853647405,
+          "tvalue" : -8.931001652182314,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testExceptionOnPassivateDuringReturn.txt",
+          "method" : "testExceptionOnPassivateDuringReturn",
+          "oldTime" : 524.8835483870968,
+          "changePercent" : -13.614903213554602,
+          "tvalue" : -10.44292004372563,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericKeyedObjectPool#testJmxNotification.txt",
+          "method" : "testJmxNotification",
+          "oldTime" : 542.5506451612903,
+          "changePercent" : -10.181145568690786,
+          "tvalue" : -14.240706989428311,
+          "vms" : 31
+        } ],
+        "org.apache.commons.pool2.impl.TestGenericObjectPool" : [ {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testMaxIdleZero.txt",
+          "method" : "testMaxIdleZero",
+          "oldTime" : 369.2629677419355,
+          "changePercent" : -16.769603478664393,
+          "tvalue" : -7.124871334151014,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testWhenExhaustedBlockClosePool.txt",
+          "method" : "testWhenExhaustedBlockClosePool",
+          "oldTime" : 400606.17232258065,
+          "changePercent" : -0.008241268991600714,
+          "tvalue" : -5.688737898635324,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testEvictionInvalid.txt",
+          "method" : "testEvictionInvalid",
+          "oldTime" : 1302495.1396774193,
+          "changePercent" : -0.014739872970256387,
+          "tvalue" : -8.728391512142139,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testEvictionOrder.txt",
+          "method" : "testEvictionOrder",
+          "oldTime" : 2003204.014375,
+          "changePercent" : -0.01678436032604954,
+          "tvalue" : -19.07023924215405,
+          "vms" : 32
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testMaxWaitMultiThreaded.txt",
+          "method" : "testMaxWaitMultiThreaded",
+          "oldTime" : 1001972.4909677419,
+          "changePercent" : -0.021080258090994945,
+          "tvalue" : -5.069041364380388,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testPOFCloseUsages.txt",
+          "method" : "testPOFCloseUsages",
+          "oldTime" : 402.53200000000004,
+          "changePercent" : -24.784501204151898,
+          "tvalue" : -20.82244269214404,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testTimeoutNoLeak.txt",
+          "method" : "testTimeoutNoLeak",
+          "oldTime" : 10454.411290322581,
+          "changePercent" : -0.7807446617302234,
+          "tvalue" : -18.929074578566322,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testPOFAddObjectUsage.txt",
+          "method" : "testPOFAddObjectUsage",
+          "oldTime" : 284.60851612903224,
+          "changePercent" : -43.812394705392734,
+          "tvalue" : -79.1104400822057,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testBaseInvalidateObject.txt",
+          "method" : "testBaseInvalidateObject",
+          "oldTime" : 204.2721935483871,
+          "changePercent" : -52.83118445060181,
+          "tvalue" : -27.066171706261812,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testAddObject.txt",
+          "method" : "testAddObject",
+          "oldTime" : 317.1725161290323,
+          "changePercent" : -20.007428540975148,
+          "tvalue" : -14.525491558229774,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testStartAndStopEvictor.txt",
+          "method" : "testStartAndStopEvictor",
+          "oldTime" : 400713.1465806452,
+          "changePercent" : -0.018209550931580765,
+          "tvalue" : -8.884276879958737,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testEvictionWithNegativeNumTests.txt",
+          "method" : "testEvictionWithNegativeNumTests",
+          "oldTime" : 400834.28967741935,
+          "changePercent" : -0.020369498714694238,
+          "tvalue" : -16.35903286458557,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testJmxRegistration.txt",
+          "method" : "testJmxRegistration",
+          "oldTime" : 352.134,
+          "changePercent" : -20.381812129070344,
+          "tvalue" : -21.647486484939655,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testFIFO.txt",
+          "method" : "testFIFO",
+          "oldTime" : 331.2592903225807,
+          "changePercent" : -18.97200107741346,
+          "tvalue" : -7.14853590014261,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testPOFBorrowObjectUsages.txt",
+          "method" : "testPOFBorrowObjectUsages",
+          "oldTime" : 302.3743225806452,
+          "changePercent" : -39.85534272623419,
+          "tvalue" : -66.92256726858255,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testEvictWhileEmpty.txt",
+          "method" : "testEvictWhileEmpty",
+          "oldTime" : 302.0863870967742,
+          "changePercent" : -19.828935922836838,
+          "tvalue" : -11.796903831989532,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testEvictFIFO.txt",
+          "method" : "testEvictFIFO",
+          "oldTime" : 125454.9965625,
+          "changePercent" : -0.06371585828608552,
+          "tvalue" : -11.8902452636386,
+          "vms" : 32
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testExceptionOnActivateDuringBorrow.txt",
+          "method" : "testExceptionOnActivateDuringBorrow",
+          "oldTime" : 380.55187096774193,
+          "changePercent" : -18.03269072386215,
+          "tvalue" : -22.465282168302245,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testBaseNumActiveNumIdle.txt",
+          "method" : "testBaseNumActiveNumIdle",
+          "oldTime" : 205.8628387096774,
+          "changePercent" : -50.64057684509012,
+          "tvalue" : -27.33725614182588,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testClosedPoolBehavior.txt",
+          "method" : "testClosedPoolBehavior",
+          "oldTime" : 274.93187096774193,
+          "changePercent" : -45.99018548642197,
+          "tvalue" : -88.37227888618268,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testBaseClosePool.txt",
+          "method" : "testBaseClosePool",
+          "oldTime" : 264.6194193548388,
+          "changePercent" : -46.08529693648889,
+          "tvalue" : -93.00616748829398,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testPOFClearUsages.txt",
+          "method" : "testPOFClearUsages",
+          "oldTime" : 455.46296774193553,
+          "changePercent" : -16.064788242406575,
+          "tvalue" : -15.824978875662733,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testDebugInfo.txt",
+          "method" : "testDebugInfo",
+          "oldTime" : 352.64445161290325,
+          "changePercent" : -22.51731571358813,
+          "tvalue" : -18.29666186470045,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testBaseClear.txt",
+          "method" : "testBaseClear",
+          "oldTime" : 263.373935483871,
+          "changePercent" : -47.381914491256886,
+          "tvalue" : -110.53614278549553,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testMinIdle.txt",
+          "method" : "testMinIdle",
+          "oldTime" : 601199.3567741936,
+          "changePercent" : -0.019002033105862154,
+          "tvalue" : -10.031354742650958,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testJmxNotification.txt",
+          "method" : "testJmxNotification",
+          "oldTime" : 425.30083870967746,
+          "changePercent" : -11.578202784124104,
+          "tvalue" : -11.774243162949757,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testBaseAddObject.txt",
+          "method" : "testBaseAddObject",
+          "oldTime" : 258.88354838709677,
+          "changePercent" : -47.67484197029677,
+          "tvalue" : -93.25674167906458,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testEvictAddObjects.txt",
+          "method" : "testEvictAddObjects",
+          "oldTime" : 851400.6761290323,
+          "changePercent" : -0.009652973761375774,
+          "tvalue" : -4.317276731378128,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testClose.txt",
+          "method" : "testClose",
+          "oldTime" : 143.8143870967742,
+          "changePercent" : -49.0238537756777,
+          "tvalue" : -25.011317870743362,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testMaxTotal.txt",
+          "method" : "testMaxTotal",
+          "oldTime" : 358.6401935483871,
+          "changePercent" : -20.677296663400433,
+          "tvalue" : -24.2411554522596,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testExceptionOnDestroyDuringReturn.txt",
+          "method" : "testExceptionOnDestroyDuringReturn",
+          "oldTime" : 401.6533548387097,
+          "changePercent" : -10.016501149201508,
+          "tvalue" : -4.067104660734534,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testBaseBorrowReturn.txt",
+          "method" : "testBaseBorrowReturn",
+          "oldTime" : 200.75787096774192,
+          "changePercent" : -51.29671531779417,
+          "tvalue" : -35.50122054867969,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testMinIdleMaxTotal.txt",
+          "method" : "testMinIdleMaxTotal",
+          "oldTime" : 901405.6648387096,
+          "changePercent" : -0.013587666993640803,
+          "tvalue" : -9.44955243076211,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testWhenExhaustedBlockInterupt.txt",
+          "method" : "testWhenExhaustedBlockInterupt",
+          "oldTime" : 400618.3852903226,
+          "changePercent" : -0.017829146472626244,
+          "tvalue" : -24.1062294056541,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testPOFReturnObjectUsages.txt",
+          "method" : "testPOFReturnObjectUsages",
+          "oldTime" : 439.9176774193549,
+          "changePercent" : -18.379435800598454,
+          "tvalue" : -45.079712211839364,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testNegativeMaxTotal.txt",
+          "method" : "testNegativeMaxTotal",
+          "oldTime" : 324.8457419354839,
+          "changePercent" : -19.338171229262358,
+          "tvalue" : -5.358182295711477,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testMaxIdle.txt",
+          "method" : "testMaxIdle",
+          "oldTime" : 422.27496774193554,
+          "changePercent" : -17.961924213270596,
+          "tvalue" : -16.287604178855478,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testWhenExhaustedBlock.txt",
+          "method" : "testWhenExhaustedBlock",
+          "oldTime" : 10400.833548387096,
+          "changePercent" : -0.6150363134666885,
+          "tvalue" : -4.545169930137673,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testExceptionOnDestroyDuringBorrow.txt",
+          "method" : "testExceptionOnDestroyDuringBorrow",
+          "oldTime" : 362.10870967741937,
+          "changePercent" : -20.83972287773141,
+          "tvalue" : -25.625449807365857,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testDefaultConfiguration.txt",
+          "method" : "testDefaultConfiguration",
+          "oldTime" : 309.61064516129034,
+          "changePercent" : -21.90799474470014,
+          "tvalue" : -10.50284372706732,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testEvictionSoftMinIdle.txt",
+          "method" : "testEvictionSoftMinIdle",
+          "oldTime" : 3501503.125806452,
+          "changePercent" : -0.006358191041548863,
+          "tvalue" : -12.11035423069002,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testBrokenFactoryShouldNotBlockPool.txt",
+          "method" : "testBrokenFactoryShouldNotBlockPool",
+          "oldTime" : 336.86451612903227,
+          "changePercent" : -18.78911786111005,
+          "tvalue" : -5.566643182938336,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testEvictLIFO.txt",
+          "method" : "testEvictLIFO",
+          "oldTime" : 125438.28832258064,
+          "changePercent" : -0.05207094588043985,
+          "tvalue" : -6.018938912701906,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testMaxTotalZero.txt",
+          "method" : "testMaxTotalZero",
+          "oldTime" : 309.4986451612903,
+          "changePercent" : -20.343389902795977,
+          "tvalue" : -15.92935485679634,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testExceptionOnPassivateDuringReturn.txt",
+          "method" : "testExceptionOnPassivateDuringReturn",
+          "oldTime" : 385.3996129032258,
+          "changePercent" : -10.802227231592399,
+          "tvalue" : -8.258689770712321,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testBorrowObjectFairness.txt",
+          "method" : "testBorrowObjectFairness",
+          "oldTime" : 8507728.0453125,
+          "changePercent" : -0.002444644664838366,
+          "tvalue" : -2.7004242004927095,
+          "vms" : 32
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testUnsupportedOperations.txt",
+          "method" : "testUnsupportedOperations",
+          "oldTime" : 186.01309677419357,
+          "changePercent" : -43.12270069086358,
+          "tvalue" : -69.23071602454266,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testPOFInvalidateObjectUsages.txt",
+          "method" : "testPOFInvalidateObjectUsages",
+          "oldTime" : 250432.82464516128,
+          "changePercent" : -0.04906875056759977,
+          "tvalue" : -11.484016138460138,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testToString.txt",
+          "method" : "testToString",
+          "oldTime" : 232.94941935483865,
+          "changePercent" : -49.55914560990125,
+          "tvalue" : -16.440325213279767,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testWhenExhaustedFail.txt",
+          "method" : "testWhenExhaustedFail",
+          "oldTime" : 353.7485161290324,
+          "changePercent" : -18.070209162623595,
+          "tvalue" : -7.164996612703449,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testSetConfig.txt",
+          "method" : "testSetConfig",
+          "oldTime" : 470.7680000000001,
+          "changePercent" : -12.794837372123817,
+          "tvalue" : -15.056638292964948,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testLIFO.txt",
+          "method" : "testLIFO",
+          "oldTime" : 333.4888387096774,
+          "changePercent" : -18.195395425527614,
+          "tvalue" : -18.064369233602115,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testSettersAndGetters.txt",
+          "method" : "testSettersAndGetters",
+          "oldTime" : 408.5323225806452,
+          "changePercent" : -15.864895437657161,
+          "tvalue" : -14.978595859866285,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testMakeConcurrentWithReturn.txt",
+          "method" : "testMakeConcurrentWithReturn",
+          "oldTime" : 450629.9615483871,
+          "changePercent" : -0.018643220081334115,
+          "tvalue" : -14.678485061174422,
+          "vms" : 31
+        }, {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPool#testBaseBorrow.txt",
+          "method" : "testBaseBorrow",
+          "oldTime" : 247.414,
+          "changePercent" : -50.27686387997448,
+          "tvalue" : -61.234717480668124,
+          "vms" : 31
+        } ],
+        "org.apache.commons.pool2.impl.TestGenericObjectPoolClassLoaders" : [ {
+          "diff" : "view_5392bccc645803a66541ec1e01172a22f50da7d9/diffs/TestGenericObjectPoolClassLoaders#testContextClassLoader.txt",
+          "method" : "testContextClassLoader",
+          "oldTime" : 3.5189742991935484E7,
+          "changePercent" : 9.964730510408168,
+          "tvalue" : 37.082491681710884,
+          "vms" : 31
+        } ]
+      }
+    },
+    "6df9afdb2c5125beb388b67570f73818d660aa12" : {
+      "testcaseChanges" : {
+        "org.apache.commons.pool2.impl.TestGenericKeyedObjectPool" : [ {
+          "diff" : "view_6df9afdb2c5125beb388b67570f73818d660aa12/diffs/TestGenericKeyedObjectPool#testKPOFClearUsages.txt",
+          "method" : "testKPOFClearUsages",
+          "oldTime" : 514.6713548387097,
+          "changePercent" : -3.0338684028367,
+          "tvalue" : -2.7930669792335934,
+          "vms" : 31
+        }, {
+          "diff" : "view_6df9afdb2c5125beb388b67570f73818d660aa12/diffs/TestGenericKeyedObjectPool#testBaseNumActiveNumIdle2.txt",
+          "method" : "testBaseNumActiveNumIdle2",
+          "oldTime" : 557.7969032258064,
+          "changePercent" : 4.287431707135392,
+          "tvalue" : 3.220824485970447,
+          "vms" : 31
+        } ],
+        "org.apache.commons.pool2.impl.TestGenericObjectPool" : [ {
+          "diff" : "view_6df9afdb2c5125beb388b67570f73818d660aa12/diffs/TestGenericObjectPool#testWhenExhaustedBlockClosePool.txt",
+          "method" : "testWhenExhaustedBlockClosePool",
+          "oldTime" : 400854.96735483874,
+          "changePercent" : 0.0063790910200113345,
+          "tvalue" : 3.046454468365461,
+          "vms" : 31
+        }, {
+          "diff" : "view_6df9afdb2c5125beb388b67570f73818d660aa12/diffs/TestGenericObjectPool#testMaxWaitMultiThreaded.txt",
+          "method" : "testMaxWaitMultiThreaded",
+          "oldTime" : 1002573.9065625,
+          "changePercent" : 0.009976072521476446,
+          "tvalue" : 2.7876120632199477,
+          "vms" : 32
+        }, {
+          "diff" : "view_6df9afdb2c5125beb388b67570f73818d660aa12/diffs/TestGenericObjectPool#testBaseBorrow.txt",
+          "method" : "testBaseBorrow",
+          "oldTime" : 581.9756363636363,
+          "changePercent" : 0.9156896914772317,
+          "tvalue" : 2.6856484576439534,
+          "vms" : 44
+        } ]
+      }
+    },
+    "07009a6099c7b20700e03975a441aa199fc2dbb8" : {
+      "testcaseChanges" : {
+        "org.apache.commons.pool2.impl.TestGenericObjectPool" : [ {
+          "diff" : "view_07009a6099c7b20700e03975a441aa199fc2dbb8/diffs/TestGenericObjectPool#testStartAndStopEvictor.txt",
+          "method" : "testStartAndStopEvictor",
+          "oldTime" : 400982.6241724138,
+          "changePercent" : 0.00572910713658914,
+          "tvalue" : 2.638681746477394,
+          "vms" : 58
+        }, {
+          "diff" : "view_07009a6099c7b20700e03975a441aa199fc2dbb8/diffs/TestGenericObjectPool#testConstructors.txt",
+          "method" : "testConstructors",
+          "oldTime" : 1001.1714761904763,
+          "changePercent" : 1.3170523426342402,
+          "tvalue" : 2.7918404047130196,
+          "vms" : 42
+        } ]
+      }
+    }
+  }
+}

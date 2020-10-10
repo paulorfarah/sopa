@@ -1,0 +1,754 @@
+{
+  "versionCount" : 7,
+  "changeCount" : 100,
+  "testcaseCount" : 312,
+  "versionChanges" : {
+    "fee5cc302a833fca4b78ed86747f2e44756aa7a4" : {
+      "testcaseChanges" : {
+        "org.apache.commons.dbcp2.TestPStmtPoolingBasicDataSource" : [ {
+          "diff" : "view_fee5cc302a833fca4b78ed86747f2e44756aa7a4/diffs/TestPStmtPoolingBasicDataSource#testPreparedStatementPooling.txt",
+          "method" : "testPreparedStatementPooling",
+          "oldTime" : 22858.295206971678,
+          "changePercent" : 1.321254747008946,
+          "tvalue" : 2.7405238426412812,
+          "vms" : 54
+        } ]
+      }
+    },
+    "a3cefc2063d220efdc8a42a66164a5ff0bfd690a" : {
+      "testcaseChanges" : {
+        "org.apache.commons.dbcp2.TestAbandonedBasicDataSource" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestAbandonedBasicDataSource#testLastUsedUpdate.txt",
+          "method" : "testLastUsedUpdate",
+          "oldTime" : 10150.822967741935,
+          "changePercent" : -4.0165845507546205,
+          "tvalue" : -9.898480533638882,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestAbandonedBasicDataSource#testAbandonedCloseWithExceptions.txt",
+          "method" : "testAbandonedCloseWithExceptions",
+          "oldTime" : 13120.970967741936,
+          "changePercent" : -2.855597576988923,
+          "tvalue" : -5.983210975905845,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestAbandonedBasicDataSource#testlastUsed.txt",
+          "method" : "testlastUsed",
+          "oldTime" : 2.601534791129032E7,
+          "changePercent" : -0.0038810526704619996,
+          "tvalue" : -8.32937168056773,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestAbandonedBasicDataSource#testAbandonedClose.txt",
+          "method" : "testAbandonedClose",
+          "oldTime" : 12284.621806451612,
+          "changePercent" : -4.024949882527671,
+          "tvalue" : -4.487491732511895,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestAbandonedBasicDataSource#testAbandoned.txt",
+          "method" : "testAbandoned",
+          "oldTime" : 14427.40109090909,
+          "changePercent" : -1.2934449085640976,
+          "tvalue" : -2.827037754783172,
+          "vms" : 33
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestAbandonedBasicDataSource#testlastUsedPrepareCall.txt",
+          "method" : "testlastUsedPrepareCall",
+          "oldTime" : 2.6015634491935484E7,
+          "changePercent" : -0.004050355976437844,
+          "tvalue" : -9.069194226976629,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestAbandonedBasicDataSource#testLastUsedPreparedStatementUse.txt",
+          "method" : "testLastUsedPreparedStatementUse",
+          "oldTime" : 2.6015843169354837E7,
+          "changePercent" : -0.004101408984078828,
+          "tvalue" : -8.908683152022322,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.TestBasicDataSource" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testDriverClassLoader.txt",
+          "method" : "testDriverClassLoader",
+          "oldTime" : 8023.288258064516,
+          "changePercent" : -2.970348381334568,
+          "tvalue" : -3.7123611579848816,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testClose.txt",
+          "method" : "testClose",
+          "oldTime" : 8608.241870967742,
+          "changePercent" : -2.6932126389990985,
+          "tvalue" : -3.6924093531827187,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testInitialSize.txt",
+          "method" : "testInitialSize",
+          "oldTime" : 9128.15,
+          "changePercent" : -2.192903801833861,
+          "tvalue" : -2.6848705577925625,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testPropertyTestOnReturn.txt",
+          "method" : "testPropertyTestOnReturn",
+          "oldTime" : 7607.538193548387,
+          "changePercent" : -3.529905422670662,
+          "tvalue" : -6.004217519837598,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testAccessToUnderlyingConnectionAllowed.txt",
+          "method" : "testAccessToUnderlyingConnectionAllowed",
+          "oldTime" : 7962.502580645161,
+          "changePercent" : -2.893357648377531,
+          "tvalue" : -3.723574532984691,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testNoAccessToUnderlyingConnectionAllowed.txt",
+          "method" : "testNoAccessToUnderlyingConnectionAllowed",
+          "oldTime" : 7931.170645161291,
+          "changePercent" : -2.449884447355508,
+          "tvalue" : -2.893640959340436,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testRollbackReadOnly.txt",
+          "method" : "testRollbackReadOnly",
+          "oldTime" : 8060.468838709678,
+          "changePercent" : -1.8323708009396498,
+          "tvalue" : -2.9078218418265904,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testTransactionIsolationBehavior.txt",
+          "method" : "testTransactionIsolationBehavior",
+          "oldTime" : 8219.931548387096,
+          "changePercent" : -3.3498450214705957,
+          "tvalue" : -4.02690062362348,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testSetAutoCommitTrueOnClose.txt",
+          "method" : "testSetAutoCommitTrueOnClose",
+          "oldTime" : 8997.260838709677,
+          "changePercent" : -2.104910166099798,
+          "tvalue" : -2.8467621690858325,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testDefaultCatalog.txt",
+          "method" : "testDefaultCatalog",
+          "oldTime" : 10870.368967741935,
+          "changePercent" : -6.576203167605931,
+          "tvalue" : -5.079008026308446,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testValidationQueryTimeoutZero.txt",
+          "method" : "testValidationQueryTimeoutZero",
+          "oldTime" : 8371.75264516129,
+          "changePercent" : -3.111601882477819,
+          "tvalue" : -4.8561357556100795,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testIsClosedFailure.txt",
+          "method" : "testIsClosedFailure",
+          "oldTime" : 8807.79129032258,
+          "changePercent" : -2.4190261459492923,
+          "tvalue" : -4.085746940675286,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testValidationQueryTimeoutSucceed.txt",
+          "method" : "testValidationQueryTimeoutSucceed",
+          "oldTime" : 7805.232064516129,
+          "changePercent" : -3.0962870174668717,
+          "tvalue" : -3.1547252153740506,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testInvalidValidationQuery.txt",
+          "method" : "testInvalidValidationQuery",
+          "oldTime" : 3008.071375,
+          "changePercent" : -2.321240216582293,
+          "tvalue" : -2.738492493752144,
+          "vms" : 32
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testValidationQueryTimeoutNegative.txt",
+          "method" : "testValidationQueryTimeoutNegative",
+          "oldTime" : 7963.358838709678,
+          "changePercent" : -2.7384505656236993,
+          "tvalue" : -3.941351483563636,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testValidationQueryTimoutFail.txt",
+          "method" : "testValidationQueryTimoutFail",
+          "oldTime" : 2949.9656585365856,
+          "changePercent" : -1.5892562023375951,
+          "tvalue" : -2.7454482143619763,
+          "vms" : 82
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestBasicDataSource#testPooling.txt",
+          "method" : "testPooling",
+          "oldTime" : 10555.755483870968,
+          "changePercent" : -9.130370155501783,
+          "tvalue" : -11.249838267253061,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.TestDelegatingCallableStatement" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingCallableStatement#testExecuteQueryReturnsNotNull.txt",
+          "method" : "testExecuteQueryReturnsNotNull",
+          "oldTime" : 96.10490322580644,
+          "changePercent" : -45.90816755346646,
+          "tvalue" : -12.533258090258318,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingCallableStatement#testExecuteQueryReturnsNotNull.txt",
+          "method" : "testExecuteQueryReturnsNotNull",
+          "oldTime" : 96.73716129032258,
+          "changePercent" : -43.75481017402659,
+          "tvalue" : -13.34067627811222,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingCallableStatement#testGetDelegate.txt",
+          "method" : "testGetDelegate",
+          "oldTime" : 75.60458064516128,
+          "changePercent" : -45.54332345454407,
+          "tvalue" : -12.016762128942267,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingCallableStatement#testGetDelegate.txt",
+          "method" : "testGetDelegate",
+          "oldTime" : 68.17309677419355,
+          "changePercent" : -55.983298680872124,
+          "tvalue" : -12.421894148422615,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingCallableStatement#testExecuteQueryReturnsNull.txt",
+          "method" : "testExecuteQueryReturnsNull",
+          "oldTime" : 87.97825806451613,
+          "changePercent" : -43.941941667406105,
+          "tvalue" : -11.88051993133785,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingCallableStatement#testExecuteQueryReturnsNull.txt",
+          "method" : "testExecuteQueryReturnsNull",
+          "oldTime" : 86.41729032258064,
+          "changePercent" : -40.9048965708774,
+          "tvalue" : -10.482557259219087,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.TestDelegatingConnection" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingConnection#testCheckOpenNull.txt",
+          "method" : "testCheckOpenNull",
+          "oldTime" : 10783.346387096773,
+          "changePercent" : -1.8106372856223125,
+          "tvalue" : -4.064725580447676,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingConnection#testCheckOpen.txt",
+          "method" : "testCheckOpen",
+          "oldTime" : 278.7051063829787,
+          "changePercent" : 2.6090186073284234,
+          "tvalue" : 2.7045177812191916,
+          "vms" : 94
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingConnection#testCheckOpen.txt",
+          "method" : "testCheckOpen",
+          "oldTime" : 281.18021428571427,
+          "changePercent" : 2.7865961916137536,
+          "tvalue" : 2.6456749496438396,
+          "vms" : 56
+        } ],
+        "org.apache.commons.dbcp2.TestDelegatingDatabaseMetaData" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingDatabaseMetaData#testCheckOpen.txt",
+          "method" : "testCheckOpen",
+          "oldTime" : 84.24312328767124,
+          "changePercent" : -6.62573490816208,
+          "tvalue" : -2.632919751236831,
+          "vms" : 73
+        } ],
+        "org.apache.commons.dbcp2.TestDelegatingPreparedStatement" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingPreparedStatement#testExecuteQueryReturnsNotNull.txt",
+          "method" : "testExecuteQueryReturnsNotNull",
+          "oldTime" : 90.6052258064516,
+          "changePercent" : -50.518342244732764,
+          "tvalue" : -12.028615425422108,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingPreparedStatement#testExecuteQueryReturnsNotNull.txt",
+          "method" : "testExecuteQueryReturnsNotNull",
+          "oldTime" : 95.1176129032258,
+          "changePercent" : -48.00942534302184,
+          "tvalue" : -13.590055160902143,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingPreparedStatement#testExecuteQueryReturnsNull.txt",
+          "method" : "testExecuteQueryReturnsNull",
+          "oldTime" : 86.00832258064516,
+          "changePercent" : -44.31154074361894,
+          "tvalue" : -10.653314854599978,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingPreparedStatement#testExecuteQueryReturnsNull.txt",
+          "method" : "testExecuteQueryReturnsNull",
+          "oldTime" : 79.79703225806452,
+          "changePercent" : -49.369367766931255,
+          "tvalue" : -13.563594666652644,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingPreparedStatement#testGetDelegate.txt",
+          "method" : "testGetDelegate",
+          "oldTime" : 77.14451612903225,
+          "changePercent" : -38.773646444879326,
+          "tvalue" : -8.807461388632571,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingPreparedStatement#testGetDelegate.txt",
+          "method" : "testGetDelegate",
+          "oldTime" : 78.41754838709677,
+          "changePercent" : -36.938901101794215,
+          "tvalue" : -11.393424943451164,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.TestDelegatingStatement" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingStatement#testCheckOpen.txt",
+          "method" : "testCheckOpen",
+          "oldTime" : 332.89187096774197,
+          "changePercent" : -9.759751495399831,
+          "tvalue" : -6.05192203327212,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingStatement#testCheckOpen.txt",
+          "method" : "testCheckOpen",
+          "oldTime" : 284.6591612903226,
+          "changePercent" : -12.867136861129001,
+          "tvalue" : -7.317917231956351,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingStatement#testGetDelegate.txt",
+          "method" : "testGetDelegate",
+          "oldTime" : 73.76806451612903,
+          "changePercent" : -38.01881223188634,
+          "tvalue" : -8.840907157285175,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingStatement#testGetDelegate.txt",
+          "method" : "testGetDelegate",
+          "oldTime" : 78.19638709677419,
+          "changePercent" : -30.32125896419604,
+          "tvalue" : -8.815827441509384,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingStatement#testIsWrapperFor.txt",
+          "method" : "testIsWrapperFor",
+          "oldTime" : 100.63516129032259,
+          "changePercent" : -66.73227147569148,
+          "tvalue" : -18.223899429813095,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingStatement#testIsWrapperFor.txt",
+          "method" : "testIsWrapperFor",
+          "oldTime" : 92.79729032258064,
+          "changePercent" : -70.33728737908088,
+          "tvalue" : -17.914471345911007,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingStatement#testExecuteQueryReturnsNull.txt",
+          "method" : "testExecuteQueryReturnsNull",
+          "oldTime" : 80.76593548387098,
+          "changePercent" : -37.39304018302192,
+          "tvalue" : -11.339612343511991,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDelegatingStatement#testExecuteQueryReturnsNull.txt",
+          "method" : "testExecuteQueryReturnsNull",
+          "oldTime" : 82.77787096774195,
+          "changePercent" : -33.40311459272657,
+          "tvalue" : -9.589370888968592,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.TestPStmtPoolingBasicDataSource" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestPStmtPoolingBasicDataSource#testLRUBehavior.txt",
+          "method" : "testLRUBehavior",
+          "oldTime" : 2.0083720970588237E7,
+          "changePercent" : 0.0028960021942734883,
+          "tvalue" : 2.707920811305711,
+          "vms" : 34
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestPStmtPoolingBasicDataSource#testPStmtPoolingAccrossClose.txt",
+          "method" : "testPStmtPoolingAccrossClose",
+          "oldTime" : 21483.692,
+          "changePercent" : -2.712331903930042,
+          "tvalue" : -4.545847763035894,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestPStmtPoolingBasicDataSource#testPStmtCatalog.txt",
+          "method" : "testPStmtCatalog",
+          "oldTime" : 21918.327999999998,
+          "changePercent" : -1.990245198393954,
+          "tvalue" : -2.6950372107394425,
+          "vms" : 34
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestPStmtPoolingBasicDataSource#testPStmtPoolingWithNoClose.txt",
+          "method" : "testPStmtPoolingWithNoClose",
+          "oldTime" : 22333.32601846222,
+          "changePercent" : -1.6331750250767687,
+          "tvalue" : -2.805711720668815,
+          "vms" : 79
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestPStmtPoolingBasicDataSource#testPreparedStatementPooling.txt",
+          "method" : "testPreparedStatementPooling",
+          "oldTime" : 23068.24916129032,
+          "changePercent" : -2.8221496637095345,
+          "tvalue" : -4.228820530265708,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.TestPoolingDataSource" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestPoolingDataSource#testPoolGuardConnectionWrapperEqualsSameDelegate.txt",
+          "method" : "testPoolGuardConnectionWrapperEqualsSameDelegate",
+          "oldTime" : 5179.286451612903,
+          "changePercent" : 1.7220705704385202,
+          "tvalue" : 3.462703696028776,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.TestPoolingDriver" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestPoolingDriver#testClosePool.txt",
+          "method" : "testClosePool",
+          "oldTime" : 24265.422291666666,
+          "changePercent" : -0.5835215090485425,
+          "tvalue" : -2.657214582200487,
+          "vms" : 48
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestPoolingDriver#testReportedBug28912.txt",
+          "method" : "testReportedBug28912",
+          "oldTime" : 4321271.239354839,
+          "changePercent" : 1.1916254922499785,
+          "tvalue" : 2.626476025089911,
+          "vms" : 62
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestPoolingDriver#testInvalidateConnection.txt",
+          "method" : "testInvalidateConnection",
+          "oldTime" : 23289.51406451613,
+          "changePercent" : -0.7733343252791175,
+          "tvalue" : -4.387831142450719,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.cpdsadapter.TestDriverAdapterCPDS" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDriverAdapterCPDS#testClosingWithUserName.txt",
+          "method" : "testClosingWithUserName",
+          "oldTime" : 3885.909612903226,
+          "changePercent" : 1.9889211309166868,
+          "tvalue" : 3.077974977021434,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDriverAdapterCPDS#testSimple.txt",
+          "method" : "testSimple",
+          "oldTime" : 390.01206451612904,
+          "changePercent" : -8.129607901294031,
+          "tvalue" : -5.42945964872927,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDriverAdapterCPDS#testSimple.txt",
+          "method" : "testSimple",
+          "oldTime" : 394.11290322580646,
+          "changePercent" : -8.449928381420097,
+          "tvalue" : -5.448121379256661,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDriverAdapterCPDS#testSimpleWithUsername.txt",
+          "method" : "testSimpleWithUsername",
+          "oldTime" : 384.7727741935484,
+          "changePercent" : -5.989693456280355,
+          "tvalue" : -4.083740505504271,
+          "vms" : 31
+        }, {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDriverAdapterCPDS#testSimpleWithUsername.txt",
+          "method" : "testSimpleWithUsername",
+          "oldTime" : 384.3991612903226,
+          "changePercent" : -7.888859480241227,
+          "tvalue" : -5.291737012164176,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.datasources.TestInstanceKeyDataSource" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestInstanceKeyDataSource#testExceptionOnSetupDefaults.txt",
+          "method" : "testExceptionOnSetupDefaults",
+          "oldTime" : 6729836.024708305,
+          "changePercent" : -5.1272915577389435,
+          "tvalue" : -4.682104673178772,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.datasources.TestKeyedCPDSConnectionFactory" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestKeyedCPDSConnectionFactory#testSharedPoolDSDestroyOnReturn.txt",
+          "method" : "testSharedPoolDSDestroyOnReturn",
+          "oldTime" : 6615458.218943033,
+          "changePercent" : -6.149176691346071,
+          "tvalue" : -14.325256288513122,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.managed.TestDataSourceXAConnectionFactory" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestDataSourceXAConnectionFactory#testPhysicalClose.txt",
+          "method" : "testPhysicalClose",
+          "oldTime" : 16972.906903225805,
+          "changePercent" : -3.336161661239127,
+          "tvalue" : -9.299072466152596,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.managed.TestManagedDataSourceInTx" : [ {
+          "diff" : "view_a3cefc2063d220efdc8a42a66164a5ff0bfd690a/diffs/TestManagedDataSourceInTx#testClearWarnings.txt",
+          "method" : "testClearWarnings",
+          "oldTime" : 4651.648580645161,
+          "changePercent" : -3.177476322546381,
+          "tvalue" : -2.718912237345082,
+          "vms" : 31
+        } ]
+      }
+    },
+    "c7cb7b5b0196cb75bddd17dbcdee475907a9612d" : {
+      "testcaseChanges" : {
+        "org.apache.commons.dbcp2.TestAbandonedBasicDataSource" : [ {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestAbandonedBasicDataSource#testLastUsedUpdate.txt",
+          "method" : "testLastUsedUpdate",
+          "oldTime" : 12560.448043478262,
+          "changePercent" : 2.236056692868255,
+          "tvalue" : 2.7339833309155246,
+          "vms" : 46
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestAbandonedBasicDataSource#testAbandonedCloseWithExceptions.txt",
+          "method" : "testAbandonedCloseWithExceptions",
+          "oldTime" : 18641.665354838708,
+          "changePercent" : 2.875253637954591,
+          "tvalue" : 5.205467882649099,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestAbandonedBasicDataSource#testAbandonedClose.txt",
+          "method" : "testAbandonedClose",
+          "oldTime" : 18411.056387096774,
+          "changePercent" : 2.866249997450697,
+          "tvalue" : 6.585458645202481,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestAbandonedBasicDataSource#testAbandoned.txt",
+          "method" : "testAbandoned",
+          "oldTime" : 21147.390322580646,
+          "changePercent" : 2.7695143044417447,
+          "tvalue" : 6.451080385459637,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestAbandonedBasicDataSource#testlastUsedPrepareCall.txt",
+          "method" : "testlastUsedPrepareCall",
+          "oldTime" : 2.601999236797753E7,
+          "changePercent" : 0.0013865094878663588,
+          "tvalue" : 2.6192114467116565,
+          "vms" : 89
+        } ],
+        "org.apache.commons.dbcp2.TestBasicDataSource" : [ {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testDriverClassLoader.txt",
+          "method" : "testDriverClassLoader",
+          "oldTime" : 11120.29935483871,
+          "changePercent" : 3.527682940074018,
+          "tvalue" : 6.70461229072545,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testClose.txt",
+          "method" : "testClose",
+          "oldTime" : 12792.330903225806,
+          "changePercent" : 4.329371656946737,
+          "tvalue" : 7.611643752925513,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testInitialSize.txt",
+          "method" : "testInitialSize",
+          "oldTime" : 22694.83070967742,
+          "changePercent" : 2.6441888958109603,
+          "tvalue" : 7.298315389922101,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testAccessToUnderlyingConnectionAllowed.txt",
+          "method" : "testAccessToUnderlyingConnectionAllowed",
+          "oldTime" : 10595.954322580645,
+          "changePercent" : 3.403656947777728,
+          "tvalue" : 5.488336978860597,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testNoAccessToUnderlyingConnectionAllowed.txt",
+          "method" : "testNoAccessToUnderlyingConnectionAllowed",
+          "oldTime" : 10693.930322580645,
+          "changePercent" : 3.538089619966515,
+          "tvalue" : 5.884746843374102,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testRollbackReadOnly.txt",
+          "method" : "testRollbackReadOnly",
+          "oldTime" : 10581.747741935484,
+          "changePercent" : 3.124025673178331,
+          "tvalue" : 6.759435212672029,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testTransactionIsolationBehavior.txt",
+          "method" : "testTransactionIsolationBehavior",
+          "oldTime" : 12515.207870967743,
+          "changePercent" : 4.298216339860311,
+          "tvalue" : 3.762258876618962,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testSetAutoCommitTrueOnClose.txt",
+          "method" : "testSetAutoCommitTrueOnClose",
+          "oldTime" : 10687.087870967742,
+          "changePercent" : 3.915473228706952,
+          "tvalue" : 8.338561293834369,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testDefaultCatalog.txt",
+          "method" : "testDefaultCatalog",
+          "oldTime" : 26735.086258064515,
+          "changePercent" : 7.263271630171465,
+          "tvalue" : 16.87228887291584,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testValidationQueryTimeoutZero.txt",
+          "method" : "testValidationQueryTimeoutZero",
+          "oldTime" : 10911.291032258065,
+          "changePercent" : 4.65269090211618,
+          "tvalue" : 9.346479795984774,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testIsClosedFailure.txt",
+          "method" : "testIsClosedFailure",
+          "oldTime" : 11801.575161290322,
+          "changePercent" : 3.2996311618654004,
+          "tvalue" : 6.099170453318618,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testValidationQueryTimeoutSucceed.txt",
+          "method" : "testValidationQueryTimeoutSucceed",
+          "oldTime" : 10578.851354838709,
+          "changePercent" : 3.753988267620689,
+          "tvalue" : 7.358259583708959,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testInvalidValidationQuery.txt",
+          "method" : "testInvalidValidationQuery",
+          "oldTime" : 4666.123105263158,
+          "changePercent" : 2.169416221890243,
+          "tvalue" : 2.7472149907386774,
+          "vms" : 38
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testValidationQueryTimeoutNegative.txt",
+          "method" : "testValidationQueryTimeoutNegative",
+          "oldTime" : 10393.024838709678,
+          "changePercent" : 4.443739049921735,
+          "tvalue" : 5.847824262401944,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSource#testPooling.txt",
+          "method" : "testPooling",
+          "oldTime" : 25630.691161290324,
+          "changePercent" : 7.70002192406864,
+          "tvalue" : 18.056261829569195,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.TestBasicDataSourceFactory" : [ {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestBasicDataSourceFactory#testProperties.txt",
+          "method" : "testProperties",
+          "oldTime" : 6798116.025089606,
+          "changePercent" : 10.187230354577297,
+          "tvalue" : 23.0656215836297,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.TestPoolingDriver" : [ {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestPoolingDriver#testClosePool.txt",
+          "method" : "testClosePool",
+          "oldTime" : 24315.403483870967,
+          "changePercent" : 2.1896912318057673,
+          "tvalue" : 8.789182427840023,
+          "vms" : 31
+        }, {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestPoolingDriver#testInvalidateConnection.txt",
+          "method" : "testInvalidateConnection",
+          "oldTime" : 23194.96535483871,
+          "changePercent" : 1.5788668243336264,
+          "tvalue" : 8.769282943043219,
+          "vms" : 31
+        } ],
+        "org.apache.commons.dbcp2.managed.TestDataSourceXAConnectionFactory" : [ {
+          "diff" : "view_c7cb7b5b0196cb75bddd17dbcdee475907a9612d/diffs/TestDataSourceXAConnectionFactory#testPhysicalClose.txt",
+          "method" : "testPhysicalClose",
+          "oldTime" : 21926.294387096776,
+          "changePercent" : 1.6751067564149003,
+          "tvalue" : 3.7314997840610387,
+          "vms" : 31
+        } ]
+      }
+    },
+    "63a2276b8022d9f1bb3de765a16e3d589bfc7b73" : {
+      "testcaseChanges" : {
+        "org.apache.commons.dbcp2.TestBasicDataSource" : [ {
+          "diff" : "view_63a2276b8022d9f1bb3de765a16e3d589bfc7b73/diffs/TestBasicDataSource#testValidationQueryTimeoutZero.txt",
+          "method" : "testValidationQueryTimeoutZero",
+          "oldTime" : 10538.134,
+          "changePercent" : 1.5232194165096575,
+          "tvalue" : 2.848028816825955,
+          "vms" : 31
+        }, {
+          "diff" : "view_63a2276b8022d9f1bb3de765a16e3d589bfc7b73/diffs/TestBasicDataSource#testValidationQueryTimeoutNegative.txt",
+          "method" : "testValidationQueryTimeoutNegative",
+          "oldTime" : 9751.97993548387,
+          "changePercent" : 2.3455048390537168,
+          "tvalue" : 3.093737250500883,
+          "vms" : 31
+        } ]
+      }
+    },
+    "a127eaf6b81f3be06282e4b67692bacc020b8703" : {
+      "testcaseChanges" : {
+        "org.apache.commons.dbcp2.TestAbandonedBasicDataSource" : [ {
+          "diff" : "view_a127eaf6b81f3be06282e4b67692bacc020b8703/diffs/TestAbandonedBasicDataSource#testGarbageCollectorCleanUp02.txt",
+          "method" : "testGarbageCollectorCleanUp02",
+          "oldTime" : 2.387445173214286E7,
+          "changePercent" : 0.26509923161933113,
+          "tvalue" : 2.608683984186788,
+          "vms" : 84
+        }, {
+          "diff" : "view_a127eaf6b81f3be06282e4b67692bacc020b8703/diffs/TestAbandonedBasicDataSource#testAbandoned.txt",
+          "method" : "testAbandoned",
+          "oldTime" : 19699.9075,
+          "changePercent" : 0.773801856683841,
+          "tvalue" : 2.706669343166893,
+          "vms" : 72
+        } ],
+        "org.apache.commons.dbcp2.TestBasicDataSource" : [ {
+          "diff" : "view_a127eaf6b81f3be06282e4b67692bacc020b8703/diffs/TestBasicDataSource#testValidationQueryTimeoutNegative.txt",
+          "method" : "testValidationQueryTimeoutNegative",
+          "oldTime" : 10349.612042553192,
+          "changePercent" : 1.1261756289164726,
+          "tvalue" : 2.6841312721591946,
+          "vms" : 47
+        } ],
+        "org.apache.commons.dbcp2.TestDelegatingDatabaseMetaData" : [ {
+          "diff" : "view_a127eaf6b81f3be06282e4b67692bacc020b8703/diffs/TestDelegatingDatabaseMetaData#testCheckOpen.txt",
+          "method" : "testCheckOpen",
+          "oldTime" : 82.19805128205128,
+          "changePercent" : -8.506970656238654,
+          "tvalue" : -2.7696861672855,
+          "vms" : 39
+        } ],
+        "org.apache.commons.dbcp2.TestPoolingDataSource" : [ {
+          "diff" : "view_a127eaf6b81f3be06282e4b67692bacc020b8703/diffs/TestPoolingDataSource#testPoolGuardConnectionWrapperEqualsNull.txt",
+          "method" : "testPoolGuardConnectionWrapperEqualsNull",
+          "oldTime" : 3826.9655151515153,
+          "changePercent" : 1.4943590642295603,
+          "tvalue" : 2.740134790250687,
+          "vms" : 33
+        }, {
+          "diff" : "view_a127eaf6b81f3be06282e4b67692bacc020b8703/diffs/TestPoolingDataSource#testPoolGuardConnectionWrapperEqualsSameDelegate.txt",
+          "method" : "testPoolGuardConnectionWrapperEqualsSameDelegate",
+          "oldTime" : 4658.002307692308,
+          "changePercent" : 1.1926994784657712,
+          "tvalue" : 2.681702685962373,
+          "vms" : 65
+        } ],
+        "org.apache.commons.dbcp2.cpdsadapter.TestDriverAdapterCPDS" : [ {
+          "diff" : "view_a127eaf6b81f3be06282e4b67692bacc020b8703/diffs/TestDriverAdapterCPDS#testClosingWithUserName.txt",
+          "method" : "testClosingWithUserName",
+          "oldTime" : 4127.086976744186,
+          "changePercent" : 1.3246456732757297,
+          "tvalue" : 2.713638399794419,
+          "vms" : 86
+        } ]
+      }
+    }
+  }
+}

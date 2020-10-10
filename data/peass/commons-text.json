@@ -1,0 +1,40 @@
+{
+  "versionCount" : 1,
+  "changeCount" : 4,
+  "testcaseCount" : 12,
+  "versionChanges" : {
+    "61cbf0afe04d86a546e7094513328c9f7a7363ae" : {
+      "testcaseChanges" : {
+        "org.apache.commons.text.WordUtilsTest" : [ {
+          "diff" : "view_61cbf0afe04d86a546e7094513328c9f7a7363ae/diffs/WordUtilsTest#testAbbreviateForUpperLimit.txt",
+          "method" : "testAbbreviateForUpperLimit",
+          "oldTime" : 14.825029411764707,
+          "changePercent" : -3.0358039166671524,
+          "tvalue" : -2.644853556107175,
+          "vms" : 68
+        }, {
+          "diff" : "view_61cbf0afe04d86a546e7094513328c9f7a7363ae/diffs/WordUtilsTest#testAbbreviateForUpperLimitAndAppendedString.txt",
+          "method" : "testAbbreviateForUpperLimitAndAppendedString",
+          "oldTime" : 14.455483870967742,
+          "changePercent" : -6.512094974560391,
+          "tvalue" : -3.639716759272463,
+          "vms" : 31
+        }, {
+          "diff" : "view_61cbf0afe04d86a546e7094513328c9f7a7363ae/diffs/WordUtilsTest#testWrap_StringIntStringBoolean.txt",
+          "method" : "testWrap_StringIntStringBoolean",
+          "oldTime" : 51.87348387096774,
+          "changePercent" : 4.301781381251409,
+          "tvalue" : 4.392346150219389,
+          "vms" : 31
+        }, {
+          "diff" : "view_61cbf0afe04d86a546e7094513328c9f7a7363ae/diffs/WordUtilsTest#testAbbreviateForLowerValueAndAppendedString.txt",
+          "method" : "testAbbreviateForLowerValueAndAppendedString",
+          "oldTime" : 14.638,
+          "changePercent" : -3.9722872976782817,
+          "tvalue" : -2.6678212279435014,
+          "vms" : 41
+        } ]
+      }
+    }
+  }
+}

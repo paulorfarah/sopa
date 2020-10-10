@@ -1,0 +1,613 @@
+{
+  "versionCount" : 4,
+  "changeCount" : 83,
+  "testcaseCount" : 228,
+  "versionChanges" : {
+    "740a1b699338923098486fc16d8df967be388160" : {
+      "testcaseChanges" : {
+        "org.apache.commons.csv.CSVFormatTest" : [ {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVFormatTest#testValidation.txt",
+          "method" : "testValidation",
+          "oldTime" : 1389.0832258064515,
+          "changePercent" : 3.475585429052993,
+          "tvalue" : 6.353359145311739,
+          "vms" : 31
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVFormatTest#testValidation.txt",
+          "method" : "testValidation",
+          "oldTime" : 1424.4950967741936,
+          "changePercent" : 2.734786754550811,
+          "tvalue" : 3.1470972224780223,
+          "vms" : 31
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVFormatTest#testMutators.txt",
+          "method" : "testMutators",
+          "oldTime" : 81.97232258064517,
+          "changePercent" : 20.312520905954884,
+          "tvalue" : 5.722955367520741,
+          "vms" : 31
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVFormatTest#testMutators.txt",
+          "method" : "testMutators",
+          "oldTime" : 81.896,
+          "changePercent" : 21.4560875004333,
+          "tvalue" : 5.4637856089620165,
+          "vms" : 31
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVFormatTest#testImmutalibity.txt",
+          "method" : "testImmutalibity",
+          "oldTime" : 78.75529032258063,
+          "changePercent" : 16.162191254740062,
+          "tvalue" : 4.080931725538448,
+          "vms" : 31
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVFormatTest#testImmutalibity.txt",
+          "method" : "testImmutalibity",
+          "oldTime" : 78.25322580645161,
+          "changePercent" : 19.666343755796916,
+          "tvalue" : 4.981912656632917,
+          "vms" : 31
+        } ],
+        "org.apache.commons.csv.CSVLexerTest" : [ {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVLexerTest#testNextToken1.txt",
+          "method" : "testNextToken1",
+          "oldTime" : 460.60091836734694,
+          "changePercent" : 1.1524253254787602,
+          "tvalue" : 2.665468140725852,
+          "vms" : 98
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVLexerTest#testDelimiterIsWhitespace.txt",
+          "method" : "testDelimiterIsWhitespace",
+          "oldTime" : 405.30581538461536,
+          "changePercent" : 1.4818895726144523,
+          "tvalue" : 2.658962590062278,
+          "vms" : 65
+        } ],
+        "org.apache.commons.csv.CSVParserTest" : [ {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVParserTest#testDefaultFormat.txt",
+          "method" : "testDefaultFormat",
+          "oldTime" : 737.2341846153846,
+          "changePercent" : 1.0937887558200403,
+          "tvalue" : 2.7128506189755366,
+          "vms" : 65
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVParserTest#testDefaultFormat.txt",
+          "method" : "testDefaultFormat",
+          "oldTime" : 739.065806451613,
+          "changePercent" : 1.02996633937176,
+          "tvalue" : 2.672634167857364,
+          "vms" : 62
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVParserTest#testLineFeedEndings.txt",
+          "method" : "testLineFeedEndings",
+          "oldTime" : 424.5018596491228,
+          "changePercent" : 1.5257842360205454,
+          "tvalue" : 2.6865757379107547,
+          "vms" : 57
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVParserTest#testLineFeedEndings.txt",
+          "method" : "testLineFeedEndings",
+          "oldTime" : 427.7617142857143,
+          "changePercent" : 2.2003238117884014,
+          "tvalue" : 2.654808268700028,
+          "vms" : 42
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVParserTest#testEndOfFileBehaviourExcel.txt",
+          "method" : "testEndOfFileBehaviourExcel",
+          "oldTime" : 2687.656129032258,
+          "changePercent" : 0.7819500718577905,
+          "tvalue" : 2.7075980321520823,
+          "vms" : 31
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVParserTest#testExcelFormat1.txt",
+          "method" : "testExcelFormat1",
+          "oldTime" : 557.0814102564102,
+          "changePercent" : 1.2056471053924542,
+          "tvalue" : 2.711917411230332,
+          "vms" : 78
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVParserTest#testBackslashEscaping2.txt",
+          "method" : "testBackslashEscaping2",
+          "oldTime" : 469.16754838709676,
+          "changePercent" : 2.404134598314623,
+          "tvalue" : 3.362157722340588,
+          "vms" : 31
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVParserTest#testBackslashEscaping.txt",
+          "method" : "testBackslashEscaping",
+          "oldTime" : 741.5138709677419,
+          "changePercent" : 2.075335853896101,
+          "tvalue" : 3.6269945419845615,
+          "vms" : 31
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVParserTest#testBackslashEscaping.txt",
+          "method" : "testBackslashEscaping",
+          "oldTime" : 729.1113548387096,
+          "changePercent" : 1.3566935127215352,
+          "tvalue" : 2.6706341785531653,
+          "vms" : 31
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVParserTest#testIgnoreEmptyLines.txt",
+          "method" : "testIgnoreEmptyLines",
+          "oldTime" : 423.63225,
+          "changePercent" : 1.1791378803982284,
+          "tvalue" : 2.7341748821620095,
+          "vms" : 96
+        }, {
+          "diff" : "view_740a1b699338923098486fc16d8df967be388160/diffs/CSVParserTest#testIgnoreEmptyLines.txt",
+          "method" : "testIgnoreEmptyLines",
+          "oldTime" : 415.94141935483873,
+          "changePercent" : 1.8459330191038061,
+          "tvalue" : 2.7118148168443548,
+          "vms" : 31
+        } ]
+      }
+    },
+    "94b9f8dc957d3a2276232c8e6f3acc6fe633b00a" : {
+      "testcaseChanges" : {
+        "org.apache.commons.csv.CSVParserTest" : [ {
+          "diff" : "view_94b9f8dc957d3a2276232c8e6f3acc6fe633b00a/diffs/CSVParserTest#testIgnoreEmptyLines.txt",
+          "method" : "testIgnoreEmptyLines",
+          "oldTime" : 421.7044210526316,
+          "changePercent" : 1.870192442099629,
+          "tvalue" : 2.697216461072709,
+          "vms" : 38
+        } ]
+      }
+    },
+    "afc831bcb837030d83f58c7cd6bd41588bfa194c" : {
+      "testcaseChanges" : {
+        "org.apache.commons.csv.CSVLexerTest" : [ {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVLexerTest#testNextToken5.txt",
+          "method" : "testNextToken5",
+          "oldTime" : 405.1514193548387,
+          "changePercent" : 3.7625279724171663,
+          "tvalue" : 4.429131045036466,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVLexerTest#testNextToken5.txt",
+          "method" : "testNextToken5",
+          "oldTime" : 403.7796774193548,
+          "changePercent" : 3.4419121894166125,
+          "tvalue" : 4.1849958525888065,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVLexerTest#testNextToken4.txt",
+          "method" : "testNextToken4",
+          "oldTime" : 462.38277419354836,
+          "changePercent" : 4.402120125861366,
+          "tvalue" : 5.716900069728292,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVLexerTest#testNextToken4.txt",
+          "method" : "testNextToken4",
+          "oldTime" : 471.91548387096776,
+          "changePercent" : 6.452057435106618,
+          "tvalue" : 8.455227438977658,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVLexerTest#testNextToken2.txt",
+          "method" : "testNextToken2",
+          "oldTime" : 429.7005161290323,
+          "changePercent" : 4.371671913131399,
+          "tvalue" : 5.10513823731286,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVLexerTest#testNextToken2.txt",
+          "method" : "testNextToken2",
+          "oldTime" : 424.2907741935484,
+          "changePercent" : 3.8721771298958543,
+          "tvalue" : 4.941440222869564,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVLexerTest#testNextToken1.txt",
+          "method" : "testNextToken1",
+          "oldTime" : 448.6866451612903,
+          "changePercent" : 6.8981398470058055,
+          "tvalue" : 8.888093006084612,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVLexerTest#testNextToken1.txt",
+          "method" : "testNextToken1",
+          "oldTime" : 445.72851612903224,
+          "changePercent" : 7.038553194248718,
+          "tvalue" : 9.064953667554969,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVLexerTest#testDelimiterIsWhitespace.txt",
+          "method" : "testDelimiterIsWhitespace",
+          "oldTime" : 400.5076774193548,
+          "changePercent" : 4.766128280090956,
+          "tvalue" : 6.803415840965514,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVLexerTest#testDelimiterIsWhitespace.txt",
+          "method" : "testDelimiterIsWhitespace",
+          "oldTime" : 402.1266451612903,
+          "changePercent" : 4.246904722521206,
+          "tvalue" : 5.885049156383704,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVLexerTest#testNextToken6.txt",
+          "method" : "testNextToken6",
+          "oldTime" : 365.4133888888889,
+          "changePercent" : 2.3816861299098018,
+          "tvalue" : 2.691773395166659,
+          "vms" : 36
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVLexerTest#testNextToken3.txt",
+          "method" : "testNextToken3",
+          "oldTime" : 376.38464516129034,
+          "changePercent" : 3.0086243276867446,
+          "tvalue" : 3.5982538695606747,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVLexerTest#testNextToken3.txt",
+          "method" : "testNextToken3",
+          "oldTime" : 376.91,
+          "changePercent" : 2.8051532795114067,
+          "tvalue" : 3.5119125273221043,
+          "vms" : 31
+        } ],
+        "org.apache.commons.csv.CSVParserTest" : [ {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testDefaultFormat.txt",
+          "method" : "testDefaultFormat",
+          "oldTime" : 722.9497464788733,
+          "changePercent" : 0.9335657561922831,
+          "tvalue" : 2.751759105821656,
+          "vms" : 71
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testLineFeedEndings.txt",
+          "method" : "testLineFeedEndings",
+          "oldTime" : 409.6041818181818,
+          "changePercent" : 1.751757683581888,
+          "tvalue" : 2.754061888136473,
+          "vms" : 55
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testLineFeedEndings.txt",
+          "method" : "testLineFeedEndings",
+          "oldTime" : 422.9835483870968,
+          "changePercent" : 3.076745911722343,
+          "tvalue" : 3.7478115219535364,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testGetLine.txt",
+          "method" : "testGetLine",
+          "oldTime" : 492.1676129032258,
+          "changePercent" : 7.397886217100437,
+          "tvalue" : 9.930289712932597,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testGetLine.txt",
+          "method" : "testGetLine",
+          "oldTime" : 497.05006451612905,
+          "changePercent" : 6.628643625955256,
+          "tvalue" : 9.5610498848776,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testEndOfFileBehaviorCSV.txt",
+          "method" : "testEndOfFileBehaviorCSV",
+          "oldTime" : 2681.3393902439025,
+          "changePercent" : 0.49114150859169486,
+          "tvalue" : 2.7062816771278513,
+          "vms" : 82
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testEndOfFileBehaviorCSV.txt",
+          "method" : "testEndOfFileBehaviorCSV",
+          "oldTime" : 2692.5176774193546,
+          "changePercent" : 0.855342873239351,
+          "tvalue" : 3.1840066842118597,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testEndOfFileBehaviourExcel.txt",
+          "method" : "testEndOfFileBehaviourExcel",
+          "oldTime" : 2654.07855,
+          "changePercent" : 0.6727683323464663,
+          "tvalue" : 2.6670813902396335,
+          "vms" : 40
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testEndOfFileBehaviourExcel.txt",
+          "method" : "testEndOfFileBehaviourExcel",
+          "oldTime" : 2645.338451612903,
+          "changePercent" : 1.2570572712373893,
+          "tvalue" : 4.14305933869838,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testGetRecords.txt",
+          "method" : "testGetRecords",
+          "oldTime" : 503.18509677419354,
+          "changePercent" : 5.446081599678123,
+          "tvalue" : 7.854638549937037,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testGetRecords.txt",
+          "method" : "testGetRecords",
+          "oldTime" : 500.12167741935485,
+          "changePercent" : 6.596330234990558,
+          "tvalue" : 8.033256557565787,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testExcelFormat1.txt",
+          "method" : "testExcelFormat1",
+          "oldTime" : 548.6217419354839,
+          "changePercent" : 4.796406525819479,
+          "tvalue" : 5.911575855278275,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testExcelFormat1.txt",
+          "method" : "testExcelFormat1",
+          "oldTime" : 548.1547096774193,
+          "changePercent" : 5.306330988731921,
+          "tvalue" : 7.280174770738686,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testIterator.txt",
+          "method" : "testIterator",
+          "oldTime" : 606.0123243243244,
+          "changePercent" : 2.2406466089174217,
+          "tvalue" : 2.6565668746403195,
+          "vms" : 37
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testIterator.txt",
+          "method" : "testIterator",
+          "oldTime" : 600.1377777777777,
+          "changePercent" : 2.2291733009456944,
+          "tvalue" : 2.7697510447052993,
+          "vms" : 36
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testEmptyLineBehaviourCSV.txt",
+          "method" : "testEmptyLineBehaviourCSV",
+          "oldTime" : 1270.211189189189,
+          "changePercent" : 0.9718792452772358,
+          "tvalue" : 2.7660902864434007,
+          "vms" : 37
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testEmptyLineBehaviourCSV.txt",
+          "method" : "testEmptyLineBehaviourCSV",
+          "oldTime" : 1257.919,
+          "changePercent" : 0.8530060361597244,
+          "tvalue" : 2.6842052129649034,
+          "vms" : 32
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testBackslashEscaping2.txt",
+          "method" : "testBackslashEscaping2",
+          "oldTime" : 467.99238709677417,
+          "changePercent" : 2.6301916684059563,
+          "tvalue" : 3.3137997652083566,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testBackslashEscaping2.txt",
+          "method" : "testBackslashEscaping2",
+          "oldTime" : 466.8405238095238,
+          "changePercent" : 1.5883368349199745,
+          "tvalue" : 2.6654337440225615,
+          "vms" : 42
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testBackslashEscaping.txt",
+          "method" : "testBackslashEscaping",
+          "oldTime" : 739.3936774193548,
+          "changePercent" : 4.805794669424863,
+          "tvalue" : 10.215488232889914,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testBackslashEscaping.txt",
+          "method" : "testBackslashEscaping",
+          "oldTime" : 743.878,
+          "changePercent" : 4.688680740138709,
+          "tvalue" : 7.368550048419417,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testIgnoreEmptyLines.txt",
+          "method" : "testIgnoreEmptyLines",
+          "oldTime" : 422.4487741935484,
+          "changePercent" : 4.421288108838849,
+          "tvalue" : 6.116072863849715,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testIgnoreEmptyLines.txt",
+          "method" : "testIgnoreEmptyLines",
+          "oldTime" : 421.21322580645165,
+          "changePercent" : 3.228829778190651,
+          "tvalue" : 4.34390366726311,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testEmptyLineBehaviourExcel.txt",
+          "method" : "testEmptyLineBehaviourExcel",
+          "oldTime" : 1313.468129032258,
+          "changePercent" : 1.0055378629224725,
+          "tvalue" : 3.0662750595730124,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testEmptyLineBehaviourExcel.txt",
+          "method" : "testEmptyLineBehaviourExcel",
+          "oldTime" : 1331.3065641025642,
+          "changePercent" : 0.815173742178397,
+          "tvalue" : 2.721910297529975,
+          "vms" : 39
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testUnicodeEscape.txt",
+          "method" : "testUnicodeEscape",
+          "oldTime" : 402.5184117647059,
+          "changePercent" : 2.4135688056943883,
+          "tvalue" : 2.6827404239166297,
+          "vms" : 34
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testUnicodeEscape.txt",
+          "method" : "testUnicodeEscape",
+          "oldTime" : 403.87982857142856,
+          "changePercent" : 2.2589887770011385,
+          "tvalue" : 2.7753646188289225,
+          "vms" : 35
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testCarriageReturnLineFeedEndings.txt",
+          "method" : "testCarriageReturnLineFeedEndings",
+          "oldTime" : 441.9583225806452,
+          "changePercent" : 2.306946473131178,
+          "tvalue" : 2.9764696166640987,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testCarriageReturnLineFeedEndings.txt",
+          "method" : "testCarriageReturnLineFeedEndings",
+          "oldTime" : 447.35683870967745,
+          "changePercent" : 3.9505303624976635,
+          "tvalue" : 5.240911729773142,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testExcelFormat2.txt",
+          "method" : "testExcelFormat2",
+          "oldTime" : 441.7089387755102,
+          "changePercent" : 1.5565148681803507,
+          "tvalue" : 2.69794831431198,
+          "vms" : 49
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testExcelFormat2.txt",
+          "method" : "testExcelFormat2",
+          "oldTime" : 437.7597419354839,
+          "changePercent" : 2.9619576270736805,
+          "tvalue" : 3.5487418107398114,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testForEach.txt",
+          "method" : "testForEach",
+          "oldTime" : 414.98870967741937,
+          "changePercent" : 3.4066375688417487,
+          "tvalue" : 4.182429980448517,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testForEach.txt",
+          "method" : "testForEach",
+          "oldTime" : 413.92832258064516,
+          "changePercent" : 2.352020117555024,
+          "tvalue" : 3.007190341949169,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testCarriageReturnEndings.txt",
+          "method" : "testCarriageReturnEndings",
+          "oldTime" : 432.92309677419354,
+          "changePercent" : 2.741200552940338,
+          "tvalue" : 3.232271157717245,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/CSVParserTest#testCarriageReturnEndings.txt",
+          "method" : "testCarriageReturnEndings",
+          "oldTime" : 433.8872903225806,
+          "changePercent" : 2.2664872236033227,
+          "tvalue" : 3.07215191747013,
+          "vms" : 31
+        } ],
+        "org.apache.commons.csv.ExtendedBufferedReaderTest" : [ {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/ExtendedBufferedReaderTest#testReadLookahead2.txt",
+          "method" : "testReadLookahead2",
+          "oldTime" : 598.9544516129032,
+          "changePercent" : 1.7635139254490155,
+          "tvalue" : 3.3828850549171547,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/ExtendedBufferedReaderTest#testReadLookahead2.txt",
+          "method" : "testReadLookahead2",
+          "oldTime" : 592.4882580645161,
+          "changePercent" : 2.4384204483486123,
+          "tvalue" : 3.7124247472025833,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/ExtendedBufferedReaderTest#testReadLookahead1.txt",
+          "method" : "testReadLookahead1",
+          "oldTime" : 624.3077419354838,
+          "changePercent" : 1.9582257302798354,
+          "tvalue" : 4.0773312543552285,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/ExtendedBufferedReaderTest#testReadLine.txt",
+          "method" : "testReadLine",
+          "oldTime" : 1445.4663870967743,
+          "changePercent" : 2.3985248828495203,
+          "tvalue" : 7.2194521824090865,
+          "vms" : 31
+        }, {
+          "diff" : "view_afc831bcb837030d83f58c7cd6bd41588bfa194c/diffs/ExtendedBufferedReaderTest#testReadLine.txt",
+          "method" : "testReadLine",
+          "oldTime" : 1439.9749677419354,
+          "changePercent" : 3.2167897900734075,
+          "tvalue" : 10.29756410764929,
+          "vms" : 31
+        } ]
+      }
+    },
+    "19ba389fe8194bb6c22102b32e021d8487e1e307" : {
+      "testcaseChanges" : {
+        "org.apache.commons.csv.CSVLexerTest" : [ {
+          "diff" : "view_19ba389fe8194bb6c22102b32e021d8487e1e307/diffs/CSVLexerTest#testNextToken1.txt",
+          "method" : "testNextToken1",
+          "oldTime" : 24.753096774193548,
+          "changePercent" : -5.848469921000453,
+          "tvalue" : -5.410188938993148,
+          "vms" : 31
+        }, {
+          "diff" : "view_19ba389fe8194bb6c22102b32e021d8487e1e307/diffs/CSVLexerTest#testNextToken1.txt",
+          "method" : "testNextToken1",
+          "oldTime" : 23.76632258064516,
+          "changePercent" : -6.584540879205592,
+          "tvalue" : -8.008414467908931,
+          "vms" : 31
+        }, {
+          "diff" : "view_19ba389fe8194bb6c22102b32e021d8487e1e307/diffs/CSVLexerTest#testDelimiterIsWhitespace.txt",
+          "method" : "testDelimiterIsWhitespace",
+          "oldTime" : 23.77348387096774,
+          "changePercent" : -5.191471115827068,
+          "tvalue" : -3.237815586745968,
+          "vms" : 31
+        }, {
+          "diff" : "view_19ba389fe8194bb6c22102b32e021d8487e1e307/diffs/CSVLexerTest#testDelimiterIsWhitespace.txt",
+          "method" : "testDelimiterIsWhitespace",
+          "oldTime" : 24.213225806451614,
+          "changePercent" : -4.524853119462835,
+          "tvalue" : -7.680218206877747,
+          "vms" : 31
+        }, {
+          "diff" : "view_19ba389fe8194bb6c22102b32e021d8487e1e307/diffs/CSVLexerTest#testNextToken3.txt",
+          "method" : "testNextToken3",
+          "oldTime" : 22.239428571428572,
+          "changePercent" : 1.890036571683078,
+          "tvalue" : 2.738165896874993,
+          "vms" : 42
+        } ],
+        "org.apache.commons.csv.CSVParserTest" : [ {
+          "diff" : "view_19ba389fe8194bb6c22102b32e021d8487e1e307/diffs/CSVParserTest#testDefaultFormat.txt",
+          "method" : "testDefaultFormat",
+          "oldTime" : 34.992387096774195,
+          "changePercent" : 2.3435512240450582,
+          "tvalue" : 2.7352248694067915,
+          "vms" : 31
+        }, {
+          "diff" : "view_19ba389fe8194bb6c22102b32e021d8487e1e307/diffs/CSVParserTest#testIterator.txt",
+          "method" : "testIterator",
+          "oldTime" : 53.123827956989246,
+          "changePercent" : 1.115834864212563,
+          "tvalue" : 2.608326366866054,
+          "vms" : 93
+        }, {
+          "diff" : "view_19ba389fe8194bb6c22102b32e021d8487e1e307/diffs/CSVParserTest#testBackslashEscaping.txt",
+          "method" : "testBackslashEscaping",
+          "oldTime" : 33.420382352941175,
+          "changePercent" : 1.3517640256518382,
+          "tvalue" : 2.639930676882023,
+          "vms" : 68
+        }, {
+          "diff" : "view_19ba389fe8194bb6c22102b32e021d8487e1e307/diffs/CSVParserTest#testCarriageReturnLineFeedEndings.txt",
+          "method" : "testCarriageReturnLineFeedEndings",
+          "oldTime" : 27.99978947368421,
+          "changePercent" : 1.2711373769727592,
+          "tvalue" : 2.74650642960514,
+          "vms" : 95
+        }, {
+          "diff" : "view_19ba389fe8194bb6c22102b32e021d8487e1e307/diffs/CSVParserTest#testExcelFormat2.txt",
+          "method" : "testExcelFormat2",
+          "oldTime" : 29.88513924050633,
+          "changePercent" : 1.4089386960878922,
+          "tvalue" : 2.676019018967426,
+          "vms" : 79
+        } ]
+      }
+    }
+  }
+}

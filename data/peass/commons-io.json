@@ -1,0 +1,121 @@
+{
+  "versionCount" : 5,
+  "changeCount" : 13,
+  "testcaseCount" : 69,
+  "versionChanges" : {
+    "6eca4c05986bac88d1b65af83348a754efa36559" : {
+      "testcaseChanges" : {
+        "org.apache.commons.io.CopyUtilsTest" : [ {
+          "diff" : "view_6eca4c05986bac88d1b65af83348a754efa36559/diffs/CopyUtilsTest#testCopy_stringToOutputStream.txt",
+          "method" : "testCopy_stringToOutputStream",
+          "oldTime" : 1379.3691612903226,
+          "changePercent" : -1.8397610651563776,
+          "tvalue" : -2.6827004062235877,
+          "vms" : 31
+        } ],
+        "org.apache.commons.io.IOUtilsCopyTestCase" : [ {
+          "diff" : "view_6eca4c05986bac88d1b65af83348a754efa36559/diffs/IOUtilsCopyTestCase#testCopy_readerToOutputStream.txt",
+          "method" : "testCopy_readerToOutputStream",
+          "oldTime" : 1461.2922391304348,
+          "changePercent" : 2.1000798831373952,
+          "tvalue" : 2.6703218245148315,
+          "vms" : 92
+        } ],
+        "org.apache.commons.io.IOUtilsWriteTestCase" : [ {
+          "diff" : "view_6eca4c05986bac88d1b65af83348a754efa36559/diffs/IOUtilsWriteTestCase#testWrite_stringToOutputStream_nullEncoding.txt",
+          "method" : "testWrite_stringToOutputStream_nullEncoding",
+          "oldTime" : 1173.0048387096774,
+          "changePercent" : 2.6303661811476764,
+          "tvalue" : 3.096197877335483,
+          "vms" : 31
+        }, {
+          "diff" : "view_6eca4c05986bac88d1b65af83348a754efa36559/diffs/IOUtilsWriteTestCase#testWrite_byteArrayToWriter.txt",
+          "method" : "testWrite_byteArrayToWriter",
+          "oldTime" : 1389.7163870967743,
+          "changePercent" : -11.67371629876303,
+          "tvalue" : -10.6354261778503,
+          "vms" : 31
+        }, {
+          "diff" : "view_6eca4c05986bac88d1b65af83348a754efa36559/diffs/IOUtilsWriteTestCase#testWrite_stringToWriter.txt",
+          "method" : "testWrite_stringToWriter",
+          "oldTime" : 1371.3577142857143,
+          "changePercent" : -2.081943215214255,
+          "tvalue" : -2.6753254415450107,
+          "vms" : 63
+        }, {
+          "diff" : "view_6eca4c05986bac88d1b65af83348a754efa36559/diffs/IOUtilsWriteTestCase#testWrite_byteArrayToWriter_Encoding_nullEncoding.txt",
+          "method" : "testWrite_byteArrayToWriter_Encoding_nullEncoding",
+          "oldTime" : 1388.5707391304347,
+          "changePercent" : -2.559500734051627,
+          "tvalue" : -2.649259311283908,
+          "vms" : 46
+        }, {
+          "diff" : "view_6eca4c05986bac88d1b65af83348a754efa36559/diffs/IOUtilsWriteTestCase#testWrite_charArrayToWriter.txt",
+          "method" : "testWrite_charArrayToWriter",
+          "oldTime" : 1306.0043870967743,
+          "changePercent" : -9.273515259643444,
+          "tvalue" : -8.032969824781784,
+          "vms" : 31
+        } ],
+        "org.apache.commons.io.output.ByteArrayOutputStreamTestCase" : [ {
+          "diff" : "view_6eca4c05986bac88d1b65af83348a754efa36559/diffs/ByteArrayOutputStreamTestCase#testStream.txt",
+          "method" : "testStream",
+          "oldTime" : 262.8175483870968,
+          "changePercent" : -18.29916596132433,
+          "tvalue" : -12.366502844406568,
+          "vms" : 31
+        } ]
+      }
+    },
+    "328a7efc17e8c77853fea42a84808dd1d26c8d5a" : {
+      "testcaseChanges" : {
+        "org.apache.commons.io.FileCleaningTrackerTestCase" : [ {
+          "diff" : "view_328a7efc17e8c77853fea42a84808dd1d26c8d5a/diffs/FileCleaningTrackerTestCase#testFileCleanerDirectory_ForceStrategy.txt",
+          "method" : "testFileCleanerDirectory_ForceStrategy",
+          "oldTime" : 2467251.84375,
+          "changePercent" : -357.7102077734573,
+          "tvalue" : -14.50529745994706,
+          "vms" : 32
+        }, {
+          "diff" : "view_328a7efc17e8c77853fea42a84808dd1d26c8d5a/diffs/FileCleaningTrackerTestCase#testFileCleanerDirectory.txt",
+          "method" : "testFileCleanerDirectory",
+          "oldTime" : 1526922.75,
+          "changePercent" : -640.0967651462563,
+          "tvalue" : -30.90880340281574,
+          "vms" : 32
+        }, {
+          "diff" : "view_328a7efc17e8c77853fea42a84808dd1d26c8d5a/diffs/FileCleaningTrackerTestCase#testFileCleanerDirectory_NullStrategy.txt",
+          "method" : "testFileCleanerDirectory_NullStrategy",
+          "oldTime" : 1519735.484375,
+          "changePercent" : -643.1847411558833,
+          "tvalue" : -31.334821012748453,
+          "vms" : 32
+        } ]
+      }
+    },
+    "53615435dbb357c140a5eb6a15f7a1c10a434458" : {
+      "testcaseChanges" : {
+        "org.apache.commons.io.FileCleaningTrackerTestCase" : [ {
+          "diff" : "view_53615435dbb357c140a5eb6a15f7a1c10a434458/diffs/FileCleaningTrackerTestCase#testFileCleanerExitWhenFinishedFirst.txt",
+          "method" : "testFileCleanerExitWhenFinishedFirst",
+          "oldTime" : 14576.548387096775,
+          "changePercent" : -376038.69035105,
+          "tvalue" : -2053.3255498755357,
+          "vms" : 31
+        } ]
+      }
+    },
+    "59ffcad15d220c2bc1f70f01d58bc31dec04b423" : {
+      "testcaseChanges" : {
+        "org.apache.commons.io.input.TailerTest" : [ {
+          "diff" : "view_59ffcad15d220c2bc1f70f01d58bc31dec04b423/diffs/TailerTest#testStopWithNoFile.txt",
+          "method" : "testStopWithNoFile",
+          "oldTime" : 2.0056719541666668E7,
+          "changePercent" : -0.001972556915452663,
+          "tvalue" : -2.7456695617673166,
+          "vms" : 48
+        } ]
+      }
+    }
+  }
+}

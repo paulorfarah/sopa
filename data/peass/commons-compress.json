@@ -1,0 +1,1655 @@
+{
+  "versionCount" : 31,
+  "changeCount" : 213,
+  "testcaseCount" : 982,
+  "versionChanges" : {
+    "b1bfbcb3397390ec51f0bf2472ac17c02534ee8a" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.compressors.BZip2TestCase" : [ {
+          "diff" : "view_b1bfbcb3397390ec51f0bf2472ac17c02534ee8a/diffs/BZip2TestCase#testBzipCreation.txt",
+          "method" : "testBzipCreation",
+          "oldTime" : 239348.30787096775,
+          "changePercent" : 1.4519174864429523,
+          "tvalue" : 18.23374273269019,
+          "vms" : 31
+        } ]
+      }
+    },
+    "2318ba308b4d36c493330c9286a86878bc24af55" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.archivers.TarTestCase" : [ {
+          "diff" : "view_2318ba308b4d36c493330c9286a86878bc24af55/diffs/TarTestCase#testTarArchiveLongNameCreation.txt",
+          "method" : "testTarArchiveLongNameCreation",
+          "oldTime" : 48146.63006896552,
+          "changePercent" : -0.5098852222315258,
+          "tvalue" : -2.6735818559640565,
+          "vms" : 87
+        } ],
+        "org.apache.commons.compress.archivers.tar.TarArchiveEntryTest" : [ {
+          "diff" : "view_2318ba308b4d36c493330c9286a86878bc24af55/diffs/TarArchiveEntryTest#testTarFileWithFSRoot.txt",
+          "method" : "testTarFileWithFSRoot",
+          "oldTime" : 12678.220774193549,
+          "changePercent" : -1.8041485438513432,
+          "tvalue" : -3.578783726368445,
+          "vms" : 31
+        } ]
+      }
+    },
+    "f36320acca053aa7d0bb82f2aab582b0c04fcab1" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.archivers.tar.TarArchiveInputStreamTest" : [ {
+          "diff" : "view_f36320acca053aa7d0bb82f2aab582b0c04fcab1/diffs/TarArchiveInputStreamTest#workaroundForBrokenTimeHeader.txt",
+          "method" : "workaroundForBrokenTimeHeader",
+          "oldTime" : 148.7892156862745,
+          "changePercent" : 1.1175962837281321,
+          "tvalue" : 2.660831759146017,
+          "vms" : 51
+        } ]
+      }
+    },
+    "21148e7b5bc4cf6d0c38dc80bed5d7eb709897e1" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.archivers.ArchiveOutputStreamTest" : [ {
+          "diff" : "view_21148e7b5bc4cf6d0c38dc80bed5d7eb709897e1/diffs/ArchiveOutputStreamTest#testCallSequenceTar.txt",
+          "method" : "testCallSequenceTar",
+          "oldTime" : 38349.06557575757,
+          "changePercent" : -0.7708722457560642,
+          "tvalue" : -2.666716000442509,
+          "vms" : 33
+        } ],
+        "org.apache.commons.compress.archivers.TarTestCase" : [ {
+          "diff" : "view_21148e7b5bc4cf6d0c38dc80bed5d7eb709897e1/diffs/TarTestCase#testTarArchiveLongNameCreation.txt",
+          "method" : "testTarArchiveLongNameCreation",
+          "oldTime" : 55072.694516129035,
+          "changePercent" : -2.5100218126361096,
+          "tvalue" : -6.538742776705527,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.tar.TarArchiveOutputStreamTest" : [ {
+          "diff" : "view_21148e7b5bc4cf6d0c38dc80bed5d7eb709897e1/diffs/TarArchiveOutputStreamTest#testCount.txt",
+          "method" : "testCount",
+          "oldTime" : 47620.21548387097,
+          "changePercent" : -1.076107227651517,
+          "tvalue" : -3.907106070927157,
+          "vms" : 31
+        } ]
+      }
+    },
+    "a2f978e97f13697e7adfddc3f96a9131803db679" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.IOMethodsTest" : [ {
+          "diff" : "view_a2f978e97f13697e7adfddc3f96a9131803db679/diffs/IOMethodsTest#testWriteZip.txt",
+          "method" : "testWriteZip",
+          "oldTime" : 48086.66716129032,
+          "changePercent" : -1.9335388413968557,
+          "tvalue" : -3.530052277717845,
+          "vms" : 31
+        }, {
+          "diff" : "view_a2f978e97f13697e7adfddc3f96a9131803db679/diffs/IOMethodsTest#testReadCpio.txt",
+          "method" : "testReadCpio",
+          "oldTime" : 101632.4193125,
+          "changePercent" : -0.42099909201647745,
+          "tvalue" : -2.6318320769656904,
+          "vms" : 96
+        } ],
+        "org.apache.commons.compress.archivers.ArchiveStreamFactoryTest" : [ {
+          "diff" : "view_a2f978e97f13697e7adfddc3f96a9131803db679/diffs/ArchiveStreamFactoryTest#aiffFilesAreNoTARs.txt",
+          "method" : "aiffFilesAreNoTARs",
+          "oldTime" : 128.49122222222223,
+          "changePercent" : -1.3817632159914088,
+          "tvalue" : -2.6719123450882614,
+          "vms" : 36
+        }, {
+          "diff" : "view_a2f978e97f13697e7adfddc3f96a9131803db679/diffs/ArchiveStreamFactoryTest#testCOMPRESS209.txt",
+          "method" : "testCOMPRESS209",
+          "oldTime" : 121.99057894736842,
+          "changePercent" : -1.4289714348088163,
+          "tvalue" : -2.723001979490442,
+          "vms" : 38
+        } ],
+        "org.apache.commons.compress.archivers.tar.SparseFilesTest" : [ {
+          "diff" : "view_a2f978e97f13697e7adfddc3f96a9131803db679/diffs/SparseFilesTest#testOldGNU.txt",
+          "method" : "testOldGNU",
+          "oldTime" : 2911.8732258064515,
+          "changePercent" : -5.285747219365609,
+          "tvalue" : -6.009547758768609,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.tar.TarArchiveInputStreamTest" : [ {
+          "diff" : "view_a2f978e97f13697e7adfddc3f96a9131803db679/diffs/TarArchiveInputStreamTest#shouldUseSpecifiedEncodingWhenReadingGNULongNames.txt",
+          "method" : "shouldUseSpecifiedEncodingWhenReadingGNULongNames",
+          "oldTime" : 132.99322580645162,
+          "changePercent" : -1.4205428847940293,
+          "tvalue" : -2.7270592529038282,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.tar.TarArchiveOutputStreamTest" : [ {
+          "diff" : "view_a2f978e97f13697e7adfddc3f96a9131803db679/diffs/TarArchiveOutputStreamTest#testWriteLongFileNamePosixMode.txt",
+          "method" : "testWriteLongFileNamePosixMode",
+          "oldTime" : 37320.10444444444,
+          "changePercent" : -0.4774006581563912,
+          "tvalue" : -2.687959562191423,
+          "vms" : 99
+        } ],
+        "org.apache.commons.compress.archivers.zip.EncryptedArchiveTest" : [ {
+          "diff" : "view_a2f978e97f13697e7adfddc3f96a9131803db679/diffs/EncryptedArchiveTest#testReadPasswordEncryptedEntryViaStream.txt",
+          "method" : "testReadPasswordEncryptedEntryViaStream",
+          "oldTime" : 3337.6236438356163,
+          "changePercent" : -1.5577435321199717,
+          "tvalue" : -2.6178036379683807,
+          "vms" : 73
+        } ],
+        "org.apache.commons.compress.archivers.zip.Zip64SupportIT" : [ {
+          "diff" : "view_a2f978e97f13697e7adfddc3f96a9131803db679/diffs/Zip64SupportIT#writeSmallStoredEntryUnnownSizeToFileModeAlways.txt",
+          "method" : "writeSmallStoredEntryUnnownSizeToFileModeAlways",
+          "oldTime" : 1635.4970322580646,
+          "changePercent" : 1.2821869204681704,
+          "tvalue" : 3.258452285417052,
+          "vms" : 31
+        }, {
+          "diff" : "view_a2f978e97f13697e7adfddc3f96a9131803db679/diffs/Zip64SupportIT#writeSmallDeflatedEntryUnknownSizeToFileModeNever.txt",
+          "method" : "writeSmallDeflatedEntryUnknownSizeToFileModeNever",
+          "oldTime" : 7791.9788181818185,
+          "changePercent" : -0.6214006765255404,
+          "tvalue" : -2.67638273708157,
+          "vms" : 88
+        } ]
+      }
+    },
+    "afb5df5db3c52da18f8e8ef4d6142eb0340b5777" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.compressors.XZTestCase" : [ {
+          "diff" : "view_afb5df5db3c52da18f8e8ef4d6142eb0340b5777/diffs/XZTestCase#testXZCreation.txt",
+          "method" : "testXZCreation",
+          "oldTime" : 1241408.9123817359,
+          "changePercent" : -0.9580627817241294,
+          "tvalue" : -8.925776897616426,
+          "vms" : 11
+        } ]
+      }
+    },
+    "d2bcb0371967f313aa9710f12725c20a5650dc93" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.archivers.ArchiveOutputStreamTest" : [ {
+          "diff" : "view_d2bcb0371967f313aa9710f12725c20a5650dc93/diffs/ArchiveOutputStreamTest#testCallSequenceTar.txt",
+          "method" : "testCallSequenceTar",
+          "oldTime" : 59723.97547619048,
+          "changePercent" : -1.6536253684544644,
+          "tvalue" : -2.890526584020535,
+          "vms" : 42
+        } ]
+      }
+    },
+    "a671a703fe86b69adb8c61495a915065c186362d" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.ChainingTestCase" : [ {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/ChainingTestCase#testTarGzip.txt",
+          "method" : "testTarGzip",
+          "oldTime" : 51028.960258064515,
+          "changePercent" : 3.452411344447892,
+          "tvalue" : 6.8013422547464675,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/ChainingTestCase#testTarBzip2.txt",
+          "method" : "testTarBzip2",
+          "oldTime" : 211432.05625806452,
+          "changePercent" : 5.204833266422092,
+          "tvalue" : 4.962039707909421,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.DetectArchiverTestCase" : [ {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/DetectArchiverTestCase#testCOMPRESS117.txt",
+          "method" : "testCOMPRESS117",
+          "oldTime" : 53188.54537142857,
+          "changePercent" : 1.559819844518524,
+          "tvalue" : 2.7539543270054794,
+          "vms" : 35
+        } ],
+        "org.apache.commons.compress.IOMethodsTest" : [ {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/IOMethodsTest#testWriteTar.txt",
+          "method" : "testWriteTar",
+          "oldTime" : 52211.26348387097,
+          "changePercent" : -1.0340857312775746,
+          "tvalue" : -3.016215849113662,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/IOMethodsTest#testReadTar.txt",
+          "method" : "testReadTar",
+          "oldTime" : 66951.58838709678,
+          "changePercent" : -54.97468753590098,
+          "tvalue" : -29.358123715222842,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.ArchiveStreamFactoryTest" : [ {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/ArchiveStreamFactoryTest#aiffFilesAreNoTARs.txt",
+          "method" : "aiffFilesAreNoTARs",
+          "oldTime" : 117.19690322580645,
+          "changePercent" : 3.9479189145149673,
+          "tvalue" : 4.010843289465421,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/ArchiveStreamFactoryTest#testCOMPRESS209.txt",
+          "method" : "testCOMPRESS209",
+          "oldTime" : 144.769935483871,
+          "changePercent" : 3.9477542565868906,
+          "tvalue" : 4.790167054892946,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.TarTestCase" : [ {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarTestCase#testExplicitFileEntry.txt",
+          "method" : "testExplicitFileEntry",
+          "oldTime" : 98250.90496774194,
+          "changePercent" : -23.136784345613375,
+          "tvalue" : -35.81846343406452,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarTestCase#testCOMPRESS178.txt",
+          "method" : "testCOMPRESS178",
+          "oldTime" : 48464.58610169491,
+          "changePercent" : 0.9824664634205831,
+          "tvalue" : 2.760428153339532,
+          "vms" : 59
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarTestCase#testDirectoryEntryFromFile.txt",
+          "method" : "testDirectoryEntryFromFile",
+          "oldTime" : 83952.75038709678,
+          "changePercent" : -23.401403350514908,
+          "tvalue" : -45.257451776668944,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarTestCase#testFileEntryFromFile.txt",
+          "method" : "testFileEntryFromFile",
+          "oldTime" : 106068.65451612903,
+          "changePercent" : -24.15667638077468,
+          "tvalue" : -41.15569755290027,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarTestCase#testTarArchiveCreation.txt",
+          "method" : "testTarArchiveCreation",
+          "oldTime" : 60533.01722580645,
+          "changePercent" : -36.42194236397997,
+          "tvalue" : -46.53414408019647,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarTestCase#testExplicitDirectoryEntry.txt",
+          "method" : "testExplicitDirectoryEntry",
+          "oldTime" : 101139.88903225807,
+          "changePercent" : -22.566165592123863,
+          "tvalue" : -61.022285811400074,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarTestCase#testTarArchiveLongNameCreation.txt",
+          "method" : "testTarArchiveLongNameCreation",
+          "oldTime" : 52053.767225806456,
+          "changePercent" : -54.03034558589514,
+          "tvalue" : -102.68876799932849,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.tar.SparseFilesTest" : [ {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/SparseFilesTest#testOldGNU.txt",
+          "method" : "testOldGNU",
+          "oldTime" : 3096.917419354839,
+          "changePercent" : 17.11757706206088,
+          "tvalue" : 18.478747732423226,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.tar.TarArchiveEntryTest" : [ {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarArchiveEntryTest#testTarFileWithFSRoot.txt",
+          "method" : "testTarFileWithFSRoot",
+          "oldTime" : 19924.34729032258,
+          "changePercent" : -118.65681774727858,
+          "tvalue" : -94.27626654041937,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.tar.TarArchiveInputStreamTest" : [ {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarArchiveInputStreamTest#shouldConsumeArchiveCompletely.txt",
+          "method" : "shouldConsumeArchiveCompletely",
+          "oldTime" : 157.46606451612902,
+          "changePercent" : 3.1186238181785346,
+          "tvalue" : 5.567146358185584,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarArchiveInputStreamTest#datePriorToEpochInPAXFormat.txt",
+          "method" : "datePriorToEpochInPAXFormat",
+          "oldTime" : 181.21387096774194,
+          "changePercent" : -33.75544491182224,
+          "tvalue" : -33.90789566350904,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarArchiveInputStreamTest#datePriorToEpochInGNUFormat.txt",
+          "method" : "datePriorToEpochInGNUFormat",
+          "oldTime" : 181.12374193548385,
+          "changePercent" : 3.328218313054897,
+          "tvalue" : 4.560514975721199,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarArchiveInputStreamTest#workaroundForBrokenTimeHeader.txt",
+          "method" : "workaroundForBrokenTimeHeader",
+          "oldTime" : 130.27516279069766,
+          "changePercent" : 2.540347514884415,
+          "tvalue" : 2.7624483757801004,
+          "vms" : 43
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarArchiveInputStreamTest#readNonAsciiPaxHeader.txt",
+          "method" : "readNonAsciiPaxHeader",
+          "oldTime" : 39.068451612903225,
+          "changePercent" : 8.0992666304468,
+          "tvalue" : 6.087570691778344,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarArchiveInputStreamTest#readPaxHeaderWithEmbeddedNewline.txt",
+          "method" : "readPaxHeaderWithEmbeddedNewline",
+          "oldTime" : 36.038387096774194,
+          "changePercent" : 6.268226532639932,
+          "tvalue" : 4.760196007176378,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarArchiveInputStreamTest#readSimplePaxHeader.txt",
+          "method" : "readSimplePaxHeader",
+          "oldTime" : 38.09967741935483,
+          "changePercent" : 9.65751974870669,
+          "tvalue" : 6.285502186891819,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarArchiveInputStreamTest#testCompress197.txt",
+          "method" : "testCompress197",
+          "oldTime" : 155.64845161290322,
+          "changePercent" : 4.095789063112037,
+          "tvalue" : 6.307960304118896,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.tar.TarArchiveOutputStreamTest" : [ {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarArchiveOutputStreamTest#testCount.txt",
+          "method" : "testCount",
+          "oldTime" : 62430.095677419355,
+          "changePercent" : -35.99238468198551,
+          "tvalue" : -28.0710341353835,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarArchiveOutputStreamTest#testPadsOutputToFullBlockLength.txt",
+          "method" : "testPadsOutputToFullBlockLength",
+          "oldTime" : 69888.65006451613,
+          "changePercent" : -37.959572199713556,
+          "tvalue" : -68.94596722222273,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarArchiveOutputStreamTest#testOldEntryError.txt",
+          "method" : "testOldEntryError",
+          "oldTime" : 41063.176258064515,
+          "changePercent" : -5.3420740678621295,
+          "tvalue" : -4.8832384263459145,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/TarArchiveOutputStreamTest#testWriteLongDirectoryNamePosixMode.txt",
+          "method" : "testWriteLongDirectoryNamePosixMode",
+          "oldTime" : 56167.168,
+          "changePercent" : 0.5845654383924971,
+          "tvalue" : 2.6380152411482705,
+          "vms" : 81
+        } ],
+        "org.apache.commons.compress.changes.ChangeSetTestCase" : [ {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/ChangeSetTestCase#testDeleteFromTar.txt",
+          "method" : "testDeleteFromTar",
+          "oldTime" : 113275.82180645161,
+          "changePercent" : -20.45839263624471,
+          "tvalue" : -55.7333245533265,
+          "vms" : 31
+        }, {
+          "diff" : "view_a671a703fe86b69adb8c61495a915065c186362d/diffs/ChangeSetTestCase#testDeleteFromAndAddToTar.txt",
+          "method" : "testDeleteFromAndAddToTar",
+          "oldTime" : 140253.10709677418,
+          "changePercent" : -18.132908018699247,
+          "tvalue" : -28.414888850656748,
+          "vms" : 31
+        } ]
+      }
+    },
+    "840a20e10b88734211f814cec99177e3bcd06a4a" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.utils.BitInputStreamTest" : [ {
+          "diff" : "view_840a20e10b88734211f814cec99177e3bcd06a4a/diffs/BitInputStreamTest#testReading17BitsInLittleEndian.txt",
+          "method" : "testReading17BitsInLittleEndian",
+          "oldTime" : 10.686634146341463,
+          "changePercent" : -2.406470813781521,
+          "tvalue" : -2.6663004832571393,
+          "vms" : 41
+        }, {
+          "diff" : "view_840a20e10b88734211f814cec99177e3bcd06a4a/diffs/BitInputStreamTest#testReading24BitsInLittleEndian.txt",
+          "method" : "testReading24BitsInLittleEndian",
+          "oldTime" : 10.320129032258064,
+          "changePercent" : -2.8012903064477883,
+          "tvalue" : -2.835535941973646,
+          "vms" : 31
+        } ]
+      }
+    },
+    "1418705648202405208e3f4d900dfcc81457cbac" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.DetectArchiverTestCase" : [ {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/DetectArchiverTestCase#testEmptyCpioArchive.txt",
+          "method" : "testEmptyCpioArchive",
+          "oldTime" : 61729.90933333334,
+          "changePercent" : 1.810073165304598,
+          "tvalue" : 2.694200180411039,
+          "vms" : 42
+        } ],
+        "org.apache.commons.compress.IOMethodsTest" : [ {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/IOMethodsTest#testReadZip.txt",
+          "method" : "testReadZip",
+          "oldTime" : 109605.20122580645,
+          "changePercent" : 19.01093881394146,
+          "tvalue" : 20.83129068777706,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/IOMethodsTest#testReadJar.txt",
+          "method" : "testReadJar",
+          "oldTime" : 96929.26219354839,
+          "changePercent" : 19.529161739927833,
+          "tvalue" : 45.568309781108475,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.ArchiveStreamFactoryTest" : [ {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ArchiveStreamFactoryTest#aiffFilesAreNoTARs.txt",
+          "method" : "aiffFilesAreNoTARs",
+          "oldTime" : 112.47929032258064,
+          "changePercent" : 4.459717028912545,
+          "tvalue" : 5.207874618374184,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ArchiveStreamFactoryTest#testCOMPRESS209.txt",
+          "method" : "testCOMPRESS209",
+          "oldTime" : 113.5279,
+          "changePercent" : -1.82972643728987,
+          "tvalue" : -2.807876428663794,
+          "vms" : 40
+        } ],
+        "org.apache.commons.compress.archivers.JarTestCase" : [ {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/JarTestCase#testJarArchiveCreation.txt",
+          "method" : "testJarArchiveCreation",
+          "oldTime" : 121783.6209032258,
+          "changePercent" : 32.002935683722455,
+          "tvalue" : 70.66787575672235,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.ZipTestCase" : [ {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ZipTestCase#testFileEntryFromFile.txt",
+          "method" : "testFileEntryFromFile",
+          "oldTime" : 116654.22270967741,
+          "changePercent" : 15.315050370876827,
+          "tvalue" : 17.906004775546908,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ZipTestCase#testDirectoryEntryFromFile.txt",
+          "method" : "testDirectoryEntryFromFile",
+          "oldTime" : 118770.32425806452,
+          "changePercent" : 14.897045646613584,
+          "tvalue" : 7.880949303291252,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ZipTestCase#testExplicitDirectoryEntry.txt",
+          "method" : "testExplicitDirectoryEntry",
+          "oldTime" : 112509.71212903225,
+          "changePercent" : 15.015164184782194,
+          "tvalue" : 8.99516419799414,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ZipTestCase#testExplicitFileEntry.txt",
+          "method" : "testExplicitFileEntry",
+          "oldTime" : 123649.48019354838,
+          "changePercent" : 15.052655637919967,
+          "tvalue" : 14.075225780483,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ZipTestCase#testZipArchiveCreation.txt",
+          "method" : "testZipArchiveCreation",
+          "oldTime" : 178320.31929032257,
+          "changePercent" : 20.182688973745,
+          "tvalue" : 12.667700186756083,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.jar.JarArchiveOutputStreamTest" : [ {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/JarArchiveOutputStreamTest#testJarMarker.txt",
+          "method" : "testJarMarker",
+          "oldTime" : 72385.7210967742,
+          "changePercent" : 48.00738980532336,
+          "tvalue" : 102.11285085146241,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.zip.ScatterZipOutputStreamTest" : [ {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ScatterZipOutputStreamTest#putArchiveEntry.txt",
+          "method" : "putArchiveEntry",
+          "oldTime" : 1449.2385806451614,
+          "changePercent" : 34.44608376776985,
+          "tvalue" : 55.07004177304464,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest" : [ {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/UTF8ZipFilesTest#testCP437FileRoundtripExplicitUnicodeExtra.txt",
+          "method" : "testCP437FileRoundtripExplicitUnicodeExtra",
+          "oldTime" : 144040.9684516129,
+          "changePercent" : 37.610647994984795,
+          "tvalue" : 21.406971216129605,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/UTF8ZipFilesTest#testZipArchiveInputStreamReadsUnicodeFields.txt",
+          "method" : "testZipArchiveInputStreamReadsUnicodeFields",
+          "oldTime" : 192040.89696774192,
+          "changePercent" : 37.982245645342296,
+          "tvalue" : 33.397940823274716,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/UTF8ZipFilesTest#testZipFileReadsUnicodeFields.txt",
+          "method" : "testZipFileReadsUnicodeFields",
+          "oldTime" : 138914.91374193548,
+          "changePercent" : 36.92907794586721,
+          "tvalue" : 15.521645578411556,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/UTF8ZipFilesTest#testUtf8FileRoundtripExplicitUnicodeExtra.txt",
+          "method" : "testUtf8FileRoundtripExplicitUnicodeExtra",
+          "oldTime" : 130620.57987096773,
+          "changePercent" : 37.2374870762597,
+          "tvalue" : 18.59122206755405,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/UTF8ZipFilesTest#testCP437FileRoundtripImplicitUnicodeExtra.txt",
+          "method" : "testCP437FileRoundtripImplicitUnicodeExtra",
+          "oldTime" : 162506.2301935484,
+          "changePercent" : 38.65485100877331,
+          "tvalue" : 30.497842865097766,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/UTF8ZipFilesTest#testUtf8FileRoundtripNoEFSImplicitUnicodeExtra.txt",
+          "method" : "testUtf8FileRoundtripNoEFSImplicitUnicodeExtra",
+          "oldTime" : 153911.01406451612,
+          "changePercent" : 40.80461779423564,
+          "tvalue" : 30.2895807247461,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/UTF8ZipFilesTest#testASCIIFileRoundtripExplicitUnicodeExtra.txt",
+          "method" : "testASCIIFileRoundtripExplicitUnicodeExtra",
+          "oldTime" : 145942.12948387096,
+          "changePercent" : 36.39670733172762,
+          "tvalue" : 38.98357187359023,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/UTF8ZipFilesTest#testUtf8FileRoundtripImplicitUnicodeExtra.txt",
+          "method" : "testUtf8FileRoundtripImplicitUnicodeExtra",
+          "oldTime" : 145754.8947096774,
+          "changePercent" : 37.69383090552176,
+          "tvalue" : 23.092216213071424,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/UTF8ZipFilesTest#testASCIIFileRoundtripImplicitUnicodeExtra.txt",
+          "method" : "testASCIIFileRoundtripImplicitUnicodeExtra",
+          "oldTime" : 165528.07993548387,
+          "changePercent" : 37.176353922968495,
+          "tvalue" : 25.300172396784713,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/UTF8ZipFilesTest#testUtf8FileRoundtripNoEFSExplicitUnicodeExtra.txt",
+          "method" : "testUtf8FileRoundtripNoEFSExplicitUnicodeExtra",
+          "oldTime" : 161606.26825806452,
+          "changePercent" : 38.95801086616907,
+          "tvalue" : 32.72982545445003,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.zip.X5455_ExtendedTimestampTest" : [ {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/X5455_ExtendedTimestampTest#testWriteReadRoundtrip.txt",
+          "method" : "testWriteReadRoundtrip",
+          "oldTime" : 1046.2666451612904,
+          "changePercent" : 19.690804780351744,
+          "tvalue" : 8.941369738976757,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.zip.Zip64SupportIT" : [ {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallDeflatedEntryKnownSizeToStreamModeNever.txt",
+          "method" : "writeSmallDeflatedEntryKnownSizeToStreamModeNever",
+          "oldTime" : 7648.467290322581,
+          "changePercent" : -1.1044034350614025,
+          "tvalue" : -3.1049061425811186,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallDeflatedEntryKnownSizeToFile.txt",
+          "method" : "writeSmallDeflatedEntryKnownSizeToFile",
+          "oldTime" : 7808.922903225806,
+          "changePercent" : 2.7875134239528476,
+          "tvalue" : 8.701193181838498,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallStoredEntryKnownSizeToFileModeNever.txt",
+          "method" : "writeSmallStoredEntryKnownSizeToFileModeNever",
+          "oldTime" : 1407.7674193548387,
+          "changePercent" : 13.82540508547164,
+          "tvalue" : 60.421238881619196,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallStoredEntryUnnownSizeToFileModeAlways.txt",
+          "method" : "writeSmallStoredEntryUnnownSizeToFileModeAlways",
+          "oldTime" : 1525.281870967742,
+          "changePercent" : 12.360325657840342,
+          "tvalue" : 24.71693507024623,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallDeflatedEntryUnknownSizeToFile.txt",
+          "method" : "writeSmallDeflatedEntryUnknownSizeToFile",
+          "oldTime" : 8217.150444444444,
+          "changePercent" : 8.602763266649578,
+          "tvalue" : 2.699894946006126,
+          "vms" : 36
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallStoredEntryUnnownSizeToFile.txt",
+          "method" : "writeSmallStoredEntryUnnownSizeToFile",
+          "oldTime" : 1456.089935483871,
+          "changePercent" : 13.345520043648493,
+          "tvalue" : 38.45740846180353,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallStoredEntryKnownSizeToFileModeAlways.txt",
+          "method" : "writeSmallStoredEntryKnownSizeToFileModeAlways",
+          "oldTime" : 1829.5585161290323,
+          "changePercent" : 15.894054751160319,
+          "tvalue" : 36.63320239047442,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallStoredEntryKnownSizeToFile.txt",
+          "method" : "writeSmallStoredEntryKnownSizeToFile",
+          "oldTime" : 1579.9216774193549,
+          "changePercent" : 17.247808854224136,
+          "tvalue" : 42.12603090483697,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallStoredEntryToStreamModeNever.txt",
+          "method" : "writeSmallStoredEntryToStreamModeNever",
+          "oldTime" : 1151.6292,
+          "changePercent" : 0.5784970697574046,
+          "tvalue" : 2.6858147504447087,
+          "vms" : 85
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallDeflatedEntryUnknownSizeToFileModeAlways.txt",
+          "method" : "writeSmallDeflatedEntryUnknownSizeToFileModeAlways",
+          "oldTime" : 8257.294742857142,
+          "changePercent" : 6.3595017054980305,
+          "tvalue" : 2.666815462769711,
+          "vms" : 35
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallDeflatedEntryKnownSizeToFileModeNever.txt",
+          "method" : "writeSmallDeflatedEntryKnownSizeToFileModeNever",
+          "oldTime" : 7629.675032258065,
+          "changePercent" : 2.8132538820428987,
+          "tvalue" : 9.590430926773012,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallDeflatedEntryUnknownSizeToFileModeNever.txt",
+          "method" : "writeSmallDeflatedEntryUnknownSizeToFileModeNever",
+          "oldTime" : 7823.398193548387,
+          "changePercent" : 1.8277537212770618,
+          "tvalue" : 4.234912114237936,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallDeflatedEntryKnownSizeToFileModeAlways.txt",
+          "method" : "writeSmallDeflatedEntryKnownSizeToFileModeAlways",
+          "oldTime" : 8051.977032258064,
+          "changePercent" : 3.10538920819959,
+          "tvalue" : 8.977834648538591,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallStoredEntryUnnownSizeToFileModeNever.txt",
+          "method" : "writeSmallStoredEntryUnnownSizeToFileModeNever",
+          "oldTime" : 1396.3695483870968,
+          "changePercent" : 12.967026752507705,
+          "tvalue" : 37.85098175430733,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/Zip64SupportIT#writeSmallDeflatedEntryUnknownSizeToStreamModeAlways.txt",
+          "method" : "writeSmallDeflatedEntryUnknownSizeToStreamModeAlways",
+          "oldTime" : 7491.434129032258,
+          "changePercent" : 1.1005644993474692,
+          "tvalue" : 2.856218393407799,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.zip.ZipFileTest" : [ {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ZipFileTest#testReadingOfStoredEntry.txt",
+          "method" : "testReadingOfStoredEntry",
+          "oldTime" : 55373.54987096774,
+          "changePercent" : 39.82430225686079,
+          "tvalue" : 40.89836172841564,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.changes.ChangeSetTestCase" : [ {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ChangeSetTestCase#testDeletePlusAddSame.txt",
+          "method" : "testDeletePlusAddSame",
+          "oldTime" : 1001840.9474838709,
+          "changePercent" : 40.96656042334321,
+          "tvalue" : 39.59212401296862,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ChangeSetTestCase#testDeleteFromAndAddToZip.txt",
+          "method" : "testDeleteFromAndAddToZip",
+          "oldTime" : 871597.8527741935,
+          "changePercent" : 38.6333104038429,
+          "tvalue" : 42.35501935755489,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ChangeSetTestCase#testDeleteFromZip.txt",
+          "method" : "testDeleteFromZip",
+          "oldTime" : 182757.14696774192,
+          "changePercent" : 13.518796104251406,
+          "tvalue" : 13.529356695812583,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ChangeSetTestCase#testAddAllreadyExistingWithReplaceFalse.txt",
+          "method" : "testAddAllreadyExistingWithReplaceFalse",
+          "oldTime" : 884627.783032258,
+          "changePercent" : 41.0413929574629,
+          "tvalue" : 27.337989667962862,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ChangeSetTestCase#testDeleteFromAndAddToZipUsingZipFilePerform.txt",
+          "method" : "testDeleteFromAndAddToZipUsingZipFilePerform",
+          "oldTime" : 932823.932,
+          "changePercent" : 40.33059307584663,
+          "tvalue" : 43.76622268323723,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ChangeSetTestCase#testAddToEmptyArchive.txt",
+          "method" : "testAddToEmptyArchive",
+          "oldTime" : 189345.75296774192,
+          "changePercent" : 10.200962347981774,
+          "tvalue" : 20.645455278046906,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ChangeSetTestCase#testDeleteFromAndAddToJar.txt",
+          "method" : "testDeleteFromAndAddToJar",
+          "oldTime" : 236883.34064516128,
+          "changePercent" : 19.417727296271043,
+          "tvalue" : 58.06546001035737,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ChangeSetTestCase#testAddAllreadyExistingWithReplaceTrue.txt",
+          "method" : "testAddAllreadyExistingWithReplaceTrue",
+          "oldTime" : 882503.6425806452,
+          "changePercent" : 40.608684078128256,
+          "tvalue" : 24.644587653306996,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ChangeSetTestCase#testDeleteAddToOneFileArchive.txt",
+          "method" : "testDeleteAddToOneFileArchive",
+          "oldTime" : 250704.7849032258,
+          "changePercent" : 17.874980064652146,
+          "tvalue" : 27.56764497414587,
+          "vms" : 31
+        }, {
+          "diff" : "view_1418705648202405208e3f4d900dfcc81457cbac/diffs/ChangeSetTestCase#testDeleteFromJar.txt",
+          "method" : "testDeleteFromJar",
+          "oldTime" : 175005.68574193548,
+          "changePercent" : 14.024185792637883,
+          "tvalue" : 19.372748273729254,
+          "vms" : 31
+        } ]
+      }
+    },
+    "516c38fd95fff30841f9af370f50cf1f7733c209" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.archivers.ArchiveOutputStreamTest" : [ {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ArchiveOutputStreamTest#testCallSequenceZip.txt",
+          "method" : "testCallSequenceZip",
+          "oldTime" : 65425.2444516129,
+          "changePercent" : -1.4165580708385284,
+          "tvalue" : -2.839499147301323,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.ZipTestCase" : [ {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipTestCase#testListAllFilesWithNestedArchive.txt",
+          "method" : "testListAllFilesWithNestedArchive",
+          "oldTime" : 58640.00883870968,
+          "changePercent" : -1.9193955871174628,
+          "tvalue" : -5.504622518643825,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest" : [ {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/UTF8ZipFilesTest#testCP437FileRoundtripImplicitUnicodeExtra.txt",
+          "method" : "testCP437FileRoundtripImplicitUnicodeExtra",
+          "oldTime" : 92214.93588461538,
+          "changePercent" : 0.4166626881896766,
+          "tvalue" : 2.6943385649917992,
+          "vms" : 52
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/UTF8ZipFilesTest#testReadWinZipArchiveForStream.txt",
+          "method" : "testReadWinZipArchiveForStream",
+          "oldTime" : 50638.831419354836,
+          "changePercent" : -2.303942352479023,
+          "tvalue" : -5.584080323279952,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.zip.X5455_ExtendedTimestampTest" : [ {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/X5455_ExtendedTimestampTest#testWriteReadRoundtrip.txt",
+          "method" : "testWriteReadRoundtrip",
+          "oldTime" : 915.7829824561403,
+          "changePercent" : 1.0733562670846528,
+          "tvalue" : 2.733457611074931,
+          "vms" : 57
+        } ],
+        "org.apache.commons.compress.archivers.zip.Zip64SupportIT" : [ {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/Zip64SupportIT#writeSmallStoredEntryKnownSizeToFileModeNever.txt",
+          "method" : "writeSmallStoredEntryKnownSizeToFileModeNever",
+          "oldTime" : 1226.8608333333334,
+          "changePercent" : 0.6935451114055979,
+          "tvalue" : 2.67556268502563,
+          "vms" : 60
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/Zip64SupportIT#writeSmallStoredEntryUnnownSizeToFileModeAlways.txt",
+          "method" : "writeSmallStoredEntryUnnownSizeToFileModeAlways",
+          "oldTime" : 1552.2992903225806,
+          "changePercent" : 1.6463403154005976,
+          "tvalue" : 3.4380714252321574,
+          "vms" : 31
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/Zip64SupportIT#writeSmallDeflatedEntryUnknownSizeToFile.txt",
+          "method" : "writeSmallDeflatedEntryUnknownSizeToFile",
+          "oldTime" : 7702.022404761905,
+          "changePercent" : 0.3610406086878676,
+          "tvalue" : 2.608677315968715,
+          "vms" : 84
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/Zip64SupportIT#writeSmallStoredEntryUnnownSizeToFile.txt",
+          "method" : "writeSmallStoredEntryUnnownSizeToFile",
+          "oldTime" : 1360.7145777777778,
+          "changePercent" : 1.2126210287287649,
+          "tvalue" : 2.7571844922980246,
+          "vms" : 45
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/Zip64SupportIT#writeSmallStoredEntryToStreamModeAlways.txt",
+          "method" : "writeSmallStoredEntryToStreamModeAlways",
+          "oldTime" : 1271.3663928571427,
+          "changePercent" : 0.7098830310774344,
+          "tvalue" : 2.621909093145788,
+          "vms" : 56
+        } ],
+        "org.apache.commons.compress.archivers.zip.ZipArchiveEntryTest" : [ {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipArchiveEntryTest#testCopyConstructor.txt",
+          "method" : "testCopyConstructor",
+          "oldTime" : 96.01148387096774,
+          "changePercent" : 15.914695688284604,
+          "tvalue" : 4.859655125094745,
+          "vms" : 31
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipArchiveEntryTest#testExtraFields.txt",
+          "method" : "testExtraFields",
+          "oldTime" : 519.3926944444445,
+          "changePercent" : 1.9808925349086994,
+          "tvalue" : 2.6354655942550185,
+          "vms" : 72
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipArchiveEntryTest#testNotEquals.txt",
+          "method" : "testNotEquals",
+          "oldTime" : 53.540062500000005,
+          "changePercent" : -13.358104503520149,
+          "tvalue" : -2.791491419481642,
+          "vms" : 32
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipArchiveEntryTest#testUnixMode.txt",
+          "method" : "testUnixMode",
+          "oldTime" : 69.88225806451614,
+          "changePercent" : 12.95617051722945,
+          "tvalue" : 3.550721653667081,
+          "vms" : 31
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipArchiveEntryTest#testExtraFieldMerging.txt",
+          "method" : "testExtraFieldMerging",
+          "oldTime" : 411.70664516129034,
+          "changePercent" : 14.835618157808266,
+          "tvalue" : 17.547984110533676,
+          "vms" : 31
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipArchiveEntryTest#testAddAsFirstExtraField.txt",
+          "method" : "testAddAsFirstExtraField",
+          "oldTime" : 295.9944516129032,
+          "changePercent" : 6.979054097352306,
+          "tvalue" : 5.76841056159259,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest" : [ {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipArchiveInputStreamTest#shouldConsumeArchiveCompletely.txt",
+          "method" : "shouldConsumeArchiveCompletely",
+          "oldTime" : 220.9536129032258,
+          "changePercent" : 2.8586645394260257,
+          "tvalue" : 5.69887824361954,
+          "vms" : 31
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipArchiveInputStreamTest#winzipBackSlashWorkaround.txt",
+          "method" : "winzipBackSlashWorkaround",
+          "oldTime" : 227.46774193548387,
+          "changePercent" : 1.8706374530241847,
+          "tvalue" : 2.987927332857724,
+          "vms" : 31
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipArchiveInputStreamTest#properUseOfInflater.txt",
+          "method" : "properUseOfInflater",
+          "oldTime" : 365.392619047619,
+          "changePercent" : 2.4670396944187147,
+          "tvalue" : 2.7301827598804467,
+          "vms" : 42
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipArchiveInputStreamTest#testReadingOfFirstStoredEntry.txt",
+          "method" : "testReadingOfFirstStoredEntry",
+          "oldTime" : 239.7380625,
+          "changePercent" : 1.5328317963694207,
+          "tvalue" : 2.6240473987984423,
+          "vms" : 64
+        } ],
+        "org.apache.commons.compress.archivers.zip.ZipFileTest" : [ {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipFileTest#testDuplicateEntry.txt",
+          "method" : "testDuplicateEntry",
+          "oldTime" : 9278.105413793104,
+          "changePercent" : 1.1281070956753922,
+          "tvalue" : 2.6851647103942886,
+          "vms" : 58
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipFileTest#testDoubleClose.txt",
+          "method" : "testDoubleClose",
+          "oldTime" : 56072.34256756757,
+          "changePercent" : 0.9679265806562358,
+          "tvalue" : 2.618121106343165,
+          "vms" : 74
+        }, {
+          "diff" : "view_516c38fd95fff30841f9af370f50cf1f7733c209/diffs/ZipFileTest#testWinzipBackSlashWorkaround.txt",
+          "method" : "testWinzipBackSlashWorkaround",
+          "oldTime" : 15362.62086746988,
+          "changePercent" : 0.901443984600225,
+          "tvalue" : 2.640683644164157,
+          "vms" : 83
+        } ]
+      }
+    },
+    "b67a14697fcf363bc2d7f18407e51b12ca05c1a9" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.archivers.SevenZTestCase" : [ {
+          "diff" : "view_b67a14697fcf363bc2d7f18407e51b12ca05c1a9/diffs/SevenZTestCase#testSevenZArchiveCreationUsingBZIP2.txt",
+          "method" : "testSevenZArchiveCreationUsingBZIP2",
+          "oldTime" : 6022.354322580645,
+          "changePercent" : 5.827792650204787,
+          "tvalue" : 16.77181279978781,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.sevenz.SevenZFileTest" : [ {
+          "diff" : "view_b67a14697fcf363bc2d7f18407e51b12ca05c1a9/diffs/SevenZFileTest#test7zUnarchive.txt",
+          "method" : "test7zUnarchive",
+          "oldTime" : 2059.5728387096774,
+          "changePercent" : 39.25652732437879,
+          "tvalue" : 83.67323197641458,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.sevenz.SevenZOutputFileTest" : [ {
+          "diff" : "view_b67a14697fcf363bc2d7f18407e51b12ca05c1a9/diffs/SevenZOutputFileTest#testStackOfContentCompressions.txt",
+          "method" : "testStackOfContentCompressions",
+          "oldTime" : 14720.093032258064,
+          "changePercent" : 0.5300049777911243,
+          "tvalue" : 4.10365690529078,
+          "vms" : 31
+        }, {
+          "diff" : "view_b67a14697fcf363bc2d7f18407e51b12ca05c1a9/diffs/SevenZOutputFileTest#testBzip2WithConfiguration.txt",
+          "method" : "testBzip2WithConfiguration",
+          "oldTime" : 2109.6389999999997,
+          "changePercent" : 2.976700042045094,
+          "tvalue" : 2.702008508945838,
+          "vms" : 32
+        }, {
+          "diff" : "view_b67a14697fcf363bc2d7f18407e51b12ca05c1a9/diffs/SevenZOutputFileTest#testBzip2Roundtrip.txt",
+          "method" : "testBzip2Roundtrip",
+          "oldTime" : 2922.126322580645,
+          "changePercent" : 3.480598463010519,
+          "tvalue" : 2.865766295770519,
+          "vms" : 31
+        } ]
+      }
+    },
+    "f9334473bd9993f38458ecee137ba9e7f7b79abb" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.archivers.dump.DumpArchiveInputStreamTest" : [ {
+          "diff" : "view_f9334473bd9993f38458ecee137ba9e7f7b79abb/diffs/DumpArchiveInputStreamTest#testNotADumpArchiveButBigEnough.txt",
+          "method" : "testNotADumpArchiveButBigEnough",
+          "oldTime" : 612.6930555555556,
+          "changePercent" : 0.7957310507572448,
+          "tvalue" : 2.7282139503318303,
+          "vms" : 36
+        } ],
+        "org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest" : [ {
+          "diff" : "view_f9334473bd9993f38458ecee137ba9e7f7b79abb/diffs/ZipArchiveInputStreamTest#testUnzipBZip2CompressedEntry.txt",
+          "method" : "testUnzipBZip2CompressedEntry",
+          "oldTime" : 437.0229259259259,
+          "changePercent" : -0.8447984634080163,
+          "tvalue" : -2.6785917536666166,
+          "vms" : 54
+        } ],
+        "org.apache.commons.compress.changes.ChangeSetTestCase" : [ {
+          "diff" : "view_f9334473bd9993f38458ecee137ba9e7f7b79abb/diffs/ChangeSetTestCase#testDeleteFromAndAddToZipUsingZipFilePerform.txt",
+          "method" : "testDeleteFromAndAddToZipUsingZipFilePerform",
+          "oldTime" : 5707.122295081967,
+          "changePercent" : 1.024951681025776,
+          "tvalue" : 2.6427263748174203,
+          "vms" : 61
+        } ],
+        "org.apache.commons.compress.compressors.Pack200TestCase" : [ {
+          "diff" : "view_f9334473bd9993f38458ecee137ba9e7f7b79abb/diffs/Pack200TestCase#testJarArchiveCreationInMemory.txt",
+          "method" : "testJarArchiveCreationInMemory",
+          "oldTime" : 3070.9630967741937,
+          "changePercent" : -1.0730226314628082,
+          "tvalue" : -3.1091964939092347,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStreamTest" : [ {
+          "diff" : "view_f9334473bd9993f38458ecee137ba9e7f7b79abb/diffs/DeflateCompressorInputStreamTest#shouldBeAbleToSkipAByte.txt",
+          "method" : "shouldBeAbleToSkipAByte",
+          "oldTime" : 153.27902857142857,
+          "changePercent" : -0.8358239669726578,
+          "tvalue" : -2.6398486564377506,
+          "vms" : 70
+        }, {
+          "diff" : "view_f9334473bd9993f38458ecee137ba9e7f7b79abb/diffs/DeflateCompressorInputStreamTest#singleByteReadWorksAsExpected.txt",
+          "method" : "singleByteReadWorksAsExpected",
+          "oldTime" : 147.64454347826089,
+          "changePercent" : -1.4834836134788387,
+          "tvalue" : -2.6460172253229644,
+          "vms" : 92
+        }, {
+          "diff" : "view_f9334473bd9993f38458ecee137ba9e7f7b79abb/diffs/DeflateCompressorInputStreamTest#availableShouldReturnNonZero.txt",
+          "method" : "availableShouldReturnNonZero",
+          "oldTime" : 120.59006153846154,
+          "changePercent" : -1.0281750479756315,
+          "tvalue" : -2.644502174680834,
+          "vms" : 65
+        } ],
+        "org.apache.commons.compress.compressors.deflate.DeflateCompressorOutputStreamTest" : [ {
+          "diff" : "view_f9334473bd9993f38458ecee137ba9e7f7b79abb/diffs/DeflateCompressorOutputStreamTest#canReadASingleByteFlushAndFinish.txt",
+          "method" : "canReadASingleByteFlushAndFinish",
+          "oldTime" : 45.10968181818182,
+          "changePercent" : -1.6566691488321856,
+          "tvalue" : -2.781436480692212,
+          "vms" : 88
+        } ]
+      }
+    },
+    "87f0f2ec35c600cae7a17621455c00e24256011a" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.archivers.SevenZTestCase" : [ {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZTestCase#testSevenZArchiveCreationUsingBZIP2.txt",
+          "method" : "testSevenZArchiveCreationUsingBZIP2",
+          "oldTime" : 5711.514040816327,
+          "changePercent" : -0.5334315943274567,
+          "tvalue" : -2.6772225953500404,
+          "vms" : 49
+        }, {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZTestCase#testSevenZArchiveCreationUsingCopy.txt",
+          "method" : "testSevenZArchiveCreationUsingCopy",
+          "oldTime" : 1180.7876129032259,
+          "changePercent" : -2.970953012882374,
+          "tvalue" : -4.094050086281694,
+          "vms" : 31
+        }, {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZTestCase#testSevenZArchiveCreationUsingDeflate.txt",
+          "method" : "testSevenZArchiveCreationUsingDeflate",
+          "oldTime" : 1220.9238064516128,
+          "changePercent" : -1.8195317887000386,
+          "tvalue" : -6.373841345175675,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.sevenz.SevenZFileTest" : [ {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZFileTest#testReadingBackLZMA2DictSize.txt",
+          "method" : "testReadingBackLZMA2DictSize",
+          "oldTime" : 2695.314774193548,
+          "changePercent" : -1.0446753971808673,
+          "tvalue" : -3.5303397438225583,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.sevenz.SevenZOutputFileTest" : [ {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZOutputFileTest#testSixEmptyFiles.txt",
+          "method" : "testSixEmptyFiles",
+          "oldTime" : 1004.4377692307693,
+          "changePercent" : -1.2725527047622665,
+          "tvalue" : -2.6486615927583457,
+          "vms" : 52
+        }, {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZOutputFileTest#testLzma2WithOptionsConfiguration.txt",
+          "method" : "testLzma2WithOptionsConfiguration",
+          "oldTime" : 2061.703483870968,
+          "changePercent" : -0.9271255927293764,
+          "tvalue" : -3.33063106251696,
+          "vms" : 31
+        }, {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZOutputFileTest#testBzip2WithConfiguration.txt",
+          "method" : "testBzip2WithConfiguration",
+          "oldTime" : 1914.5953529411763,
+          "changePercent" : -0.9243237113441997,
+          "tvalue" : -2.7397667242724597,
+          "vms" : 34
+        }, {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZOutputFileTest#testNineEmptyFiles.txt",
+          "method" : "testNineEmptyFiles",
+          "oldTime" : 933.7343870967742,
+          "changePercent" : -1.75100565657858,
+          "tvalue" : -4.632826940602417,
+          "vms" : 31
+        }, {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZOutputFileTest#testDirectoriesOnly.txt",
+          "method" : "testDirectoriesOnly",
+          "oldTime" : 891.6821578947369,
+          "changePercent" : -1.9749956926473842,
+          "tvalue" : -2.728133129421601,
+          "vms" : 38
+        }, {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZOutputFileTest#testLzma2WithIntConfiguration.txt",
+          "method" : "testLzma2WithIntConfiguration",
+          "oldTime" : 2638.2545806451612,
+          "changePercent" : -1.1014002268264134,
+          "tvalue" : -5.060589733966451,
+          "vms" : 31
+        }, {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZOutputFileTest#testTwentyNineEmptyFiles.txt",
+          "method" : "testTwentyNineEmptyFiles",
+          "oldTime" : 1063.13698630137,
+          "changePercent" : -1.2916362792974971,
+          "tvalue" : -2.634827992416709,
+          "vms" : 73
+        }, {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZOutputFileTest#testDeflateWithConfiguration.txt",
+          "method" : "testDeflateWithConfiguration",
+          "oldTime" : 921.3351612903225,
+          "changePercent" : -2.083322975527467,
+          "tvalue" : -4.241926282692358,
+          "vms" : 31
+        }, {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZOutputFileTest#testSevenEmptyFiles.txt",
+          "method" : "testSevenEmptyFiles",
+          "oldTime" : 892.2174838709677,
+          "changePercent" : -2.8471287667385696,
+          "tvalue" : -6.378253283125497,
+          "vms" : 31
+        }, {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZOutputFileTest#testCopyRoundtrip.txt",
+          "method" : "testCopyRoundtrip",
+          "oldTime" : 1072.4859375,
+          "changePercent" : -1.714014315455742,
+          "tvalue" : -2.6820155133260513,
+          "vms" : 32
+        }, {
+          "diff" : "view_87f0f2ec35c600cae7a17621455c00e24256011a/diffs/SevenZOutputFileTest#testDeflateRoundtrip.txt",
+          "method" : "testDeflateRoundtrip",
+          "oldTime" : 941.4764516129032,
+          "changePercent" : -2.8570704147945976,
+          "tvalue" : -6.582738233412586,
+          "vms" : 31
+        } ]
+      }
+    },
+    "daeb07457183232eb9a9fb71bfb31a3700404427" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.archivers.SevenZTestCase" : [ {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZTestCase#testSevenZArchiveCreationUsingCopy.txt",
+          "method" : "testSevenZArchiveCreationUsingCopy",
+          "oldTime" : 1216.903806451613,
+          "changePercent" : 1.690657660061561,
+          "tvalue" : 4.237859078560362,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZTestCase#testSevenZArchiveCreationUsingDeflate.txt",
+          "method" : "testSevenZArchiveCreationUsingDeflate",
+          "oldTime" : 1216.828451612903,
+          "changePercent" : 1.680168980799944,
+          "tvalue" : 3.2512887858121227,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.sevenz.SevenZFileTest" : [ {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZFileTest#testHelloWorldHeaderCompressionOffCopy.txt",
+          "method" : "testHelloWorldHeaderCompressionOffCopy",
+          "oldTime" : 717.3184516129032,
+          "changePercent" : -3.75439495267141,
+          "tvalue" : -7.847208539662721,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZFileTest#test7zUnarchive.txt",
+          "method" : "test7zUnarchive",
+          "oldTime" : 1141.8906451612904,
+          "changePercent" : -3.256777596634421,
+          "tvalue" : -6.449022740180808,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZFileTest#testEncryptedArchiveRequiresPassword.txt",
+          "method" : "testEncryptedArchiveRequiresPassword",
+          "oldTime" : 682.4398064516129,
+          "changePercent" : -4.5649872747845865,
+          "tvalue" : -6.176344714271459,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZFileTest#testCompressedHeaderWithNonDefaultDictionarySize.txt",
+          "method" : "testCompressedHeaderWithNonDefaultDictionarySize",
+          "oldTime" : 17920.361677419354,
+          "changePercent" : -4.128790877010165,
+          "tvalue" : -12.65043855457528,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZFileTest#testHelloWorldHeaderCompressionOffLZMA2.txt",
+          "method" : "testHelloWorldHeaderCompressionOffLZMA2",
+          "oldTime" : 773.2363870967741,
+          "changePercent" : -4.234668795520866,
+          "tvalue" : -11.43515004288549,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZFileTest#getEntriesOfUnarchiveTest.txt",
+          "method" : "getEntriesOfUnarchiveTest",
+          "oldTime" : 929.6571612903225,
+          "changePercent" : -4.457758482731696,
+          "tvalue" : -16.50519959040572,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZFileTest#testAllEmptyFilesArchive.txt",
+          "method" : "testAllEmptyFilesArchive",
+          "oldTime" : 675.966,
+          "changePercent" : -2.933274082405178,
+          "tvalue" : -6.901930841398535,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZFileTest#test7zDeflateUnarchive.txt",
+          "method" : "test7zDeflateUnarchive",
+          "oldTime" : 1221.977612903226,
+          "changePercent" : -2.900792279970484,
+          "tvalue" : -7.595484604611353,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZFileTest#testReadingBackLZMA2DictSize.txt",
+          "method" : "testReadingBackLZMA2DictSize",
+          "oldTime" : 2708.6545614035085,
+          "changePercent" : 0.4392690330947553,
+          "tvalue" : 2.693484893300286,
+          "vms" : 57
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZFileTest#readEntriesOfSize0.txt",
+          "method" : "readEntriesOfSize0",
+          "oldTime" : 1197.260064516129,
+          "changePercent" : -4.571955180891245,
+          "tvalue" : -8.529390254231583,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.sevenz.SevenZOutputFileTest" : [ {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZOutputFileTest#testSixEmptyFiles.txt",
+          "method" : "testSixEmptyFiles",
+          "oldTime" : 1062.354,
+          "changePercent" : 2.273101724733402,
+          "tvalue" : 3.7228320578419893,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZOutputFileTest#testLzma2WithOptionsConfiguration.txt",
+          "method" : "testLzma2WithOptionsConfiguration",
+          "oldTime" : 2128.302322580645,
+          "changePercent" : 1.138717680358648,
+          "tvalue" : 3.9743781710173374,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZOutputFileTest#testBzip2WithConfiguration.txt",
+          "method" : "testBzip2WithConfiguration",
+          "oldTime" : 1833.0147741935482,
+          "changePercent" : 0.9738478077134876,
+          "tvalue" : 3.4231712397824636,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZOutputFileTest#testEightFilesSomeNotEmpty.txt",
+          "method" : "testEightFilesSomeNotEmpty",
+          "oldTime" : 25121.8731875,
+          "changePercent" : -0.3913029266022771,
+          "tvalue" : -2.7438437424109683,
+          "vms" : 32
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZOutputFileTest#testNineEmptyFiles.txt",
+          "method" : "testNineEmptyFiles",
+          "oldTime" : 935.5241935483871,
+          "changePercent" : 1.7942467997069083,
+          "tvalue" : 5.498678035360719,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZOutputFileTest#testDirectoriesOnly.txt",
+          "method" : "testDirectoriesOnly",
+          "oldTime" : 791.3596129032258,
+          "changePercent" : 2.729129141076428,
+          "tvalue" : 7.733033461211405,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZOutputFileTest#testSixFilesSomeNotEmpty.txt",
+          "method" : "testSixFilesSomeNotEmpty",
+          "oldTime" : 25411.74458064516,
+          "changePercent" : -0.6749541038353675,
+          "tvalue" : -4.326714975625737,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZOutputFileTest#testEightEmptyFiles.txt",
+          "method" : "testEightEmptyFiles",
+          "oldTime" : 992.7631612903225,
+          "changePercent" : 2.424182124716866,
+          "tvalue" : 3.931417947950318,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZOutputFileTest#testTwentyNineEmptyFiles.txt",
+          "method" : "testTwentyNineEmptyFiles",
+          "oldTime" : 948.2959999999999,
+          "changePercent" : 1.250276557176772,
+          "tvalue" : 2.9925452189457795,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZOutputFileTest#testDeflateWithConfiguration.txt",
+          "method" : "testDeflateWithConfiguration",
+          "oldTime" : 926.3281935483872,
+          "changePercent" : 2.419451839231797,
+          "tvalue" : 6.9283834467163805,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZOutputFileTest#testSevenEmptyFiles.txt",
+          "method" : "testSevenEmptyFiles",
+          "oldTime" : 930.5499999999998,
+          "changePercent" : 2.331018249699691,
+          "tvalue" : 5.351660093258488,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZOutputFileTest#testCopyRoundtrip.txt",
+          "method" : "testCopyRoundtrip",
+          "oldTime" : 1012.8516774193548,
+          "changePercent" : 3.081666385442158,
+          "tvalue" : 4.414645470599703,
+          "vms" : 31
+        }, {
+          "diff" : "view_daeb07457183232eb9a9fb71bfb31a3700404427/diffs/SevenZOutputFileTest#testDeflateRoundtrip.txt",
+          "method" : "testDeflateRoundtrip",
+          "oldTime" : 962.2341935483871,
+          "changePercent" : 2.074694444314074,
+          "tvalue" : 5.597663861282249,
+          "vms" : 31
+        } ]
+      }
+    },
+    "2f56fb5c10e6b8c8e01033ee1c50669028f28340" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.compressors.lz4.FramedLZ4CompressorInputStreamTest" : [ {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#readBlaLz4WithDecompressConcatenated.txt",
+          "method" : "readBlaLz4WithDecompressConcatenated",
+          "oldTime" : 1352.7637272727272,
+          "changePercent" : 0.5630779036129505,
+          "tvalue" : 2.6677689527283643,
+          "vms" : 88
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#readDoubledBlaLz4WithoutExplicitDecompressConcatenated.txt",
+          "method" : "readDoubledBlaLz4WithoutExplicitDecompressConcatenated",
+          "oldTime" : 891.2246976744186,
+          "changePercent" : 1.2167682923487986,
+          "tvalue" : 2.6802844067328717,
+          "vms" : 43
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#readBlaLz4ViaFactoryAutoDetection.txt",
+          "method" : "readBlaLz4ViaFactoryAutoDetection",
+          "oldTime" : 887.3256774193549,
+          "changePercent" : 2.047180843808457,
+          "tvalue" : 3.05614516299142,
+          "vms" : 31
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#readDoubledBlaLz4ViaFactoryWithoutExplicitDecompressConcatenated.txt",
+          "method" : "readDoubledBlaLz4ViaFactoryWithoutExplicitDecompressConcatenated",
+          "oldTime" : 858.2127096774194,
+          "changePercent" : 1.546056293886693,
+          "tvalue" : 4.178447587419941,
+          "vms" : 31
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#readDoubledBlaLz4WithDecompressConcatenatedTrue.txt",
+          "method" : "readDoubledBlaLz4WithDecompressConcatenatedTrue",
+          "oldTime" : 1011.7826451612904,
+          "changePercent" : 1.4285931996997294,
+          "tvalue" : 2.85618237887147,
+          "vms" : 31
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#readDoubledBlaLz4ViaFactoryWithDecompressConcatenatedFalse.txt",
+          "method" : "readDoubledBlaLz4ViaFactoryWithDecompressConcatenatedFalse",
+          "oldTime" : 925.4123846153847,
+          "changePercent" : 1.3875227850602394,
+          "tvalue" : 2.83888869996307,
+          "vms" : 52
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#readBlaLz4.txt",
+          "method" : "readBlaLz4",
+          "oldTime" : 1297.3473823529412,
+          "changePercent" : 0.7222769555734484,
+          "tvalue" : 2.7458679476748675,
+          "vms" : 68
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#readDoubledBlaLz4ViaFactoryWithDecompressConcatenatedTrue.txt",
+          "method" : "readDoubledBlaLz4ViaFactoryWithDecompressConcatenatedTrue",
+          "oldTime" : 1008.5900624999999,
+          "changePercent" : 1.3800948985653891,
+          "tvalue" : 2.86519281558568,
+          "vms" : 32
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#readBlaLz4ViaFactory.txt",
+          "method" : "readBlaLz4ViaFactory",
+          "oldTime" : 1417.0028484848485,
+          "changePercent" : 0.894127926091729,
+          "tvalue" : 2.7055246593673363,
+          "vms" : 33
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#readBlaLz4ViaFactoryWithDecompressConcatenated.txt",
+          "method" : "readBlaLz4ViaFactoryWithDecompressConcatenated",
+          "oldTime" : 1432.685741935484,
+          "changePercent" : 1.5378606091001097,
+          "tvalue" : 4.439607771664797,
+          "vms" : 31
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#readDoubledBlaLz4WithDecompressConcatenatedFalse.txt",
+          "method" : "readDoubledBlaLz4WithDecompressConcatenatedFalse",
+          "oldTime" : 830.2031612903226,
+          "changePercent" : 1.2862222841839872,
+          "tvalue" : 4.0572277174958105,
+          "vms" : 31
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#rejectsSkippableFrameWithPrematureEndInLengthBytes.txt",
+          "method" : "rejectsSkippableFrameWithPrematureEndInLengthBytes",
+          "oldTime" : 614.7274716981132,
+          "changePercent" : 0.797494063637221,
+          "tvalue" : 2.643931963190692,
+          "vms" : 53
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#rejectsStreamsWithoutContentChecksum.txt",
+          "method" : "rejectsStreamsWithoutContentChecksum",
+          "oldTime" : 673.6560857142857,
+          "changePercent" : 1.6349843283747645,
+          "tvalue" : 2.6287565722821653,
+          "vms" : 70
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#skipsOverTrailingSkippableFrames.txt",
+          "method" : "skipsOverTrailingSkippableFrames",
+          "oldTime" : 591.9728387096774,
+          "changePercent" : 1.1848298619629325,
+          "tvalue" : 3.428558826849094,
+          "vms" : 31
+        }, {
+          "diff" : "view_2f56fb5c10e6b8c8e01033ee1c50669028f28340/diffs/FramedLZ4CompressorInputStreamTest#skipsOverSkippableFrames.txt",
+          "method" : "skipsOverSkippableFrames",
+          "oldTime" : 525.6461666666667,
+          "changePercent" : 0.9423216779432625,
+          "tvalue" : 2.699872138039493,
+          "vms" : 36
+        } ]
+      }
+    },
+    "7d73baf10e435fcaa4927495afc185fb473c416b" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.compressors.DetectCompressorTestCase" : [ {
+          "diff" : "view_7d73baf10e435fcaa4927495afc185fb473c416b/diffs/DetectCompressorTestCase#testDetect.txt",
+          "method" : "testDetect",
+          "oldTime" : 401.5515,
+          "changePercent" : -12.721780394295624,
+          "tvalue" : -17.421735717157066,
+          "vms" : 12
+        } ]
+      }
+    },
+    "4e442bb44280243f6e0e72d845fa8275d665ca84" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.compressors.DetectCompressorTestCase" : [ {
+          "diff" : "view_4e442bb44280243f6e0e72d845fa8275d665ca84/diffs/DetectCompressorTestCase#testLZMAMemoryLimit.txt",
+          "method" : "testLZMAMemoryLimit",
+          "oldTime" : 204.53545454545454,
+          "changePercent" : -1.5405730946846319,
+          "tvalue" : -2.8085469228207907,
+          "vms" : 55
+        }, {
+          "diff" : "view_4e442bb44280243f6e0e72d845fa8275d665ca84/diffs/DetectCompressorTestCase#testXZMemoryLimitOnSkip.txt",
+          "method" : "testXZMemoryLimitOnSkip",
+          "oldTime" : 222.1086666666667,
+          "changePercent" : -1.2913348721196405,
+          "tvalue" : -2.6240320678330264,
+          "vms" : 96
+        } ]
+      }
+    },
+    "7e89c9cc80bc3fd2aab64f25dd816c6d14790988" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.archivers.zip.ScatterZipOutputStreamTest" : [ {
+          "diff" : "view_7e89c9cc80bc3fd2aab64f25dd816c6d14790988/diffs/ScatterZipOutputStreamTest#putArchiveEntry.txt",
+          "method" : "putArchiveEntry",
+          "oldTime" : 894.258,
+          "changePercent" : -0.7043970264245166,
+          "tvalue" : -2.6449305184644456,
+          "vms" : 71
+        } ],
+        "org.apache.commons.compress.archivers.zip.ZipFileTest" : [ {
+          "diff" : "view_7e89c9cc80bc3fd2aab64f25dd816c6d14790988/diffs/ZipFileTest#testUnzipBZip2CompressedEntry.txt",
+          "method" : "testUnzipBZip2CompressedEntry",
+          "oldTime" : 547.9244516129032,
+          "changePercent" : 4.032613867534599,
+          "tvalue" : 8.40071068871904,
+          "vms" : 31
+        }, {
+          "diff" : "view_7e89c9cc80bc3fd2aab64f25dd816c6d14790988/diffs/ZipFileTest#testUnshrinking.txt",
+          "method" : "testUnshrinking",
+          "oldTime" : 895.7814838709677,
+          "changePercent" : 9.725672584464533,
+          "tvalue" : 12.274591042463312,
+          "vms" : 31
+        }, {
+          "diff" : "view_7e89c9cc80bc3fd2aab64f25dd816c6d14790988/diffs/ZipFileTest#testReadingOfFirstStoredEntry.txt",
+          "method" : "testReadingOfFirstStoredEntry",
+          "oldTime" : 335.758,
+          "changePercent" : -1.277842677283481,
+          "tvalue" : -2.668986047474908,
+          "vms" : 61
+        } ],
+        "org.apache.commons.compress.compressors.snappy.FramedSnappyCompressorInputStreamTest" : [ {
+          "diff" : "view_7e89c9cc80bc3fd2aab64f25dd816c6d14790988/diffs/FramedSnappyCompressorInputStreamTest#readIWAFile.txt",
+          "method" : "readIWAFile",
+          "oldTime" : 15628.867935483871,
+          "changePercent" : 7.516895956796709,
+          "tvalue" : 14.327277225964112,
+          "vms" : 31
+        } ]
+      }
+    },
+    "daa69a5981c7c12e0af5922f0a07653446261b07" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.archivers.zip.ExplodeSupportTest" : [ {
+          "diff" : "view_daa69a5981c7c12e0af5922f0a07653446261b07/diffs/ExplodeSupportTest#testArchiveWithImplodeCompression4K2Trees.txt",
+          "method" : "testArchiveWithImplodeCompression4K2Trees",
+          "oldTime" : 302.0487428571428,
+          "changePercent" : 1.4777747319117607,
+          "tvalue" : 2.678468720236337,
+          "vms" : 35
+        } ],
+        "org.apache.commons.compress.archivers.zip.ScatterSampleTest" : [ {
+          "diff" : "view_daa69a5981c7c12e0af5922f0a07653446261b07/diffs/ScatterSampleTest#testSample.txt",
+          "method" : "testSample",
+          "oldTime" : 1103.1012258064518,
+          "changePercent" : -1.626288910168733,
+          "tvalue" : -2.939333602488894,
+          "vms" : 31
+        } ],
+        "org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest" : [ {
+          "diff" : "view_daa69a5981c7c12e0af5922f0a07653446261b07/diffs/ZipArchiveInputStreamTest#properUseOfInflater.txt",
+          "method" : "properUseOfInflater",
+          "oldTime" : 413.2488,
+          "changePercent" : 2.250888914516253,
+          "tvalue" : 2.651571946443366,
+          "vms" : 35
+        } ],
+        "org.apache.commons.compress.archivers.zip.ZipFileTest" : [ {
+          "diff" : "view_daa69a5981c7c12e0af5922f0a07653446261b07/diffs/ZipFileTest#testUnshrinking.txt",
+          "method" : "testUnshrinking",
+          "oldTime" : 785.0379587628865,
+          "changePercent" : 0.826858697304825,
+          "tvalue" : 2.603973387333434,
+          "vms" : 97
+        }, {
+          "diff" : "view_daa69a5981c7c12e0af5922f0a07653446261b07/diffs/ZipFileTest#testConcurrentReadFile.txt",
+          "method" : "testConcurrentReadFile",
+          "oldTime" : 3188.6494838709677,
+          "changePercent" : 1.66752161452031,
+          "tvalue" : 6.557522859562612,
+          "vms" : 31
+        }, {
+          "diff" : "view_daa69a5981c7c12e0af5922f0a07653446261b07/diffs/ZipFileTest#testConcurrentReadSeekable.txt",
+          "method" : "testConcurrentReadSeekable",
+          "oldTime" : 2428.847677419355,
+          "changePercent" : 1.925941835845751,
+          "tvalue" : 7.401744137612191,
+          "vms" : 31
+        } ]
+      }
+    },
+    "135dd48fda61f81d9b8e0aec0661c1d48226ae3c" : {
+      "testcaseChanges" : {
+        "org.apache.commons.compress.archivers.zip.ZipFileTest" : [ {
+          "diff" : "view_135dd48fda61f81d9b8e0aec0661c1d48226ae3c/diffs/ZipFileTest#testEntryAlignment.txt",
+          "method" : "testEntryAlignment",
+          "oldTime" : 286.79309677419354,
+          "changePercent" : -2.7233975353255606,
+          "tvalue" : -4.258083166454121,
+          "vms" : 31
+        }, {
+          "diff" : "view_135dd48fda61f81d9b8e0aec0661c1d48226ae3c/diffs/ZipFileTest#testUnzipBZip2CompressedEntry.txt",
+          "method" : "testUnzipBZip2CompressedEntry",
+          "oldTime" : 549.3474838709678,
+          "changePercent" : 17.459082834461928,
+          "tvalue" : 36.00105239938415,
+          "vms" : 31
+        }, {
+          "diff" : "view_135dd48fda61f81d9b8e0aec0661c1d48226ae3c/diffs/ZipFileTest#testDuplicateEntry.txt",
+          "method" : "testDuplicateEntry",
+          "oldTime" : 329.301375,
+          "changePercent" : -1.4697149887900276,
+          "tvalue" : -2.724722364532814,
+          "vms" : 48
+        }, {
+          "diff" : "view_135dd48fda61f81d9b8e0aec0661c1d48226ae3c/diffs/ZipFileTest#testUnixSymlinkSampleFile.txt",
+          "method" : "testUnixSymlinkSampleFile",
+          "oldTime" : 730.1265806451613,
+          "changePercent" : -2.1464682836259352,
+          "tvalue" : -4.874006597681419,
+          "vms" : 31
+        }, {
+          "diff" : "view_135dd48fda61f81d9b8e0aec0661c1d48226ae3c/diffs/ZipFileTest#testUnshrinking.txt",
+          "method" : "testUnshrinking",
+          "oldTime" : 758.6732258064516,
+          "changePercent" : 41.32574396644056,
+          "tvalue" : 124.46898260678645,
+          "vms" : 31
+        }, {
+          "diff" : "view_135dd48fda61f81d9b8e0aec0661c1d48226ae3c/diffs/ZipFileTest#testConcurrentReadFile.txt",
+          "method" : "testConcurrentReadFile",
+          "oldTime" : 3167.3270967741937,
+          "changePercent" : 16.967769913656713,
+          "tvalue" : 71.80478944398176,
+          "vms" : 31
+        }, {
+          "diff" : "view_135dd48fda61f81d9b8e0aec0661c1d48226ae3c/diffs/ZipFileTest#testConcurrentReadSeekable.txt",
+          "method" : "testConcurrentReadSeekable",
+          "oldTime" : 2402.097794871795,
+          "changePercent" : -0.6245950788271482,
+          "tvalue" : -2.732589644875163,
+          "vms" : 39
+        } ]
+      }
+    }
+  }
+}

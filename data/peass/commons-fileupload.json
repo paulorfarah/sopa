@@ -1,0 +1,207 @@
+{
+  "versionCount" : 6,
+  "changeCount" : 24,
+  "testcaseCount" : 80,
+  "versionChanges" : {
+    "651283e071de6230356af058afe0c0b78e8cb8b6" : {
+      "testcaseChanges" : {
+        "org.apache.commons.fileupload.DefaultFileItemTest" : [ {
+          "diff" : "view_651283e071de6230356af058afe0c0b78e8cb8b6/diffs/DefaultFileItemTest#testAboveThresholdSpecifiedRepository.txt",
+          "method" : "testAboveThresholdSpecifiedRepository",
+          "oldTime" : 489.28012903225806,
+          "changePercent" : -1.1342404021602772,
+          "tvalue" : -4.814551492798748,
+          "vms" : 31
+        }, {
+          "diff" : "view_651283e071de6230356af058afe0c0b78e8cb8b6/diffs/DefaultFileItemTest#testAboveThresholdDefaultRepository.txt",
+          "method" : "testAboveThresholdDefaultRepository",
+          "oldTime" : 339.36820618556703,
+          "changePercent" : -2.0037294285718756,
+          "tvalue" : -4.095488850557312,
+          "vms" : 97
+        } ],
+        "org.apache.commons.fileupload.DiskFileItemSerializeTest" : [ {
+          "diff" : "view_651283e071de6230356af058afe0c0b78e8cb8b6/diffs/DiskFileItemSerializeTest#testAboveThreshold.txt",
+          "method" : "testAboveThreshold",
+          "oldTime" : 543.8720645161291,
+          "changePercent" : -1.0750512128267444,
+          "tvalue" : -2.7756056005427556,
+          "vms" : 31
+        } ]
+      }
+    },
+    "73ab5a60d0e146ab1a9ed969b14449402274b2b9" : {
+      "testcaseChanges" : {
+        "org.apache.commons.fileupload.SizesTest" : [ {
+          "diff" : "view_73ab5a60d0e146ab1a9ed969b14449402274b2b9/diffs/SizesTest#testFileSizeLimit.txt",
+          "method" : "testFileSizeLimit",
+          "oldTime" : 279.89563636363636,
+          "changePercent" : 14.365159481521035,
+          "tvalue" : 20.243086824756634,
+          "vms" : 11
+        }, {
+          "diff" : "view_73ab5a60d0e146ab1a9ed969b14449402274b2b9/diffs/SizesTest#testFileSizeLimitWithFakedContentLength.txt",
+          "method" : "testFileSizeLimitWithFakedContentLength",
+          "oldTime" : 291.09563636363634,
+          "changePercent" : 14.394144754676045,
+          "tvalue" : 14.422150749758803,
+          "vms" : 11
+        } ]
+      }
+    },
+    "774ef160d591b579f703c694002e080f99bcd28b" : {
+      "testcaseChanges" : {
+        "org.apache.commons.fileupload.MultipartStreamTest" : [ {
+          "diff" : "view_774ef160d591b579f703c694002e080f99bcd28b/diffs/MultipartStreamTest#testThreeParamConstructor.txt",
+          "method" : "testThreeParamConstructor",
+          "oldTime" : 13.713298299845441,
+          "changePercent" : -0.8665197558659856,
+          "tvalue" : -2.583229365237671,
+          "vms" : 647
+        }, {
+          "diff" : "view_774ef160d591b579f703c694002e080f99bcd28b/diffs/MultipartStreamTest#testTwoParamConstructor.txt",
+          "method" : "testTwoParamConstructor",
+          "oldTime" : 14.323310344827586,
+          "changePercent" : -0.9708618872364471,
+          "tvalue" : -2.6731361375387706,
+          "vms" : 319
+        } ],
+        "org.apache.commons.fileupload.ServletFileUploadTest" : [ {
+          "diff" : "view_774ef160d591b579f703c694002e080f99bcd28b/diffs/ServletFileUploadTest#testIE5MacBug.txt",
+          "method" : "testIE5MacBug",
+          "oldTime" : 208.5327037037037,
+          "changePercent" : 1.2247479434347412,
+          "tvalue" : 2.681349877147298,
+          "vms" : 54
+        }, {
+          "diff" : "view_774ef160d591b579f703c694002e080f99bcd28b/diffs/ServletFileUploadTest#testEmptyFile.txt",
+          "method" : "testEmptyFile",
+          "oldTime" : 163.11652631578949,
+          "changePercent" : -1.0858075628207713,
+          "tvalue" : -2.621015553598686,
+          "vms" : 76
+        } ]
+      }
+    },
+    "afdedc9580dde03287979607f9ce441b23b6bc90" : {
+      "testcaseChanges" : {
+        "org.apache.commons.fileupload.MultipartStreamTest" : [ {
+          "diff" : "view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/MultipartStreamTest#testThreeParamConstructor.txt",
+          "method" : "testThreeParamConstructor",
+          "oldTime" : 13.53439393939394,
+          "changePercent" : -5.203353969124668,
+          "tvalue" : -9.838974589633324,
+          "vms" : 66
+        }, {
+          "diff" : "view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/MultipartStreamTest#testTwoParamConstructor.txt",
+          "method" : "testTwoParamConstructor",
+          "oldTime" : 13.317,
+          "changePercent" : -4.098971239768712,
+          "tvalue" : -2.7911667579333006,
+          "vms" : 100
+        } ],
+        "org.apache.commons.fileupload.ServletFileUploadTest" : [ {
+          "diff" : "view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#testFILEUPLOAD62.txt",
+          "method" : "testFILEUPLOAD62",
+          "oldTime" : 191.63786440677967,
+          "changePercent" : -0.9682987881273936,
+          "tvalue" : -2.8889018322231648,
+          "vms" : 59
+        }, {
+          "diff" : "view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#testFoldedHeaders.txt",
+          "method" : "testFoldedHeaders",
+          "oldTime" : 205.8662620689655,
+          "changePercent" : -0.8067071866676989,
+          "tvalue" : -2.589408299756343,
+          "vms" : 290
+        }, {
+          "diff" : "view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#testIE5MacBug.txt",
+          "method" : "testIE5MacBug",
+          "oldTime" : 201.94,
+          "changePercent" : -0.9760529475656387,
+          "tvalue" : -2.6547589002339533,
+          "vms" : 121
+        }, {
+          "diff" : "view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#testFileUpload130.txt",
+          "method" : "testFileUpload130",
+          "oldTime" : 207.445547008547,
+          "changePercent" : -0.6386971121120953,
+          "tvalue" : -2.6008055923700844,
+          "vms" : 234
+        }, {
+          "diff" : "view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#parseParameterMap.txt",
+          "method" : "parseParameterMap",
+          "oldTime" : 200.27137313432834,
+          "changePercent" : -0.9216822368335802,
+          "tvalue" : -2.634188633990722,
+          "vms" : 134
+        }, {
+          "diff" : "view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#testFileUpload.txt",
+          "method" : "testFileUpload",
+          "oldTime" : 214.44564102564104,
+          "changePercent" : -1.446711736164098,
+          "tvalue" : -2.663077102645632,
+          "vms" : 39
+        }, {
+          "diff" : "view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#testContentTypeAttachment.txt",
+          "method" : "testContentTypeAttachment",
+          "oldTime" : 185.1098064516129,
+          "changePercent" : -1.6606011009332915,
+          "tvalue" : -3.247109143794465,
+          "vms" : 31
+        } ],
+        "org.apache.commons.fileupload.SizesTest" : [ {
+          "diff" : "view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/SizesTest#testFileSizeLimit.txt",
+          "method" : "testFileSizeLimit",
+          "oldTime" : 237.32874193548386,
+          "changePercent" : -1.1764952140022045,
+          "tvalue" : -2.648446409088263,
+          "vms" : 62
+        } ],
+        "org.apache.commons.fileupload.StreamingTest" : [ {
+          "diff" : "view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/StreamingTest#testInvalidFileNameException.txt",
+          "method" : "testInvalidFileNameException",
+          "oldTime" : 6766.684129032258,
+          "changePercent" : -2.633181826970782,
+          "tvalue" : -3.562228833790638,
+          "vms" : 31
+        } ]
+      }
+    },
+    "10d22ac91834cc61a7de41451be1d1f15e881733" : {
+      "testcaseChanges" : {
+        "org.apache.commons.fileupload2.StreamingTest" : [ {
+          "diff" : "view_10d22ac91834cc61a7de41451be1d1f15e881733/diffs/StreamingTest#testInvalidFileNameException.txt",
+          "method" : "testInvalidFileNameException",
+          "oldTime" : 6013.716967741935,
+          "changePercent" : 6.488341872789257,
+          "tvalue" : 16.101296927358927,
+          "vms" : 31
+        } ],
+        "org.apache.commons.fileupload2.portlet.PortletFileUploadTest" : [ {
+          "diff" : "view_10d22ac91834cc61a7de41451be1d1f15e881733/diffs/PortletFileUploadTest#parseParameterMap.txt",
+          "method" : "parseParameterMap",
+          "oldTime" : 198.49475675675674,
+          "changePercent" : 1.9938167064389771,
+          "tvalue" : 2.67098928633324,
+          "vms" : 37
+        } ],
+        "org.apache.commons.fileupload2.servlet.ServletFileUploadTest" : [ {
+          "diff" : "view_10d22ac91834cc61a7de41451be1d1f15e881733/diffs/ServletFileUploadTest#parseImpliedUtf8.txt",
+          "method" : "parseImpliedUtf8",
+          "oldTime" : 161.46433333333334,
+          "changePercent" : 0.7601659140802108,
+          "tvalue" : 2.6268757356220593,
+          "vms" : 126
+        }, {
+          "diff" : "view_10d22ac91834cc61a7de41451be1d1f15e881733/diffs/ServletFileUploadTest#parseParameterMap.txt",
+          "method" : "parseParameterMap",
+          "oldTime" : 189.05174193548388,
+          "changePercent" : 3.1146619017425534,
+          "tvalue" : 3.811562231205232,
+          "vms" : 31
+        } ]
+      }
+    }
+  }
+}
