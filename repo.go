@@ -64,12 +64,12 @@ func findCommit(commits []string, commit string) bool {
 	return false
 }
 
-func main() {
-	url := "http://github.com/paulorfarah/refactoring-python-code"
-	dir := "repos"
-	commits := []string{"3599f5cdc72e5526de48df98c212322a835869cd", "ee950eac81d01d30b473d0a0aa74d7a94e22a8e6", "a74d09e3824c152fa0348a9f36e5b2c8af27a181"}
-	res := GetPreviousCommits(url, dir, commits)
-	for k, v := range res {
-		fmt.Printf("%v: %v\n", k, v)
-	}
-}
+//func main() {
+//	url := "http://github.com/paulorfarah/refactoring-python-code"
+//	dir := "repos"
+//	commits := []string{"3599f5cdc72e5526de48df98c212322a835869cd", "ee950eac81d01d30b473d0a0aa74d7a94e22a8e6", "a74d09e3824c152fa0348a9f36e5b2c8af27a181"}
+//	res := GetPreviousCommits(url, dir, commits)
+//	for k, v := range res {
+//		fmt.Printf("%v: %v\n", k, v)
+//	}
+//}

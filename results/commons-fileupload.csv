@@ -1,0 +1,25 @@
+"651283e071de6230356af058afe0c0b78e8cb8b6, view_651283e071de6230356af058afe0c0b78e8cb8b6/diffs/DefaultFileItemTest#testAboveThresholdSpecifiedRepository.txt, testAboveThresholdSpecifiedRepository, 489.28012, -1.1342404
+","651283e071de6230356af058afe0c0b78e8cb8b6, view_651283e071de6230356af058afe0c0b78e8cb8b6/diffs/DefaultFileItemTest#testAboveThresholdDefaultRepository.txt, testAboveThresholdDefaultRepository, 339.3682, -2.0037293
+","651283e071de6230356af058afe0c0b78e8cb8b6, view_651283e071de6230356af058afe0c0b78e8cb8b6/diffs/DiskFileItemSerializeTest#testAboveThreshold.txt, testAboveThreshold, 543.8721, -1.0750512
+","73ab5a60d0e146ab1a9ed969b14449402274b2b9, view_73ab5a60d0e146ab1a9ed969b14449402274b2b9/diffs/SizesTest#testFileSizeLimit.txt, testFileSizeLimit, 279.89563, 14.365159
+","73ab5a60d0e146ab1a9ed969b14449402274b2b9, view_73ab5a60d0e146ab1a9ed969b14449402274b2b9/diffs/SizesTest#testFileSizeLimitWithFakedContentLength.txt, testFileSizeLimitWithFakedContentLength, 291.09564, 14.394145
+","774ef160d591b579f703c694002e080f99bcd28b, view_774ef160d591b579f703c694002e080f99bcd28b/diffs/MultipartStreamTest#testThreeParamConstructor.txt, testThreeParamConstructor, 13.713298, -0.86651975
+","774ef160d591b579f703c694002e080f99bcd28b, view_774ef160d591b579f703c694002e080f99bcd28b/diffs/MultipartStreamTest#testTwoParamConstructor.txt, testTwoParamConstructor, 14.32331, -0.9708619
+","774ef160d591b579f703c694002e080f99bcd28b, view_774ef160d591b579f703c694002e080f99bcd28b/diffs/ServletFileUploadTest#testIE5MacBug.txt, testIE5MacBug, 208.5327, 1.2247479
+","774ef160d591b579f703c694002e080f99bcd28b, view_774ef160d591b579f703c694002e080f99bcd28b/diffs/ServletFileUploadTest#testEmptyFile.txt, testEmptyFile, 163.11653, -1.0858076
+","afdedc9580dde03287979607f9ce441b23b6bc90, view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/MultipartStreamTest#testThreeParamConstructor.txt, testThreeParamConstructor, 13.534394, -5.203354
+","afdedc9580dde03287979607f9ce441b23b6bc90, view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/MultipartStreamTest#testTwoParamConstructor.txt, testTwoParamConstructor, 13.317, -4.0989714
+","afdedc9580dde03287979607f9ce441b23b6bc90, view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#testFILEUPLOAD62.txt, testFILEUPLOAD62, 191.63786, -0.9682988
+","afdedc9580dde03287979607f9ce441b23b6bc90, view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#testFoldedHeaders.txt, testFoldedHeaders, 205.86626, -0.8067072
+","afdedc9580dde03287979607f9ce441b23b6bc90, view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#testIE5MacBug.txt, testIE5MacBug, 201.94, -0.97605294
+","afdedc9580dde03287979607f9ce441b23b6bc90, view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#testFileUpload130.txt, testFileUpload130, 207.44554, -0.6386971
+","afdedc9580dde03287979607f9ce441b23b6bc90, view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#parseParameterMap.txt, parseParameterMap, 200.27138, -0.92168224
+","afdedc9580dde03287979607f9ce441b23b6bc90, view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#testFileUpload.txt, testFileUpload, 214.44565, -1.4467118
+","afdedc9580dde03287979607f9ce441b23b6bc90, view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/ServletFileUploadTest#testContentTypeAttachment.txt, testContentTypeAttachment, 185.1098, -1.6606011
+","afdedc9580dde03287979607f9ce441b23b6bc90, view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/SizesTest#testFileSizeLimit.txt, testFileSizeLimit, 237.32874, -1.1764952
+","afdedc9580dde03287979607f9ce441b23b6bc90, view_afdedc9580dde03287979607f9ce441b23b6bc90/diffs/StreamingTest#testInvalidFileNameException.txt, testInvalidFileNameException, 6766.684, -2.6331818
+","10d22ac91834cc61a7de41451be1d1f15e881733, view_10d22ac91834cc61a7de41451be1d1f15e881733/diffs/PortletFileUploadTest#parseParameterMap.txt, parseParameterMap, 198.49475, 1.9938167
+","10d22ac91834cc61a7de41451be1d1f15e881733, view_10d22ac91834cc61a7de41451be1d1f15e881733/diffs/ServletFileUploadTest#parseImpliedUtf8.txt, parseImpliedUtf8, 161.46434, 0.7601659
+","10d22ac91834cc61a7de41451be1d1f15e881733, view_10d22ac91834cc61a7de41451be1d1f15e881733/diffs/ServletFileUploadTest#parseParameterMap.txt, parseParameterMap, 189.05174, 3.114662
+","10d22ac91834cc61a7de41451be1d1f15e881733, view_10d22ac91834cc61a7de41451be1d1f15e881733/diffs/StreamingTest#testInvalidFileNameException.txt, testInvalidFileNameException, 6013.717, 6.488342
+"

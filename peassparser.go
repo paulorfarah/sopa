@@ -1,12 +1,14 @@
-package main
+package main 
 
 import (
 	"os"
 	"fmt"
 	"log"
+	"strings"
 	"io/ioutil"
 	"encoding/json"
 	"encoding/csv"
+	"path/filepath"
 )
 
 
@@ -30,41 +32,67 @@ type Measurement struct {
 	VMS int `json:"vms"`
 }
 
-func main() {
-	jsonFile, err := os.Open("data/peass/commons-compress.json")
+func ParsePeassResults() {
+	dir := filepath.FromSlash("data/peass/")
+	abs, err := filepath.Abs(dir)
 	if err != nil {
-		fmt.Println(err)
+		log.Fatal("Cannot read absolute filepath", err)
 	}
-	fmt.Println("Successfuly opened json file...")
-	defer jsonFile.Close()
+	fmt.Printf("abs path: %v\n", abs)
+	files := getFiles(abs)
+	fmt.Printf("files: %v\n\n", files)
+	for _, filename := range files {
+		fmt.Println(filename)
+		jsonFile, err := os.Open("data/peass/" + filename)
+		if err != nil {
+			fmt.Println(err)
+		}
+		fmt.Println("Successfuly opened json file...")
+		defer jsonFile.Close()
 
-	byteValue, err := ioutil.ReadAll(jsonFile)
-	if err != nil {
-		fmt.Println(err)
-	}
+		byteValue, err := ioutil.ReadAll(jsonFile)
+		if err != nil {
+			fmt.Println(err)
+		}
+		resFilename := strings.ReplaceAll(filename, ".json", ".csv")
+		file, err := os.Create("results/" + resFilename)
+		if err != nil {
+			log.Fatal("Cannot create file", err)
+		}
+		defer file.Close()
 
-	file, err := os.Create("results/commons-compress.csv")
-	if err != nil {
-		log.Fatal("Cannot create file", err)
-	}
-	defer file.Close()
+		writer := csv.NewWriter(file)
+		defer writer.Flush()
 
-	writer := csv.NewWriter(file)
-	defer writer.Flush()
-
-	var result PeassResult
-	var data []string
-	json.Unmarshal([]byte(byteValue), &result)
-	for commit, v := range result.VersionChanges {
-		for _, w := range v.TestCaseChanges {
-			for _, j := range w {
-				s := fmt.Sprintf("%v, %v, %v, %v, %v\n", commit, j.Diff, j.Method, j.OldTime, j.ChangePercent)
-				data = append(data, s)
+		var result PeassResult
+		var data []string
+		json.Unmarshal([]byte(byteValue), &result)
+		for commit, v := range result.VersionChanges {
+			for _, w := range v.TestCaseChanges {
+				for _, j := range w {
+					s := fmt.Sprintf("%v, %v, %v, %v, %v\n", commit, j.Diff, j.Method, j.OldTime, j.ChangePercent)
+					data = append(data, s)
+				}
 			}
 		}
+		err = writer.Write(data)
+		if err != nil {
+			log.Fatal("Cannot write to file", err)
+		}
 	}
-	err = writer.Write(data)
+}
+
+func getFiles(root string) []string {
+	var files []string
+	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
+		if filepath.Ext(path) != ".json" {
+			return nil
+		}
+		files = append(files, info.Name())
+		return nil
+	})
 	if err != nil {
-		log.Fatal("Cannot write to file", err)
+		panic(err)
 	}
+	return files
 }
