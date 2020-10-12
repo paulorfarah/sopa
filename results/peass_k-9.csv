@@ -1,62 +1,62 @@
-"5b605f25ab7c837279347cf9895c82c5705eb813, open_withNegativeResponseToCompressionCommand_shouldContinue, 80628.805, 83404.625, 2775.8203
-%!(EXTRA float32=0.03442714)","5b605f25ab7c837279347cf9895c82c5705eb813, open_withNegativeResponseToListCommand, 40645.176, 41692.56, 1047.3828
-%!(EXTRA float32=0.02576897)","5b605f25ab7c837279347cf9895c82c5705eb813, fetchPart_withTextSection_shouldIssueRespectiveCommand, 565.535, 40.709534, -524.82544
-%!(EXTRA float32=-0.9280159)","5b605f25ab7c837279347cf9895c82c5705eb813, getHighestUid_imapConnectionThrowsIOException_shouldThrowMessagingException, 645.8369, 1297.1763, 651.33936
-%!(EXTRA float32=1.0085199)","5b605f25ab7c837279347cf9895c82c5705eb813, open_shouldMakeExistReturnTrueWithoutExecutingAdditionalCommands, 451.96625, -265.20148, -717.1677
-%!(EXTRA float32=-1.5867728)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, testMultipartPlainTextMessage, 227.62735, 678.10474, 450.4774
-%!(EXTRA float32=1.9790127)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, testMultipartPlainTextMessage, 180.7118, 410.26663, 229.55482
-%!(EXTRA float32=1.2702813)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubEncrypted__shouldReturnRoot, 96.93961, 421.48154, 324.54193
-%!(EXTRA float32=3.3478773)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubEncrypted__shouldReturnRoot, 102.755486, 467.16196, 364.40646
-%!(EXTRA float32=3.5463455)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubEncrypted__shouldReturnRoot, 95.71388, 384.63385, 288.91998
-%!(EXTRA float32=3.0185797)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubEncryptedAndText__shouldReturnEncrypted, 104.81516, 605.1571, 500.34195
-%!(EXTRA float32=4.7735643)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubEncryptedAndText__shouldReturnEncrypted, 97.44678, 324.46613, 227.01935
-%!(EXTRA float32=2.3296754)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubEncryptedAndText__shouldReturnEncrypted, 95.91736, 387.969, 292.05164
-%!(EXTRA float32=3.0448256)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubTextAndEncrypted__shouldReturnEncrypted, 106.27568, 624.3725, 518.0968
-%!(EXTRA float32=4.8750267)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubTextAndEncrypted__shouldReturnEncrypted, 97.75387, 361.50226, 263.74838
-%!(EXTRA float32=2.6980863)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubTextAndEncrypted__shouldReturnEncrypted, 98.54161, 369.2771, 270.73547
-%!(EXTRA float32=2.747423)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubEncryptedAndEncrypted__shouldReturnBoth, 102.98432, 632.5585, 529.57416
-%!(EXTRA float32=5.1422796)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubEncryptedAndEncrypted__shouldReturnBoth, 103.1529, 630.30774, 527.15485
-%!(EXTRA float32=5.1104217)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubEncryptedAndEncrypted__shouldReturnBoth, 92.299095, 485.77005, 393.47095
-%!(EXTRA float32=4.262999)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncryptedPartsShouldReturnEmptyEncryptedPart, 89.3931, 267.6834, 178.29031
-%!(EXTRA float32=1.994453)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncryptedPartsShouldReturnEmptyEncryptedPart, 85.26787, 347.6098, 262.34192
-%!(EXTRA float32=3.0766797)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncryptedPartsShouldReturnEmptyEncryptedPart, 76.96413, 236.77057, 159.80644
-%!(EXTRA float32=2.0763757)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncryptedPartsShouldReturnMultipleEncryptedParts, 111.43232, 640.38715, 528.95483
-%!(EXTRA float32=4.746871)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncryptedPartsShouldReturnMultipleEncryptedParts, 108.41, 621.13257, 512.72253
-%!(EXTRA float32=4.729477)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncryptedPartsShouldReturnMultipleEncryptedParts, 108.05116, 379.6189, 271.56775
-%!(EXTRA float32=2.5133255)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findSigned__withComplexMultipartSigned__shouldReturnRoot, 151.44704, 582.3051, 430.8581
-%!(EXTRA float32=2.8449423)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findSigned__withComplexMultipartSigned__shouldReturnRoot, 156.8633, 579.702, 422.83875
-%!(EXTRA float32=2.6955874)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findSigned__withComplexMultipartSigned__shouldReturnRoot, 151.07019, 635.48956, 484.41937
-%!(EXTRA float32=3.2065847)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findSigned__withSimpleMultipartSigned__shouldReturnRoot, 152.83862, 311.90674, 159.06812
-%!(EXTRA float32=1.0407585)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubTextAndSigned__shouldReturnSigned, 170.23723, 404.7082, 234.47096
-%!(EXTRA float32=1.377319)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubTextAndSigned__shouldReturnSigned, 167.68826, 463.04956, 295.3613
-%!(EXTRA float32=1.7613714)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubTextAndSigned__shouldReturnSigned, 171.46135, 529.37744, 357.91608
-%!(EXTRA float32=2.0874448)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubSigned__shouldReturnSigned, 162.15645, 536.5887, 374.43225
-%!(EXTRA float32=2.3090801)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubSigned__shouldReturnSigned, 157.08154, 480.60413, 323.52258
-%!(EXTRA float32=2.0595837)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubSigned__shouldReturnSigned, 157.82204, 390.81616, 232.99413
-%!(EXTRA float32=1.4763092)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartEncrypted__shouldReturnRoot, 91.65742, 316.94772, 225.29031
-%!(EXTRA float32=2.4579606)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartEncrypted__shouldReturnRoot, 87.96387, 273.84128, 185.87741
-%!(EXTRA float32=2.113111)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartEncrypted__shouldReturnRoot, 89.701805, 298.46954, 208.76773
-%!(EXTRA float32=2.3273528)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubSignedAndText__shouldReturnSigned, 173.65968, 574.00806, 400.3484
-%!(EXTRA float32=2.3053617)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubSignedAndText__shouldReturnSigned, 170.68071, 534.81616, 364.13544
-%!(EXTRA float32=2.1334307)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, findEncrypted__withMultipartMixedSubSignedAndText__shouldReturnSigned, 169.40012, 546.76373, 377.36362
-%!(EXTRA float32=2.2276468)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, generateBoundary_allZeros, 224.9801, 643.29486, 418.31476
-%!(EXTRA float32=1.8593411)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, generateBoundary, 213.91226, 730.6354, 516.72314
-%!(EXTRA float32=2.4155843)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, buildCidMap__onMultipartWithEmptyBodyPart__shouldReturnEmptyMap, 216.10962, 513.0516, 296.94196
-%!(EXTRA float32=1.3740339)","8def88afcbc9ee1d227f0b2773a301884a35b1d3, buildCidMap__onMultipartWithEmptyBodyPart__shouldReturnEmptyMap, 214.49542, 388.30695, 173.81152
-%!(EXTRA float32=0.8103275)","79c65d4cff60ef6dd3e452591ae8f8dcec18630a, synchronizeMailboxSynchronous_withNoRemoteFolderProvided_shouldCloseRemoteFolderFromStore, 846.37305, -167.08795, -1013.461
-%!(EXTRA float32=-1.1974164)","79c65d4cff60ef6dd3e452591ae8f8dcec18630a, synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate, 1307.7308, -9930.437, -11238.167
-%!(EXTRA float32=-8.593639)","79c65d4cff60ef6dd3e452591ae8f8dcec18630a, synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate, 887.3926, -7401.9814, -8289.374
-%!(EXTRA float32=-9.34127)","79c65d4cff60ef6dd3e452591ae8f8dcec18630a, synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfDeletedMessages, 855.6553, -1342.2996, -2197.9548
-%!(EXTRA float32=-2.5687387)","79c65d4cff60ef6dd3e452591ae8f8dcec18630a, synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfDeletedMessages, 790.3075, -4063.17, -4853.4775
-%!(EXTRA float32=-6.141252)","79c65d4cff60ef6dd3e452591ae8f8dcec18630a, synchronizeMailboxSynchronous_withRemoteFolderProvided_shouldNotCloseRemoteFolder, 820.2615, 1782.601, 962.3395
-%!(EXTRA float32=1.1732106)","79c65d4cff60ef6dd3e452591ae8f8dcec18630a, synchronizeMailboxSynchronous_withOneMessageInRemoteFolder_shouldFinishWithoutError, 816.73914, 2039.0852, 1222.3461
-%!(EXTRA float32=1.4966174)","c60f97fb7e6eb400fe8e4a85f635c89215ac685d, synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate, 1338.7559, -12766.314, -14105.07
-%!(EXTRA float32=-10.535954)","c60f97fb7e6eb400fe8e4a85f635c89215ac685d, synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate, 910.5756, -7103.85, -8014.426
-%!(EXTRA float32=-8.801494)","c60f97fb7e6eb400fe8e4a85f635c89215ac685d, synchronizeMailboxSynchronous_withAccountPolicySetToExpungeManually_shouldNotExpungeRemoteFolder, 906.655, 2227.3743, 1320.7192
-%!(EXTRA float32=1.4566944)","c60f97fb7e6eb400fe8e4a85f635c89215ac685d, searchLocalMessagesSynchronous_shouldCallSearchForMessagesOnLocalStore, 601.64075, 1651.5248, 1049.884
-%!(EXTRA float32=1.7450348)","c60f97fb7e6eb400fe8e4a85f635c89215ac685d, synchronizeMailboxSynchronous_withAccountPolicySetToExpungeOnPoll_shouldExpungeRemoteFolder, 841.1609, -416.13647, -1257.2974
-%!(EXTRA float32=-1.4947169)","c60f97fb7e6eb400fe8e4a85f635c89215ac685d, synchronizeMailboxSynchronous_withAccountSetNotToSyncRemoteDeletions_shouldNotDeleteLocalCopiesOfMessages, 862.0519, 2875.4238, 2013.372
-%!(EXTRA float32=2.3355577)","7d1f87082d49377c67b046df8dbbabad482b224b, synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate, 1348.9954, -11996.812, -13345.807
-%!(EXTRA float32=-9.893145)","7d1f87082d49377c67b046df8dbbabad482b224b, synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate, 893.8021, -7852.146, -8745.948
-%!(EXTRA float32=-9.785106)","7d1f87082d49377c67b046df8dbbabad482b224b, synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfDeletedMessages, 870.192, -876.5769, -1746.7689
-%!(EXTRA float32=-2.0073373)"
+commit,method,oldTime,currTime,diffTime,changePercent
+7d1f87082d49377c67b046df8dbbabad482b224b,synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate,1e+03,-1e+04,-1e+04,-1e+01
+7d1f87082d49377c67b046df8dbbabad482b224b,synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate,9e+02,-8e+03,-9e+03,-1e+01
+7d1f87082d49377c67b046df8dbbabad482b224b,synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfDeletedMessages,9e+02,-9e+02,-2e+03,-2
+5b605f25ab7c837279347cf9895c82c5705eb813,open_withNegativeResponseToCompressionCommand_shouldContinue,8e+04,8e+04,3e+03,0.03
+5b605f25ab7c837279347cf9895c82c5705eb813,open_withNegativeResponseToListCommand,4e+04,4e+04,1e+03,0.03
+5b605f25ab7c837279347cf9895c82c5705eb813,fetchPart_withTextSection_shouldIssueRespectiveCommand,6e+02,4e+01,-5e+02,-0.9
+5b605f25ab7c837279347cf9895c82c5705eb813,getHighestUid_imapConnectionThrowsIOException_shouldThrowMessagingException,6e+02,1e+03,7e+02,1
+5b605f25ab7c837279347cf9895c82c5705eb813,open_shouldMakeExistReturnTrueWithoutExecutingAdditionalCommands,5e+02,-3e+02,-7e+02,-2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubEncrypted__shouldReturnRoot,1e+02,4e+02,3e+02,3
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubEncrypted__shouldReturnRoot,1e+02,5e+02,4e+02,4
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubEncrypted__shouldReturnRoot,1e+02,4e+02,3e+02,3
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubEncryptedAndText__shouldReturnEncrypted,1e+02,6e+02,5e+02,5
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubEncryptedAndText__shouldReturnEncrypted,1e+02,3e+02,2e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubEncryptedAndText__shouldReturnEncrypted,1e+02,4e+02,3e+02,3
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubTextAndEncrypted__shouldReturnEncrypted,1e+02,6e+02,5e+02,5
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubTextAndEncrypted__shouldReturnEncrypted,1e+02,4e+02,3e+02,3
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubTextAndEncrypted__shouldReturnEncrypted,1e+02,4e+02,3e+02,3
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubEncryptedAndEncrypted__shouldReturnBoth,1e+02,6e+02,5e+02,5
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubEncryptedAndEncrypted__shouldReturnBoth,1e+02,6e+02,5e+02,5
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubEncryptedAndEncrypted__shouldReturnBoth,9e+01,5e+02,4e+02,4
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncryptedPartsShouldReturnEmptyEncryptedPart,9e+01,3e+02,2e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncryptedPartsShouldReturnEmptyEncryptedPart,9e+01,3e+02,3e+02,3
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncryptedPartsShouldReturnEmptyEncryptedPart,8e+01,2e+02,2e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncryptedPartsShouldReturnMultipleEncryptedParts,1e+02,6e+02,5e+02,5
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncryptedPartsShouldReturnMultipleEncryptedParts,1e+02,6e+02,5e+02,5
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncryptedPartsShouldReturnMultipleEncryptedParts,1e+02,4e+02,3e+02,3
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findSigned__withComplexMultipartSigned__shouldReturnRoot,2e+02,6e+02,4e+02,3
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findSigned__withComplexMultipartSigned__shouldReturnRoot,2e+02,6e+02,4e+02,3
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findSigned__withComplexMultipartSigned__shouldReturnRoot,2e+02,6e+02,5e+02,3
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findSigned__withSimpleMultipartSigned__shouldReturnRoot,2e+02,3e+02,2e+02,1
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubTextAndSigned__shouldReturnSigned,2e+02,4e+02,2e+02,1
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubTextAndSigned__shouldReturnSigned,2e+02,5e+02,3e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubTextAndSigned__shouldReturnSigned,2e+02,5e+02,4e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubSigned__shouldReturnSigned,2e+02,5e+02,4e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubSigned__shouldReturnSigned,2e+02,5e+02,3e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubSigned__shouldReturnSigned,2e+02,4e+02,2e+02,1
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartEncrypted__shouldReturnRoot,9e+01,3e+02,2e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartEncrypted__shouldReturnRoot,9e+01,3e+02,2e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartEncrypted__shouldReturnRoot,9e+01,3e+02,2e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubSignedAndText__shouldReturnSigned,2e+02,6e+02,4e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubSignedAndText__shouldReturnSigned,2e+02,5e+02,4e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,findEncrypted__withMultipartMixedSubSignedAndText__shouldReturnSigned,2e+02,5e+02,4e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,generateBoundary_allZeros,2e+02,6e+02,4e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,generateBoundary,2e+02,7e+02,5e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,buildCidMap__onMultipartWithEmptyBodyPart__shouldReturnEmptyMap,2e+02,5e+02,3e+02,1
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,buildCidMap__onMultipartWithEmptyBodyPart__shouldReturnEmptyMap,2e+02,4e+02,2e+02,0.8
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,testMultipartPlainTextMessage,2e+02,7e+02,5e+02,2
+8def88afcbc9ee1d227f0b2773a301884a35b1d3,testMultipartPlainTextMessage,2e+02,4e+02,2e+02,1
+79c65d4cff60ef6dd3e452591ae8f8dcec18630a,synchronizeMailboxSynchronous_withNoRemoteFolderProvided_shouldCloseRemoteFolderFromStore,8e+02,-2e+02,-1e+03,-1
+79c65d4cff60ef6dd3e452591ae8f8dcec18630a,synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate,1e+03,-1e+04,-1e+04,-9
+79c65d4cff60ef6dd3e452591ae8f8dcec18630a,synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate,9e+02,-7e+03,-8e+03,-9
+79c65d4cff60ef6dd3e452591ae8f8dcec18630a,synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfDeletedMessages,9e+02,-1e+03,-2e+03,-3
+79c65d4cff60ef6dd3e452591ae8f8dcec18630a,synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfDeletedMessages,8e+02,-4e+03,-5e+03,-6
+79c65d4cff60ef6dd3e452591ae8f8dcec18630a,synchronizeMailboxSynchronous_withRemoteFolderProvided_shouldNotCloseRemoteFolder,8e+02,2e+03,1e+03,1
+79c65d4cff60ef6dd3e452591ae8f8dcec18630a,synchronizeMailboxSynchronous_withOneMessageInRemoteFolder_shouldFinishWithoutError,8e+02,2e+03,1e+03,1
+c60f97fb7e6eb400fe8e4a85f635c89215ac685d,synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate,1e+03,-1e+04,-1e+04,-1e+01
+c60f97fb7e6eb400fe8e4a85f635c89215ac685d,synchronizeMailboxSynchronous_withAccountSetToSyncRemoteDeletions_shouldDeleteLocalCopiesOfExistingMessagesBeforeEarliestPollDate,9e+02,-7e+03,-8e+03,-9
+c60f97fb7e6eb400fe8e4a85f635c89215ac685d,synchronizeMailboxSynchronous_withAccountPolicySetToExpungeManually_shouldNotExpungeRemoteFolder,9e+02,2e+03,1e+03,1
+c60f97fb7e6eb400fe8e4a85f635c89215ac685d,searchLocalMessagesSynchronous_shouldCallSearchForMessagesOnLocalStore,6e+02,2e+03,1e+03,2
+c60f97fb7e6eb400fe8e4a85f635c89215ac685d,synchronizeMailboxSynchronous_withAccountPolicySetToExpungeOnPoll_shouldExpungeRemoteFolder,8e+02,-4e+02,-1e+03,-1
+c60f97fb7e6eb400fe8e4a85f635c89215ac685d,synchronizeMailboxSynchronous_withAccountSetNotToSyncRemoteDeletions_shouldNotDeleteLocalCopiesOfMessages,9e+02,3e+03,2e+03,2

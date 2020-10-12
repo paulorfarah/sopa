@@ -1,25 +1,25 @@
-"651283e071de6230356af058afe0c0b78e8cb8b6, testAboveThresholdSpecifiedRepository, 489.28012, -65.68118, -554.9613
-%!(EXTRA float32=-1.1342404)","651283e071de6230356af058afe0c0b78e8cb8b6, testAboveThresholdDefaultRepository, 339.3682, -340.63382, -680.002
-%!(EXTRA float32=-2.0037293)","651283e071de6230356af058afe0c0b78e8cb8b6, testAboveThreshold, 543.8721, -40.818237, -584.6903
-%!(EXTRA float32=-1.0750512)","73ab5a60d0e146ab1a9ed969b14449402274b2b9, testFileSizeLimit, 279.89563, 4300.6406, 4020.745
-%!(EXTRA float32=14.365159)","73ab5a60d0e146ab1a9ed969b14449402274b2b9, testFileSizeLimitWithFakedContentLength, 291.09564, 4481.1685, 4190.0728
-%!(EXTRA float32=14.394145)","774ef160d591b579f703c694002e080f99bcd28b, testThreeParamConstructor, 13.713298, 1.8304548, -11.882843
-%!(EXTRA float32=-0.86651975)","774ef160d591b579f703c694002e080f99bcd28b, testTwoParamConstructor, 14.32331, 0.41735363, -13.905956
-%!(EXTRA float32=-0.9708619)","774ef160d591b579f703c694002e080f99bcd28b, testIE5MacBug, 208.5327, 463.93268, 255.39998
-%!(EXTRA float32=1.2247479)","774ef160d591b579f703c694002e080f99bcd28b, testEmptyFile, 163.11653, -13.996628, -177.11316
-%!(EXTRA float32=-1.0858076)","afdedc9580dde03287979607f9ce441b23b6bc90, testThreeParamConstructor, 13.534394, -56.889847, -70.42424
-%!(EXTRA float32=-5.203354)","afdedc9580dde03287979607f9ce441b23b6bc90, testTwoParamConstructor, 13.317, -41.269, -54.586002
-%!(EXTRA float32=-4.0989714)","afdedc9580dde03287979607f9ce441b23b6bc90, testFILEUPLOAD62, 191.63786, 6.0751495, -185.56271
-%!(EXTRA float32=-0.9682988)","afdedc9580dde03287979607f9ce441b23b6bc90, testFoldedHeaders, 205.86626, 39.792465, -166.07379
-%!(EXTRA float32=-0.8067072)","afdedc9580dde03287979607f9ce441b23b6bc90, testIE5MacBug, 201.94, 4.8358765, -197.10413
-%!(EXTRA float32=-0.97605294)","afdedc9580dde03287979607f9ce441b23b6bc90, testFileUpload130, 207.44554, 74.95068, -132.49486
-%!(EXTRA float32=-0.6386971)","afdedc9580dde03287979607f9ce441b23b6bc90, parseParameterMap, 200.27138, 15.684799, -184.58658
-%!(EXTRA float32=-0.92168224)","afdedc9580dde03287979607f9ce441b23b6bc90, testFileUpload, 214.44565, -95.79541, -310.24106
-%!(EXTRA float32=-1.4467118)","afdedc9580dde03287979607f9ce441b23b6bc90, testContentTypeAttachment, 185.1098, -122.28375, -307.39355
-%!(EXTRA float32=-1.6606011)","afdedc9580dde03287979607f9ce441b23b6bc90, testFileSizeLimit, 237.32874, -41.88739, -279.21613
-%!(EXTRA float32=-1.1764952)","afdedc9580dde03287979607f9ce441b23b6bc90, testInvalidFileNameException, 6766.684, -11051.227, -17817.91
-%!(EXTRA float32=-2.6331818)","10d22ac91834cc61a7de41451be1d1f15e881733, parseImpliedUtf8, 161.46434, 284.20404, 122.7397
-%!(EXTRA float32=0.7601659)","10d22ac91834cc61a7de41451be1d1f15e881733, parseParameterMap, 189.05174, 777.88403, 588.8323
-%!(EXTRA float32=3.114662)","10d22ac91834cc61a7de41451be1d1f15e881733, testInvalidFileNameException, 6013.717, 45032.766, 39019.047
-%!(EXTRA float32=6.488342)","10d22ac91834cc61a7de41451be1d1f15e881733, parseParameterMap, 198.49475, 594.2569, 395.76215
-%!(EXTRA float32=1.9938167)"
+commit,method,oldTime,currTime,diffTime,changePercent
+651283e071de6230356af058afe0c0b78e8cb8b6,testAboveThresholdSpecifiedRepository,5e+02,-7e+01,-6e+02,-1
+651283e071de6230356af058afe0c0b78e8cb8b6,testAboveThresholdDefaultRepository,3e+02,-3e+02,-7e+02,-2
+651283e071de6230356af058afe0c0b78e8cb8b6,testAboveThreshold,5e+02,-4e+01,-6e+02,-1
+73ab5a60d0e146ab1a9ed969b14449402274b2b9,testFileSizeLimit,3e+02,4e+03,4e+03,1e+01
+73ab5a60d0e146ab1a9ed969b14449402274b2b9,testFileSizeLimitWithFakedContentLength,3e+02,4e+03,4e+03,1e+01
+774ef160d591b579f703c694002e080f99bcd28b,testThreeParamConstructor,1e+01,2,-1e+01,-0.9
+774ef160d591b579f703c694002e080f99bcd28b,testTwoParamConstructor,1e+01,0.4,-1e+01,-1
+774ef160d591b579f703c694002e080f99bcd28b,testIE5MacBug,2e+02,5e+02,3e+02,1
+774ef160d591b579f703c694002e080f99bcd28b,testEmptyFile,2e+02,-1e+01,-2e+02,-1
+afdedc9580dde03287979607f9ce441b23b6bc90,testFileSizeLimit,2e+02,-4e+01,-3e+02,-1
+afdedc9580dde03287979607f9ce441b23b6bc90,testInvalidFileNameException,7e+03,-1e+04,-2e+04,-3
+afdedc9580dde03287979607f9ce441b23b6bc90,testThreeParamConstructor,1e+01,-6e+01,-7e+01,-5
+afdedc9580dde03287979607f9ce441b23b6bc90,testTwoParamConstructor,1e+01,-4e+01,-5e+01,-4
+afdedc9580dde03287979607f9ce441b23b6bc90,testFILEUPLOAD62,2e+02,6,-2e+02,-1
+afdedc9580dde03287979607f9ce441b23b6bc90,testFoldedHeaders,2e+02,4e+01,-2e+02,-0.8
+afdedc9580dde03287979607f9ce441b23b6bc90,testIE5MacBug,2e+02,5,-2e+02,-1
+afdedc9580dde03287979607f9ce441b23b6bc90,testFileUpload130,2e+02,7e+01,-1e+02,-0.6
+afdedc9580dde03287979607f9ce441b23b6bc90,parseParameterMap,2e+02,2e+01,-2e+02,-0.9
+afdedc9580dde03287979607f9ce441b23b6bc90,testFileUpload,2e+02,-1e+02,-3e+02,-1
+afdedc9580dde03287979607f9ce441b23b6bc90,testContentTypeAttachment,2e+02,-1e+02,-3e+02,-2
+10d22ac91834cc61a7de41451be1d1f15e881733,testInvalidFileNameException,6e+03,5e+04,4e+04,6
+10d22ac91834cc61a7de41451be1d1f15e881733,parseParameterMap,2e+02,6e+02,4e+02,2
+10d22ac91834cc61a7de41451be1d1f15e881733,parseImpliedUtf8,2e+02,3e+02,1e+02,0.8
+10d22ac91834cc61a7de41451be1d1f15e881733,parseParameterMap,2e+02,8e+02,6e+02,3

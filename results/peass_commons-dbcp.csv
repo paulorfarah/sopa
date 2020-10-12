@@ -1,101 +1,101 @@
-"a127eaf6b81f3be06282e4b67692bacc020b8703, testClosingWithUserName, 4127.087, 9594.015, 5466.9277
-%!(EXTRA float32=1.3246456)","a127eaf6b81f3be06282e4b67692bacc020b8703, testGarbageCollectorCleanUp02, 2.3874452e+07, 3.0203552e+07, 6.3291e+06
-%!(EXTRA float32=0.26509923)","a127eaf6b81f3be06282e4b67692bacc020b8703, testAbandoned, 19699.908, 34943.734, 15243.826
-%!(EXTRA float32=0.77380186)","a127eaf6b81f3be06282e4b67692bacc020b8703, testValidationQueryTimeoutNegative, 10349.612, 22005.094, 11655.481
-%!(EXTRA float32=1.1261756)","a127eaf6b81f3be06282e4b67692bacc020b8703, testCheckOpen, 82.19805, -617.05835, -699.2564
-%!(EXTRA float32=-8.50697)","a127eaf6b81f3be06282e4b67692bacc020b8703, testPoolGuardConnectionWrapperEqualsNull, 3826.9656, 9545.826, 5718.8604
-%!(EXTRA float32=1.494359)","a127eaf6b81f3be06282e4b67692bacc020b8703, testPoolGuardConnectionWrapperEqualsSameDelegate, 4658.0024, 10213.6, 5555.597
-%!(EXTRA float32=1.1926994)","fee5cc302a833fca4b78ed86747f2e44756aa7a4, testPreparedStatementPooling, 22858.295, 53059.926, 30201.63
-%!(EXTRA float32=1.3212547)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testCheckOpenNull, 10783.347, -8741.382, -19524.729
-%!(EXTRA float32=-1.8106372)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testCheckOpen, 278.7051, 1005.8519, 727.14685
-%!(EXTRA float32=2.6090186)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testCheckOpen, 281.1802, 1064.716, 783.53577
-%!(EXTRA float32=2.7865963)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testExecuteQueryReturnsNotNull, 90.605225, -4486.62, -4577.2256
-%!(EXTRA float32=-50.51834)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testExecuteQueryReturnsNotNull, 95.117615, -4471.4243, -4566.542
-%!(EXTRA float32=-48.009426)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testExecuteQueryReturnsNull, 86.00832, -3725.153, -3811.1614
-%!(EXTRA float32=-44.311543)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testExecuteQueryReturnsNull, 79.797035, -3859.7322, -3939.5293
-%!(EXTRA float32=-49.36937)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testGetDelegate, 77.144516, -2914.0298, -2991.1743
-%!(EXTRA float32=-38.773647)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testGetDelegate, 78.41755, -2818.2405, -2896.658
-%!(EXTRA float32=-36.9389)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testLRUBehavior, 2.008372e+07, 2.0141882e+07, 58162
-%!(EXTRA float32=0.0028960023)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testPStmtPoolingAccrossClose, 21483.691, -36787.21, -58270.902
-%!(EXTRA float32=-2.712332)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testPStmtCatalog, 21918.328, -21704.52, -43622.848
-%!(EXTRA float32=-1.9902452)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testPStmtPoolingWithNoClose, 22333.326, -14140.904, -36474.23
-%!(EXTRA float32=-1.633175)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testPreparedStatementPooling, 23068.25, -42033.805, -65102.055
-%!(EXTRA float32=-2.8221498)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testPoolGuardConnectionWrapperEqualsSameDelegate, 5179.2866, 14098.383, 8919.096
-%!(EXTRA float32=1.7220706)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testPhysicalClose, 16972.906, -39651.453, -56624.36
-%!(EXTRA float32=-3.3361616)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testLastUsedUpdate, 10150.823, -30620.812, -40771.637
-%!(EXTRA float32=-4.0165844)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testAbandonedCloseWithExceptions, 13120.971, -24347.24, -37468.21
-%!(EXTRA float32=-2.8555975)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testlastUsed, 2.6015348e+07, 2.5914382e+07, -100966
-%!(EXTRA float32=-0.0038810526)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testAbandonedClose, 12284.622, -37160.367, -49444.99
-%!(EXTRA float32=-4.02495)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testAbandoned, 14427.401, -4233.6475, -18661.049
-%!(EXTRA float32=-1.2934449)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testlastUsedPrepareCall, 2.6015634e+07, 2.5910262e+07, -105372
-%!(EXTRA float32=-0.004050356)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testLastUsedPreparedStatementUse, 2.6015844e+07, 2.5909142e+07, -106702
-%!(EXTRA float32=-0.004101409)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testExecuteQueryReturnsNotNull, 96.104904, -4315.895, -4412
-%!(EXTRA float32=-45.90817)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testExecuteQueryReturnsNotNull, 96.73716, -4135.979, -4232.7163
-%!(EXTRA float32=-43.75481)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testGetDelegate, 75.60458, -3367.6794, -3443.284
-%!(EXTRA float32=-45.543324)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testGetDelegate, 68.173096, -3748.3818, -3816.555
-%!(EXTRA float32=-55.9833)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testExecuteQueryReturnsNull, 87.97826, -3777.957, -3865.9353
-%!(EXTRA float32=-43.94194)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testExecuteQueryReturnsNull, 86.41729, -3448.473, -3534.8901
-%!(EXTRA float32=-40.904896)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testExceptionOnSetupDefaults, 6.729836e+06, -2.7775996e+07, -3.450583e+07
-%!(EXTRA float32=-5.1272917)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testClearWarnings, 4651.6484, -10128.8545, -14780.503
-%!(EXTRA float32=-3.1774764)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testCheckOpen, 84.243126, -473.92947, -558.1726
-%!(EXTRA float32=-6.625735)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testClosePool, 24265.422, 10106.027, -14159.395
-%!(EXTRA float32=-0.5835215)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testReportedBug28912, 4.321271e+06, 9.470608e+06, 5.149337e+06
-%!(EXTRA float32=1.1916255)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testInvalidateConnection, 23289.514, 5278.9336, -18010.58
-%!(EXTRA float32=-0.7733343)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testCheckOpen, 332.89188, -2916.05, -3248.942
-%!(EXTRA float32=-9.759751)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testCheckOpen, 284.65915, -3378.089, -3662.7483
-%!(EXTRA float32=-12.867137)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testGetDelegate, 73.76807, -2730.8064, -2804.5745
-%!(EXTRA float32=-38.018814)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testGetDelegate, 78.19639, -2292.8167, -2371.013
-%!(EXTRA float32=-30.321259)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testIsWrapperFor, 100.63516, -6614.9775, -6715.613
-%!(EXTRA float32=-66.73227)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testIsWrapperFor, 92.79729, -6434.312, -6527.1094
-%!(EXTRA float32=-70.33729)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testExecuteQueryReturnsNull, 80.76594, -2939.318, -3020.084
-%!(EXTRA float32=-37.39304)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testExecuteQueryReturnsNull, 82.77787, -2682.2607, -2765.0386
-%!(EXTRA float32=-33.403114)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testSharedPoolDSDestroyOnReturn, 6.615458e+06, -3.406416e+07, -4.0679616e+07
-%!(EXTRA float32=-6.1491766)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testDriverClassLoader, 8023.288, -15808.673, -23831.96
-%!(EXTRA float32=-2.9703484)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testClose, 8608.242, -14575.586, -23183.828
-%!(EXTRA float32=-2.6932127)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testInitialSize, 9128.15, -10889.006, -20017.156
-%!(EXTRA float32=-2.1929038)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testPropertyTestOnReturn, 7607.538, -19246.352, -26853.89
-%!(EXTRA float32=-3.5299053)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testAccessToUnderlyingConnectionAllowed, 7962.5024, -15075.867, -23038.37
-%!(EXTRA float32=-2.8933578)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testNoAccessToUnderlyingConnectionAllowed, 7931.1704, -11499.281, -19430.451
-%!(EXTRA float32=-2.4498844)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testRollbackReadOnly, 8060.4688, -6709.299, -14769.768
-%!(EXTRA float32=-1.8323708)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testTransactionIsolationBehavior, 8219.932, -19315.564, -27535.496
-%!(EXTRA float32=-3.349845)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testSetAutoCommitTrueOnClose, 8997.261, -9941.165, -18938.426
-%!(EXTRA float32=-2.1049101)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testDefaultCatalog, 10870.369, -60615.39, -71485.76
-%!(EXTRA float32=-6.5762033)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testValidationQueryTimeoutZero, 8371.753, -17677.809, -26049.562
-%!(EXTRA float32=-3.1116018)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testIsClosedFailure, 8807.791, -12498.486, -21306.277
-%!(EXTRA float32=-2.4190261)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testValidationQueryTimeoutSucceed, 7805.232, -16362.006, -24167.238
-%!(EXTRA float32=-3.096287)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testInvalidValidationQuery, 3008.0713, -3974.3848, -6982.456
-%!(EXTRA float32=-2.3212402)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testValidationQueryTimeoutNegative, 7963.359, -13843.904, -21807.264
-%!(EXTRA float32=-2.7384505)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testValidationQueryTimoutFail, 2949.9656, -1738.2854, -4688.251
-%!(EXTRA float32=-1.5892562)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testPooling, 10555.756, -85822.2, -96377.96
-%!(EXTRA float32=-9.13037)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testClosingWithUserName, 3885.9097, 11614.678, 7728.768
-%!(EXTRA float32=1.9889212)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testSimple, 390.01205, -2780.6333, -3170.6453
-%!(EXTRA float32=-8.129608)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testSimple, 394.1129, -2936.1128, -3330.2256
-%!(EXTRA float32=-8.449928)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testSimpleWithUsername, 384.77277, -1919.8982, -2304.671
-%!(EXTRA float32=-5.9896936)","a3cefc2063d220efdc8a42a66164a5ff0bfd690a, testSimpleWithUsername, 384.39917, -2648.0718, -3032.471
-%!(EXTRA float32=-7.8888593)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testProperties, 6.798116e+06, 7.60521e+07, 6.925398e+07
-%!(EXTRA float32=10.18723)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testClosePool, 24315.404, 77558.63, 53243.227
-%!(EXTRA float32=2.1896913)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testInvalidateConnection, 23194.965, 59816.727, 36621.76
-%!(EXTRA float32=1.5788668)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testPhysicalClose, 21926.295, 58655.18, 36728.883
-%!(EXTRA float32=1.6751068)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testLastUsedUpdate, 12560.448, 40646.324, 28085.875
-%!(EXTRA float32=2.2360568)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testAbandonedCloseWithExceptions, 18641.666, 72241.19, 53599.523
-%!(EXTRA float32=2.8752537)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testAbandonedClose, 18411.057, 71181.75, 52770.695
-%!(EXTRA float32=2.86625)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testAbandoned, 21147.39, 79715.39, 58568
-%!(EXTRA float32=2.7695143)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testlastUsedPrepareCall, 2.6019992e+07, 2.6056068e+07, 36076
-%!(EXTRA float32=0.0013865095)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testDriverClassLoader, 11120.3, 50349.195, 39228.895
-%!(EXTRA float32=3.527683)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testClose, 12792.331, 68175.086, 55382.754
-%!(EXTRA float32=4.3293715)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testInitialSize, 22694.83, 82704.25, 60009.42
-%!(EXTRA float32=2.644189)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testAccessToUnderlyingConnectionAllowed, 10595.954, 46660.945, 36064.992
-%!(EXTRA float32=3.403657)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testNoAccessToUnderlyingConnectionAllowed, 10693.931, 48530.01, 37836.082
-%!(EXTRA float32=3.5380895)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testRollbackReadOnly, 10581.748, 43639.4, 33057.65
-%!(EXTRA float32=3.1240256)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testTransactionIsolationBehavior, 12515.208, 66308.28, 53793.074
-%!(EXTRA float32=4.2982163)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testSetAutoCommitTrueOnClose, 10687.088, 52532.094, 41845.008
-%!(EXTRA float32=3.9154732)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testDefaultCatalog, 26735.086, 220919.28, 194184.19
-%!(EXTRA float32=7.263272)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testValidationQueryTimeoutZero, 10911.291, 61678.156, 50766.867
-%!(EXTRA float32=4.652691)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testIsClosedFailure, 11801.575, 50742.418, 38940.844
-%!(EXTRA float32=3.299631)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testValidationQueryTimeoutSucceed, 10578.852, 50291.734, 39712.883
-%!(EXTRA float32=3.7539883)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testInvalidValidationQuery, 4666.123, 14788.886, 10122.763
-%!(EXTRA float32=2.1694162)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testValidationQueryTimeoutNegative, 10393.024, 56576.91, 46183.887
-%!(EXTRA float32=4.443739)","c7cb7b5b0196cb75bddd17dbcdee475907a9612d, testPooling, 25630.691, 222987.56, 197356.88
-%!(EXTRA float32=7.7000217)","63a2276b8022d9f1bb3de765a16e3d589bfc7b73, testValidationQueryTimeoutZero, 10538.134, 26590.023, 16051.89
-%!(EXTRA float32=1.5232195)","63a2276b8022d9f1bb3de765a16e3d589bfc7b73, testValidationQueryTimeoutNegative, 9751.9795, 32625.293, 22873.312
-%!(EXTRA float32=2.3455048)"
+commit,method,oldTime,currTime,diffTime,changePercent
+a127eaf6b81f3be06282e4b67692bacc020b8703,testCheckOpen,8e+01,-6e+02,-7e+02,-9
+a127eaf6b81f3be06282e4b67692bacc020b8703,testPoolGuardConnectionWrapperEqualsNull,4e+03,1e+04,6e+03,1
+a127eaf6b81f3be06282e4b67692bacc020b8703,testPoolGuardConnectionWrapperEqualsSameDelegate,5e+03,1e+04,6e+03,1
+a127eaf6b81f3be06282e4b67692bacc020b8703,testClosingWithUserName,4e+03,1e+04,5e+03,1
+a127eaf6b81f3be06282e4b67692bacc020b8703,testGarbageCollectorCleanUp02,2e+07,3e+07,6e+06,0.3
+a127eaf6b81f3be06282e4b67692bacc020b8703,testAbandoned,2e+04,3e+04,2e+04,0.8
+a127eaf6b81f3be06282e4b67692bacc020b8703,testValidationQueryTimeoutNegative,1e+04,2e+04,1e+04,1
+fee5cc302a833fca4b78ed86747f2e44756aa7a4,testPreparedStatementPooling,2e+04,5e+04,3e+04,1
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testCheckOpenNull,1e+04,-9e+03,-2e+04,-2
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testCheckOpen,3e+02,1e+03,7e+02,3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testCheckOpen,3e+02,1e+03,8e+02,3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testSharedPoolDSDestroyOnReturn,7e+06,-3e+07,-4e+07,-6
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testLastUsedUpdate,1e+04,-3e+04,-4e+04,-4
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testAbandonedCloseWithExceptions,1e+04,-2e+04,-4e+04,-3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testlastUsed,3e+07,3e+07,-1e+05,-0.004
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testAbandonedClose,1e+04,-4e+04,-5e+04,-4
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testAbandoned,1e+04,-4e+03,-2e+04,-1
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testlastUsedPrepareCall,3e+07,3e+07,-1e+05,-0.004
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testLastUsedPreparedStatementUse,3e+07,3e+07,-1e+05,-0.004
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testExecuteQueryReturnsNotNull,1e+02,-4e+03,-4e+03,-5e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testExecuteQueryReturnsNotNull,1e+02,-4e+03,-4e+03,-4e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testGetDelegate,8e+01,-3e+03,-3e+03,-5e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testGetDelegate,7e+01,-4e+03,-4e+03,-6e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testExecuteQueryReturnsNull,9e+01,-4e+03,-4e+03,-4e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testExecuteQueryReturnsNull,9e+01,-3e+03,-4e+03,-4e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testCheckOpen,8e+01,-5e+02,-6e+02,-7
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testLRUBehavior,2e+07,2e+07,6e+04,0.003
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testPStmtPoolingAccrossClose,2e+04,-4e+04,-6e+04,-3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testPStmtCatalog,2e+04,-2e+04,-4e+04,-2
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testPStmtPoolingWithNoClose,2e+04,-1e+04,-4e+04,-2
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testPreparedStatementPooling,2e+04,-4e+04,-7e+04,-3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testPoolGuardConnectionWrapperEqualsSameDelegate,5e+03,1e+04,9e+03,2
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testExceptionOnSetupDefaults,7e+06,-3e+07,-3e+07,-5
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testPhysicalClose,2e+04,-4e+04,-6e+04,-3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testClosingWithUserName,4e+03,1e+04,8e+03,2
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testSimple,4e+02,-3e+03,-3e+03,-8
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testSimple,4e+02,-3e+03,-3e+03,-8
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testSimpleWithUsername,4e+02,-2e+03,-2e+03,-6
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testSimpleWithUsername,4e+02,-3e+03,-3e+03,-8
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testClearWarnings,5e+03,-1e+04,-1e+04,-3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testDriverClassLoader,8e+03,-2e+04,-2e+04,-3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testClose,9e+03,-1e+04,-2e+04,-3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testInitialSize,9e+03,-1e+04,-2e+04,-2
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testPropertyTestOnReturn,8e+03,-2e+04,-3e+04,-4
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testAccessToUnderlyingConnectionAllowed,8e+03,-2e+04,-2e+04,-3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testNoAccessToUnderlyingConnectionAllowed,8e+03,-1e+04,-2e+04,-2
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testRollbackReadOnly,8e+03,-7e+03,-1e+04,-2
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testTransactionIsolationBehavior,8e+03,-2e+04,-3e+04,-3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testSetAutoCommitTrueOnClose,9e+03,-1e+04,-2e+04,-2
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testDefaultCatalog,1e+04,-6e+04,-7e+04,-7
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testValidationQueryTimeoutZero,8e+03,-2e+04,-3e+04,-3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testIsClosedFailure,9e+03,-1e+04,-2e+04,-2
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testValidationQueryTimeoutSucceed,8e+03,-2e+04,-2e+04,-3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testInvalidValidationQuery,3e+03,-4e+03,-7e+03,-2
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testValidationQueryTimeoutNegative,8e+03,-1e+04,-2e+04,-3
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testValidationQueryTimoutFail,3e+03,-2e+03,-5e+03,-2
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testPooling,1e+04,-9e+04,-1e+05,-9
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testExecuteQueryReturnsNotNull,9e+01,-4e+03,-5e+03,-5e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testExecuteQueryReturnsNotNull,1e+02,-4e+03,-5e+03,-5e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testExecuteQueryReturnsNull,9e+01,-4e+03,-4e+03,-4e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testExecuteQueryReturnsNull,8e+01,-4e+03,-4e+03,-5e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testGetDelegate,8e+01,-3e+03,-3e+03,-4e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testGetDelegate,8e+01,-3e+03,-3e+03,-4e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testCheckOpen,3e+02,-3e+03,-3e+03,-1e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testCheckOpen,3e+02,-3e+03,-4e+03,-1e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testGetDelegate,7e+01,-3e+03,-3e+03,-4e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testGetDelegate,8e+01,-2e+03,-2e+03,-3e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testIsWrapperFor,1e+02,-7e+03,-7e+03,-7e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testIsWrapperFor,9e+01,-6e+03,-7e+03,-7e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testExecuteQueryReturnsNull,8e+01,-3e+03,-3e+03,-4e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testExecuteQueryReturnsNull,8e+01,-3e+03,-3e+03,-3e+01
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testClosePool,2e+04,1e+04,-1e+04,-0.6
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testReportedBug28912,4e+06,9e+06,5e+06,1
+a3cefc2063d220efdc8a42a66164a5ff0bfd690a,testInvalidateConnection,2e+04,5e+03,-2e+04,-0.8
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testLastUsedUpdate,1e+04,4e+04,3e+04,2
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testAbandonedCloseWithExceptions,2e+04,7e+04,5e+04,3
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testAbandonedClose,2e+04,7e+04,5e+04,3
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testAbandoned,2e+04,8e+04,6e+04,3
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testlastUsedPrepareCall,3e+07,3e+07,4e+04,0.001
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testDriverClassLoader,1e+04,5e+04,4e+04,4
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testClose,1e+04,7e+04,6e+04,4
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testInitialSize,2e+04,8e+04,6e+04,3
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testAccessToUnderlyingConnectionAllowed,1e+04,5e+04,4e+04,3
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testNoAccessToUnderlyingConnectionAllowed,1e+04,5e+04,4e+04,4
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testRollbackReadOnly,1e+04,4e+04,3e+04,3
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testTransactionIsolationBehavior,1e+04,7e+04,5e+04,4
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testSetAutoCommitTrueOnClose,1e+04,5e+04,4e+04,4
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testDefaultCatalog,3e+04,2e+05,2e+05,7
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testValidationQueryTimeoutZero,1e+04,6e+04,5e+04,5
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testIsClosedFailure,1e+04,5e+04,4e+04,3
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testValidationQueryTimeoutSucceed,1e+04,5e+04,4e+04,4
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testInvalidValidationQuery,5e+03,1e+04,1e+04,2
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testValidationQueryTimeoutNegative,1e+04,6e+04,5e+04,4
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testPooling,3e+04,2e+05,2e+05,8
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testProperties,7e+06,8e+07,7e+07,1e+01
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testClosePool,2e+04,8e+04,5e+04,2
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testInvalidateConnection,2e+04,6e+04,4e+04,2
+c7cb7b5b0196cb75bddd17dbcdee475907a9612d,testPhysicalClose,2e+04,6e+04,4e+04,2
+63a2276b8022d9f1bb3de765a16e3d589bfc7b73,testValidationQueryTimeoutZero,1e+04,3e+04,2e+04,2
+63a2276b8022d9f1bb3de765a16e3d589bfc7b73,testValidationQueryTimeoutNegative,1e+04,3e+04,2e+04,2

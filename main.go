@@ -7,4 +7,5 @@ import (
 func main() {
 	fmt.Println("read PeASS results")
 	ParsePeassResults()
+	SummarizeResults()
 }
