@@ -1,11 +1,41 @@
 package main
 
 import (
+	"os"
 	"log"
 	"fmt"
+	"path/filepath"
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing/object"
+	"github.com/tobgu/qframe"
 )
+
+func ReadCommits() {
+	dir := filepath.FromSlash("results/sum/")
+	//open filei
+	abs, err := filepath.Abs(dir)
+	if err != nil {
+		log.Fatal("Cannot read absolute filepath", err)
+	}
+	files := getFiles(abs, ".csv")
+	for _, filename := range files {
+		sumFile, err := os.Open(dir + filename)
+		if err != nil {
+			log.Fatal(err)
+		}
+		f := qframe.ReadCSV(sumFile)
+		fmt.Println("dataframe...")
+		fmt.Println(f)
+		//iter commits list
+		viewCommits := f.MustStringView("commit")
+		fmt.Println("view")
+		fmt.Println(viewCommits)
+		for i := 0; i < viewCommits.Len(); i++ {
+			com := fmt.Sprintf("%s", viewCommits.ItemAt(i))
+			fmt.Println(com)
+		}
+	}
+}
 
 func GetPreviousCommits(url string, directory string, commits []string) map[string]string {
 	var prevCommits = make(map[string]string)

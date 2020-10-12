@@ -89,20 +89,30 @@ func ParsePeassResults() {
 
 func getFiles(root string, fileExt string) []string {
 	var files []string
-	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
-		if filepath.Ext(path) != fileExt {
-			return nil
-		}
-		files = append(files, info.Name())
-		return nil
-	})
+//	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
+//		if info.IsDir() {
+//		    return nil
+//		}
+//		if filepath.Ext(path) != fileExt {
+//	  	    return nil
+//		}
+//		files = append(files, info.Name())
+//		return nil
+//	})
+	items, err := ioutil.ReadDir(root)
 	if err != nil {
 		panic(err)
+	}
+	for _, file := range items {
+		if !file.IsDir() && filepath.Ext(file.Name()) == fileExt {
+			files = append(files, file.Name())
+		}
 	}
 	return files
 }
 
 func SummarizeResults() {
+	fmt.Println("Summarize results...")
 	dir := filepath.FromSlash("results/")
 	abs, err := filepath.Abs(dir)
 	if err != nil {
@@ -118,15 +128,25 @@ func SummarizeResults() {
             return result
 	}
 
-	for _, file := range files {
-		csvfile, err := os.Open("results/" + file)
+	for _, filename := range files {
+		//fmt.Printf("filename: %v\n", filename)
+		csvfile, err := os.Open("results/" + filename)
 		if err != nil {
-			    log.Fatal(err)
+			    log.Fatal("Cannot open file ", err)
 		    }
 		f := qframe.ReadCSV(csvfile)
 
-		f = f.GroupBy(groupby.Columns("commit")).Aggregate(qframe.Aggregation{Fn: floatSum, Column: "oldTime"})
-		fmt.Println(f.Sort(qframe.Order{Column: "commit"}))
+		f = f.GroupBy(groupby.Columns("commit")).Aggregate(qframe.Aggregation{Fn: floatSum, Column: "oldTime"}, qframe.Aggregation{Fn: floatSum, Column: "currTime"})
+		//fmt.Println(f.Sort(qframe.Order{Column: "commit"}))
 
+		//save summary file
+		fileSum, err := os.OpenFile("results/sum/sum_" + filename, os.O_CREATE|os.O_WRONLY, 0777)
+		defer fileSum.Close()
+
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		f.ToCSV(fileSum)
 	}
 }
