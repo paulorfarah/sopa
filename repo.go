@@ -4,6 +4,8 @@ import (
 	"os"
 	"log"
 	"fmt"
+	"strings"
+	"os/exec"
 	"path/filepath"
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing/object"
@@ -19,6 +21,10 @@ func ReadCommits() {
 	}
 	files := getFiles(abs, ".csv")
 	for _, filename := range files {
+		repoName := strings.ReplaceAll(filename, ".csv", "")
+		repoName = strings.ReplaceAll(repoName, "sum_peass_", "")
+		fmt.Println(repoName)
+		CloneRepo(repoName)
 		sumFile, err := os.Open(dir + filename)
 		if err != nil {
 			log.Fatal(err)
@@ -27,12 +33,11 @@ func ReadCommits() {
 		fmt.Println("dataframe...")
 		fmt.Println(f)
 		//iter commits list
+		CreateUnderstandDb(repoName)
 		viewCommits := f.MustStringView("commit")
-		fmt.Println("view")
-		fmt.Println(viewCommits)
 		for i := 0; i < viewCommits.Len(); i++ {
 			com := fmt.Sprintf("%s", viewCommits.ItemAt(i))
-			fmt.Println(com)
+			ProcessMetrics(repoName, com)
 		}
 	}
 }
@@ -92,6 +97,37 @@ func findCommit(commits []string, commit string) bool {
 		}
 	}
 	return false
+}
+
+func CloneRepo(repository string) {
+	fmt.Println("clone repository: ", repository)
+	fmt.Printf("git clone -n https://github.com/apache/%v repos\\%v\n", repository, repository)
+	out, err := exec.Command("git", "clone", "-n", "https://github.com/apache/" + repository, "repos\\" + repository).Output()
+	if err != nil {
+		//log.Fatal(err)
+		fmt.Println("Error clonning repo: ", err)
+	}
+	fmt.Printf("Clonning result: %s\n", out)
+}
+
+func CreateUnderstandDb(repo string) {
+	out, err := exec.Command("und", "create", "-db", repo + ".udb", "-languages", "java").Output()
+	if err != nil {
+		fmt.Println("Error processing metrics: ", err)
+	}
+	fmt.Printf("Clonning result: %s\n", out)
+
+}
+
+func ProcessMetrics(repo string, commit string) {
+	fmt.Println("process metrics")
+	fmt.Printf("%T", commit)
+	fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s", repo, repo, commit)
+	out, err := exec.Command("git", "--git-dir=repos\\"+repo + "\\.git", "--work-tree=repos\\"+repo, "checkout", commit).Output()
+	if err != nil {
+		fmt.Println("Error processing metrics: ", err)
+	}
+	fmt.Printf("Clonning result: %s\n", out)
 }
 
 //func main() {

@@ -112,7 +112,6 @@ func getFiles(root string, fileExt string) []string {
 }
 
 func SummarizeResults() {
-	fmt.Println("Summarize results...")
 	dir := filepath.FromSlash("results/")
 	abs, err := filepath.Abs(dir)
 	if err != nil {
