@@ -27,7 +27,7 @@ func ReadCommits() {
 		repoName = strings.ReplaceAll(repoName, "sum_peass_", "")
 		CloneRepo(repoName)
 		CreateUnderstandDb(repoName)
-		
+
 		sumFile, err := os.Open(dir + filename)
 		if err != nil {
 			log.Fatal(err)
@@ -150,23 +150,31 @@ func RunUnderstand(repo string) {
 	fmt.Printf("und -db results\\und\\%v.udb add repos\\%v\n",repo, repo)
 	_, err := exec.Command("und", "-db", "results\\und\\" + repo + ".udb", "add", "repos\\" + repo).Output()
 	if err != nil {
-		fmt.Println("[>>Error]: Cannot add repository path: ", err)
+		fmt.Println("[>> Error]: Cannot add repository path: ", err)
 	}
 
 	//add metrics settings
 	fmt.Printf("und -MetricMetrics \"AvgCyclomatic\" settings results\\und\\%v.udb\n",repo)
 	_, err = exec.Command("und", "-MetricMetrics", "\"AvgCyclomatic\"", "settings", "results\\und\\" + repo + ".udb").Output()
 	if err != nil {
-		fmt.Println("[>>Error]: Cannot add metric to understand db: ", err)
+		fmt.Println("[>> Error]: Cannot add metric to understand db: ", err)
 	}
 
 	//metrics
 	fmt.Printf("und metrics results\\und\\%v.udb\n",repo)
 	_, err = exec.Command("und", "metrics", "results\\und\\" + repo + ".udb").Output()
 	if err != nil {
-		fmt.Println("[>>Error]: Error trying to generate metrics file: ", err)
+		fmt.Println("[>> Error]: Error trying to generate metrics files: ", err)
 	}
 }
+
+func RunDesignite(repo string) {
+	_, err := exec.Command("java", "-jar", "DesigniteJava.jar", "-i", "repos\\" + repo, "-o", "results\\designite\\" + repo).Output()
+	if err != nil {
+		fmt.Println("[>> Error] Error trying to generate smells files: ", err)
+	}
+}
+
 
 //func main() {
 //	url := "http://github.com/paulorfarah/refactoring-python-code"
