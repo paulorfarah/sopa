@@ -1,20 +1,22 @@
 package main
 
 import (
+	"io"
 	"os"
 	"log"
 	"fmt"
 	"strings"
 	"os/exec"
 	"path/filepath"
+	"encoding/csv"
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing/object"
-	"github.com/tobgu/qframe"
+//	"github.com/tobgu/qframe"
 )
 
 func ReadCommits() {
 	dir := filepath.FromSlash("results/sum/")
-	//open filei
+	//open file
 	abs, err := filepath.Abs(dir)
 	if err != nil {
 		log.Fatal("Cannot read absolute filepath", err)
@@ -23,21 +25,34 @@ func ReadCommits() {
 	for _, filename := range files {
 		repoName := strings.ReplaceAll(filename, ".csv", "")
 		repoName = strings.ReplaceAll(repoName, "sum_peass_", "")
-		fmt.Println(repoName)
 		CloneRepo(repoName)
+		CreateUnderstandDb(repoName)
+		
 		sumFile, err := os.Open(dir + filename)
 		if err != nil {
 			log.Fatal(err)
 		}
-		f := qframe.ReadCSV(sumFile)
-		fmt.Println("dataframe...")
-		fmt.Println(f)
-		//iter commits list
-		CreateUnderstandDb(repoName)
-		viewCommits := f.MustStringView("commit")
-		for i := 0; i < viewCommits.Len(); i++ {
-			com := fmt.Sprintf("%s", viewCommits.ItemAt(i))
-			ProcessMetrics(repoName, com)
+		//f := qframe.ReadCSV(sumFile)
+		//fmt.Println("dataframe...")
+		//fmt.Println(f)
+
+		//viewCommits := f.MustStringView("commit")
+		//for i := 0; i < viewCommits.Len(); i++ {
+		//	com := fmt.Sprintf("%x", viewCommits.ItemAt(i))
+		//	ProcessMetrics(repoName, com)
+		//}
+
+		r := csv.NewReader(sumFile)
+		for {
+			commit, err := r.Read()
+			if err == io.EOF {
+				break
+			}
+			if err != nil {
+				log.Fatal(err)
+			}
+			fmt.Printf("Commit: %s\n", commit[0])
+			ProcessMetrics(repoName, commit[0])
 		}
 	}
 }
@@ -102,32 +117,55 @@ func findCommit(commits []string, commit string) bool {
 func CloneRepo(repository string) {
 	fmt.Println("clone repository: ", repository)
 	fmt.Printf("git clone -n https://github.com/apache/%v repos\\%v\n", repository, repository)
-	out, err := exec.Command("git", "clone", "-n", "https://github.com/apache/" + repository, "repos\\" + repository).Output()
+	_, err := exec.Command("git", "clone", "-n", "https://github.com/apache/" + repository, "repos\\" + repository).Output()
 	if err != nil {
 		//log.Fatal(err)
 		fmt.Println("Error clonning repo: ", err)
 	}
-	fmt.Printf("Clonning result: %s\n", out)
+	//fmt.Printf("Clonning result: %s\n", out)
 }
 
 func CreateUnderstandDb(repo string) {
-	out, err := exec.Command("und", "create", "-db", repo + ".udb", "-languages", "java").Output()
+	_, err := exec.Command("und", "create", "-db", "results\\und\\" + repo + ".udb", "-languages", "java").Output()
 	if err != nil {
 		fmt.Println("Error processing metrics: ", err)
 	}
-	fmt.Printf("Clonning result: %s\n", out)
+//	fmt.Printf("Clonning result: %s\n", out)
 
 }
 
 func ProcessMetrics(repo string, commit string) {
-	fmt.Println("process metrics")
-	fmt.Printf("%T", commit)
-	fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s", repo, repo, commit)
-	out, err := exec.Command("git", "--git-dir=repos\\"+repo + "\\.git", "--work-tree=repos\\"+repo, "checkout", commit).Output()
+	fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repo, repo, commit)
+	//s := fmt.Sprintf("%x", commit)
+	_, err := exec.Command("git", "--git-dir=repos\\"+repo + "\\.git", "--work-tree=repos\\"+repo, "checkout", commit).Output()
 	if err != nil {
-		fmt.Println("Error processing metrics: ", err)
+		fmt.Println("\nError processing metrics: ", err)
 	}
-	fmt.Printf("Clonning result: %s\n", out)
+
+	RunUnderstand(repo)
+}
+
+func RunUnderstand(repo string) {
+	//add repository
+	fmt.Printf("und -db results\\und\\%v.udb add repos\\%v\n",repo, repo)
+	_, err := exec.Command("und", "-db", "results\\und\\" + repo + ".udb", "add", "repos\\" + repo).Output()
+	if err != nil {
+		fmt.Println("[>>Error]: Cannot add repository path: ", err)
+	}
+
+	//add metrics settings
+	fmt.Printf("und -MetricMetrics \"AvgCyclomatic\" settings results\\und\\%v.udb\n",repo)
+	_, err = exec.Command("und", "-MetricMetrics", "\"AvgCyclomatic\"", "settings", "results\\und\\" + repo + ".udb").Output()
+	if err != nil {
+		fmt.Println("[>>Error]: Cannot add metric to understand db: ", err)
+	}
+
+	//metrics
+	fmt.Printf("und metrics results\\und\\%v.udb\n",repo)
+	_, err = exec.Command("und", "metrics", "results\\und\\" + repo + ".udb").Output()
+	if err != nil {
+		fmt.Println("[>>Error]: Error trying to generate metrics file: ", err)
+	}
 }
 
 //func main() {
