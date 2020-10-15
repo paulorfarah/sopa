@@ -6,6 +6,7 @@ import (
 	"log"
 	"fmt"
 	"strings"
+	"io/ioutil"
 	"os/exec"
 	"path/filepath"
 	"encoding/csv"
@@ -26,7 +27,6 @@ func ReadCommits() {
 		repoName := strings.ReplaceAll(filename, ".csv", "")
 		repoName = strings.ReplaceAll(repoName, "sum_peass_", "")
 		CloneRepo(repoName)
-		CreateUnderstandDb(repoName)
 
 		sumFile, err := os.Open(dir + filename)
 		if err != nil {
@@ -52,7 +52,9 @@ func ReadCommits() {
 				log.Fatal(err)
 			}
 			fmt.Printf("Commit: %s\n", commit[0])
-			ProcessMetrics(repoName, commit[0])
+			if commit[0] != "commit" {
+				ProcessMetrics(repoName, commit[0])
+			}
 		}
 	}
 }
@@ -125,53 +127,62 @@ func CloneRepo(repository string) {
 	//fmt.Printf("Clonning result: %s\n", out)
 }
 
-func CreateUnderstandDb(repo string) {
-	_, err := exec.Command("und", "create", "-db", "results\\und\\" + repo + ".udb", "-languages", "java").Output()
-	if err != nil {
-		fmt.Println("Error processing metrics: ", err)
-	}
-//	fmt.Printf("Clonning result: %s\n", out)
 
-}
 
 func ProcessMetrics(repo string, commit string) {
+	err := os.Mkdir("results/und/" + repo + "/" + commit, 0755)
+	if err != nil {
+		fmt.Println("\nCannot create folder: ", err)
+	}
+
+	createUnderstandDb(repo, commit)
 	fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repo, repo, commit)
 	//s := fmt.Sprintf("%x", commit)
-	_, err := exec.Command("git", "--git-dir=repos\\"+repo + "\\.git", "--work-tree=repos\\"+repo, "checkout", commit).Output()
+	_, err = exec.Command("git", "--git-dir=repos\\"+repo + "\\.git", "--work-tree=repos\\"+repo, "checkout", commit).Output()
 	if err != nil {
-		fmt.Println("\nError processing metrics: ", err)
+		fmt.Println("\nCannot run git checkout: ", err)
 	}
 
-	RunUnderstand(repo)
+	runUnderstand(repo, commit)
 }
 
-func RunUnderstand(repo string) {
+func createUnderstandDb(repo, commit string) {
+	//os.Remove("teste.udb")
+	//_, err := exec.Command("und", "create", "-db", "results\\und\\" + repo + "\\" + commit + ".udb", "-languages", "java", "add", "repos\\" + repo).Output()
+	_, err := exec.Command("und", "create", "-db", "results\\und\\" + repo + "\\" + commit + "\\metrics.udb", "-languages", "java", "add", "repos\\" + repo).Output()
+	if err != nil {
+		fmt.Println("[ERROR]>> Cannot create understand database: ", err)
+	}
+}
+
+func runUnderstand(repo, commit string) {
+	//os.Remove("results\\und\\this.txt")
+	os.Remove("this.txt")
+	cmd := "results\\und\\" + repo + "\\" + commit + `\\metrics.udb
+settings -MetricMetrics "AvgCyclomatic" "AvgCyclomaticModified" "AvgCyclomaticStrict" "AvgEssential" "AvgLine" "AvgLineBlank" "AvgLineCode" "AvgLineComment" "CountClassBase" "CountClassCoupled" "CountClassCoupledModified" "CountClassDerived" "CountDeclClass" "CountDeclClassMethod" "CountDeclClassVariable" "CountDeclExecutableUnit" "CountDeclFile" "CountDeclFunction" "CountDeclInstanceMethod" "CountDeclInstanceVariable" "CountDeclMethod" "CountDeclMethodAll" "CountDeclMethodDefault" "CountDeclMethodPrivate" "CountDeclMethodProtected" "CountDeclMethodPublic" "CountInput" "CountLine" "CountLineBlank" "CountLineCode" "CountLineCodeDecl" "CountLineCodeExe" "CountLineComment" "CountOutput" "CountPath" "CountPathLog" "CountSemicolon" "CountStmt" "CountStmtDecl" "CountStmtExe" "Cyclomatic" "CyclomaticModified" "CyclomaticStrict" "Essential" "Knots" "MaxCyclomatic" "MaxCyclomaticModified" "MaxCyclomaticStrict" "MaxEssential" "MaxEssentialKnots" "MaxInheritanceTree" "MaxNesting" "MinEssentialKnots" "PercentLackOfCohesion" "PercentLackOfCohesionModified" "RatioCommentToCode" "SumCyclomatic" "SumCyclomaticModified" "SumCyclomaticStrict" "SumEssential"
+analyze
+metrics
+`
+	d := []byte(cmd)
+	err := ioutil.WriteFile("this.txt", d, 0644)
+	if err != nil {
+		fmt.Println("[ERROR]>> Cannot create understand this.txt file", err)
+	}
+
 	//add repository
-	fmt.Printf("und -db results\\und\\%v.udb add repos\\%v\n",repo, repo)
-	_, err := exec.Command("und", "-db", "results\\und\\" + repo + ".udb", "add", "repos\\" + repo).Output()
-	if err != nil {
-		fmt.Println("[>> Error]: Cannot add repository path: ", err)
-	}
+	fmt.Printf("und process results\\und\\this.txt\n")
+	//_, err := exec.Command("und", "process", "results\\und\\this.txt").Output()
+	_, err := exec.Command("und", "process", "this.txt").Output()
 
-	//add metrics settings
-	fmt.Printf("und -MetricMetrics \"AvgCyclomatic\" settings results\\und\\%v.udb\n",repo)
-	_, err = exec.Command("und", "-MetricMetrics", "\"AvgCyclomatic\"", "settings", "results\\und\\" + repo + ".udb").Output()
 	if err != nil {
-		fmt.Println("[>> Error]: Cannot add metric to understand db: ", err)
-	}
-
-	//metrics
-	fmt.Printf("und metrics results\\und\\%v.udb\n",repo)
-	_, err = exec.Command("und", "metrics", "results\\und\\" + repo + ".udb").Output()
-	if err != nil {
-		fmt.Println("[>> Error]: Error trying to generate metrics files: ", err)
+		fmt.Println("[ERROR]>> Cannot add repository path: ", err)
 	}
 }
 
 func RunDesignite(repo string) {
 	_, err := exec.Command("java", "-jar", "DesigniteJava.jar", "-i", "repos\\" + repo, "-o", "results\\designite\\" + repo).Output()
 	if err != nil {
-		fmt.Println("[>> Error] Error trying to generate smells files: ", err)
+		fmt.Println("[ERROR]>> Error trying to generate smells files: ", err)
 	}
 }
 
