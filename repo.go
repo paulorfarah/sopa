@@ -53,7 +53,13 @@ func ReadCommits() {
 			}
 			fmt.Printf("Commit: %s\n", commit[0])
 			if commit[0] != "commit" {
+				fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repoName, repoName, commit[0])
+				_, err := exec.Command("git", "--git-dir=repos\\"+repoName + "\\.git", "--work-tree=repos\\"+repoName, "checkout", commit[0]).Output()
+				if err != nil {
+					fmt.Println("\nCannot run git checkout: ", err)
+	}
 				ProcessMetrics(repoName, commit[0])
+				ProcessSmells(repoName, commit[0])
 			}
 		}
 	}
@@ -121,68 +127,66 @@ func CloneRepo(repository string) {
 	fmt.Printf("git clone -n https://github.com/apache/%v repos\\%v\n", repository, repository)
 	_, err := exec.Command("git", "clone", "-n", "https://github.com/apache/" + repository, "repos\\" + repository).Output()
 	if err != nil {
-		//log.Fatal(err)
 		fmt.Println("Error clonning repo: ", err)
 	}
-	//fmt.Printf("Clonning result: %s\n", out)
 }
-
-
 
 func ProcessMetrics(repo string, commit string) {
-	err := os.Mkdir("results/und/" + repo + "/" + commit, 0755)
-	if err != nil {
-		fmt.Println("\nCannot create folder: ", err)
-	}
-
-	createUnderstandDb(repo, commit)
-	fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repo, repo, commit)
-	//s := fmt.Sprintf("%x", commit)
-	_, err = exec.Command("git", "--git-dir=repos\\"+repo + "\\.git", "--work-tree=repos\\"+repo, "checkout", commit).Output()
-	if err != nil {
-		fmt.Println("\nCannot run git checkout: ", err)
-	}
-
-	runUnderstand(repo, commit)
+	path := "results\\" + repo + "\\" + commit + "\\metrics"
+	checkDirectory(path)
+	createUnderstandDb(repo, path)
+	runUnderstand(path)
 }
 
-func createUnderstandDb(repo, commit string) {
-	//os.Remove("teste.udb")
-	//_, err := exec.Command("und", "create", "-db", "results\\und\\" + repo + "\\" + commit + ".udb", "-languages", "java", "add", "repos\\" + repo).Output()
-	_, err := exec.Command("und", "create", "-db", "results\\und\\" + repo + "\\" + commit + "\\metrics.udb", "-languages", "java", "add", "repos\\" + repo).Output()
+func createUnderstandDb(repo, path string) {
+	_, err := exec.Command("und", "create", "-db", path + "\\understand.udb", "-languages", "java", "add", "repos\\" + repo).Output()
 	if err != nil {
 		fmt.Println("[ERROR]>> Cannot create understand database: ", err)
 	}
 }
 
-func runUnderstand(repo, commit string) {
-	//os.Remove("results\\und\\this.txt")
-	os.Remove("this.txt")
-	cmd := "results\\und\\" + repo + "\\" + commit + `\\metrics.udb
+func runUnderstand(path string) {
+	os.Remove("und.txt")
+	cmd := path + `\\understand.udb
 settings -MetricMetrics "AvgCyclomatic" "AvgCyclomaticModified" "AvgCyclomaticStrict" "AvgEssential" "AvgLine" "AvgLineBlank" "AvgLineCode" "AvgLineComment" "CountClassBase" "CountClassCoupled" "CountClassCoupledModified" "CountClassDerived" "CountDeclClass" "CountDeclClassMethod" "CountDeclClassVariable" "CountDeclExecutableUnit" "CountDeclFile" "CountDeclFunction" "CountDeclInstanceMethod" "CountDeclInstanceVariable" "CountDeclMethod" "CountDeclMethodAll" "CountDeclMethodDefault" "CountDeclMethodPrivate" "CountDeclMethodProtected" "CountDeclMethodPublic" "CountInput" "CountLine" "CountLineBlank" "CountLineCode" "CountLineCodeDecl" "CountLineCodeExe" "CountLineComment" "CountOutput" "CountPath" "CountPathLog" "CountSemicolon" "CountStmt" "CountStmtDecl" "CountStmtExe" "Cyclomatic" "CyclomaticModified" "CyclomaticStrict" "Essential" "Knots" "MaxCyclomatic" "MaxCyclomaticModified" "MaxCyclomaticStrict" "MaxEssential" "MaxEssentialKnots" "MaxInheritanceTree" "MaxNesting" "MinEssentialKnots" "PercentLackOfCohesion" "PercentLackOfCohesionModified" "RatioCommentToCode" "SumCyclomatic" "SumCyclomaticModified" "SumCyclomaticStrict" "SumEssential"
 analyze
 metrics
 `
 	d := []byte(cmd)
-	err := ioutil.WriteFile("this.txt", d, 0644)
+	err := ioutil.WriteFile("und.txt", d, 0644)
 	if err != nil {
-		fmt.Println("[ERROR]>> Cannot create understand this.txt file", err)
+		fmt.Println("[ERROR]>> Cannot create understand und.txt file", err)
 	}
 
-	//add repository
-	fmt.Printf("und process results\\und\\this.txt\n")
-	//_, err := exec.Command("und", "process", "results\\und\\this.txt").Output()
-	_, err := exec.Command("und", "process", "this.txt").Output()
+	fmt.Printf("und process und.txt\n")
+	_ , err = exec.Command("und", "process", "und.txt").Output()
 
 	if err != nil {
 		fmt.Println("[ERROR]>> Cannot add repository path: ", err)
 	}
 }
 
-func RunDesignite(repo string) {
-	_, err := exec.Command("java", "-jar", "DesigniteJava.jar", "-i", "repos\\" + repo, "-o", "results\\designite\\" + repo).Output()
+func ProcessSmells(repo, commit string) {
+	path := "results\\" + repo + "\\" + commit + "\\smells"
+	checkDirectory(path)
+	runDesignite(repo, path)
+}
+
+func runDesignite(repo, path string) {
+	_, err := exec.Command("java", "-jar", "DesigniteJava.jar", "-i", "repos\\" + repo, "-o", path).Output()
 	if err != nil {
 		fmt.Println("[ERROR]>> Error trying to generate smells files: ", err)
+	}
+}
+
+func checkDirectory(path string) {
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		dirs := strings.Split(path, "\\")
+		subpath := ""
+		for _, dir := range dirs {
+			os.Mkdir(subpath + dir, 0755)
+			subpath += dir + "\\"
+		}
 	}
 }
 
