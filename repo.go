@@ -16,6 +16,19 @@ import (
 )
 
 func ReadCommits() {
+	urls := map[string]string {
+		"commons-compress":"https://github.com/apache/commons-compress",
+		"commons-csv":"https://github.com/apache/commons-csv",
+		"commons-dbcp":"https://github.com/apache/commons-dbcp",
+		"commons-fileupload":"https://github.com/apache/commons-fileupload",
+		"commons-imaging":"https://github.com/apache/commons-imaging",
+		"commons-io":"https://github.com/apache/commons-io",
+		"commons-pool":"https://github.com/apache/commons-pool",
+		"commons-text":"https://github.com/apache/commons-text",
+		"jackson-core":"https://github.com/FasterXML/jackson-core",
+		"k-9":"https://github.com/k9mail/k-9",
+	}
+
 	dir := filepath.FromSlash("results/sum/")
 	//open file
 	abs, err := filepath.Abs(dir)
@@ -26,7 +39,7 @@ func ReadCommits() {
 	for _, filename := range files {
 		repoName := strings.ReplaceAll(filename, ".csv", "")
 		repoName = strings.ReplaceAll(repoName, "sum_peass_", "")
-		CloneRepo(repoName)
+		CloneRepo(urls[repoName], repoName)
 
 		sumFile, err := os.Open(dir + filename)
 		if err != nil {
@@ -43,6 +56,7 @@ func ReadCommits() {
 		//}
 
 		r := csv.NewReader(sumFile)
+		var commits []string
 		for {
 			commit, err := r.Read()
 			if err == io.EOF {
@@ -53,14 +67,30 @@ func ReadCommits() {
 			}
 			fmt.Printf("Commit: %s\n", commit[0])
 			if commit[0] != "commit" {
-				fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repoName, repoName, commit[0])
-				_, err := exec.Command("git", "--git-dir=repos\\"+repoName + "\\.git", "--work-tree=repos\\"+repoName, "checkout", commit[0]).Output()
-				if err != nil {
-					fmt.Println("\nCannot run git checkout: ", err)
-	}
-				ProcessMetrics(repoName, commit[0])
-				ProcessSmells(repoName, commit[0])
+				commits = append(commits, commit[0])
 			}
+		}
+		prevCommits := GetPreviousCommits(urls[repoName], repoName, commits)
+		for currCommit, prevCommit := range prevCommits {
+			fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
+			//curr commit
+			fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repoName, repoName, currCommit)
+			_, err := exec.Command("git", "--git-dir=repos\\"+repoName + "\\.git", "--work-tree=repos\\"+repoName, "checkout", currCommit).Output()
+			if err != nil {
+				fmt.Println("\nCannot run git checkout: ", err)
+			}
+			ProcessMetrics(repoName, currCommit)
+			ProcessSmells(repoName, currCommit)
+
+			// previous commit
+			fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repoName, repoName, prevCommit)
+			_, err = exec.Command("git", "--git-dir=repos\\"+repoName + "\\.git", "--work-tree=repos\\"+repoName, "checkout", prevCommit).Output()
+			if err != nil {
+				fmt.Println("\nCannot run git checkout: ", err)
+			}
+			ProcessMetrics(repoName, prevCommit)
+			ProcessSmells(repoName, prevCommit)
+
 		}
 	}
 }
@@ -122,10 +152,10 @@ func findCommit(commits []string, commit string) bool {
 	return false
 }
 
-func CloneRepo(repository string) {
+func CloneRepo(repository, folder string) {
 	fmt.Println("clone repository: ", repository)
-	fmt.Printf("git clone -n https://github.com/apache/%v repos\\%v\n", repository, repository)
-	_, err := exec.Command("git", "clone", "-n", "https://github.com/apache/" + repository, "repos\\" + repository).Output()
+	fmt.Printf("git clone -n %v repos\\%v\n", repository, folder)
+	_, err := exec.Command("git", "clone", "-n", repository, "repos\\" + folder).Output()
 	if err != nil {
 		fmt.Println("Error clonning repo: ", err)
 	}
@@ -189,7 +219,6 @@ func checkDirectory(path string) {
 		}
 	}
 }
-
 
 //func main() {
 //	url := "http://github.com/paulorfarah/refactoring-python-code"
