@@ -49,7 +49,6 @@ func ReadCommits() {
 	for _, smell := range designSmells {
 		header += "," + smell
 	}
-	fmt.Println(header)
 	_, _ = datawriter.WriteString(header + "\n")
 
 	for _, filename := range files {
@@ -81,6 +80,9 @@ func ReadCommits() {
 		}
 		prevCommits := GetPreviousCommits(urls[repoName], repoName, commits)
 
+		// time
+		times := readTime("results\\sum\\" + filename)
+
 		for currCommit, prevCommit := range prevCommits {
 			fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
 			//curr commit
@@ -106,23 +108,39 @@ func ReadCommits() {
 			pathSmells := "results\\" + repoName + "\\" + prevCommit + "\\smells\\" 
 			sumSmells := readSmells(pathSmells + "DesignSmells.csv")
 
-			data := repoName + "," + prevCommit + "," + "After" 
+			data := repoName + "," + prevCommit + "," + "Previous" 
 			for _, smell := range designSmells {
 				data += "," +  strconv.Itoa(sumSmells[smell])
 			}
-			_, _ = datawriter.WriteString(data + "\n")
-			datawriter.Flush()
 
-
-			pathSmells := "results\\" + repoName + "\\" + currCommit + "\\smells\\" 
-			sumSmells := readSmells(pathSmells + "DesignSmells.csv")
-
-			data := repoName + "," + currCommit + "," + "After" 
-			for _, smell := range designSmells {
-				data += "," +  strconv.Itoa(sumSmells[smell])
+			//time
+			indCurr := -1
+			for t, _ := range times {
+				if times[t].Commit == currCommit {
+					indCurr = t
+				}
 			}
-			_, _ = datawriter.WriteString(data + "\n")
-			datawriter.Flush()
+			if  indCurr < 0 {
+				fmt.Println("###### ERROR: Commit not found: ", currCommit)
+			} else {
+
+				data += "," + strconv.FormatFloat(times[indCurr].OldTime, 'E', -1, 32)
+				_, _ = datawriter.WriteString(data + "\n")
+				datawriter.Flush()
+
+				//curr commit
+				pathSmells = "results\\" + repoName + "\\" + currCommit + "\\smells\\" 
+				sumSmells = readSmells(pathSmells + "DesignSmells.csv")
+
+				data = repoName + "," + currCommit + "," + "Current" 
+				for _, smell := range designSmells {
+					data += "," +  strconv.Itoa(sumSmells[smell])
+				}
+				//time
+				data += "," + strconv.FormatFloat(times[indCurr].NewTime, 'E', -1, 32)
+				_, _ = datawriter.WriteString(data + "\n")
+				datawriter.Flush()
+			}
 		}
 
 	}
@@ -294,6 +312,47 @@ func readSmells(path string) map[string]int {
 	return sumSmells
 }
 
+type StrTime struct {
+	Commit string
+	OldTime float64
+	NewTime float64
+}
+
+func readTime(path string) []StrTime { 
+//	mTime := make(map[string][2]float64)
+
+	var mTime []StrTime
+	f, err := os.Open(path)
+	if err != nil {
+		fmt.Println("Cannot open time file", err)
+	}
+	defer f.Close()
+	r := csv.NewReader(f)
+	r.Comma = ','
+	r.FieldsPerRecord = -1
+	rows, err := r.ReadAll()
+	if err != nil {
+		fmt.Println("Cannot read csv data of time file", err)
+	}
+	for i, row := range rows {
+		if i != 0 {
+			if row != nil {
+				ot, err := strconv.ParseFloat(row[1], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert OldTime to float", err)
+				}
+				nt, err := strconv.ParseFloat(row[2], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert NewTime to float", err)
+				}
+
+				t := StrTime{Commit: row[0], OldTime: ot, NewTime: nt} 
+				mTime = append(mTime, t) 
+			}
+		}
+	}
+	return mTime
+}
 
 //func main() {
 //	url := "http://github.com/paulorfarah/refactoring-python-code"
