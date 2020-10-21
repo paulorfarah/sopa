@@ -5,17 +5,20 @@ import (
 	"os"
 	"log"
 	"fmt"
+	"bufio"
 	"strings"
+	"strconv"
 	"io/ioutil"
 	"os/exec"
 	"path/filepath"
 	"encoding/csv"
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing/object"
-//	"github.com/tobgu/qframe"
 )
 
 func ReadCommits() {
+	designSmells := [17]string{"Imperative Abstraction", "Multifaceted Abstraction", "Unnecessary Abstraction", "Unutilized Abstraction", "Deficient Encapsulation", "Unexploited Encapsulation", "Broken Modularization", "Cyclic-Dependent Modularization", "Insufficient Modularization", "Hub-like Modularization", "Broken Hierarchy", "Cyclic Hierarchy", "Deep Hierarchy", "Missing Hierarchy", "Multipath Hierarchy", "Rebellious Hierarchy", "Wide Hierarchy"}
+
 	urls := map[string]string {
 		"commons-compress":"https://github.com/apache/commons-compress",
 		"commons-csv":"https://github.com/apache/commons-csv",
@@ -36,24 +39,31 @@ func ReadCommits() {
 		log.Fatal("Cannot read absolute filepath", err)
 	}
 	files := getFiles(abs, ".csv")
+
+	file, err := os.OpenFile("results\\sumsmells.csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Fatalf("failed creating file: %s", err)
+	}
+	datawriter := bufio.NewWriter(file)
+	header := "project,commit,order"
+	for _, smell := range designSmells {
+		header += "," + smell
+	}
+	fmt.Println(header)
+	_, _ = datawriter.WriteString(header + "\n")
+
 	for _, filename := range files {
 		repoName := strings.ReplaceAll(filename, ".csv", "")
 		repoName = strings.ReplaceAll(repoName, "sum_peass_", "")
+		fmt.Println("###########################################")
+		fmt.Println("# ", repoName)
+		fmt.Println("###########################################")
 		CloneRepo(urls[repoName], repoName)
 
 		sumFile, err := os.Open(dir + filename)
 		if err != nil {
-			log.Fatal(err)
+			log.Fatal("Cannot open file ", err)
 		}
-		//f := qframe.ReadCSV(sumFile)
-		//fmt.Println("dataframe...")
-		//fmt.Println(f)
-
-		//viewCommits := f.MustStringView("commit")
-		//for i := 0; i < viewCommits.Len(); i++ {
-		//	com := fmt.Sprintf("%x", viewCommits.ItemAt(i))
-		//	ProcessMetrics(repoName, com)
-		//}
 
 		r := csv.NewReader(sumFile)
 		var commits []string
@@ -63,14 +73,14 @@ func ReadCommits() {
 				break
 			}
 			if err != nil {
-				log.Fatal(err)
+				fmt.Println("Cannot read commit ", err)
 			}
-			fmt.Printf("Commit: %s\n", commit[0])
 			if commit[0] != "commit" {
 				commits = append(commits, commit[0])
 			}
 		}
 		prevCommits := GetPreviousCommits(urls[repoName], repoName, commits)
+
 		for currCommit, prevCommit := range prevCommits {
 			fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
 			//curr commit
@@ -82,6 +92,7 @@ func ReadCommits() {
 			ProcessMetrics(repoName, currCommit)
 			ProcessSmells(repoName, currCommit)
 
+
 			// previous commit
 			fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repoName, repoName, prevCommit)
 			_, err = exec.Command("git", "--git-dir=repos\\"+repoName + "\\.git", "--work-tree=repos\\"+repoName, "checkout", prevCommit).Output()
@@ -91,24 +102,46 @@ func ReadCommits() {
 			ProcessMetrics(repoName, prevCommit)
 			ProcessSmells(repoName, prevCommit)
 
+			//summarize results
+			pathSmells := "results\\" + repoName + "\\" + prevCommit + "\\smells\\" 
+			sumSmells := readSmells(pathSmells + "DesignSmells.csv")
+
+			data := repoName + "," + prevCommit + "," + "After" 
+			for _, smell := range designSmells {
+				data += "," +  strconv.Itoa(sumSmells[smell])
+			}
+			_, _ = datawriter.WriteString(data + "\n")
+			datawriter.Flush()
+
+
+			pathSmells := "results\\" + repoName + "\\" + currCommit + "\\smells\\" 
+			sumSmells := readSmells(pathSmells + "DesignSmells.csv")
+
+			data := repoName + "," + currCommit + "," + "After" 
+			for _, smell := range designSmells {
+				data += "," +  strconv.Itoa(sumSmells[smell])
+			}
+			_, _ = datawriter.WriteString(data + "\n")
+			datawriter.Flush()
 		}
+
 	}
+	file.Close()
 }
 
-func GetPreviousCommits(url string, directory string, commits []string) map[string]string {
+func GetPreviousCommits(url, directory string, commits []string) map[string]string {
 	var prevCommits = make(map[string]string)
-
-	r, err := git.PlainClone(directory, false, &git.CloneOptions{
-		URL: url,
-	})
-
+	os.RemoveAll("temp\\")
+	r, err := git.PlainClone("temp\\" + directory, false, &git.CloneOptions{URL: url})
 	if err != nil {
 		log.Fatal(err)
+		fmt.Println("Cannot  repository: ", err)
 	}
 	if r != nil {
 		ref, err := r.Head()
 		if err != nil {
-			log.Fatal(err)
+			//log.Fatal(err)
+			fmt.Println("[ERROR]>> Cannot get Head commit of repository ", err)
 		}
 		if ref != nil {
 			var prevCommit *object.Commit
@@ -119,7 +152,8 @@ func GetPreviousCommits(url string, directory string, commits []string) map[stri
 			//fmt.Println(ref.Hash())
 			cIter, err := r.Log(&git.LogOptions{From: ref.Hash()})
 			if err != nil {
-				log.Fatal(err)
+				//log.Fatal(err)
+				fmt.Println("Cannot get log history of repository ", err)
 			}
 			err = cIter.ForEach(func(c *object.Commit) error {
 				if prevCommit != nil {
@@ -139,6 +173,8 @@ func GetPreviousCommits(url string, directory string, commits []string) map[stri
 				fmt.Println(err)
 			}
 		}
+	}else { 
+		fmt.Println("[ERROR]>> repository is nil.")
 	}
 	return prevCommits
 }
@@ -152,13 +188,24 @@ func findCommit(commits []string, commit string) bool {
 	return false
 }
 
-func CloneRepo(repository, folder string) {
-	fmt.Println("clone repository: ", repository)
-	fmt.Printf("git clone -n %v repos\\%v\n", repository, folder)
-	_, err := exec.Command("git", "clone", "-n", repository, "repos\\" + folder).Output()
+func CloneRepo(url, folder string) *git.Repository {
+	directory := "repos\\" + folder 
+	fmt.Printf("git clone -n %v repos\\%v\n", url, folder)
+	//_, err := exec.Command("git", "clone", "-n", repository, "repos\\" + folder).Output()
+	//if err != nil {
+	//	fmt.Println("Error clonning repo: ", err)
+	//}
+	r, err := git.PlainClone(directory, false, &git.CloneOptions{
+		URL: url,
+	})
 	if err != nil {
-		fmt.Println("Error clonning repo: ", err)
+		fmt.Println("Error cloning repository: ", err)
+		r, err = git.PlainOpen(directory)
+		if err != nil {
+			fmt.Println("Error opening repository: ", err)
+		}
 	}
+	return r
 }
 
 func ProcessMetrics(repo string, commit string) {
@@ -219,6 +266,34 @@ func checkDirectory(path string) {
 		}
 	}
 }
+
+func readSmells(path string) map[string]int {
+	sumSmells := make(map[string]int)
+
+	f, err := os.Open(path)
+	if err != nil {
+		fmt.Println("Cannot open smell file", err)
+	}
+	defer f.Close()
+	r := csv.NewReader(f)
+	r.Comma = ','
+	r.FieldsPerRecord = -1
+	rows, err := r.ReadAll()
+	if err != nil {
+		fmt.Println("Cannot read csv data", err)
+	}
+	for i, row := range rows {
+		if i != 0 {
+			if row != nil {
+				if len(row) > 3 {
+					sumSmells[row[3]]++
+				}
+			}
+		}
+	}
+	return sumSmells
+}
+
 
 //func main() {
 //	url := "http://github.com/paulorfarah/refactoring-python-code"
