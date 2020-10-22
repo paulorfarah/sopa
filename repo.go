@@ -179,7 +179,7 @@ func GetPreviousCommits(url, directory string, commits []string) map[string]stri
 						hash := fmt.Sprintf("%v", c.Hash)
 						prevHash := fmt.Sprintf("%v", prevCommit.Hash)
 						if findCommit(commits, hash) == true {
-							prevCommits[prevHash] = hash
+							prevCommits[hash] = prevHash
 						}
 					}
 				}
@@ -253,7 +253,7 @@ metrics
 		fmt.Println("[ERROR]>> Cannot create understand und.txt file", err)
 	}
 
-	fmt.Printf("und process und.txt\n")
+	//fmt.Printf("und process und.txt\n")
 	_ , err = exec.Command("und", "process", "und.txt").Output()
 
 	if err != nil {
