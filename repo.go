@@ -1,156 +1,217 @@
 package main
 
 import (
-	"io"
-	"os"
-	"log"
-	"fmt"
 	"bufio"
-	"strings"
-	"strconv"
+	"encoding/csv"
+	"fmt"
+	"io"
 	"io/ioutil"
+	"log"
+	"os"
 	"os/exec"
 	"path/filepath"
-	"encoding/csv"
+	"strconv"
+	"strings"
+
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing/object"
 )
 
 func ReadCommits() {
-	designSmells := [17]string{"Imperative Abstraction", "Multifaceted Abstraction", "Unnecessary Abstraction", "Unutilized Abstraction", "Deficient Encapsulation", "Unexploited Encapsulation", "Broken Modularization", "Cyclic-Dependent Modularization", "Insufficient Modularization", "Hub-like Modularization", "Broken Hierarchy", "Cyclic Hierarchy", "Deep Hierarchy", "Missing Hierarchy", "Multipath Hierarchy", "Rebellious Hierarchy", "Wide Hierarchy"}
 
-	urls := map[string]string {
-		"commons-compress":"https://github.com/apache/commons-compress",
-		"commons-csv":"https://github.com/apache/commons-csv",
-		"commons-dbcp":"https://github.com/apache/commons-dbcp",
-		"commons-fileupload":"https://github.com/apache/commons-fileupload",
-		"commons-imaging":"https://github.com/apache/commons-imaging",
-		"commons-io":"https://github.com/apache/commons-io",
-		"commons-pool":"https://github.com/apache/commons-pool",
-		"commons-text":"https://github.com/apache/commons-text",
-		"jackson-core":"https://github.com/FasterXML/jackson-core",
-		"k-9":"https://github.com/k9mail/k-9",
+	urls := map[string]string{
+		"commons-compress":   "https://github.com/apache/commons-compress",
+		"commons-csv":        "https://github.com/apache/commons-csv",
+		"commons-dbcp":       "https://github.com/apache/commons-dbcp",
+		"commons-fileupload": "https://github.com/apache/commons-fileupload",
+		"commons-imaging":    "https://github.com/apache/commons-imaging",
+		"commons-io":         "https://github.com/apache/commons-io",
+		"commons-pool":       "https://github.com/apache/commons-pool",
+		"commons-text":       "https://github.com/apache/commons-text",
+		"jackson-core":       "https://github.com/FasterXML/jackson-core",
+		"k-9":                "https://github.com/k9mail/k-9",
 	}
 
 	dir := filepath.FromSlash("results/sum/")
 	//open file
-	abs, err := filepath.Abs(dir)
-	if err != nil {
-		log.Fatal("Cannot read absolute filepath", err)
-	}
-	files := getFiles(abs, ".csv")
+	// abs, err := filepath.Abs(dir)
+	// if err != nil {
+	// 	log.Fatal("Cannot read absolute filepath", err)
+	// }
+	// files := getFiles(abs, ".csv")
 
-	file, err := os.OpenFile("results\\sumsmells.csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	file, err := os.OpenFile("results\\sum\\sumsmells.csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Fatalf("failed creating file: %s", err)
 	}
 	datawriter := bufio.NewWriter(file)
+
+	//header columns
 	header := "project,commit,order"
+	designSmells := []string{"Imperative Abstraction", "Multifaceted Abstraction", "Unnecessary Abstraction", "Unutilized Abstraction", "Deficient Encapsulation", "Unexploited Encapsulation", "Broken Modularization", "Cyclic-Dependent Modularization", "Insufficient Modularization", "Hub-like Modularization", "Broken Hierarchy", "Cyclic Hierarchy", "Deep Hierarchy", "Missing Hierarchy", "Multipath Hierarchy", "Rebellious Hierarchy", "Wide Hierarchy"}
 	for _, smell := range designSmells {
 		header += "," + smell
 	}
+	implSmells := []string{"Abstract Function Call From Constructor", "Complex Conditional", "Complex Method", "Empty catch clause", "Long Identifier", "Long Method", "Long Parameter List", "Long Statement", "Magic Number", "Missing default"}
+	for _, smell := range implSmells {
+		header += ", " + smell
+	}
+	header += ", resptime"
 	_, _ = datawriter.WriteString(header + "\n")
 
-	for _, filename := range files {
-		repoName := strings.ReplaceAll(filename, ".csv", "")
-		repoName = strings.ReplaceAll(repoName, "sum_peass_", "")
+	for repoName := range urls {
+		// repoName := strings.ReplaceAll(filename, ".csv", "")
+		// repoName = strings.ReplaceAll(repoName, "sum_peass_", "")
+		filename := "sum_" + repoName + ".csv"
 		fmt.Println("###########################################")
 		fmt.Println("# ", repoName)
 		fmt.Println("###########################################")
-		CloneRepo(urls[repoName], repoName)
-
-		sumFile, err := os.Open(dir + filename)
-		if err != nil {
-			log.Fatal("Cannot open file ", err)
-		}
-
-		r := csv.NewReader(sumFile)
-		var commits []string
-		for {
-			commit, err := r.Read()
-			if err == io.EOF {
-				break
-			}
+		isCloned := CloneRepo(urls[repoName], repoName)
+		if isCloned == true {
+			sumFile, err := os.Open(dir + filename)
 			if err != nil {
-				fmt.Println("Cannot read commit ", err)
-			}
-			if commit[0] != "commit" {
-				commits = append(commits, commit[0])
-			}
-		}
-		prevCommits := GetPreviousCommits(urls[repoName], repoName, commits)
-
-		// time
-		times := readTime("results\\sum\\" + filename)
-
-		for currCommit, prevCommit := range prevCommits {
-			fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
-			//curr commit
-			fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repoName, repoName, currCommit)
-			_, err := exec.Command("git", "--git-dir=repos\\"+repoName + "\\.git", "--work-tree=repos\\"+repoName, "checkout", currCommit).Output()
-			if err != nil {
-				fmt.Println("\nCannot run git checkout: ", err)
-			}
-			ProcessMetrics(repoName, currCommit)
-			ProcessSmells(repoName, currCommit)
-
-
-			// previous commit
-			fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repoName, repoName, prevCommit)
-			_, err = exec.Command("git", "--git-dir=repos\\"+repoName + "\\.git", "--work-tree=repos\\"+repoName, "checkout", prevCommit).Output()
-			if err != nil {
-				fmt.Println("\nCannot run git checkout: ", err)
-			}
-			ProcessMetrics(repoName, prevCommit)
-			ProcessSmells(repoName, prevCommit)
-
-			//summarize results
-			pathSmells := "results\\" + repoName + "\\" + prevCommit + "\\smells\\" 
-			sumSmells := readSmells(pathSmells + "DesignSmells.csv")
-
-			data := repoName + "," + prevCommit + "," + "Previous" 
-			for _, smell := range designSmells {
-				data += "," +  strconv.Itoa(sumSmells[smell])
+				log.Fatal("Cannot open file ", err)
 			}
 
-			//time
-			indCurr := -1
-			for t, _ := range times {
-				if times[t].Commit == currCommit {
-					indCurr = t
+			r := csv.NewReader(sumFile)
+			var commits []string
+			for {
+				commit, err := r.Read()
+				if err == io.EOF {
+					break
+				}
+				if err != nil {
+					fmt.Println(">>> [ERROR]: Cannot read commit: ", err)
+				}
+				if commit[0] != "commit" {
+					commits = append(commits, commit[0])
 				}
 			}
-			if  indCurr < 0 {
-				fmt.Println("###### ERROR: Commit not found: ", currCommit)
-			} else {
+			prevCommits := GetPreviousCommits(urls[repoName], repoName, commits)
 
-				data += "," + strconv.FormatFloat(times[indCurr].OldTime, 'E', -1, 32)
-				_, _ = datawriter.WriteString(data + "\n")
-				datawriter.Flush()
+			// time
+			times := readTime("results\\sum\\" + filename)
 
+			for currCommit, prevCommit := range prevCommits {
+				//fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
 				//curr commit
-				pathSmells = "results\\" + repoName + "\\" + currCommit + "\\smells\\" 
-				sumSmells = readSmells(pathSmells + "DesignSmells.csv")
+				// fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repoName, repoName, currCommit)
+				// _, err := exec.Command("git", "--git-dir=repos\\"+repoName+"\\.git", "--work-tree=repos\\"+repoName, "checkout", currCommit).Output()
+				// if err != nil {
+				// 	fmt.Println("\nCannot run git checkout: ", err)
+				// }
+				// ProcessMetrics(repoName, currCommit)
+				// ProcessSmells(repoName, currCommit)
+				processCommit(repoName, currCommit)
 
-				data = repoName + "," + currCommit + "," + "Current" 
-				for _, smell := range designSmells {
-					data += "," +  strconv.Itoa(sumSmells[smell])
+				// previous commit
+				// fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repoName, repoName, prevCommit)
+				// _, err = exec.Command("git", "--git-dir=repos\\"+repoName+"\\.git", "--work-tree=repos\\"+repoName, "checkout", prevCommit).Output()
+				// if err != nil {
+				// 	fmt.Println("\nCannot run git checkout: ", err)
+				// }
+				// ProcessMetrics(repoName, prevCommit)
+				// ProcessSmells(repoName, prevCommit)
+				processCommit(repoName, prevCommit)
+
+				// //summarize results
+				// pathSmells := "results\\" + repoName + "\\" + prevCommit + "\\smells\\"
+				// data := repoName + "," + prevCommit + "," + "Previous"
+
+				// //design smells
+				// sumDSmells := readSmells(pathSmells+"DesignSmells.csv", 3)
+				// for _, smell := range designSmells {
+				// 	data += "," + strconv.Itoa(sumDSmells[smell])
+				// }
+
+				// //implementation smells
+				// sumISmells := readSmells(pathSmells+"ImplementationSmells.csv", 4)
+				// for _, smell := range implSmells {
+				// 	data += "," + strconv.Itoa(sumISmells[smell])
+				// }
+				data := summarizeSmells(repoName, prevCommit, "Previous", designSmells, implSmells)
+
+				// respose time
+				indCurr := -1
+				for t := range times {
+					if times[t].Commit == currCommit {
+						indCurr = t
+					}
 				}
-				//time
-				data += "," + strconv.FormatFloat(times[indCurr].NewTime, 'E', -1, 32)
-				_, _ = datawriter.WriteString(data + "\n")
-				datawriter.Flush()
+				if indCurr < 0 {
+					fmt.Println("###### ERROR: Resptime of commit not found : ", currCommit)
+				} else {
+					oldTime := fmt.Sprintf("%f", times[indCurr].OldTime)
+					data += "," + oldTime
+					_, _ = datawriter.WriteString(data + "\n")
+					datawriter.Flush()
+
+					// //curr commit
+					// pathSmells = "results\\" + repoName + "\\" + currCommit + "\\smells\\"
+					// data = repoName + "," + currCommit + "," + "Current"
+
+					// // design smells
+					// sumDSmells = readSmells(pathSmells+"DesignSmells.csv", 3)
+					// for _, smell := range designSmells {
+					// 	data += "," + strconv.Itoa(sumDSmells[smell])
+					// }
+					// fmt.Println("design smells")
+					// // implementation smells
+					// sumISmells = readSmells(pathSmells+"ImplementationSmells.csv", 4)
+					// for _, smell := range implSmells {
+					// 	data += "," + strconv.Itoa(sumISmells[smell])
+					// }
+					// // fmt.Println("impl smells")
+					data := summarizeSmells(repoName, currCommit, "Current", designSmells, implSmells)
+
+					//time
+					newTime := fmt.Sprintf("%f", times[indCurr].NewTime)
+					data += "," + newTime
+					_, _ = datawriter.WriteString(data + "\n")
+					datawriter.Flush()
+				}
 			}
+		} else {
+			fmt.Println("Cannot clone repository: ", repoName)
 		}
 
 	}
 	file.Close()
 }
 
+func processCommit(repoName, commit string) {
+	fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repoName, repoName, commit)
+	_, err := exec.Command("git", "--git-dir=repos\\"+repoName+"\\.git", "--work-tree=repos\\"+repoName, "checkout", commit).Output()
+	if err != nil {
+		fmt.Println("\nCannot run git checkout: ", err)
+	}
+	ProcessMetrics(repoName, commit)
+	ProcessSmells(repoName, commit)
+}
+
+func summarizeSmells(repoName, commit, order string, designSmells, implSmells []string) string {
+	//summarize results
+	pathSmells := "results\\" + repoName + "\\" + commit + "\\smells\\"
+	data := repoName + "," + commit + "," + order
+
+	//design smells
+	sumDSmells := readSmells(pathSmells+"DesignSmells.csv", 3)
+	for _, smell := range designSmells {
+		data += "," + strconv.Itoa(sumDSmells[smell])
+	}
+
+	//implementation smells
+	sumISmells := readSmells(pathSmells+"ImplementationSmells.csv", 4)
+	for _, smell := range implSmells {
+		data += "," + strconv.Itoa(sumISmells[smell])
+	}
+	return data
+}
+
 func GetPreviousCommits(url, directory string, commits []string) map[string]string {
 	var prevCommits = make(map[string]string)
 	os.RemoveAll("temp\\")
-	r, err := git.PlainClone("temp\\" + directory, false, &git.CloneOptions{URL: url})
+	r, err := git.PlainClone("temp\\"+directory, false, &git.CloneOptions{URL: url})
 	if err != nil {
 		log.Fatal(err)
 		fmt.Println("Cannot  repository: ", err)
@@ -191,7 +252,7 @@ func GetPreviousCommits(url, directory string, commits []string) map[string]stri
 				fmt.Println(err)
 			}
 		}
-	}else { 
+	} else {
 		fmt.Println("[ERROR]>> repository is nil.")
 	}
 	return prevCommits
@@ -206,13 +267,10 @@ func findCommit(commits []string, commit string) bool {
 	return false
 }
 
-func CloneRepo(url, folder string) *git.Repository {
-	directory := "repos\\" + folder 
+func CloneRepo(url, folder string) bool {
+	directory := "repos\\" + folder
 	fmt.Printf("git clone -n %v repos\\%v\n", url, folder)
-	//_, err := exec.Command("git", "clone", "-n", repository, "repos\\" + folder).Output()
-	//if err != nil {
-	//	fmt.Println("Error clonning repo: ", err)
-	//}
+
 	r, err := git.PlainClone(directory, false, &git.CloneOptions{
 		URL: url,
 	})
@@ -223,7 +281,11 @@ func CloneRepo(url, folder string) *git.Repository {
 			fmt.Println("Error opening repository: ", err)
 		}
 	}
-	return r
+	if r != nil {
+		return true
+	} else {
+		return false
+	}
 }
 
 func ProcessMetrics(repo string, commit string) {
@@ -234,7 +296,7 @@ func ProcessMetrics(repo string, commit string) {
 }
 
 func createUnderstandDb(repo, path string) {
-	_, err := exec.Command("und", "create", "-db", path + "\\understand.udb", "-languages", "java", "add", "repos\\" + repo).Output()
+	_, err := exec.Command("und", "create", "-db", path+"\\understand.udb", "-languages", "java", "add", "repos\\"+repo).Output()
 	if err != nil {
 		fmt.Println("[ERROR]>> Cannot create understand database: ", err)
 	}
@@ -254,7 +316,7 @@ metrics
 	}
 
 	//fmt.Printf("und process und.txt\n")
-	_ , err = exec.Command("und", "process", "und.txt").Output()
+	_, err = exec.Command("und", "process", "und.txt").Output()
 
 	if err != nil {
 		fmt.Println("[ERROR]>> Cannot add repository path: ", err)
@@ -268,7 +330,7 @@ func ProcessSmells(repo, commit string) {
 }
 
 func runDesignite(repo, path string) {
-	_, err := exec.Command("java", "-jar", "DesigniteJava.jar", "-i", "repos\\" + repo, "-o", path).Output()
+	_, err := exec.Command("java", "-jar", "DesigniteJava.jar", "-i", "repos\\"+repo, "-o", path).Output()
 	if err != nil {
 		fmt.Println("[ERROR]>> Error trying to generate smells files: ", err)
 	}
@@ -279,13 +341,14 @@ func checkDirectory(path string) {
 		dirs := strings.Split(path, "\\")
 		subpath := ""
 		for _, dir := range dirs {
-			os.Mkdir(subpath + dir, 0755)
+			os.Mkdir(subpath+dir, 0755)
 			subpath += dir + "\\"
 		}
 	}
 }
 
-func readSmells(path string) map[string]int {
+func readSmells(path string, column int) map[string]int {
+	fmt.Println(path)
 	sumSmells := make(map[string]int)
 
 	f, err := os.Open(path)
@@ -294,17 +357,18 @@ func readSmells(path string) map[string]int {
 	}
 	defer f.Close()
 	r := csv.NewReader(f)
+	r.LazyQuotes = true
 	r.Comma = ','
 	r.FieldsPerRecord = -1
 	rows, err := r.ReadAll()
 	if err != nil {
-		fmt.Println("Cannot read csv data", err)
+		fmt.Println("Cannot read csv data 1: ", err)
 	}
 	for i, row := range rows {
 		if i != 0 {
 			if row != nil {
-				if len(row) > 3 {
-					sumSmells[row[3]]++
+				if len(row) > column {
+					sumSmells[row[column]]++
 				}
 			}
 		}
@@ -313,14 +377,12 @@ func readSmells(path string) map[string]int {
 }
 
 type StrTime struct {
-	Commit string
+	Commit  string
 	OldTime float64
 	NewTime float64
 }
 
-func readTime(path string) []StrTime { 
-//	mTime := make(map[string][2]float64)
-
+func readTime(path string) []StrTime {
 	var mTime []StrTime
 	f, err := os.Open(path)
 	if err != nil {
@@ -328,6 +390,7 @@ func readTime(path string) []StrTime {
 	}
 	defer f.Close()
 	r := csv.NewReader(f)
+	r.LazyQuotes = true
 	r.Comma = ','
 	r.FieldsPerRecord = -1
 	rows, err := r.ReadAll()
@@ -337,17 +400,20 @@ func readTime(path string) []StrTime {
 	for i, row := range rows {
 		if i != 0 {
 			if row != nil {
-				ot, err := strconv.ParseFloat(row[1], 32)
-				if err != nil {
-					fmt.Println("### ERROR: Cannot convert OldTime to float", err)
-				}
-				nt, err := strconv.ParseFloat(row[2], 32)
-				if err != nil {
-					fmt.Println("### ERROR: Cannot convert NewTime to float", err)
-				}
+				fmt.Println(row)
+				if len(row) > 2 {
+					ot, err := strconv.ParseFloat(row[1], 32)
+					if err != nil {
+						fmt.Println("### ERROR: Cannot convert OldTime to float", err)
+					}
+					nt, err := strconv.ParseFloat(row[2], 32)
+					if err != nil {
+						fmt.Println("### ERROR: Cannot convert NewTime to float", err)
+					}
 
-				t := StrTime{Commit: row[0], OldTime: ot, NewTime: nt} 
-				mTime = append(mTime, t) 
+					t := StrTime{Commit: row[0], OldTime: ot, NewTime: nt}
+					mTime = append(mTime, t)
+				}
 			}
 		}
 	}

@@ -1,38 +1,36 @@
-package main 
+package main
 
 import (
-	"os"
-	"fmt"
-	"log"
-	"strings"
-	"strconv"
-	"io/ioutil"
-	"encoding/json"
 	"encoding/csv"
+	"encoding/json"
+	"fmt"
+	"io"
+	"io/ioutil"
+	"log"
+	"os"
 	"path/filepath"
-	"github.com/tobgu/qframe"
-	"github.com/tobgu/qframe/config/groupby"
+	"strconv"
+	"strings"
 )
 
-
 type PeassResult struct {
-	VersionCount   int `json:"versionCount"`
-	ChangeCount    int `json:"changeCount"`
-	TestCaseCount  int `json:"testcaseCount"`
+	VersionCount   int                        `json:"versionCount"`
+	ChangeCount    int                        `json:"changeCount"`
+	TestCaseCount  int                        `json:"testcaseCount"`
 	VersionChanges map[string]TestCaseChanges `json:"versionChanges"`
 }
 
 type TestCaseChanges struct {
-	TestCaseChanges map[string][]Measurement  `json:"testcaseChanges"`
+	TestCaseChanges map[string][]Measurement `json:"testcaseChanges"`
 }
 
 type Measurement struct {
-	Diff string `json:"diff"`
-	Method string `json:"method"`
-	OldTime float64 `json:"oldTime"`
-	ChangePercent  float64 `json:"changePercent"`
-	TValue float64 `json:"tvalue"`
-	VMS int `json:"vms"`
+	Diff          string  `json:"diff"`
+	Method        string  `json:"method"`
+	OldTime       float64 `json:"oldTime"`
+	ChangePercent float64 `json:"changePercent"`
+	TValue        float64 `json:"tvalue"`
+	VMS           int     `json:"vms"`
 }
 
 func ParsePeassResults() {
@@ -54,7 +52,7 @@ func ParsePeassResults() {
 			fmt.Println(err)
 		}
 		resFilename := strings.ReplaceAll(filename, ".json", ".csv")
-		file, err := os.Create("results/peass_" + resFilename)
+		file, err := os.Create("results/" + resFilename)
 		if err != nil {
 			log.Fatal("Cannot create file", err)
 		}
@@ -71,9 +69,9 @@ func ParsePeassResults() {
 		for commit, v := range result.VersionChanges {
 			for _, w := range v.TestCaseChanges {
 				for _, j := range w {
-					currTime := j.OldTime + (j.OldTime * j.ChangePercent)
+					currTime := j.OldTime + (j.OldTime * (j.ChangePercent / float64(100)))
 					diffTime := currTime - j.OldTime
-					s = []string{commit, j.Method, strconv.FormatFloat(j.OldTime, 'g', 1, 64), strconv.FormatFloat(currTime, 'g', 1, 64), strconv.FormatFloat(diffTime, 'g', 1, 64), strconv.FormatFloat(j.ChangePercent, 'g', 1, 64)}
+					s = []string{commit, j.Method, fmt.Sprintf("%f", j.OldTime), fmt.Sprintf("%f", currTime), fmt.Sprintf("%f", diffTime), fmt.Sprintf("%f", j.ChangePercent)}
 					data = append(data, s)
 				}
 			}
@@ -85,70 +83,66 @@ func ParsePeassResults() {
 	}
 }
 
+type HadoopResult struct {
+	Commit       string
+	Class        string
+	ResponseTime []float64
+	CpuUsage     []float64
+	MemoryUsage  []float64
+}
 
 func ParseHadoopResults() {
-	dir := filepath.FromSlash("data/hadoop/")
-	abs, err := filepath.Abs(dir)
+	var res = make(map[string]map[string]float64)
+	infile, err := os.Open("data/hadoop/hadoop.csv")
 	if err != nil {
-		log.Fatal("Cannot read absolute filepath for Hadoop data", err)
+		fmt.Println(err)
 	}
-	files := getFiles(abs, ".csv")
-	for _, filename := range files {
-		jsonFile, err := os.Open("data/hadoop/" + filename)
-		if err != nil {
-			fmt.Println(err)
-		}
-		defer jsonFile.Close()
+	defer infile.Close()
 
-		byteValue, err := ioutil.ReadAll(jsonFile)
-		if err != nil {
-			fmt.Println(err)
-		}
-		resFilename := strings.ReplaceAll(filename, ".json", ".csv")
-		file, err := os.Create("results/hadoop_" + resFilename)
-		if err != nil {
-			log.Fatal("Cannot create file", err)
-		}
-		defer file.Close()
+	lines, err := csv.NewReader(infile).ReadAll()
+	if err != nil {
+		fmt.Println(err)
+	}
+	outfile, err := os.Create("results/hadoop.csv")
+	if err != nil {
+		log.Fatal("Cannot create hadoop results file", err)
+	}
+	defer outfile.Close()
 
-		writer := csv.NewWriter(file)
-		defer writer.Flush()
+	writer := csv.NewWriter(outfile)
+	defer writer.Flush()
 
-		var result PeassResult
-		var data [][]string
-		s := []string{"commit", "method", "oldTime", "currTime", "diffTime", "changePercent"}
-		data = append(data, s)
-		json.Unmarshal([]byte(byteValue), &result)
-		for commit, v := range result.VersionChanges {
-			for _, w := range v.TestCaseChanges {
-				for _, j := range w {
-					currTime := j.OldTime + (j.OldTime * j.ChangePercent)
-					diffTime := currTime - j.OldTime
-					s = []string{commit, j.Method, strconv.FormatFloat(j.OldTime, 'g', 1, 64), strconv.FormatFloat(currTime, 'g', 1, 64), strconv.FormatFloat(diffTime, 'g', 1, 64), strconv.FormatFloat(j.ChangePercent, 'g', 1, 64)}
-					data = append(data, s)
-				}
+	for _, line := range lines {
+		commit := line[0]
+		method := line[1]
+		_, ok := res[commit]
+		if ok == false {
+			res[commit] = make(map[string]float64)
+		}
+		sum := float64(0)
+		for i := 2; i < 32; i++ {
+			val, err := strconv.ParseFloat(line[i], 64)
+			if err != nil {
+				fmt.Println("### ERROR: Cannot read value", err)
 			}
+			sum += val
 		}
-		err = writer.WriteAll(data)
-		if err != nil {
-			log.Fatal("Cannot write to file", err)
-		}
+		avg := sum / float64(30)
+		res[commit][method] = avg
 	}
 
+	sumRespTime := make(map[string]float64)
+	for k, v := range res {
+		sum := float64(0)
+		for _, j := range v {
+			sum += j
+		}
+		sumRespTime[k] = sum
+	}
 }
 
 func getFiles(root string, fileExt string) []string {
 	var files []string
-//	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
-//		if info.IsDir() {
-//		    return nil
-//		}
-//		if filepath.Ext(path) != fileExt {
-//	  	    return nil
-//		}
-//		files = append(files, info.Name())
-//		return nil
-//	})
 	items, err := ioutil.ReadDir(root)
 	if err != nil {
 		panic(err)
@@ -162,7 +156,6 @@ func getFiles(root string, fileExt string) []string {
 }
 
 func SummarizeResults() {
-	fmt.Println("Summarize results...")
 	dir := filepath.FromSlash("results/")
 	abs, err := filepath.Abs(dir)
 	if err != nil {
@@ -170,33 +163,86 @@ func SummarizeResults() {
 	}
 	files := getFiles(abs, ".csv")
 
-	floatSum := func(ts []float64) float64 {
-	    var result float64
-            for _, x := range ts {
-	        result += x
-	    }
-            return result
-	}
-
 	for _, filename := range files {
-		//fmt.Printf("filename: %v\n", filename)
+		mapOldTime := make(map[string]float64)
+		mapNewTime := make(map[string]float64)
 		csvfile, err := os.Open("results/" + filename)
 		if err != nil {
-			    log.Fatal("Cannot open file ", err)
-		    }
-		f := qframe.ReadCSV(csvfile)
-
-		f = f.GroupBy(groupby.Columns("commit")).Aggregate(qframe.Aggregation{Fn: floatSum, Column: "oldTime"}, qframe.Aggregation{Fn: floatSum, Column: "currTime"})
-		//fmt.Println(f.Sort(qframe.Order{Column: "commit"}))
-
-		//save summary file
-		fileSum, err := os.OpenFile("results/sum/sum_" + filename, os.O_CREATE|os.O_WRONLY, 0777)
-		defer fileSum.Close()
-
-		if err != nil {
-			log.Fatal(err)
+			log.Fatal("Cannot open file ", err)
 		}
 
-		f.ToCSV(fileSum)
+		// Parse the file
+		r := csv.NewReader(csvfile)
+		// Iterate through the records
+		firstLine := true
+		for {
+			// Read each record from csv
+			record, err := r.Read()
+			if err == io.EOF {
+				break
+			}
+			if err != nil {
+				fmt.Println("Cannot read row: ", filename, err)
+			}
+			if firstLine == true {
+				firstLine = false
+			} else {
+				// fmt.Printf("row: %s\n", record)
+				//commit,method,oldTime,currTime,diffTime,changePercent
+				if len(record) > 3 {
+					commit := record[0]
+					oldTime := record[2]
+					currTime := record[3]
+					// diffTime := record[4]
+					// changePercent := record[5]
+
+					v, err := strconv.ParseFloat(oldTime, 64)
+					if err != nil {
+						fmt.Println("Cannot parse float value oldTime: ", err)
+					}
+					// fmt.Println(commit, v)
+					mapOldTime[commit] += v
+					v, err = strconv.ParseFloat(currTime, 64)
+					if err != nil {
+						fmt.Println("Cannot parse float value currTime: ", err)
+					}
+					mapNewTime[commit] += v
+				} else {
+					fmt.Println("row has less than 3 fields: ", record)
+				}
+			}
+		}
+		// fmt.Println("############ mapOldTime")
+		// for k, v := range mapOldTime {
+		// 	fmt.Println(k, v)
+		// }
+
+		// fmt.Println("############ mapNewTime")
+		// for k, v := range mapNewTime {
+		// 	fmt.Println(k, v)
+		// }
+
+		//save summary file
+		outfile, err := os.Create("results/sum/sum_" + filename)
+
+		if err != nil {
+			log.Fatalf("failed creating file: %s", err)
+		}
+
+		csvwriter := csv.NewWriter(outfile)
+
+		for k, v := range mapOldTime {
+			resOldTime := fmt.Sprintf("%f", v)
+			resNewTime := fmt.Sprintf("%f", mapNewTime[k])
+			var res = []string{k, resOldTime, resNewTime}
+			err = csvwriter.Write(res)
+			if err != nil {
+				fmt.Println("Cannot write sum to file: ", err)
+			}
+		}
+
+		csvwriter.Flush()
+
+		csvfile.Close()
 	}
 }

@@ -1,11 +1,10 @@
 package main
 
-import (
 //	"fmt"
-)
 
 func main() {
 	ParsePeassResults()
+	// ParseHadoopResults()
 	SummarizeResults()
 	ReadCommits()
 }
