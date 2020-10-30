@@ -103,7 +103,7 @@ func ParseHadoopResults() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	outfile, err := os.Create("results/hadoop.csv")
+	outfile, err := os.Create("results/sum/hadoop.csv")
 	if err != nil {
 		log.Fatal("Cannot create hadoop results file", err)
 	}
@@ -112,6 +112,7 @@ func ParseHadoopResults() {
 	writer := csv.NewWriter(outfile)
 	defer writer.Flush()
 
+	var commits []string
 	for _, line := range lines {
 		commit := line[0]
 		method := line[1]
@@ -129,16 +130,38 @@ func ParseHadoopResults() {
 		}
 		avg := sum / float64(30)
 		res[commit][method] = avg
+		commits = append(commits, commit)
+	}
+	prevCommits := GetPreviousCommits("https://github.com/apache/hadoop", "hadoop", commits)
+	// sumRespTime := make(map[string]float64)
+	for commit, mapMethod := range res {
+		// current commit
+		sum := float64(0)
+		methods := []string{}
+		for methodName, methodTime := range mapMethod {
+			sum += methodTime
+			methods = append(methods, methodName)
+		}
+		// sumRespTime[commit] = sum
+		// fmt.Println(">>> ", commit, sum)
+
+		//previous commit
+		prevCommit := prevCommits[commit]
+		sumPrev := float64(0)
+		methodsPrev := []string{}
+		for methodName, methodTime := range res[prevCommit] {
+			sumPrev += methodTime
+			methodsPrev = append(methods, methodName)
+		}
+		fmt.Printf("curr: %s sum: %f -  prev: %s sum: %f\n", commit, prevCommit, sum, sumPrev)
+		fmt.Printf("methodsCurr: %v", methods)
+		fmt.Printf("methodsPrev: %v", methodsPrev)
+		sumStr := fmt.Sprintf("%f", sum)
+		sumPrevStr := fmt.Sprintf("%f", sumPrev)
+		var row = []string{commit, sumPrevStr, sumStr}
+		writer.Write(row)
 	}
 
-	sumRespTime := make(map[string]float64)
-	for k, v := range res {
-		sum := float64(0)
-		for _, j := range v {
-			sum += j
-		}
-		sumRespTime[k] = sum
-	}
 }
 
 func getFiles(root string, fileExt string) []string {

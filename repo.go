@@ -213,8 +213,8 @@ func GetPreviousCommits(url, directory string, commits []string) map[string]stri
 	os.RemoveAll("temp\\")
 	r, err := git.PlainClone("temp\\"+directory, false, &git.CloneOptions{URL: url})
 	if err != nil {
-		log.Fatal(err)
-		fmt.Println("Cannot  repository: ", err)
+		// log.Fatal(err)
+		fmt.Println("Cannot clone repository: ", err)
 	}
 	if r != nil {
 		ref, err := r.Head()
