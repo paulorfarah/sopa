@@ -40,7 +40,7 @@ func ReadCommits() {
 	// }
 	// files := getFiles(abs, ".csv")
 
-	file, err := os.OpenFile("results\\sum\\sumsmells.csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	file, err := os.OpenFile("results"+string(os.PathSeparator)+"sum"+string(os.PathSeparator)+"sumsmells.csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Fatalf("failed creating file: %s", err)
 	}
@@ -90,7 +90,7 @@ func ReadCommits() {
 			prevCommits := GetPreviousCommits(urls[repoName], repoName, commits)
 
 			// time
-			times := readTime("results\\sum\\" + filename)
+			times := readTime("results" + string(os.PathSeparator) + "sum" + string(os.PathSeparator) + filename)
 
 			for currCommit, prevCommit := range prevCommits {
 				//fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
@@ -180,8 +180,8 @@ func ReadCommits() {
 }
 
 func processCommit(repoName, commit string) {
-	fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repoName, repoName, commit)
-	_, err := exec.Command("git", "--git-dir=repos\\"+repoName+"\\.git", "--work-tree=repos\\"+repoName, "checkout", commit).Output()
+	fmt.Printf("git --git-dir=repos"+string(os.PathSeparator)+"%v"+string(os.PathSeparator)+".git --work-tree=repos"+string(os.PathSeparator)+"%v checkout %s\n", repoName, repoName, commit)
+	_, err := exec.Command("git", "--git-dir=repos"+string(os.PathSeparator)+repoName+string(os.PathSeparator)+".git", "--work-tree=repos"+string(os.PathSeparator)+repoName, "checkout", commit).Output()
 	if err != nil {
 		fmt.Println("\nCannot run git checkout: ", err)
 	}
@@ -191,7 +191,7 @@ func processCommit(repoName, commit string) {
 
 func summarizeSmells(repoName, commit, order string, designSmells, implSmells []string) string {
 	//summarize results
-	pathSmells := "results\\" + repoName + "\\" + commit + "\\smells\\"
+	pathSmells := "results" + string(os.PathSeparator) + repoName + string(os.PathSeparator) + commit + string(os.PathSeparator) + "smells" + string(os.PathSeparator)
 	data := repoName + "," + commit + "," + order
 
 	//design smells
@@ -210,8 +210,8 @@ func summarizeSmells(repoName, commit, order string, designSmells, implSmells []
 
 func GetPreviousCommits(url, directory string, commits []string) map[string]string {
 	var prevCommits = make(map[string]string)
-	os.RemoveAll("temp\\")
-	r, err := git.PlainClone("temp\\"+directory, false, &git.CloneOptions{URL: url})
+	os.RemoveAll("temp" + string(os.PathSeparator))
+	r, err := git.PlainClone("temp"+string(os.PathSeparator)+directory, false, &git.CloneOptions{URL: url})
 	if err != nil {
 		// log.Fatal(err)
 		fmt.Println("Cannot clone repository: ", err)
@@ -268,8 +268,8 @@ func findCommit(commits []string, commit string) bool {
 }
 
 func CloneRepo(url, folder string) bool {
-	directory := "repos\\" + folder
-	fmt.Printf("git clone -n %v repos\\%v\n", url, folder)
+	directory := "repos" + string(os.PathSeparator) + folder
+	fmt.Printf("git clone -n %v repos"+string(os.PathSeparator)+"%v\n", url, folder)
 
 	r, err := git.PlainClone(directory, false, &git.CloneOptions{
 		URL: url,
@@ -289,14 +289,14 @@ func CloneRepo(url, folder string) bool {
 }
 
 func ProcessMetrics(repo string, commit string) {
-	path := "results\\" + repo + "\\" + commit + "\\metrics"
+	path := "results" + string(os.PathSeparator) + repo + string(os.PathSeparator) + commit + string(os.PathSeparator) + "metrics"
 	checkDirectory(path)
 	createUnderstandDb(repo, path)
 	runUnderstand(path)
 }
 
 func createUnderstandDb(repo, path string) {
-	_, err := exec.Command("und", "create", "-db", path+"\\understand.udb", "-languages", "java", "add", "repos\\"+repo).Output()
+	_, err := exec.Command("und", "create", "-db", path+string(os.PathSeparator)+"understand.udb", "-languages", "java", "add", "repos"+string(os.PathSeparator)+repo).Output()
 	if err != nil {
 		fmt.Println("[ERROR]>> Cannot create understand database: ", err)
 	}
@@ -304,7 +304,7 @@ func createUnderstandDb(repo, path string) {
 
 func runUnderstand(path string) {
 	os.Remove("und.txt")
-	cmd := path + `\\understand.udb
+	cmd := path + string(os.PathSeparator) + `understand.udb
 settings -MetricMetrics "AvgCyclomatic" "AvgCyclomaticModified" "AvgCyclomaticStrict" "AvgEssential" "AvgLine" "AvgLineBlank" "AvgLineCode" "AvgLineComment" "CountClassBase" "CountClassCoupled" "CountClassCoupledModified" "CountClassDerived" "CountDeclClass" "CountDeclClassMethod" "CountDeclClassVariable" "CountDeclExecutableUnit" "CountDeclFile" "CountDeclFunction" "CountDeclInstanceMethod" "CountDeclInstanceVariable" "CountDeclMethod" "CountDeclMethodAll" "CountDeclMethodDefault" "CountDeclMethodPrivate" "CountDeclMethodProtected" "CountDeclMethodPublic" "CountInput" "CountLine" "CountLineBlank" "CountLineCode" "CountLineCodeDecl" "CountLineCodeExe" "CountLineComment" "CountOutput" "CountPath" "CountPathLog" "CountSemicolon" "CountStmt" "CountStmtDecl" "CountStmtExe" "Cyclomatic" "CyclomaticModified" "CyclomaticStrict" "Essential" "Knots" "MaxCyclomatic" "MaxCyclomaticModified" "MaxCyclomaticStrict" "MaxEssential" "MaxEssentialKnots" "MaxInheritanceTree" "MaxNesting" "MinEssentialKnots" "PercentLackOfCohesion" "PercentLackOfCohesionModified" "RatioCommentToCode" "SumCyclomatic" "SumCyclomaticModified" "SumCyclomaticStrict" "SumEssential"
 analyze
 metrics
@@ -324,13 +324,13 @@ metrics
 }
 
 func ProcessSmells(repo, commit string) {
-	path := "results\\" + repo + "\\" + commit + "\\smells"
+	path := "results" + string(os.PathSeparator) + repo + string(os.PathSeparator) + commit + string(os.PathSeparator) + "smells"
 	checkDirectory(path)
 	runDesignite(repo, path)
 }
 
 func runDesignite(repo, path string) {
-	_, err := exec.Command("java", "-jar", "DesigniteJava.jar", "-i", "repos\\"+repo, "-o", path).Output()
+	_, err := exec.Command("java", "-jar", "DesigniteJava.jar", "-i", "repos"+string(os.PathSeparator)+repo, "-o", path).Output()
 	if err != nil {
 		fmt.Println("[ERROR]>> Error trying to generate smells files: ", err)
 	}
@@ -338,11 +338,11 @@ func runDesignite(repo, path string) {
 
 func checkDirectory(path string) {
 	if _, err := os.Stat(path); os.IsNotExist(err) {
-		dirs := strings.Split(path, "\\")
+		dirs := strings.Split(path, string(os.PathSeparator))
 		subpath := ""
 		for _, dir := range dirs {
 			os.Mkdir(subpath+dir, 0755)
-			subpath += dir + "\\"
+			subpath += dir + string(os.PathSeparator)
 		}
 	}
 }
