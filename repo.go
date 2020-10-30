@@ -255,6 +255,9 @@ func GetPreviousCommits(url, directory string, commits []string) map[string]stri
 	} else {
 		fmt.Println("[ERROR]>> repository is nil.")
 	}
+	fmt.Println("############################# PREVCOMMITS BEGIN")
+	fmt.Println(prevCommits)
+	fmt.Println("############################# PREVCOMMITS END")
 	return prevCommits
 }
 
