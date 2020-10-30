@@ -237,8 +237,8 @@ func GetPreviousCommits(url, directory string, commits []string) map[string]stri
 			err = cIter.ForEach(func(c *object.Commit) error {
 				if prevCommit != nil {
 					if prevTree != nil {
-						hash := fmt.Sprintf("%v", c.Hash)
-						prevHash := fmt.Sprintf("%v", prevCommit.Hash)
+						hash := fmt.Sprintf("%s", c.Hash)
+						prevHash := fmt.Sprintf("%s", prevCommit.Hash)
 						fmt.Printf("curr: %s - prev: %s\n", hash, prevHash)
 						if findCommit(commits, hash) == true {
 							prevCommits[hash] = prevHash
@@ -247,7 +247,7 @@ func GetPreviousCommits(url, directory string, commits []string) map[string]stri
 				}
 				prevCommit = c
 				prevTree, _ = c.Tree()
-				return nil
+				// return nil
 			})
 			if err != nil {
 				fmt.Println(">>> [ERROR]: Cannot iterate over commits", err)
