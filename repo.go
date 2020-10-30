@@ -228,7 +228,7 @@ func GetPreviousCommits(url, directory string, commits []string) map[string]stri
 			var prevTree *object.Tree
 			prevTree = nil
 
-			//fmt.Println(ref.Hash())
+			fmt.Println(ref.Hash())
 			cIter, err := r.Log(&git.LogOptions{From: ref.Hash()})
 			if err != nil {
 				//log.Fatal(err)
@@ -249,8 +249,10 @@ func GetPreviousCommits(url, directory string, commits []string) map[string]stri
 				return nil
 			})
 			if err != nil {
-				fmt.Println(err)
+				fmt.Println(">>> [ERROR]: Cannot iterate over commits", err)
 			}
+		} else {
+			fmt.Println("Cannot set HEAD reference...")
 		}
 	} else {
 		fmt.Println("[ERROR]>> repository is nil.")
