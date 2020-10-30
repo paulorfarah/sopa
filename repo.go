@@ -228,7 +228,7 @@ func GetPreviousCommits(url, directory string, commits []string) map[string]stri
 			var prevTree *object.Tree
 			prevTree = nil
 
-			fmt.Println(ref.Hash())
+			// fmt.Println(ref.Hash())
 			cIter, err := r.Log(&git.LogOptions{From: ref.Hash()})
 			if err != nil {
 				//log.Fatal(err)
@@ -239,6 +239,7 @@ func GetPreviousCommits(url, directory string, commits []string) map[string]stri
 					if prevTree != nil {
 						hash := fmt.Sprintf("%v", c.Hash)
 						prevHash := fmt.Sprintf("%v", prevCommit.Hash)
+						fmt.Printf("curr: %s - prev: %s\n", hash, prevHash)
 						if findCommit(commits, hash) == true {
 							prevCommits[hash] = prevHash
 						}
