@@ -8,3 +8,4 @@ results/peass*.csv
 results/sum/*.csv
 results/*.csv
 *.udb
+sopa
