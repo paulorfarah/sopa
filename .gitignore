@@ -2,7 +2,6 @@
 *.exe
 *.swp
 repos/
-*.csv
 results/peass/*.csv
 results/peass*.csv
 results/sum/*.csv

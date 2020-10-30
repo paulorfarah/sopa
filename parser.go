@@ -153,9 +153,9 @@ func ParseHadoopResults() {
 			sumPrev += methodTime
 			methodsPrev = append(methods, methodName)
 		}
-		fmt.Printf("curr: %s sum: %f -  prev: %s sum: %f\n", commit, prevCommit, sum, sumPrev)
-		fmt.Printf("methodsCurr: %v", methods)
-		fmt.Printf("methodsPrev: %v", methodsPrev)
+		fmt.Printf("curr: %s sum: %f -  prev: %s sum: %f\n", commit, sum, prevCommit, sumPrev)
+		fmt.Printf("methodsCurr: %v\n", methods)
+		fmt.Printf("methodsPrev: %v\n", methodsPrev)
 		sumStr := fmt.Sprintf("%f", sum)
 		sumPrevStr := fmt.Sprintf("%f", sumPrev)
 		var row = []string{commit, sumPrevStr, sumStr}
