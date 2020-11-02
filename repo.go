@@ -17,20 +17,7 @@ import (
 	"github.com/go-git/go-git/v5/plumbing/object"
 )
 
-func ReadCommits() {
-
-	urls := map[string]string{
-		"commons-compress":   "https://github.com/apache/commons-compress",
-		"commons-csv":        "https://github.com/apache/commons-csv",
-		"commons-dbcp":       "https://github.com/apache/commons-dbcp",
-		"commons-fileupload": "https://github.com/apache/commons-fileupload",
-		"commons-imaging":    "https://github.com/apache/commons-imaging",
-		"commons-io":         "https://github.com/apache/commons-io",
-		"commons-pool":       "https://github.com/apache/commons-pool",
-		"commons-text":       "https://github.com/apache/commons-text",
-		"jackson-core":       "https://github.com/FasterXML/jackson-core",
-		"k-9":                "https://github.com/k9mail/k-9",
-	}
+func ReadCommits(urls map[string]string) {
 
 	dir := filepath.FromSlash("results/sum/")
 	//open file
@@ -67,7 +54,7 @@ func ReadCommits() {
 		fmt.Println("# ", repoName)
 		fmt.Println("###########################################")
 		isCloned := CloneRepo(urls[repoName], repoName)
-		if isCloned == true {
+		if isCloned != nil {
 			sumFile, err := os.Open(dir + filename)
 			if err != nil {
 				log.Fatal("Cannot open file ", err)
@@ -87,7 +74,8 @@ func ReadCommits() {
 					commits = append(commits, commit[0])
 				}
 			}
-			prevCommits := GetPreviousCommits(urls[repoName], repoName, commits)
+			repo := CloneRepo(urls[repoName], repoName)
+			prevCommits := TraverseCommitsWithPrevious(repo, commits)
 
 			// time
 			times := readTime("results" + string(os.PathSeparator) + "sum" + string(os.PathSeparator) + filename)
@@ -208,16 +196,32 @@ func summarizeSmells(repoName, commit, order string, designSmells, implSmells []
 	return data
 }
 
-func GetPreviousCommits(url, directory string, commits []string) map[string]string {
-	var prevCommits = make(map[string]string)
-	os.RemoveAll("temp" + string(os.PathSeparator))
-	r, err := git.PlainClone("temp"+string(os.PathSeparator)+directory, false, &git.CloneOptions{URL: url})
+func CloneRepo(url, directory string) *git.Repository {
+	path := "repos" + string(os.PathSeparator) + directory
+	os.RemoveAll(path)
+	fmt.Printf("git clone -n %v repos"+string(os.PathSeparator)+"%v\n", url, directory)
+	r, err := git.PlainClone(path, false, &git.CloneOptions{
+		URL: url,
+	})
 	if err != nil {
-		// log.Fatal(err)
-		fmt.Println("Cannot clone repository: ", err)
+		fmt.Println("Error cloning repository: ", err)
 	}
-	if r != nil {
-		ref, err := r.Head()
+	return r
+}
+
+func OpenRepository(directory string) *git.Repository {
+	path := "repos" + string(os.PathSeparator) + directory
+	r, err := git.PlainOpen(path)
+	if err != nil {
+		fmt.Println("Cannot open repository: ", err)
+	}
+	return r
+}
+
+func TraverseCommitsWithPrevious(repo *git.Repository, commits []string) map[string]string {
+	var prevCommits = make(map[string]string)
+	if repo != nil {
+		ref, err := repo.Head()
 		if err != nil {
 			//log.Fatal(err)
 			fmt.Println("[ERROR]>> Cannot get Head commit of repository ", err)
@@ -229,7 +233,7 @@ func GetPreviousCommits(url, directory string, commits []string) map[string]stri
 			prevTree = nil
 
 			// fmt.Println(ref.Hash())
-			cIter, err := r.Log(&git.LogOptions{From: ref.Hash()})
+			cIter, err := repo.Log(&git.LogOptions{From: ref.Hash()})
 			if err != nil {
 				//log.Fatal(err)
 				fmt.Println("Cannot get log history of repository ", err)
@@ -239,7 +243,7 @@ func GetPreviousCommits(url, directory string, commits []string) map[string]stri
 					if prevTree != nil {
 						hash := fmt.Sprintf("%s", c.Hash)
 						prevHash := fmt.Sprintf("%s", prevCommit.Hash)
-						fmt.Printf("curr: %s - prev: %s\n", hash, prevHash)
+						// fmt.Printf("curr: %s - prev: %s\n", hash, prevHash)
 						if findCommit(commits, hash) == true {
 							prevCommits[hash] = prevHash
 						}
@@ -247,7 +251,7 @@ func GetPreviousCommits(url, directory string, commits []string) map[string]stri
 				}
 				prevCommit = c
 				prevTree, _ = c.Tree()
-				// return nil
+				return nil
 			})
 			if err != nil {
 				fmt.Println(">>> [ERROR]: Cannot iterate over commits", err)
@@ -271,27 +275,6 @@ func findCommit(commits []string, commit string) bool {
 		}
 	}
 	return false
-}
-
-func CloneRepo(url, folder string) bool {
-	directory := "repos" + string(os.PathSeparator) + folder
-	fmt.Printf("git clone -n %v repos"+string(os.PathSeparator)+"%v\n", url, folder)
-
-	r, err := git.PlainClone(directory, false, &git.CloneOptions{
-		URL: url,
-	})
-	if err != nil {
-		fmt.Println("Error cloning repository: ", err)
-		r, err = git.PlainOpen(directory)
-		if err != nil {
-			fmt.Println("Error opening repository: ", err)
-		}
-	}
-	if r != nil {
-		return true
-	} else {
-		return false
-	}
 }
 
 func ProcessMetrics(repo string, commit string) {

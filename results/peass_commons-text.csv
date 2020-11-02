@@ -1,5 +1,0 @@
-commit,method,oldTime,currTime,diffTime,changePercent
-61cbf0afe04d86a546e7094513328c9f7a7363ae,testAbbreviateForUpperLimit,1e+01,-3e+01,-5e+01,-3
-61cbf0afe04d86a546e7094513328c9f7a7363ae,testAbbreviateForUpperLimitAndAppendedString,1e+01,-8e+01,-9e+01,-7
-61cbf0afe04d86a546e7094513328c9f7a7363ae,testWrap_StringIntStringBoolean,5e+01,3e+02,2e+02,4
-61cbf0afe04d86a546e7094513328c9f7a7363ae,testAbbreviateForLowerValueAndAppendedString,1e+01,-4e+01,-6e+01,-4

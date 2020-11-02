@@ -11,6 +11,8 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+
+	"github.com/go-git/go-git/v5"
 )
 
 type PeassResult struct {
@@ -91,7 +93,7 @@ type HadoopResult struct {
 	MemoryUsage  []float64
 }
 
-func ParseHadoopResults() {
+func ParseHadoopResults(urls map[string]string) {
 	var res = make(map[string]map[string]float64)
 	infile, err := os.Open("data/hadoop/hadoop.csv")
 	if err != nil {
@@ -132,7 +134,13 @@ func ParseHadoopResults() {
 		res[commit][method] = avg
 		commits = append(commits, commit)
 	}
-	prevCommits := GetPreviousCommits("https://github.com/apache/hadoop", "hadoop", commits)
+
+	var repo *git.Repository
+	for dir, url := range urls {
+		repo = CloneRepo(url, dir)
+	}
+
+	prevCommits := TraverseCommitsWithPrevious(repo, commits)
 	// sumRespTime := make(map[string]float64)
 	for commit, mapMethod := range res {
 		// current commit

@@ -1,10 +1,9 @@
+.config
+DesigniteJava.jar
 *~
 *.exe
 *.swp
 repos/
-results/peass/*.csv
-results/peass*.csv
-results/sum/*.csv
-results/*.csv
+results/*
 *.udb
 sopa
