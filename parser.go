@@ -95,7 +95,7 @@ type HadoopResult struct {
 
 func ParseHadoopResults(urls map[string]string) {
 	var res = make(map[string]map[string]float64)
-	infile, err := os.Open("data/hadoop/hadoop.csv")
+	infile, err := os.Open("data/hadoop/hadoop2.csv")
 	if err != nil {
 		fmt.Println(err)
 	}
