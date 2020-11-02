@@ -14,6 +14,7 @@ import (
 	"strings"
 
 	"github.com/go-git/go-git/v5"
+	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/plumbing/object"
 )
 
@@ -216,6 +217,26 @@ func OpenRepository(directory string) *git.Repository {
 		fmt.Println("Cannot open repository: ", err)
 	}
 	return r
+}
+
+func GetParentsFromCommit(repo *git.Repository, hash string) []string {
+	fmt.Println(hash)
+	var parentHashes []string
+	h := plumbing.NewHash(hash)
+	commit, err := repo.CommitObject(h)
+	if err != nil {
+		fmt.Println("Cannot read Head commit: ", err)
+	}
+
+	// retrieves the commit history
+	parents := commit.ParentHashes
+
+	// iterates over the commits and print each
+	for _, p := range parents {
+		fmt.Println(p)
+		parentHashes = append(parentHashes, p.String())
+	}
+	return parentHashes
 }
 
 func TraverseCommitsWithPrevious(repo *git.Repository, commits []string) map[string]string {
