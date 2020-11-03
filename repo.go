@@ -177,7 +177,6 @@ func GetParentsFromCommit(repo *git.Repository, hash string) []string {
 
 	// iterates over the commits and print each
 	for _, p := range parents {
-		fmt.Println(p)
 		parentHashes = append(parentHashes, p.String())
 	}
 	return parentHashes

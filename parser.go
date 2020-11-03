@@ -169,7 +169,7 @@ func ParseHadoopResults(urls map[string]string) {
 			methodsPrev = append(methods, methodName)
 		}
 		methodsDiff := slicesDiff(methods, methodsPrev)
-		if len(methodsDiff) > 0 {
+		if len(methodsDiff) == 0 {
 			fmt.Printf("curr: %s sum: %f -  prev: %s sum: %f\n", commit, sum, prevCommit, sumPrev)
 			fmt.Printf("methodsCurr: %v\n", methods)
 			fmt.Printf("methodsPrev: %v\n", methodsPrev)
