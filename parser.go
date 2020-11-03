@@ -107,7 +107,7 @@ func ParseHadoopResults(urls map[string]string) {
 	}
 	outfile, err := os.Create("results/sum/hadoop.csv")
 	if err != nil {
-		log.Fatal("Cannot create hadoop results file", err)
+		log.Fatal("Cannot create hadoop summary results file", err)
 	}
 	defer outfile.Close()
 
@@ -140,42 +140,42 @@ func ParseHadoopResults(urls map[string]string) {
 		repo = CloneRepo(url, dir)
 	}
 
-	var prevCommits []string
+	var prevCommits = make(map[string]string)
 	for _, hash := range commits {
 		parents := GetParentsFromCommit(repo, hash)
 		if len(parents) == 1 {
-			prevCommits = append(prevCommits, parents[0])
+			prevCommits[hash] = parents[0]
 		}
 	}
 	// prevCommits := TraverseCommitsWithPrevious(repo, commits)
-	// sumRespTime := make(map[string]float64)
-	// for commit, mapMethod := range res {
-	// 	// current commit
-	// 	sum := float64(0)
-	// 	methods := []string{}
-	// 	for methodName, methodTime := range mapMethod {
-	// 		sum += methodTime
-	// 		methods = append(methods, methodName)
-	// 	}
-	// 	// sumRespTime[commit] = sum
-	// 	// fmt.Println(">>> ", commit, sum)
+	sumRespTime := make(map[string]float64)
+	for commit, mapMethod := range res {
+		// current commit
+		sum := float64(0)
+		methods := []string{}
+		for methodName, methodTime := range mapMethod {
+			sum += methodTime
+			methods = append(methods, methodName)
+		}
+		sumRespTime[commit] = sum
+		// fmt.Println(">>> ", commit, sum)
 
-	// 	//previous commit
-	// 	prevCommit := prevCommits[commit]
-	// 	sumPrev := float64(0)
-	// 	methodsPrev := []string{}
-	// 	for methodName, methodTime := range res[prevCommit] {
-	// 		sumPrev += methodTime
-	// 		methodsPrev = append(methods, methodName)
-	// 	}
-	// 	fmt.Printf("curr: %s sum: %f -  prev: %s sum: %f\n", commit, sum, prevCommit, sumPrev)
-	// 	fmt.Printf("methodsCurr: %v\n", methods)
-	// 	fmt.Printf("methodsPrev: %v\n", methodsPrev)
-	// 	sumStr := fmt.Sprintf("%f", sum)
-	// 	sumPrevStr := fmt.Sprintf("%f", sumPrev)
-	// 	var row = []string{commit, sumPrevStr, sumStr}
-	// 	writer.Write(row)
-	// }
+		//previous commit
+		prevCommit := prevCommits[commit]
+		sumPrev := float64(0)
+		methodsPrev := []string{}
+		for methodName, methodTime := range res[prevCommit] {
+			sumPrev += methodTime
+			methodsPrev = append(methods, methodName)
+		}
+		fmt.Printf("curr: %s sum: %f -  prev: %s sum: %f\n", commit, sum, prevCommit, sumPrev)
+		fmt.Printf("methodsCurr: %v\n", methods)
+		fmt.Printf("methodsPrev: %v\n", methodsPrev)
+		sumStr := fmt.Sprintf("%f", sum)
+		sumPrevStr := fmt.Sprintf("%f", sumPrev)
+		var row = []string{commit, sumPrevStr, sumStr}
+		writer.Write(row)
+	}
 
 }
 
