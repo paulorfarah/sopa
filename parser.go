@@ -244,27 +244,30 @@ func SummarizeResults() {
 			} else {
 				// fmt.Printf("row: %s\n", record)
 				//commit,method,oldTime,currTime,diffTime,changePercent
+				var commit, oldTime, currTime string
 				if len(record) > 3 {
-					commit := record[0]
-					oldTime := record[2]
-					currTime := record[3]
+					commit = record[0]
+					oldTime = record[2]
+					currTime = record[3]
 					// diffTime := record[4]
 					// changePercent := record[5]
-
-					v, err := strconv.ParseFloat(oldTime, 64)
-					if err != nil {
-						fmt.Println("Cannot parse float value oldTime: ", err)
-					}
-					// fmt.Println(commit, v)
-					mapOldTime[commit] += v
-					v, err = strconv.ParseFloat(currTime, 64)
-					if err != nil {
-						fmt.Println("Cannot parse float value currTime: ", err)
-					}
-					mapNewTime[commit] += v
 				} else {
-					fmt.Println("row has less than 3 fields: ", record)
+					commit = record[0]
+					oldTime = record[1]
+					currTime = record[2]
 				}
+				v, err := strconv.ParseFloat(oldTime, 64)
+				if err != nil {
+					fmt.Println("Cannot parse float value oldTime: ", err)
+				}
+				// fmt.Println(commit, v)
+				mapOldTime[commit] += v
+				v, err = strconv.ParseFloat(currTime, 64)
+				if err != nil {
+					fmt.Println("Cannot parse float value currTime: ", err)
+				}
+				mapNewTime[commit] += v
+
 			}
 		}
 		// fmt.Println("############ mapOldTime")
