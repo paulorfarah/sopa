@@ -105,7 +105,7 @@ func ParseHadoopResults(urls map[string]string) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	outfile, err := os.Create("results/sum/hadoop.csv")
+	outfile, err := os.Create("results/hadoop.csv")
 	if err != nil {
 		log.Fatal("Cannot create hadoop summary results file", err)
 	}
