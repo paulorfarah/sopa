@@ -168,15 +168,32 @@ func ParseHadoopResults(urls map[string]string) {
 			sumPrev += methodTime
 			methodsPrev = append(methods, methodName)
 		}
-		fmt.Printf("curr: %s sum: %f -  prev: %s sum: %f\n", commit, sum, prevCommit, sumPrev)
-		fmt.Printf("methodsCurr: %v\n", methods)
-		fmt.Printf("methodsPrev: %v\n", methodsPrev)
-		sumStr := fmt.Sprintf("%f", sum)
-		sumPrevStr := fmt.Sprintf("%f", sumPrev)
-		var row = []string{commit, sumPrevStr, sumStr}
-		writer.Write(row)
+		methodsDiff := slicesDiff(methods, methodsPrev)
+		if len(methodsDiff) > 0 {
+			fmt.Printf("curr: %s sum: %f -  prev: %s sum: %f\n", commit, sum, prevCommit, sumPrev)
+			fmt.Printf("methodsCurr: %v\n", methods)
+			fmt.Printf("methodsPrev: %v\n", methodsPrev)
+			sumStr := fmt.Sprintf("%f", sum)
+			sumPrevStr := fmt.Sprintf("%f", sumPrev)
+			var row = []string{commit, sumPrevStr, sumStr}
+			writer.Write(row)
+		}
 	}
+}
 
+// difference returns the elements in `a` that aren't in `b`.
+func slicesDiff(a, b []string) []string {
+	mb := make(map[string]struct{}, len(b))
+	for _, x := range b {
+		mb[x] = struct{}{}
+	}
+	var diff []string
+	for _, x := range a {
+		if _, found := mb[x]; !found {
+			diff = append(diff, x)
+		}
+	}
+	return diff
 }
 
 func getFiles(root string, fileExt string) []string {
