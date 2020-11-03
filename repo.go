@@ -21,13 +21,6 @@ import (
 func ReadCommits(urls map[string]string) {
 
 	dir := filepath.FromSlash("results/sum/")
-	//open file
-	// abs, err := filepath.Abs(dir)
-	// if err != nil {
-	// 	log.Fatal("Cannot read absolute filepath", err)
-	// }
-	// files := getFiles(abs, ".csv")
-
 	file, err := os.OpenFile("results"+string(os.PathSeparator)+"sum"+string(os.PathSeparator)+"sumsmells.csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Fatalf("failed creating file: %s", err)
@@ -48,8 +41,6 @@ func ReadCommits(urls map[string]string) {
 	_, _ = datawriter.WriteString(header + "\n")
 
 	for repoName := range urls {
-		// repoName := strings.ReplaceAll(filename, ".csv", "")
-		// repoName = strings.ReplaceAll(repoName, "sum_peass_", "")
 		filename := "sum_" + repoName + ".csv"
 		fmt.Println("###########################################")
 		fmt.Println("# ", repoName)
@@ -84,42 +75,11 @@ func ReadCommits(urls map[string]string) {
 			for currCommit, prevCommit := range prevCommits {
 				//fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
 				//curr commit
-				// fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repoName, repoName, currCommit)
-				// _, err := exec.Command("git", "--git-dir=repos\\"+repoName+"\\.git", "--work-tree=repos\\"+repoName, "checkout", currCommit).Output()
-				// if err != nil {
-				// 	fmt.Println("\nCannot run git checkout: ", err)
-				// }
-				// ProcessMetrics(repoName, currCommit)
-				// ProcessSmells(repoName, currCommit)
 				processCommit(repoName, currCommit)
-
 				// previous commit
-				// fmt.Printf("git --git-dir=repos\\%v\\.git --work-tree=repos\\%v checkout %s\n", repoName, repoName, prevCommit)
-				// _, err = exec.Command("git", "--git-dir=repos\\"+repoName+"\\.git", "--work-tree=repos\\"+repoName, "checkout", prevCommit).Output()
-				// if err != nil {
-				// 	fmt.Println("\nCannot run git checkout: ", err)
-				// }
-				// ProcessMetrics(repoName, prevCommit)
-				// ProcessSmells(repoName, prevCommit)
 				processCommit(repoName, prevCommit)
-
 				// //summarize results
-				// pathSmells := "results\\" + repoName + "\\" + prevCommit + "\\smells\\"
-				// data := repoName + "," + prevCommit + "," + "Previous"
-
-				// //design smells
-				// sumDSmells := readSmells(pathSmells+"DesignSmells.csv", 3)
-				// for _, smell := range designSmells {
-				// 	data += "," + strconv.Itoa(sumDSmells[smell])
-				// }
-
-				// //implementation smells
-				// sumISmells := readSmells(pathSmells+"ImplementationSmells.csv", 4)
-				// for _, smell := range implSmells {
-				// 	data += "," + strconv.Itoa(sumISmells[smell])
-				// }
 				data := summarizeSmells(repoName, prevCommit, "Previous", designSmells, implSmells)
-
 				// respose time
 				indCurr := -1
 				for t := range times {
@@ -136,21 +96,6 @@ func ReadCommits(urls map[string]string) {
 					datawriter.Flush()
 
 					// //curr commit
-					// pathSmells = "results\\" + repoName + "\\" + currCommit + "\\smells\\"
-					// data = repoName + "," + currCommit + "," + "Current"
-
-					// // design smells
-					// sumDSmells = readSmells(pathSmells+"DesignSmells.csv", 3)
-					// for _, smell := range designSmells {
-					// 	data += "," + strconv.Itoa(sumDSmells[smell])
-					// }
-					// fmt.Println("design smells")
-					// // implementation smells
-					// sumISmells = readSmells(pathSmells+"ImplementationSmells.csv", 4)
-					// for _, smell := range implSmells {
-					// 	data += "," + strconv.Itoa(sumISmells[smell])
-					// }
-					// // fmt.Println("impl smells")
 					data := summarizeSmells(repoName, currCommit, "Current", designSmells, implSmells)
 
 					//time
@@ -174,7 +119,7 @@ func processCommit(repoName, commit string) {
 	if err != nil {
 		fmt.Println("\nCannot run git checkout: ", err)
 	}
-	ProcessMetrics(repoName, commit)
+	// ProcessMetrics(repoName, commit)
 	ProcessSmells(repoName, commit)
 }
 
@@ -220,7 +165,6 @@ func OpenRepository(directory string) *git.Repository {
 }
 
 func GetParentsFromCommit(repo *git.Repository, hash string) []string {
-	fmt.Println(hash)
 	var parentHashes []string
 	h := plumbing.NewHash(hash)
 	commit, err := repo.CommitObject(h)
