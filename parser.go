@@ -94,6 +94,10 @@ type HadoopResult struct {
 }
 
 func ParseHadoopResults(urls map[string]string) {
+	/*
+		read dataset from data folder
+
+	*/
 	var res = make(map[string]map[string]float64)
 	infile, err := os.Open("data/hadoop/hadoop2.csv")
 	if err != nil {

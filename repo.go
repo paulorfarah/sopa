@@ -21,11 +21,11 @@ import (
 func ReadCommits(urls map[string]string) {
 
 	dir := filepath.FromSlash("results/sum/")
-	file, err := os.OpenFile("results"+string(os.PathSeparator)+"sum"+string(os.PathSeparator)+"sumsmells.csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	fSumSmell, err := os.OpenFile("results"+string(os.PathSeparator)+"sum"+string(os.PathSeparator)+"sumsmells.csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
-		log.Fatalf("failed creating file: %s", err)
+		log.Fatalf("failed creating fSumSmell: %s", err)
 	}
-	datawriter := bufio.NewWriter(file)
+	wSumSmell := bufio.NewWriter(fSumSmell)
 
 	//header columns
 	header := "project,commit,order"
@@ -38,7 +38,7 @@ func ReadCommits(urls map[string]string) {
 		header += ", " + smell
 	}
 	header += ", resptime"
-	_, _ = datawriter.WriteString(header + "\n")
+	_, _ = wSumSmell.WriteString(header + "\n")
 
 	for repoName := range urls {
 		filename := "sum_" + repoName + ".csv"
@@ -73,7 +73,7 @@ func ReadCommits(urls map[string]string) {
 			times := readTime("results" + string(os.PathSeparator) + "sum" + string(os.PathSeparator) + filename)
 
 			for currCommit, prevCommit := range prevCommits {
-				//fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
+				fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
 				//curr commit
 				processCommit(repoName, currCommit)
 				// previous commit
@@ -92,8 +92,8 @@ func ReadCommits(urls map[string]string) {
 				} else {
 					oldTime := fmt.Sprintf("%f", times[indCurr].OldTime)
 					data += "," + oldTime
-					_, _ = datawriter.WriteString(data + "\n")
-					datawriter.Flush()
+					_, _ = wSumSmell.WriteString(data + "\n")
+					wSumSmell.Flush()
 
 					// //curr commit
 					data := summarizeSmells(repoName, currCommit, "Current", designSmells, implSmells)
@@ -101,8 +101,8 @@ func ReadCommits(urls map[string]string) {
 					//time
 					newTime := fmt.Sprintf("%f", times[indCurr].NewTime)
 					data += "," + newTime
-					_, _ = datawriter.WriteString(data + "\n")
-					datawriter.Flush()
+					_, _ = wSumSmell.WriteString(data + "\n")
+					wSumSmell.Flush()
 				}
 			}
 		} else {
@@ -110,7 +110,7 @@ func ReadCommits(urls map[string]string) {
 		}
 
 	}
-	file.Close()
+	fSumSmell.Close()
 }
 
 func processCommit(repoName, commit string) {
@@ -180,6 +180,19 @@ func GetParentsFromCommit(repo *git.Repository, hash string) []string {
 		parentHashes = append(parentHashes, p.String())
 	}
 	return parentHashes
+}
+
+func ParentCommit(repo *git.Repository, hash string) string {
+	var parent string
+	if repo != nil {
+		cIter, err := repo.Log(%git.LogOp&git.LogOptions{From: hash})
+		if err != nil {
+			fmt.Println("Cannot get log history of repository")
+		}
+		err = cIter.ForEach(func(c *object.Commit) error{
+
+		})
+	}
 }
 
 func TraverseCommitsWithPrevious(repo *git.Repository, commits []string) map[string]string {
@@ -279,13 +292,25 @@ metrics
 func ProcessSmells(repo, commit string) {
 	path := "results" + string(os.PathSeparator) + repo + string(os.PathSeparator) + commit + string(os.PathSeparator) + "smells"
 	checkDirectory(path)
-	runDesignite(repo, path)
+	// runDesignite(repo, path)
+	runOrganic(repo, path)
 }
 
 func runDesignite(repo, path string) {
 	_, err := exec.Command("java", "-jar", "DesigniteJava.jar", "-i", "repos"+string(os.PathSeparator)+repo, "-o", path).Output()
 	if err != nil {
-		fmt.Println("[ERROR]>> Error trying to generate smells files: ", err)
+		fmt.Println("[ERROR]>> Error trying to generate Designite smells files: ", err)
+	}
+}
+
+func runOrganic(repo, path string) {
+	// java -jar -XX:MaxPermSize=2560m -Xms40m -Xmx2500m ${EQUINOX} -application ${ORGANIC} -sf "organic_smells.json" -src
+	// "/mnt/sda4/farah/go-work/src/github.com/paulorfarah/sopa/repos/hadoop/"
+	
+	_, err := exec.Command("java", "-jar", "-XX:MaxPermSize=35000m", "-Xms40m", "-Xmx2500m", "${EQUINOX}", "-application", "${ORGANIC}",
+	"-sf", "organic_smells.json", "-src", "repos"+string(os.PathSeparator)+repo).Output()
+	if err != nil {
+		fmt.Println("[ERROR]>> Error trying to generate organic smells files: ", err)
 	}
 }
 
