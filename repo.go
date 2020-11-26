@@ -182,18 +182,18 @@ func GetParentsFromCommit(repo *git.Repository, hash string) []string {
 	return parentHashes
 }
 
-func ParentCommit(repo *git.Repository, hash string) string {
-	var parent string
-	if repo != nil {
-		cIter, err := repo.Log(%git.LogOp&git.LogOptions{From: hash})
-		if err != nil {
-			fmt.Println("Cannot get log history of repository")
-		}
-		err = cIter.ForEach(func(c *object.Commit) error{
+// func ParentCommit(repo *git.Repository, hash string) string {
+// 	var parent string
+// 	if repo != nil {
+// 		cIter, err := repo.Log(&git.LogOp & git.LogOptions{From: hash})
+// 		if err != nil {
+// 			fmt.Println("Cannot get log history of repository")
+// 		}
+// 		err = cIter.ForEach(func(c *object.Commit) error {
 
-		})
-	}
-}
+// 		})
+// 	}
+// }
 
 func TraverseCommitsWithPrevious(repo *git.Repository, commits []string) map[string]string {
 	var prevCommits = make(map[string]string)
@@ -306,9 +306,9 @@ func runDesignite(repo, path string) {
 func runOrganic(repo, path string) {
 	// java -jar -XX:MaxPermSize=2560m -Xms40m -Xmx2500m ${EQUINOX} -application ${ORGANIC} -sf "organic_smells.json" -src
 	// "/mnt/sda4/farah/go-work/src/github.com/paulorfarah/sopa/repos/hadoop/"
-	
+
 	_, err := exec.Command("java", "-jar", "-XX:MaxPermSize=35000m", "-Xms40m", "-Xmx2500m", "${EQUINOX}", "-application", "${ORGANIC}",
-	"-sf", "organic_smells.json", "-src", "repos"+string(os.PathSeparator)+repo).Output()
+		"-sf", "organic_smells.json", "-src", "repos"+string(os.PathSeparator)+repo).Output()
 	if err != nil {
 		fmt.Println("[ERROR]>> Error trying to generate organic smells files: ", err)
 	}

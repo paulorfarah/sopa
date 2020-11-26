@@ -16,12 +16,17 @@ func main() {
 	// 	"k-9":                "https://github.com/k9mail/k-9",
 	// }
 
-	urlHadoop := map[string]string{
-		"hadoop": "https://github.com/apache/hadoop",
+	// urlHadoop := map[string]string{
+	// 	"hadoop": "https://github.com/apache/hadoop",
+	// }
+
+	urlTravis := map[string]string{
+		"okhttp": "https://github.com/square/okhttp",
 	}
 
-	ParseHadoopResults(urlHadoop)
+	// ParseHadoopResults(urlHadoop)
 	// ParsePeassResults()
+	ParseTravisTorrent()
 	SummarizeResults()
-	ReadCommits(urlHadoop)
+	ReadCommits(urlTravis)
 }
