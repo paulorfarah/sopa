@@ -383,23 +383,27 @@ func SummarizeResults() {
 					oldTime = record[1]
 					currTime = record[2]
 				}
-				v, err := strconv.ParseFloat(oldTime, 64)
+				ov, err := strconv.ParseFloat(oldTime, 64)
 				if err != nil {
 					fmt.Println("Cannot parse float value oldTime: ", err)
 				}
 				// fmt.Println(commit, v)
-				mapOldTime[commit] += v
-				v, err = strconv.ParseFloat(currTime, 64)
+				mapOldTime[commit] += ov
+				cv, err := strconv.ParseFloat(currTime, 64)
 				if err != nil {
 					fmt.Println("Cannot parse float value currTime: ", err)
 				}
-				mapNewTime[commit] += v
+				mapNewTime[commit] += cv
 
-				v, err = strconv.ParseFloat(diffTime, 64)
+				dv, err := strconv.ParseFloat(diffTime, 64)
+				if dv == 0 {
+					dv = cv - ov
+				}
+
 				if err != nil {
 					fmt.Println("Cannot parse float value currTime: ", err)
 				}
-				mapDiffTime[commit] += v
+				mapDiffTime[commit] += dv
 			}
 		}
 		// fmt.Println("############ mapOldTime")
