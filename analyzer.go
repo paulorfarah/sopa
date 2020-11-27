@@ -1,7 +1,96 @@
 package main
 
-import "fmt"
+import (
+	"encoding/csv"
+	"fmt"
+	"io"
+	"log"
+	"os"
+	"strconv"
 
-func analyze() {
-	fmt.Println("analyze data...")
+	"gonum.org/v1/plot"
+	"gonum.org/v1/plot/plotter"
+	"gonum.org/v1/plot/plotutil"
+	"gonum.org/v1/plot/vg"
+	// 	"gonum.org/v1/plot"
+	// 	"gonum.org/v1/plot/plotter"
+	// 	"gonum.org/v1/plot/vg"
+)
+
+func ResptimeTravis(repo, path string) {
+	p, err := plot.New()
+	if err != nil {
+		panic(err)
+	}
+
+	p.Title.Text = repo
+	p.X.Label.Text = "Commits"
+	p.Y.Label.Text = "Response time"
+
+	xys := readData(path)
+	err = plotutil.AddLinePoints(p,
+		"Resptime", xys)
+
+	if err != nil {
+		log.Fatalf("Cannot read sum result file...")
+	}
+
+	// Save the plot to a PNG file.
+	if err := p.Save(16*vg.Inch, 8*vg.Inch, "points.png"); err != nil {
+		panic(err)
+	}
 }
+
+func readData(file string) plotter.XYs {
+	var x []float64
+	var y []float64
+
+	csvfile, err := os.Open(file)
+	if err != nil {
+		log.Fatalln("Couldn't open the csv file", err)
+	}
+
+	// Parse the file
+	r := csv.NewReader(csvfile)
+	//r := csv.NewReader(bufio.NewReader(csvfile))
+
+	// Iterate through the records
+	cont := float64(1)
+	for {
+		// Read each record from csv
+		record, err := r.Read()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("%d) commit: %s resptime %s\n", cont, record[0], record[3])
+		// "commit", "method", "oldTime", "currTime", "diffTime", "changePercent"
+		x = append(x, cont) //record[0])
+		f, err := strconv.ParseFloat(record[3], 64)
+		y = append(y, f)
+		cont++
+	}
+
+	pts := make(plotter.XYs, len(x))
+	for i := range pts {
+		pts[i].X = x[i]
+		pts[i].Y = y[i]
+	}
+	return pts
+}
+
+// // randomPoints returns some random x, y points.
+// func randomPoints(n int) plotter.XYs {
+// 	pts := make(plotter.XYs, n)
+// 	for i := range pts {
+// 		if i == 0 {
+// 			pts[i].X = rand.Float64()
+// 		} else {
+// 			pts[i].X = pts[i-1].X + rand.Float64()
+// 		}
+// 		pts[i].Y = pts[i].X + 10*rand.Float64()
+// 	}
+// 	return pts
+// }

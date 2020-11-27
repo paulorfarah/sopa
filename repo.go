@@ -307,7 +307,7 @@ func runOrganic(repo, path string) {
 	// java -jar -XX:MaxPermSize=2560m -Xms40m -Xmx2500m ${EQUINOX} -application ${ORGANIC} -sf "organic_smells.json" -src
 	// "/mnt/sda4/farah/go-work/src/github.com/paulorfarah/sopa/repos/hadoop/"
 	fmt.Println("/mnt/sda4/organic/bin/organic", "-sf", path+"smells_organic.json", "-src", "repos"+string(os.PathSeparator)+repo)
-	_, err := exec.Command("/mnt/sda4/organic/bin/organic", "-sf", path+"smells_organic.json", "-src", "repos"+string(os.PathSeparator)+repo).Output()
+	_, err := exec.Command("/mnt/sda4/organic/bin/organic", "-sf", path+"/smells_organic.json", "-src", "repos"+string(os.PathSeparator)+repo).Output()
 	if err != nil {
 		fmt.Println("[ERROR]>> Error trying to generate organic smells files: ", err)
 	}

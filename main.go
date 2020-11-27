@@ -29,4 +29,10 @@ func main() {
 	ParseTravisTorrent()
 	SummarizeResults()
 	ReadCommits(urlTravis)
+
+	for k := range urlTravis {
+		path := "results/sum/sum_" + k + ".csv"
+		ResptimeTravis("okhttp", path)
+	}
+
 }
