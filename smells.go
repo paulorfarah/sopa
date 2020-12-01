@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"encoding/csv"
+	"encoding/json"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -18,14 +19,66 @@ import (
 	"github.com/go-git/go-git/v5/plumbing/object"
 )
 
-func ReadCommits(urls map[string]string) {
+type Element struct {
+	Methods            Method       `json:"methods"`
+	SourceFile         FilePath     `json:"source_file"`
+	MetricsValues      ClassMetrics `json:"metrics_values"`
+	FullyQualifiedName string       `json:"fuly_qualified_name"`
+	Smells             []Smell      `json:"smells"`
+	Kind               string       `json:"kind"`
+}
 
-	dir := filepath.FromSlash("results/sum/")
-	fSumSmell, err := os.OpenFile("results"+string(os.PathSeparator)+"sum"+string(os.PathSeparator)+"sumsmells.csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-	if err != nil {
-		log.Fatalf("failed creating fSumSmell: %s", err)
-	}
-	wSumSmell := bufio.NewWriter(fSumSmell)
+type Method struct {
+	ParametersTypes    []string
+	MetricsValues      MethodMetrics
+	FullyQualifiedName string
+	Smells             []Smell
+}
+
+type MethodMetrics struct {
+	ChangingClasses           float32
+	CouplingIntensity         float32
+	CyclomaticComplexity      float32
+	MaxCallChain              float32
+	MethodLinesOfCode         float32
+	ParameterCount            float32
+	CouplingDispersion        float32
+	ChangingMethods           float32
+	NumberOfAccessedVariables float32
+	MaxNesting                float32
+}
+
+type Smell struct {
+	Name         string
+	Reason       string
+	StartingLine int
+	EndingLine   int
+}
+
+type FilePath struct {
+	FileRelativePath string
+}
+
+type ClassMetrics struct {
+	TightClassCohesion      float32
+	WeighOfClass            float32
+	OverrideRatio           string
+	ClassLinesOfCode        float32
+	LCOM2                   float32
+	FANIN                   float32
+	FANOUT                  float32
+	WeightedMethodCount     float32
+	NumberOfAccessorMethods float32
+	LCOM3                   float32
+	PublicFieldCount        float32
+	IsAbstract              float32
+}
+
+func ReadSmellsFromCommits(urls map[string]string) {
+
+	//Designite
+	smellTool := "designite"
+	smellsFilename := "sum_designite_smells"
 
 	//header columns
 	header := "project,commit,order"
@@ -38,8 +91,17 @@ func ReadCommits(urls map[string]string) {
 		header += ", " + smell
 	}
 	header += ", resptime"
-	_, _ = wSumSmell.WriteString(header + "\n")
+	runSmellTool(urls, smellTool, smellsFilename, header, designSmells, implSmells)
+}
 
+func runSmellTool(urls map[string]string, smellTool, smellsFilename, header string, designSmells, implSmells []string) {
+	dir := filepath.FromSlash("results/sum/")
+	fSumSmell, err := os.OpenFile("results"+string(os.PathSeparator)+"sum"+string(os.PathSeparator)+smellsFilename+".csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Fatalf("failed creating fSumSmell: %s", err)
+	}
+	wSumSmell := bufio.NewWriter(fSumSmell)
+	_, _ = wSumSmell.WriteString(header + "\n")
 	for repoName := range urls {
 		filename := "sum_" + repoName + ".csv"
 		fmt.Println("###########################################")
@@ -67,6 +129,7 @@ func ReadCommits(urls map[string]string) {
 				}
 			}
 			repo := CloneRepo(urls[repoName], repoName)
+
 			prevCommits := TraverseCommitsWithPrevious(repo, commits)
 
 			// time
@@ -79,7 +142,12 @@ func ReadCommits(urls map[string]string) {
 				// previous commit
 				processCommit(repoName, prevCommit)
 				// //summarize results
-				data := summarizeSmells(repoName, prevCommit, "Previous", designSmells, implSmells)
+				var data string
+				if smellTool == "designite" {
+					data = summarizeDesigniteSmells(repoName, prevCommit, "Previous", designSmells, implSmells)
+				} else if smellTool == "organic" {
+					data = summarizeOrganicSmells(repoName, prevCommit, "Previous", designSmells)
+				}
 				// respose time
 				indCurr := -1
 				for t := range times {
@@ -96,7 +164,7 @@ func ReadCommits(urls map[string]string) {
 					wSumSmell.Flush()
 
 					// //curr commit
-					data := summarizeSmells(repoName, currCommit, "Current", designSmells, implSmells)
+					data := summarizeDesigniteSmells(repoName, currCommit, "Current", designSmells, implSmells)
 
 					//time
 					newTime := fmt.Sprintf("%f", times[indCurr].NewTime)
@@ -123,22 +191,73 @@ func processCommit(repoName, commit string) {
 	ProcessSmells(repoName, commit)
 }
 
-func summarizeSmells(repoName, commit, order string, designSmells, implSmells []string) string {
+func summarizeDesigniteSmells(repoName, commit, order string, designSmells, implSmells []string) string {
 	//summarize results
 	pathSmells := "results" + string(os.PathSeparator) + repoName + string(os.PathSeparator) + commit + string(os.PathSeparator) + "smells" + string(os.PathSeparator)
 	data := repoName + "," + commit + "," + order
 
 	//design smells
-	sumDSmells := readSmells(pathSmells+"DesignSmells.csv", 3)
+	sumDSmells := readSmellsCsv(pathSmells+"DesignSmells.csv", 3)
 	for _, smell := range designSmells {
 		data += "," + strconv.Itoa(sumDSmells[smell])
 	}
 
 	//implementation smells
-	sumISmells := readSmells(pathSmells+"ImplementationSmells.csv", 4)
+	sumISmells := readSmellsCsv(pathSmells+"ImplementationSmells.csv", 4)
 	for _, smell := range implSmells {
 		data += "," + strconv.Itoa(sumISmells[smell])
 	}
+	return data
+}
+
+func summarizeOrganicSmells(repoName, commit, order string, smells []string) string {
+	//summarize results
+	data := repoName + "," + commit + "," + order
+
+	// //design smells
+	// sumDSmells := readSmells(pathSmells+"DesignSmells.csv", 3)
+	// for _, smell := range designSmells {
+	// 	data += "," + strconv.Itoa(sumDSmells[smell])
+	// }
+
+	// //implementation smells=
+	// sumISmells := readSmells(pathSmells+"ImplementationSmells.csv", 4)
+	// for _, smell := range implSmells {
+	// 	data += "," + strconv.Itoa(sumISmells[smell])
+	// }
+	// return data
+
+	// Open our jsonFile
+	pathSmells := "results" + string(os.PathSeparator) + repoName + string(os.PathSeparator) + commit + string(os.PathSeparator) + "smells" + string(os.PathSeparator)
+	jsonFile, err := os.Open(pathSmells + "smells_organic.json")
+	// if we os.Open returns an error then handle it
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println("Successfully Opened organic json")
+	// defer the closing of our jsonFile so that we can parse it later on
+	defer jsonFile.Close()
+
+	byteValue, _ := ioutil.ReadAll(jsonFile)
+
+	var result []Element //map[string]interface{}
+	json.Unmarshal([]byte(byteValue), &result)
+
+	var smellQt map[string]int
+	for _, element := range result {
+		fmt.Println(element.Smells)
+		for _, cs := range element.Smells {
+			smellQt[cs.Name]++
+		}
+		for _, ms := range element.Methods.Smells {
+			smellQt[ms.Name]++
+		}
+	}
+
+	for _, smell := range smells {
+		data += "," + strconv.Itoa(smellQt[smell])
+	}
+
 	return data
 }
 
@@ -324,8 +443,8 @@ func checkDirectory(path string) {
 	}
 }
 
-func readSmells(path string, column int) map[string]int {
-	fmt.Println(path)
+func readSmellsCsv(path string, column int) map[string]int {
+	// fmt.Println(path)
 	sumSmells := make(map[string]int)
 
 	f, err := os.Open(path)

@@ -28,7 +28,7 @@ func ResptimeTravis(repo, path string) {
 	p.Y.Label.Text = "Response time"
 
 	xys := readData(path)
-	err = plotutil.AddLinePoints(p,
+	err = plotutil.AddScatters(p,
 		"Resptime", xys)
 
 	if err != nil {
@@ -36,7 +36,7 @@ func ResptimeTravis(repo, path string) {
 	}
 
 	// Save the plot to a PNG file.
-	if err := p.Save(16*vg.Inch, 8*vg.Inch, "points.png"); err != nil {
+	if err := p.Save(16*vg.Inch, 8*vg.Inch, repo+".png"); err != nil {
 		panic(err)
 	}
 }
@@ -80,17 +80,3 @@ func readData(file string) plotter.XYs {
 	}
 	return pts
 }
-
-// // randomPoints returns some random x, y points.
-// func randomPoints(n int) plotter.XYs {
-// 	pts := make(plotter.XYs, n)
-// 	for i := range pts {
-// 		if i == 0 {
-// 			pts[i].X = rand.Float64()
-// 		} else {
-// 			pts[i].X = pts[i-1].X + rand.Float64()
-// 		}
-// 		pts[i].Y = pts[i].X + 10*rand.Float64()
-// 	}
-// 	return pts
-// }

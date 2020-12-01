@@ -26,9 +26,9 @@ func main() {
 
 	// ParseHadoopResults(urlHadoop)
 	// ParsePeassResults()
-	ParseTravisTorrent()
-	SummarizeResults()
-	ReadCommits(urlTravis)
+	// ParseTravisTorrent()
+	// SummarizeResults()
+	// ReadSmellsFromCommits(urlTravis)
 
 	for k := range urlTravis {
 		path := "results/sum/sum_" + k + ".csv"
