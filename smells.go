@@ -77,7 +77,7 @@ type ClassMetrics struct {
 func ReadSmellsFromCommits(urls map[string]string) {
 
 	//Designite
-	smellTool := "designite"
+	smellTool := "organic" //"designite"
 	smellsFilename := "sum_designite_smells"
 
 	//header columns
