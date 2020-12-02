@@ -78,7 +78,6 @@ func ReadSmellsFromCommits(urls map[string]string) {
 
 	//Designite
 	smellTool := "organic" //"designite"
-	smellsFilename := "sum_designite_smells"
 
 	//header columns
 	header := "project,commit,order"
@@ -91,11 +90,12 @@ func ReadSmellsFromCommits(urls map[string]string) {
 		header += ", " + smell
 	}
 	header += ", resptime"
-	runSmellTool(urls, smellTool, smellsFilename, header, designSmells, implSmells)
+	runSmellTool(urls, smellTool, header, designSmells, implSmells)
 }
 
-func runSmellTool(urls map[string]string, smellTool, smellsFilename, header string, designSmells, implSmells []string) {
+func runSmellTool(urls map[string]string, smellTool, header string, designSmells, implSmells []string) {
 	dir := filepath.FromSlash("results/sum/")
+	smellsFilename := "sum_" + smellTool + "_smells"
 	fSumSmell, err := os.OpenFile("results"+string(os.PathSeparator)+"sum"+string(os.PathSeparator)+smellsFilename+".csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Fatalf("failed creating fSumSmell: %s", err)
@@ -243,9 +243,9 @@ func summarizeOrganicSmells(repoName, commit, order string, smells []string) str
 	var result []Element //map[string]interface{}
 	json.Unmarshal([]byte(byteValue), &result)
 
-	var smellQt map[string]int
+	smellQt := make(map[string]int)
 	for _, element := range result {
-		fmt.Println(element.Smells)
+		fmt.Println("Smells: ", element.Smells)
 		for _, cs := range element.Smells {
 			smellQt[cs.Name]++
 		}
@@ -425,7 +425,7 @@ func runDesignite(repo, path string) {
 func runOrganic(repo, path string) {
 	// java -jar -XX:MaxPermSize=2560m -Xms40m -Xmx2500m ${EQUINOX} -application ${ORGANIC} -sf "organic_smells.json" -src
 	// "/mnt/sda4/farah/go-work/src/github.com/paulorfarah/sopa/repos/hadoop/"
-	fmt.Println("/mnt/sda4/organic/bin/organic", "-sf", path+"smells_organic.json", "-src", "repos"+string(os.PathSeparator)+repo)
+	fmt.Println("/mnt/sda4/organic/bin/organic", "-sf", path+"/smells_organic.json", "-src", "repos"+string(os.PathSeparator)+repo)
 	_, err := exec.Command("/mnt/sda4/organic/bin/organic", "-sf", path+"/smells_organic.json", "-src", "repos"+string(os.PathSeparator)+repo).Output()
 	if err != nil {
 		fmt.Println("[ERROR]>> Error trying to generate organic smells files: ", err)
