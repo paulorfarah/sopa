@@ -98,13 +98,13 @@ func ReadSmellsFromCommits(urls map[string]string) {
 			header += ", " + smell
 		}
 	} else {
-		designSmells := []string{"God Class", "Class Data Should Be Private", "Complex Class", "Lazy Class", "Refused Bequest", "Spaghetti Code",
-			"Speculative Generality", "Data Class", "Brain Class"}
+		designSmells := []string{"GodClass", "ClassDataShouldBePrivate", "ComplexClass", "LazyClass", "RefusedBequest", "SpaghettiCode",
+			"SpeculativeGenerality", "DataClass", "BrainClass"}
 		for _, smell := range designSmells {
 			header += "," + smell
 		}
-		implSmells := []string{"Feature Envy", "Long Method", "Long Parameter List", "Message Chain", "Dispersed Coupling", "Intensive Coupling",
-			"Shotgun Surgery", "Brain Method"}
+		implSmells := []string{"FeatureEnvy", "LongMethod", "LongParameterList", "MessageChain", "DispersedCoupling", "IntensiveCoupling",
+			"ShotgunSurgery", "BrainMethod"}
 		for _, smell := range implSmells {
 			header += ", " + smell
 		}
