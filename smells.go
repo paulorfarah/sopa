@@ -81,14 +81,35 @@ func ReadSmellsFromCommits(urls map[string]string) {
 
 	//header columns
 	header := "project,commit,order"
-	designSmells := []string{"Imperative Abstraction", "Multifaceted Abstraction", "Unnecessary Abstraction", "Unutilized Abstraction", "Deficient Encapsulation", "Unexploited Encapsulation", "Broken Modularization", "Cyclic-Dependent Modularization", "Insufficient Modularization", "Hub-like Modularization", "Broken Hierarchy", "Cyclic Hierarchy", "Deep Hierarchy", "Missing Hierarchy", "Multipath Hierarchy", "Rebellious Hierarchy", "Wide Hierarchy"}
-	for _, smell := range designSmells {
-		header += "," + smell
+	var designSmells []string
+	var implSmells []string
+
+	if smellTool == "designite" {
+		designSmells := []string{"Imperative Abstraction", "Multifaceted Abstraction", "Unnecessary Abstraction", "Unutilized Abstraction",
+			"Deficient Encapsulation", "Unexploited Encapsulation", "Broken Modularization", "Cyclic-Dependent Modularization",
+			"Insufficient Modularization", "Hub-like Modularization", "Broken Hierarchy", "Cyclic Hierarchy", "Deep Hierarchy",
+			"Missing Hierarchy", "Multipath Hierarchy", "Rebellious Hierarchy", "Wide Hierarchy"}
+		for _, smell := range designSmells {
+			header += "," + smell
+		}
+		implSmells := []string{"Abstract Function Call From Constructor", "Complex Conditional", "Complex Method", "Empty catch clause",
+			"Long Identifier", "Long Method", "Long Parameter List", "Long Statement", "Magic Number", "Missing default"}
+		for _, smell := range implSmells {
+			header += ", " + smell
+		}
+	} else {
+		designSmells := []string{"God Class", "Class Data Should Be Private", "Complex Class", "Lazy Class", "Refused Bequest", "Spaghetti Code",
+			"Speculative Generality", "Data Class", "Brain Class"}
+		for _, smell := range designSmells {
+			header += "," + smell
+		}
+		implSmells := []string{"Feature Envy", "Long Method", "Long Parameter List", "Message Chain", "Dispersed Coupling", "Intensive Coupling",
+			"Shotgun Surgery", "Brain Method"}
+		for _, smell := range implSmells {
+			header += ", " + smell
+		}
 	}
-	implSmells := []string{"Abstract Function Call From Constructor", "Complex Conditional", "Complex Method", "Empty catch clause", "Long Identifier", "Long Method", "Long Parameter List", "Long Statement", "Magic Number", "Missing default"}
-	for _, smell := range implSmells {
-		header += ", " + smell
-	}
+
 	header += ", resptime"
 	runSmellTool(urls, smellTool, header, designSmells, implSmells)
 }
@@ -210,7 +231,7 @@ func summarizeDesigniteSmells(repoName, commit, order string, designSmells, impl
 	return data
 }
 
-func summarizeOrganicSmells(repoName, commit, order string, smells []string) string {
+func summarizeOrganicSmells(repoName, commit, order string, ClassSmells, methodSmells []string) string {
 	//summarize results
 	data := repoName + "," + commit + "," + order
 
