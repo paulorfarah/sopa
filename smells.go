@@ -231,7 +231,7 @@ func summarizeDesigniteSmells(repoName, commit, order string, designSmells, impl
 	return data
 }
 
-func summarizeOrganicSmells(repoName, commit, order string, ClassSmells, methodSmells []string) string {
+func summarizeOrganicSmells(repoName, commit, order string, classSmells, methodSmells []string) string {
 	//summarize results
 	data := repoName + "," + commit + "," + order
 
@@ -275,7 +275,11 @@ func summarizeOrganicSmells(repoName, commit, order string, ClassSmells, methodS
 		}
 	}
 
-	for _, smell := range smells {
+	for _, smell := range classSmells {
+		data += "," + strconv.Itoa(smellQt[smell])
+	}
+
+	for _, smell := range methodSmells {
 		data += "," + strconv.Itoa(smellQt[smell])
 	}
 
