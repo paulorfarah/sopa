@@ -185,8 +185,11 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 					wSumSmell.Flush()
 
 					// //curr commit
-					data := summarizeDesigniteSmells(repoName, currCommit, "Current", designSmells, implSmells)
-
+					if smellTool == "designite" {
+						data = summarizeDesigniteSmells(repoName, currCommit, "Current", designSmells, implSmells)
+					} else if smellTool == "organic" {
+						data = summarizeOrganicSmells(repoName, currCommit, "Current", designSmells, implSmells)
+					}
 					//time
 					newTime := fmt.Sprintf("%f", times[indCurr].NewTime)
 					data += "," + newTime
@@ -234,29 +237,11 @@ func summarizeDesigniteSmells(repoName, commit, order string, designSmells, impl
 func summarizeOrganicSmells(repoName, commit, order string, classSmells, methodSmells []string) string {
 	//summarize results
 	data := repoName + "," + commit + "," + order
-
-	// //design smells
-	// sumDSmells := readSmells(pathSmells+"DesignSmells.csv", 3)
-	// for _, smell := range designSmells {
-	// 	data += "," + strconv.Itoa(sumDSmells[smell])
-	// }
-
-	// //implementation smells=
-	// sumISmells := readSmells(pathSmells+"ImplementationSmells.csv", 4)
-	// for _, smell := range implSmells {
-	// 	data += "," + strconv.Itoa(sumISmells[smell])
-	// }
-	// return data
-
-	// Open our jsonFile
 	pathSmells := "results" + string(os.PathSeparator) + repoName + string(os.PathSeparator) + commit + string(os.PathSeparator) + "smells" + string(os.PathSeparator)
 	jsonFile, err := os.Open(pathSmells + "smells_organic.json")
-	// if we os.Open returns an error then handle it
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println("Successfully Opened organic json")
-	// defer the closing of our jsonFile so that we can parse it later on
 	defer jsonFile.Close()
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)
@@ -266,7 +251,8 @@ func summarizeOrganicSmells(repoName, commit, order string, classSmells, methodS
 
 	smellQt := make(map[string]int)
 	for _, element := range result {
-		fmt.Println("Smells: ", element.Smells)
+		fmt.Println("ElementSmells: ", element.Smells)
+		fmt.Println("Method Smells: ", element.Methods.Smells)
 		for _, cs := range element.Smells {
 			smellQt[cs.Name]++
 		}
@@ -282,7 +268,7 @@ func summarizeOrganicSmells(repoName, commit, order string, classSmells, methodS
 	for _, smell := range methodSmells {
 		data += "," + strconv.Itoa(smellQt[smell])
 	}
-
+	fmt.Println(data)
 	return data
 }
 
@@ -483,7 +469,8 @@ func readSmellsCsv(path string, column int) map[string]int {
 	r.FieldsPerRecord = -1
 	rows, err := r.ReadAll()
 	if err != nil {
-		fmt.Println("Cannot read csv data 1: ", err)
+		fmt.Printf("Cannot read csv data 1: %s", path)
+		fmt.Println(err)
 	}
 	for i, row := range rows {
 		if i != 0 {
