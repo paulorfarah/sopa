@@ -52,8 +52,8 @@ func readData(file string) plotter.XYs {
 	//r := csv.NewReader(bufio.NewReader(csvfile))
 
 	// Iterate through the records
-	cont := float64(1)
-	for {
+
+	for count := float64(1); ; count++ {
 		// Read each record from csv
 		record, err := r.Read()
 		if err == io.EOF {
@@ -62,12 +62,12 @@ func readData(file string) plotter.XYs {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Printf("%d) commit: %s resptime %s\n", cont, record[0], record[3])
+		fmt.Printf("%d) commit: %s resptime %s\n", count, record[0], record[3])
 		// "commit", "method", "oldTime", "currTime", "diffTime", "changePercent"
-		x = append(x, cont) //record[0])
+		x = append(x, count) //record[0])
 		f, err := strconv.ParseFloat(record[3], 64)
 		y = append(y, f)
-		cont++
+
 	}
 
 	pts := make(plotter.XYs, len(x))
