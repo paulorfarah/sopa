@@ -25,7 +25,7 @@ func main() {
 	// }
 
 	// ParseHadoopResults(urlHadoop)
-	// ParsePeassResults()
+	ParsePeassResults()
 	// ParseTravisTorrent()
 	SummarizeResults()
 	ReadSmellsFromCommits(urlsPeass)
