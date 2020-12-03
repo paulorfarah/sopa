@@ -167,7 +167,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 				if smellTool == "designite" {
 					data = summarizeDesigniteSmells(repoName, prevCommit, "Previous", designSmells, implSmells)
 				} else if smellTool == "organic" {
-					data = summarizeOrganicSmells(repoName, prevCommit, "Previous", designSmells)
+					data = summarizeOrganicSmells(repoName, prevCommit, "Previous", designSmells, implSmells)
 				}
 				// respose time
 				indCurr := -1
