@@ -85,25 +85,25 @@ func ReadSmellsFromCommits(urls map[string]string) {
 	var implSmells []string
 
 	if smellTool == "designite" {
-		designSmells := []string{"Imperative Abstraction", "Multifaceted Abstraction", "Unnecessary Abstraction", "Unutilized Abstraction",
+		designSmells = []string{"Imperative Abstraction", "Multifaceted Abstraction", "Unnecessary Abstraction", "Unutilized Abstraction",
 			"Deficient Encapsulation", "Unexploited Encapsulation", "Broken Modularization", "Cyclic-Dependent Modularization",
 			"Insufficient Modularization", "Hub-like Modularization", "Broken Hierarchy", "Cyclic Hierarchy", "Deep Hierarchy",
 			"Missing Hierarchy", "Multipath Hierarchy", "Rebellious Hierarchy", "Wide Hierarchy"}
 		for _, smell := range designSmells {
 			header += "," + smell
 		}
-		implSmells := []string{"Abstract Function Call From Constructor", "Complex Conditional", "Complex Method", "Empty catch clause",
+		implSmells = []string{"Abstract Function Call From Constructor", "Complex Conditional", "Complex Method", "Empty catch clause",
 			"Long Identifier", "Long Method", "Long Parameter List", "Long Statement", "Magic Number", "Missing default"}
 		for _, smell := range implSmells {
 			header += ", " + smell
 		}
 	} else {
-		designSmells := []string{"GodClass", "ClassDataShouldBePrivate", "ComplexClass", "LazyClass", "RefusedBequest", "SpaghettiCode",
+		designSmells = []string{"GodClass", "ClassDataShouldBePrivate", "ComplexClass", "LazyClass", "RefusedBequest", "SpaghettiCode",
 			"SpeculativeGenerality", "DataClass", "BrainClass"}
 		for _, smell := range designSmells {
 			header += "," + smell
 		}
-		implSmells := []string{"FeatureEnvy", "LongMethod", "LongParameterList", "MessageChain", "DispersedCoupling", "IntensiveCoupling",
+		implSmells = []string{"FeatureEnvy", "LongMethod", "LongParameterList", "MessageChain", "DispersedCoupling", "IntensiveCoupling",
 			"ShotgunSurgery", "BrainMethod"}
 		for _, smell := range implSmells {
 			header += ", " + smell
