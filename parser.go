@@ -383,36 +383,41 @@ func SummarizeResults() {
 					oldTime = record[1]
 					currTime = record[2]
 				}
-				if oldTime != "" && currTime != "" {
-					ov, err := strconv.ParseFloat(oldTime, 64)
-					if err != nil {
-						fmt.Println("Cannot parse float value oldTime: ", err)
-					}
-					mapOldTime[commit] += ov
-					cv, err := strconv.ParseFloat(currTime, 64)
-					if err != nil {
-						fmt.Println("Cannot parse float value currTime: ", err)
-					}
-					mapNewTime[commit] += cv
+				// if oldTime != "" && currTime != "" {
 
-					dv, err := strconv.ParseFloat(diffTime, 64)
-					if dv == 0 {
-						dv = cv - ov
-					}
-
-					if err != nil {
-						fmt.Println("Cannot parse float value diffTime: ", err)
-					}
-					mapDiffTime[commit] += dv
-				} else {
-					if diffTime != "" {
-						dv, err := strconv.ParseFloat(diffTime, 64)
-						if err != nil {
-							fmt.Println("Cannot parse float value diffTime: ", err)
-						}
-						mapDiffTime[commit] += dv
-					}
+				// old time
+				ov, err := strconv.ParseFloat(oldTime, 64)
+				if oldTime != "" && err != nil {
+					fmt.Println("Cannot parse float value oldTime: ", err)
 				}
+				mapOldTime[commit] += ov
+
+				// curr time
+				cv, err := strconv.ParseFloat(currTime, 64)
+				if currTime != "" && err != nil {
+					fmt.Println("Cannot parse float value currTime: ", err)
+				}
+				mapNewTime[commit] += cv
+
+				// diff time
+				dv, err := strconv.ParseFloat(diffTime, 64)
+				if dv == 0 {
+					dv = cv - ov
+				}
+
+				if err != nil {
+					fmt.Println("Cannot parse float value diffTime: ", err)
+				}
+				mapDiffTime[commit] += dv
+				// } else {
+				// 	if diffTime != "" {
+				// 		dv, err := strconv.ParseFloat(diffTime, 64)
+				// 		if err != nil {
+				// 			fmt.Println("Cannot parse float value diffTime: ", err)
+				// 		}
+				// 		mapDiffTime[commit] += dv
+				// 	}
+				// }
 
 			}
 		}
