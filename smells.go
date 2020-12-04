@@ -268,7 +268,7 @@ func summarizeOrganicSmells(repoName, commit, order string, classSmells, methodS
 	for _, smell := range methodSmells {
 		data += "," + strconv.Itoa(smellQt[smell])
 	}
-	fmt.Println(data)
+	fmt.Println("data: ", data)
 	return data
 }
 
