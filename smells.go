@@ -117,7 +117,7 @@ func ReadSmellsFromCommits(urls map[string]string) {
 func runSmellTool(urls map[string]string, smellTool, header string, designSmells, implSmells []string) {
 	dir := filepath.FromSlash("results/sum/")
 	smellsFilename := "sum_" + smellTool + "_smells"
-	fSumSmell, err := os.OpenFile("results"+string(os.PathSeparator)+"sum"+string(os.PathSeparator)+smellsFilename+".csv", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	fSumSmell, err := os.OpenFile("results"+string(os.PathSeparator)+"sum"+string(os.PathSeparator)+smellsFilename+".csv", os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Fatalf("failed creating fSumSmell: %s", err)
 	}
