@@ -251,8 +251,8 @@ func summarizeOrganicSmells(repoName, commit, order string, classSmells, methodS
 
 	smellQt := make(map[string]int)
 	for _, element := range result {
-		fmt.Println("ElementSmells: ", element.Smells)
-		fmt.Println("Method Smells: ", element.Methods.Smells)
+		// fmt.Println("ElementSmells: ", element.Smells)
+		// fmt.Println("Method Smells: ", element.Methods.Smells)
 		for _, cs := range element.Smells {
 			smellQt[cs.Name]++
 		}
