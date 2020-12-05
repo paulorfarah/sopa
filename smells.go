@@ -20,7 +20,7 @@ import (
 )
 
 type Element struct {
-	Methods            Method       `json:"methods"`
+	Methods            []Method     `json:"methods"`
 	SourceFile         FilePath     `json:"source_file"`
 	MetricsValues      ClassMetrics `json:"metrics_values"`
 	FullyQualifiedName string       `json:"fuly_qualified_name"`
@@ -29,10 +29,10 @@ type Element struct {
 }
 
 type Method struct {
-	ParametersTypes    []string
-	MetricsValues      MethodMetrics
-	FullyQualifiedName string
-	Smells             []Smell
+	ParametersTypes    []string      `json:"parametersTypes"`
+	MetricsValues      MethodMetrics `json:"metricsValues"`
+	FullyQualifiedName string        `json:"fullyQualifiedName"`
+	Smells             []Smell       `json:"smells"`
 }
 
 type MethodMetrics struct {
