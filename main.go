@@ -32,7 +32,7 @@ func main() {
 
 	for k := range urlTravis {
 		path := "results/sum/sum_" + k + ".csv"
-		ResptimeTravis("okhttp", path)
+		ResptimeTravis(k, path)
 	}
 
 }

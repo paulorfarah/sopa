@@ -154,10 +154,11 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 			prevCommits := TraverseCommitsWithPrevious(repo, commits)
 
 			// time
-			times := readTime("results" + string(os.PathSeparator) + "sum" + string(os.PathSeparator) + filename)
+			tpath := "results" + string(os.PathSeparator) + "sum" + string(os.PathSeparator) + filename
+			times := readTime(tpath)
 
 			for currCommit, prevCommit := range prevCommits {
-				fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
+				// fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
 				//curr commit
 				processCommit(repoName, currCommit)
 				// previous commit
@@ -169,11 +170,12 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 				} else if smellTool == "organic" {
 					data = summarizeOrganicSmells(repoName, prevCommit, "Previous", designSmells, implSmells)
 				}
-				// respose time
+				// response time
 				indCurr := -1
 				for t := range times {
 					if times[t].Commit == currCommit {
 						indCurr = t
+						fmt.Println("### commit: ", times[t].Commit, "NewTime: ", times[t].NewTime, "oldTime: ", times[t].OldTime, "diffTime: ", times[t].DiffTime)
 					}
 				}
 				if indCurr < 0 {
@@ -181,8 +183,8 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 				} else {
 					oldTime := fmt.Sprintf("%f", times[indCurr].OldTime)
 					data += "," + oldTime
-					_, _ = wSumSmell.WriteString(data + "\n")
-					wSumSmell.Flush()
+					// _, _ = wSumSmell.WriteString(data + "\n")
+					// wSumSmell.Flush()
 
 					// //curr commit
 					if smellTool == "designite" {
@@ -193,6 +195,12 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 					//time
 					newTime := fmt.Sprintf("%f", times[indCurr].NewTime)
 					data += "," + newTime
+
+					//diff time
+					diffTime := fmt.Sprintf("%f", times[indCurr].DiffTime)
+					data += "," + diffTime
+
+					//save data file
 					_, _ = wSumSmell.WriteString(data + "\n")
 					wSumSmell.Flush()
 				}
@@ -251,27 +259,27 @@ func summarizeOrganicSmells(repoName, commit, order string, classSmells, methodS
 
 	smellQt := make(map[string]int)
 	for _, element := range result {
-		fmt.Println("Element Smells: ", element.Smells)
+		// fmt.Println("Element Smells: ", element.Smells)
 		for _, cs := range element.Smells {
 			smellQt[cs.Name]++
-			fmt.Println(cs.Name)
+			// fmt.Println(cs.Name)
 		}
-		fmt.Println(">>>Metods: ", element.Methods)
+		// fmt.Println(">>>Metods: ", element.Methods)
 		for _, m := range element.Methods {
-			fmt.Println("Method Smells: ", m.Smells)
+			// fmt.Println("Method Smells: ", m.Smells)
 			for _, ms := range m.Smells {
 				smellQt[ms.Name]++
-				fmt.Println(ms.Name)
+				// fmt.Println(ms.Name)
 			}
 		}
 	}
 
-	fmt.Println("*** class Smells: ", classSmells)
+	// fmt.Println("*** class Smells: ", classSmells)
 	for _, smell := range classSmells {
 		data += "," + strconv.Itoa(smellQt[smell])
 	}
 
-	fmt.Println("*** method Smells: ", methodSmells)
+	// fmt.Println("*** method Smells: ", methodSmells)
 	for _, smell := range methodSmells {
 		data += "," + strconv.Itoa(smellQt[smell])
 	}
@@ -492,9 +500,10 @@ func readSmellsCsv(path string, column int) map[string]int {
 }
 
 type StrTime struct {
-	Commit  string
-	OldTime float64
-	NewTime float64
+	Commit   string
+	OldTime  float64
+	NewTime  float64
+	DiffTime float64
 }
 
 func readTime(path string) []StrTime {
@@ -525,8 +534,12 @@ func readTime(path string) []StrTime {
 					if err != nil {
 						fmt.Println("### ERROR: Cannot convert NewTime to float", err)
 					}
+					dt, err := strconv.ParseFloat(row[3], 32)
+					if err != nil {
+						fmt.Println("### ERROR: Cannot convert NewTime to float", err)
+					}
 
-					t := StrTime{Commit: row[0], OldTime: ot, NewTime: nt}
+					t := StrTime{Commit: row[0], OldTime: ot, NewTime: nt, DiffTime: dt}
 					mTime = append(mTime, t)
 				}
 			}
