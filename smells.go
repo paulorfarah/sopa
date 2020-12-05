@@ -256,6 +256,7 @@ func summarizeOrganicSmells(repoName, commit, order string, classSmells, methodS
 			smellQt[cs.Name]++
 			fmt.Println(cs.Name)
 		}
+		fmt.Println(">>>Metods: ", element.Methods)
 		fmt.Println("Method Smells: ", element.Methods.Smells)
 		for _, ms := range element.Methods.Smells {
 			smellQt[ms.Name]++
