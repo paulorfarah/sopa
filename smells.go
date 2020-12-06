@@ -171,20 +171,23 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 					data = summarizeOrganicSmells(repoName, prevCommit, "Previous", designSmells, implSmells)
 				}
 				// response time
-				indCurr := -1
-				for t := range times {
-					if times[t].Commit == currCommit {
-						indCurr = t
-						fmt.Println("### commit: ", times[t].Commit, "NewTime: ", times[t].NewTime, "oldTime: ", times[t].OldTime, "diffTime: ", times[t].DiffTime)
-					}
-				}
-				if indCurr < 0 {
-					fmt.Println("###### ERROR: Resptime of commit not found : ", currCommit)
-				} else {
-					oldTime := fmt.Sprintf("%f", times[indCurr].OldTime)
+				// indCurr := -1
+				// for t := range times {
+				// 	if times[t].Commit == currCommit {
+				// 		indCurr = t
+				// 		fmt.Println("### commit: ", times[t].Commit, "NewTime: ", times[t].NewTime, "oldTime: ", times[t].OldTime, "diffTime: ", times[t].DiffTime)
+				// 	}
+				// }
+
+				// if indCurr < 0 {
+				// 	fmt.Println("###### ERROR: Resptime of commit not found : ", currCommit)
+				// } else {
+				_, found := times[currCommit]
+				if found == true {
+					oldTime := fmt.Sprintf("%f", times[currCommit].OldTime)
 					data += "," + oldTime
-					// _, _ = wSumSmell.WriteString(data + "\n")
-					// wSumSmell.Flush()
+					_, _ = wSumSmell.WriteString(data + "\n")
+					wSumSmell.Flush()
 
 					// //curr commit
 					if smellTool == "designite" {
@@ -193,11 +196,11 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 						data = summarizeOrganicSmells(repoName, currCommit, "Current", designSmells, implSmells)
 					}
 					//time
-					newTime := fmt.Sprintf("%f", times[indCurr].NewTime)
+					newTime := fmt.Sprintf("%f", times[currCommit].NewTime)
 					data += "," + newTime
 
 					//diff time
-					diffTime := fmt.Sprintf("%f", times[indCurr].DiffTime)
+					diffTime := fmt.Sprintf("%f", times[currCommit].DiffTime)
 					data += "," + diffTime
 
 					//save data file
@@ -506,8 +509,8 @@ type StrTime struct {
 	DiffTime float64
 }
 
-func readTime(path string) []StrTime {
-	var mTime []StrTime
+func readTime(path string) map[string]StrTime {
+	mTime := make(map[string]StrTime)
 	f, err := os.Open(path)
 	if err != nil {
 		fmt.Println("Cannot open time file", err)
@@ -539,8 +542,10 @@ func readTime(path string) []StrTime {
 						fmt.Println("### ERROR: Cannot convert NewTime to float", err)
 					}
 
-					t := StrTime{Commit: row[0], OldTime: ot, NewTime: nt, DiffTime: dt}
-					mTime = append(mTime, t)
+					commit := row[0]
+					t := StrTime{Commit: commit, OldTime: ot, NewTime: nt, DiffTime: dt}
+					// mTime = append(mTime, t)
+					mTime[commit] = t
 				}
 			}
 		}
