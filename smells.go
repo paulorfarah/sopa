@@ -186,14 +186,15 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 				if found == true {
 					oldTime := fmt.Sprintf("%f", times[currCommit].OldTime)
 					data += "," + oldTime
-					_, _ = wSumSmell.WriteString(data + "\n")
-					wSumSmell.Flush()
+					//write previous commit results
+					// _, _ = wSumSmell.WriteString(data + "\n")
+					// wSumSmell.Flush()
 
 					// //curr commit
 					if smellTool == "designite" {
-						data = summarizeDesigniteSmells(repoName, currCommit, "Current", designSmells, implSmells)
+						data += "," + summarizeDesigniteSmells(repoName, currCommit, "Current", designSmells, implSmells)
 					} else if smellTool == "organic" {
-						data = summarizeOrganicSmells(repoName, currCommit, "Current", designSmells, implSmells)
+						data += "," + summarizeOrganicSmells(repoName, currCommit, "Current", designSmells, implSmells)
 					}
 					//time
 					newTime := fmt.Sprintf("%f", times[currCommit].NewTime)
