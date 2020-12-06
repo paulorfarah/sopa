@@ -212,7 +212,6 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 		} else {
 			fmt.Println("Cannot clone repository: ", repoName)
 		}
-
 	}
 	fSumSmell.Close()
 }
