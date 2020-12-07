@@ -60,6 +60,7 @@ func readData(file string) plotter.XYs {
 			break
 		}
 		if err != nil {
+			vi
 			log.Fatal(err)
 		}
 		fmt.Printf("%d) commit: %s resptime %s\n", count, record[0], record[3])

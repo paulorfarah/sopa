@@ -13,6 +13,7 @@ import (
 	"strings"
 
 	"github.com/go-git/go-git/v5"
+	"github.com/go-git/go-git/v5/plumbing"
 )
 
 type PeassResult struct {
@@ -96,7 +97,6 @@ type HadoopResult struct {
 func ParseHadoopResults(urls map[string]string) {
 	/*
 		read dataset from data folder
-
 	*/
 	var res = make(map[string]map[string]float64)
 	infile, err := os.Open("data/hadoop/hadoop2.csv")
@@ -144,13 +144,13 @@ func ParseHadoopResults(urls map[string]string) {
 		repo = CloneRepo(url, dir)
 	}
 
-	var prevCommits = make(map[string]string)
-	for _, hash := range commits {
-		parents := GetParentsFromCommit(repo, hash)
-		if len(parents) == 1 {
-			prevCommits[hash] = parents[0]
-		}
-	}
+	// var prevCommits = make(map[string]string)
+	// for _, hash := range commits {
+	// 	parents := GetParentsFromCommit(repo, hash)
+	// 	if len(parents) == 1 {
+	// 		prevCommits[hash] = parents[0]
+	// 	}
+	// }
 	// prevCommits := TraverseCommitsWithPrevious(repo, commits)
 	sumRespTime := make(map[string]float64)
 	for commit, mapMethod := range res {
@@ -165,7 +165,8 @@ func ParseHadoopResults(urls map[string]string) {
 		// fmt.Println(">>> ", commit, sum)
 
 		//previous commit
-		prevCommit := prevCommits[commit]
+		// prevCommit := prevCommits[commit]
+		prevCommit := GetParentCommit(repo, plumbing.NewHash(commit))
 		sumPrev := float64(0)
 		methodsPrev := []string{}
 		for methodName, methodTime := range res[prevCommit] {

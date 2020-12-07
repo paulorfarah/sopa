@@ -330,18 +330,35 @@ func GetParentsFromCommit(repo *git.Repository, hash string) []string {
 	return parentHashes
 }
 
-// func ParentCommit(repo *git.Repository, hash string) string {
-// 	var parent string
-// 	if repo != nil {
-// 		cIter, err := repo.Log(&git.LogOp & git.LogOptions{From: hash})
-// 		if err != nil {
-// 			fmt.Println("Cannot get log history of repository")
-// 		}
-// 		err = cIter.ForEach(func(c *object.Commit) error {
-
-// 		})
-// 	}
-// }
+func GetParentCommit(repo *git.Repository, hash plumbing.Hash) string {
+	var h string
+	var prevCommit *object.Commit
+	prevCommit = nil
+	var prevTree *object.Tree
+	prevTree = nil
+	if repo != nil {
+		cIter, err := repo.Log(&git.LogOptions{From: hash})
+		if err != nil {
+			fmt.Println("Cannot get log history of repository")
+		}
+		err = cIter.ForEach(func(c *object.Commit) error {
+			if prevCommit != nil {
+				if prevTree != nil {
+					h = fmt.Sprintf("%s", c.Hash)
+					prevHash := fmt.Sprintf("%s", prevCommit.Hash)
+					fmt.Printf("curr: %s - prev: %s\n", h, prevHash)
+					// if findCommit(commits, hash) == true {
+					// 	prevCommits[hash] = prevHash
+					// }
+				}
+			}
+			prevCommit = c
+			prevTree, _ = c.Tree()
+			return nil
+		})
+	}
+	return h
+}
 
 func TraverseCommitsWithPrevious(repo *git.Repository, commits []string) map[string]string {
 	var prevCommits = make(map[string]string)
