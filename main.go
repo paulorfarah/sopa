@@ -21,7 +21,7 @@ func main() {
 	// }
 
 	urlTravis := map[string]string{
-		"okhttp": "https://github.com/square/okhttp",
+		// "okhttp": "https://github.com/square/okhttp",
 		"hadoop": "https://github.com/apache/hadoop",
 	}
 
