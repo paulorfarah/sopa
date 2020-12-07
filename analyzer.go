@@ -62,10 +62,10 @@ func readData(file string) plotter.XYs {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Printf("%d) commit: %s resptime %s\n", count, record[0], record[4])
+		fmt.Printf("%d) commit: %s resptime %s\n", count, record[0], record[3])
 		// "commit", "method", "oldTime", "currTime", "diffTime", "changePercent"
 		x = append(x, count) //record[0])
-		f, err := strconv.ParseFloat(record[4], 64)
+		f, err := strconv.ParseFloat(record[3], 64)
 		y = append(y, f)
 
 	}
