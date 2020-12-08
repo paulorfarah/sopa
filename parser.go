@@ -183,7 +183,6 @@ func ParseHadoopResults() {
 			writer.Write(row)
 		}
 	}
-
 }
 
 // type TravisBuild struct {
@@ -310,6 +309,8 @@ func ParseTravisTorrent() {
 
 // difference returns the elements in `a` that aren't in `b`.
 func slicesDiff(a, b []string) []string {
+	fmt.Println(a)
+	fmt.Println(b)
 	mb := make(map[string]struct{}, len(b))
 	for _, x := range b {
 		mb[x] = struct{}{}
