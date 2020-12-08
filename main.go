@@ -20,20 +20,20 @@ func main() {
 	// 	"hadoop": "https://github.com/apache/hadoop",
 	// }
 
-	urls := map[string]string{
-		// "okhttp": "https://github.com/square/okhttp",
-		"hadoop": "https://github.com/apache/hadoop",
-	}
+	// urls := map[string]string{
+	// 	// "okhttp": "https://github.com/square/okhttp",
+	// 	"hadoop": "https://github.com/apache/hadoop",
+	// }
 
-	ParseHadoopResults(urls)
 	// ParsePeassResults()
+	ParseHadoopResults()
 	// ParseTravisTorrent()
-	SummarizeResults()
-	ReadSmellsFromCommits(urls)
+	//SummarizeResults()
+	// ReadSmellsFromCommits(urls)
 
-	for k := range urls {
-		path := "results/sum/sum_" + k + ".csv"
-		ResptimeTravis(k, path)
-	}
+	// for k := range urls {
+	// 	path := "results/sum/sum_" + k + ".csv"
+	// 	ResptimeTravis(k, path)
+	// }
 
 }

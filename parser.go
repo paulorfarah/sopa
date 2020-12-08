@@ -94,7 +94,7 @@ type HadoopResult struct {
 	MemoryUsage  []float64
 }
 
-func ParseHadoopResults(urls map[string]string) {
+func ParseHadoopResults() {
 	/*
 		read dataset from data folder
 	*/
@@ -118,7 +118,7 @@ func ParseHadoopResults(urls map[string]string) {
 	writer := csv.NewWriter(outfile)
 	defer writer.Flush()
 
-	var commits []string
+	// var commits []string
 	for _, line := range lines {
 		commit := line[0]
 		method := line[1]
@@ -136,14 +136,13 @@ func ParseHadoopResults(urls map[string]string) {
 		}
 		avg := sum / float64(30)
 		res[commit][method] = avg
-		commits = append(commits, commit)
+		// commits = append(commits, commit)
 	}
 
 	var repo *git.Repository
-	for dir, url := range urls {
-		repo = CloneRepo(url, dir)
-	}
-
+	dir := "hadoop"
+	url := "https://github.com/apache/hadoop"
+	repo = CloneRepo(url, dir)
 	// var prevCommits = make(map[string]string)
 	// for _, hash := range commits {
 	// 	parents := GetParentsFromCommit(repo, hash)
@@ -176,14 +175,15 @@ func ParseHadoopResults(urls map[string]string) {
 		methodsDiff := slicesDiff(methods, methodsPrev)
 		if len(methodsDiff) == 0 {
 			fmt.Printf("curr: %s sum: %f -  prev: %s sum: %f\n", commit, sum, prevCommit, sumPrev)
-			fmt.Printf("methodsCurr: %v\n", methods)
-			fmt.Printf("methodsPrev: %v\n", methodsPrev)
+			// fmt.Printf("methodsCurr: %v\n", methods)
+			// fmt.Printf("methodsPrev: %v\n", methodsPrev)
 			sumStr := fmt.Sprintf("%f", sum)
 			sumPrevStr := fmt.Sprintf("%f", sumPrev)
 			var row = []string{commit, sumPrevStr, sumStr}
 			writer.Write(row)
 		}
 	}
+
 }
 
 // type TravisBuild struct {
