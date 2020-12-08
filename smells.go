@@ -341,12 +341,13 @@ func GetParentCommit(repo *git.Repository, hash plumbing.Hash) string {
 		if err != nil {
 			fmt.Println("Cannot get log history of repository")
 		}
+
 		err = cIter.ForEach(func(c *object.Commit) error {
 			if prevCommit != nil {
 				if prevTree != nil {
 					h = fmt.Sprintf("%s", c.Hash)
 					prevHash := fmt.Sprintf("%s", prevCommit.Hash)
-					fmt.Printf("curr: %s - prev: %s\n", h, prevHash)
+					fmt.Printf("hash: %s | h: %s - prev: %s\n", h, prevHash)
 					return nil
 					// if findCommit(commits, hash) == true {
 					// 	prevCommits[hash] = prevHash
