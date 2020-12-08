@@ -345,8 +345,8 @@ func GetParentCommit(repo *git.Repository, hash plumbing.Hash) string {
 			if prevCommit != nil {
 				if prevTree != nil {
 					h = fmt.Sprintf("%s", c.Hash)
-					// prevHash := fmt.Sprintf("%s", prevCommit.Hash)
-					// fmt.Printf("curr: %s - prev: %s\n", h, prevHash)
+					prevHash := fmt.Sprintf("%s", prevCommit.Hash)
+					fmt.Printf("curr: %s - prev: %s\n", h, prevHash)
 					// if findCommit(commits, hash) == true {
 					// 	prevCommits[hash] = prevHash
 					// }
