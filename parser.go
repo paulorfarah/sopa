@@ -98,6 +98,8 @@ func ParseHadoopResults() {
 	/*
 		read dataset from data folder
 	*/
+	dir := "refactoring-python-code"
+	url := "https://github.com/paulorfarah/refactoring-python-code"
 	var res = make(map[string]map[string]float64)
 	infile, err := os.Open("data/hadoop/hadoop2.csv")
 	if err != nil {
@@ -140,8 +142,8 @@ func ParseHadoopResults() {
 	}
 
 	var repo *git.Repository
-	dir := "hadoop"
-	url := "https://github.com/apache/hadoop"
+	// dir := "hadoop"
+	// url := "https://github.com/apache/hadoop"
 	repo = CloneRepo(url, dir)
 	// var prevCommits = make(map[string]string)
 	// for _, hash := range commits {
@@ -175,7 +177,7 @@ func ParseHadoopResults() {
 		}
 		methodsDiff := slicesDiff(methods, methodsPrev)
 		if len(methodsDiff) == 0 {
-			fmt.Printf("curr: %s sum: %f -  prev: %s sum: %f\n", commit, sum, prevCommit, sumPrev)
+			// fmt.Printf("curr: %s sum: %f -  prev: %s sum: %f\n", commit, sum, prevCommit, sumPrev)
 			// fmt.Printf("methodsCurr: %v\n", methods)
 			// fmt.Printf("methodsPrev: %v\n", methodsPrev)
 			sumStr := fmt.Sprintf("%f", sum)
