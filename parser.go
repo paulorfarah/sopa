@@ -154,6 +154,7 @@ func ParseHadoopResults() {
 	sumRespTime := make(map[string]float64)
 	for commit, mapMethod := range res {
 		// current commit
+		fmt.Println(commit, mapMethod)
 		sum := float64(0)
 		methods := []string{}
 		for methodName, methodTime := range mapMethod {
