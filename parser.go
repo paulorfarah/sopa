@@ -99,8 +99,8 @@ func ParseHadoopResults() {
 	*/
 	dir := "refactoring-python-code"
 	url := "https://github.com/paulorfarah/refactoring-python-code"
-	infile, err := os.Open("data/hadoop/rpc.csv")
-	outfile, err := os.Create("results/rpc.csv")
+	infile, errIn := os.Open("data/hadoop/rpc.csv")
+	outfile, errOut := os.Create("results/rpc.csv")
 
 	// dir := "hadoop"
 	// url := "https://github.com/apache/hadoop"
@@ -108,8 +108,8 @@ func ParseHadoopResults() {
 	// outfile, err := os.Create("results/hadoop.csv")
 
 	var res = make(map[string]map[string]float64)
-	if err != nil {
-		fmt.Println(err)
+	if errIn != nil {
+		fmt.Println(errIn)
 	}
 	defer infile.Close()
 
@@ -118,8 +118,8 @@ func ParseHadoopResults() {
 		fmt.Println(err)
 	}
 
-	if err != nil {
-		log.Fatal("Cannot create hadoop summary results file", err)
+	if errOut != nil {
+		log.Fatal("Cannot create hadoop summary results file", errOut)
 	}
 	defer outfile.Close()
 
@@ -369,7 +369,7 @@ func SummarizeResults() {
 		// Parse the file
 		r := csv.NewReader(csvfile)
 		// Iterate through the records
-		firstLine := true
+		// firstLine := true
 		for {
 			// Read each record from csv
 			record, err := r.Read()
@@ -379,20 +379,20 @@ func SummarizeResults() {
 			if err != nil {
 				fmt.Println("Cannot read row: ", filename, err)
 			}
-			if firstLine == true {
-				firstLine = false
-			} else {
+			commit := strings.TrimSpace(record[0])
+
+			if commit != "commit" {
 				// fmt.Printf("row: %s\n", record)
 				//commit,method,oldTime,currTime,diffTime,changePercent
-				var commit, oldTime, currTime, diffTime string
+				var oldTime, currTime, diffTime string
 				if len(record) > 4 {
-					commit = record[0]
+					// commit = record[0]
 					oldTime = record[2]
 					currTime = record[3]
 					diffTime = record[4]
 					// changePercent := record[5]
 				} else {
-					commit = record[0]
+					// commit = record[0]
 					oldTime = record[1]
 					currTime = record[2]
 				}
