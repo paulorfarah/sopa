@@ -135,10 +135,10 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 				log.Fatal("Cannot open file ", err)
 			}
 
-			r := csv.NewReader(sumFile)
+			rSumFile := csv.NewReader(sumFile)
 			var commits []string
 			for {
-				commit, err := r.Read()
+				commit, err := rSumFile.Read()
 				if err == io.EOF {
 					break
 				}
@@ -158,7 +158,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 			times := readTime(tpath)
 
 			for currCommit, prevCommit := range prevCommits {
-				// fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
+				fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
 				//curr commit
 				processCommit(repoName, currCommit)
 				// previous commit
