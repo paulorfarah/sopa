@@ -100,10 +100,13 @@ func ParseHadoopResults() {
 	dir := "refactoring-python-code"
 	url := "https://github.com/paulorfarah/refactoring-python-code"
 	infile, err := os.Open("data/hadoop/rpc.csv")
+	outfile, err := os.Create("results/rpc.csv")
 
 	// dir := "hadoop"
 	// url := "https://github.com/apache/hadoop"
 	// infile, err := os.Open("data/hadoop/hadoop2.csv")
+	// outfile, err := os.Create("results/hadoop.csv")
+
 	var res = make(map[string]map[string]float64)
 	if err != nil {
 		fmt.Println(err)
@@ -114,7 +117,7 @@ func ParseHadoopResults() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	outfile, err := os.Create("results/hadoop.csv")
+
 	if err != nil {
 		log.Fatal("Cannot create hadoop summary results file", err)
 	}
