@@ -410,13 +410,18 @@ func SummarizeResults() {
 				mapNewTime[commit] += cv
 
 				// diff time
-				dv, err := strconv.ParseFloat(diffTime, 64)
-				if dv == 0 {
+				var dv float64
+				if diffTime == "" {
 					dv = cv - ov
-				}
+				} else {
+					dv, err = strconv.ParseFloat(diffTime, 64)
+					if dv == 0 {
+						dv = cv - ov
+					}
 
-				if err != nil {
-					fmt.Println("Cannot parse float value diffTime: ", err)
+					if err != nil {
+						fmt.Println("Cannot parse float value diffTime: ", err)
+					}
 				}
 				mapDiffTime[commit] += dv
 				// } else {
