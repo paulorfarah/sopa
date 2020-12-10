@@ -382,7 +382,7 @@ func SummarizeResults() {
 			commit := strings.TrimSpace(record[0])
 
 			if commit != "commit" {
-				// fmt.Printf("row: %s\n", record)
+				fmt.Printf("row: %s\n", record)
 				//commit,method,oldTime,currTime,diffTime,changePercent
 				var oldTime, currTime, diffTime string
 				if len(record) > 4 {
