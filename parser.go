@@ -101,7 +101,7 @@ func ParseHadoopResults() {
 	dir := "refactoring-python-code"
 	url := "https://github.com/paulorfarah/refactoring-python-code"
 	var res = make(map[string]map[string]float64)
-	infile, err := os.Open("data/hadoop/hadoop2.csv")
+	infile, err := os.Open("data/hadoop/rpc.csv")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -156,7 +156,7 @@ func ParseHadoopResults() {
 	sumRespTime := make(map[string]float64)
 	for commit, mapMethod := range res {
 		// current commit
-		fmt.Println(commit, mapMethod)
+		// fmt.Println(commit, mapMethod)
 		sum := float64(0)
 		methods := []string{}
 		for methodName, methodTime := range mapMethod {
@@ -173,8 +173,13 @@ func ParseHadoopResults() {
 		methodsPrev := []string{}
 		for methodName, methodTime := range res[prevCommit] {
 			sumPrev += methodTime
-			methodsPrev = append(methods, methodName)
+			methodsPrev = append(methodsPrev, methodName)
 		}
+		// fmt.Println(">>> commit", commit)
+		// fmt.Println("methods: ", methods)
+		// fmt.Println("*** PrevCommit: ", prevCommit)
+		// fmt.Println("methodsPrev: ", methodsPrev)
+		// fmt.Println("---------------")
 		methodsDiff := slicesDiff(methods, methodsPrev)
 		if len(methodsDiff) == 0 {
 			// fmt.Printf("curr: %s sum: %f -  prev: %s sum: %f\n", commit, sum, prevCommit, sumPrev)
@@ -312,8 +317,6 @@ func ParseTravisTorrent() {
 
 // difference returns the elements in `a` that aren't in `b`.
 func slicesDiff(a, b []string) []string {
-	fmt.Println(a)
-	fmt.Println(b)
 	mb := make(map[string]struct{}, len(b))
 	for _, x := range b {
 		mb[x] = struct{}{}

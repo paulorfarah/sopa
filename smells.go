@@ -343,9 +343,13 @@ func GetParentCommit(repo *git.Repository, hash plumbing.Hash) string {
 		}
 
 		err = cIter.ForEach(func(c *object.Commit) error {
+			// fmt.Printf("%s\n", c.Hash)
 			if prevCommit != nil {
 				if prevTree != nil {
-					h = fmt.Sprintf("%s", c.Hash)
+					if h == "" {
+						// h = fmt.Sprintf("%s", c.Hash)
+						h = c.Hash.String()
+					}
 					// prevHash := fmt.Sprintf("%s", prevCommit.Hash)
 					// fmt.Printf("hash: %s | h: %s - prev: %s\n", h, prevHash)
 					return nil
@@ -358,6 +362,9 @@ func GetParentCommit(repo *git.Repository, hash plumbing.Hash) string {
 			prevTree, _ = c.Tree()
 			return nil
 		})
+		if err != nil {
+			fmt.Println("Error iterating over git log...")
+		}
 	}
 	return h
 }
