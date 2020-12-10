@@ -12,7 +12,6 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing"
 )
 
@@ -98,10 +97,14 @@ func ParseHadoopResults() {
 	/*
 		read dataset from data folder
 	*/
-	dir := "refactoring-python-code"
-	url := "https://github.com/paulorfarah/refactoring-python-code"
+	// dir := "refactoring-python-code"
+	// url := "https://github.com/paulorfarah/refactoring-python-code"
+	// infile, err := os.Open("data/hadoop/rpc.csv")
+
+	dir := "hadoop"
+	url := "https://github.com/apache/hadoop"
+	infile, err := os.Open("data/hadoop/hadoop2.csv")
 	var res = make(map[string]map[string]float64)
-	infile, err := os.Open("data/hadoop/rpc.csv")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -141,10 +144,9 @@ func ParseHadoopResults() {
 		// commits = append(commits, commit)
 	}
 
-	var repo *git.Repository
-	// dir := "hadoop"
-	// url := "https://github.com/apache/hadoop"
-	repo = CloneRepo(url, dir)
+	// var repo *git.Repository
+
+	repo := CloneRepo(url, dir)
 	// var prevCommits = make(map[string]string)
 	// for _, hash := range commits {
 	// 	parents := GetParentsFromCommit(repo, hash)
