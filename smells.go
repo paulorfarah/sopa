@@ -185,7 +185,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 				// 	fmt.Println("###### ERROR: Resptime of commit not found : ", currCommit)
 				// } else {
 				_, found := times[currCommit]
-				if found == true {
+				if found {
 					oldTime := fmt.Sprintf("%f", times[currCommit].OldTime)
 					data += "," + oldTime
 					//write previous commit results

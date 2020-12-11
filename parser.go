@@ -192,7 +192,7 @@ func ParseHadoopResults() {
 			// fmt.Printf("methodsPrev: %v\n", methodsPrev)
 			sumStr := fmt.Sprintf("%f", sum)
 			sumPrevStr := fmt.Sprintf("%f", sumPrev)
-			var row = []string{commit, sumPrevStr, sumStr}
+			var row = []string{commit, prevCommit, sumPrevStr, sumStr}
 			writer.Write(row)
 		}
 	}
@@ -358,6 +358,7 @@ func SummarizeResults() {
 	files := getFiles(abs, ".csv")
 
 	for _, filename := range files {
+		mapPrevCommit := make(map[string]string)
 		mapOldTime := make(map[string]float64)
 		mapNewTime := make(map[string]float64)
 		mapDiffTime := make(map[string]float64)
@@ -384,19 +385,20 @@ func SummarizeResults() {
 			if commit != "commit" {
 				fmt.Printf("row: %s\n", record)
 				//commit,method,oldTime,currTime,diffTime,changePercent
-				var oldTime, currTime, diffTime string
-				if len(record) > 4 {
-					// commit = record[0]
-					oldTime = record[2]
-					currTime = record[3]
-					diffTime = record[4]
+				var prevCommit, oldTime, currTime, diffTime string
+				if len(record) > 5 {
+					prevCommit = record[1]
+					oldTime = record[3]
+					currTime = record[4]
+					diffTime = record[5]
 					// changePercent := record[5]
 				} else {
-					// commit = record[0]
-					oldTime = record[1]
-					currTime = record[2]
+					prevCommit = record[1]
+					oldTime = record[2]
+					currTime = record[3]
 				}
-				// if oldTime != "" && currTime != "" {
+
+				mapPrevCommit[commit] = prevCommit
 
 				// old time
 				ov, err := strconv.ParseFloat(oldTime, 64)
@@ -462,7 +464,7 @@ func SummarizeResults() {
 			resOldTime := fmt.Sprintf("%f", v)
 			resNewTime := fmt.Sprintf("%f", mapNewTime[k])
 			refDiffTime := fmt.Sprintf("%f", mapDiffTime[k])
-			var res = []string{k, resOldTime, resNewTime, refDiffTime}
+			var res = []string{k, mapPrevCommit[k], resOldTime, resNewTime, refDiffTime}
 			err = csvwriter.Write(res)
 			if err != nil {
 				fmt.Println("Cannot write sum to file: ", err)
