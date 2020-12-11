@@ -152,6 +152,8 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 			repo := CloneRepo(urls[repoName], repoName)
 
 			prevCommits := TraverseCommitsWithPrevious(repo, commits)
+			fmt.Println("--- prevCommits ---")
+			fmt.Println(prevCommits)
 
 			// time
 			tpath := "results" + string(os.PathSeparator) + "sum" + string(os.PathSeparator) + filename
