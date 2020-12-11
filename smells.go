@@ -172,18 +172,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 				} else if smellTool == "organic" {
 					data = summarizeOrganicSmells(repoName, prevCommit, "Previous", designSmells, implSmells)
 				}
-				// response time
-				// indCurr := -1
-				// for t := range times {
-				// 	if times[t].Commit == currCommit {
-				// 		indCurr = t
-				// 		fmt.Println("### commit: ", times[t].Commit, "NewTime: ", times[t].NewTime, "oldTime: ", times[t].OldTime, "diffTime: ", times[t].DiffTime)
-				// 	}
-				// }
 
-				// if indCurr < 0 {
-				// 	fmt.Println("###### ERROR: Resptime of commit not found : ", currCommit)
-				// } else {
 				_, found := times[currCommit]
 				if found {
 					oldTime := fmt.Sprintf("%f", times[currCommit].OldTime)
@@ -557,15 +546,15 @@ func readTime(path string) map[string]StrTime {
 			if row != nil {
 				fmt.Println(row)
 				if len(row) > 2 {
-					ot, err := strconv.ParseFloat(row[1], 32)
+					ot, err := strconv.ParseFloat(row[2], 32)
 					if err != nil {
 						fmt.Println("### ERROR: Cannot convert OldTime to float", err)
 					}
-					nt, err := strconv.ParseFloat(row[2], 32)
+					nt, err := strconv.ParseFloat(row[3], 32)
 					if err != nil {
 						fmt.Println("### ERROR: Cannot convert NewTime to float", err)
 					}
-					dt, err := strconv.ParseFloat(row[3], 32)
+					dt, err := strconv.ParseFloat(row[4], 32)
 					if err != nil {
 						fmt.Println("### ERROR: Cannot convert NewTime to float", err)
 					}
