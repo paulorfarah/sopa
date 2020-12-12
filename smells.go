@@ -136,7 +136,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 			}
 
 			rSumFile := csv.NewReader(sumFile)
-			var commits []string
+			commits := make(map[string]string)
 			for {
 				commit, err := rSumFile.Read()
 				if err == io.EOF {
@@ -146,20 +146,20 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 					fmt.Println(">>> [ERROR]: Cannot read commit: ", err)
 				}
 				if commit[0] != "commit" {
-					commits = append(commits, commit[0])
+					commits[commit[0]] = commit[1]
 				}
 			}
-			repo := CloneRepo(urls[repoName], repoName)
+			// repo := CloneRepo(urls[repoName], repoName)
 
-			prevCommits := TraverseCommitsWithPrevious(repo, commits)
-			fmt.Println("--- prevCommits ---")
-			fmt.Println(prevCommits)
+			// prevCommits := TraverseCommitsWithPrevious(repo, commits)
+			// fmt.Println("--- prevCommits ---")
+			// fmt.Println(prevCommits)
 
 			// time
 			tpath := "results" + string(os.PathSeparator) + "sum" + string(os.PathSeparator) + filename
 			times := readTime(tpath)
 
-			for currCommit, prevCommit := range prevCommits {
+			for currCommit, prevCommit := range commits {
 				fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
 				//curr commit
 				processCommit(repoName, currCommit)
