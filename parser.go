@@ -97,15 +97,15 @@ func ParseHadoopResults() {
 	/*
 		read dataset from data folder
 	*/
-	dir := "refactoring-python-code"
-	url := "https://github.com/paulorfarah/refactoring-python-code"
-	infile, errIn := os.Open("data/hadoop/rpc.csv")
-	outfile, errOut := os.Create("results/rpc.csv")
+	// dir := "refactoring-python-code"
+	// url := "https://github.com/paulorfarah/refactoring-python-code"
+	// infile, errIn := os.Open("data/hadoop/rpc.csv")
+	// outfile, errOut := os.Create("results/rpc.csv")
 
-	// dir := "hadoop"
-	// url := "https://github.com/apache/hadoop"
-	// infile, err := os.Open("data/hadoop/hadoop2.csv")
-	// outfile, err := os.Create("results/hadoop.csv")
+	dir := "hadoop"
+	url := "https://github.com/apache/hadoop"
+	infile, errIn := os.Open("data/hadoop/hadoop2.csv")
+	outfile, errOut := os.Create("results/hadoop.csv")
 
 	var res = make(map[string]map[string]float64)
 	if errIn != nil {
