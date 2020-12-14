@@ -528,7 +528,6 @@ type StrTime struct {
 }
 
 func readTime(path string) map[string]StrTime {
-	fmt.Println("readTime:", path)
 	mTime := make(map[string]StrTime)
 	f, err := os.Open(path)
 	if err != nil {
@@ -569,6 +568,7 @@ func readTime(path string) map[string]StrTime {
 			}
 		}
 	}
+	fmt.Println(mTime)
 	return mTime
 }
 
