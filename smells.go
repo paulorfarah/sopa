@@ -175,6 +175,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 
 				_, found := times[currCommit]
 				if found {
+					fmt.Println("found curr: ", currCommit)
 					oldTime := fmt.Sprintf("%f", times[currCommit].OldTime)
 					data += "," + oldTime
 					//write previous commit results
