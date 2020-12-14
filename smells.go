@@ -542,7 +542,7 @@ func readTime(path string) map[string]StrTime {
 	if err != nil {
 		fmt.Println("Cannot read csv data of time file", err)
 	}
-	for i, row := range rows {
+	for _, row := range rows {
 		fmt.Println("time row: ", row)
 		//if i != 0 {
 		if row != nil {
