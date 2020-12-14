@@ -568,7 +568,7 @@ func readTime(path string) map[string]StrTime {
 			}
 		}
 	}
-	fmt.Println(mTime)
+	fmt.Println("mTime: ", mTime)
 	return mTime
 }
 
