@@ -543,30 +543,31 @@ func readTime(path string) map[string]StrTime {
 		fmt.Println("Cannot read csv data of time file", err)
 	}
 	for i, row := range rows {
-		if i != 0 {
-			if row != nil {
-				fmt.Println(row)
-				if len(row) > 2 {
-					ot, err := strconv.ParseFloat(row[2], 32)
-					if err != nil {
-						fmt.Println("### ERROR: Cannot convert OldTime to float", err)
-					}
-					nt, err := strconv.ParseFloat(row[3], 32)
-					if err != nil {
-						fmt.Println("### ERROR: Cannot convert NewTime to float", err)
-					}
-					dt, err := strconv.ParseFloat(row[4], 32)
-					if err != nil {
-						fmt.Println("### ERROR: Cannot convert NewTime to float", err)
-					}
-
-					commit := row[0]
-					t := StrTime{Commit: commit, OldTime: ot, NewTime: nt, DiffTime: dt}
-					// mTime = append(mTime, t)
-					mTime[commit] = t
+		fmt.Println("time row: ", row)
+		//if i != 0 {
+		if row != nil {
+			fmt.Println(row)
+			if len(row) > 2 {
+				ot, err := strconv.ParseFloat(row[2], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert OldTime to float", err)
 				}
+				nt, err := strconv.ParseFloat(row[3], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert NewTime to float", err)
+				}
+				dt, err := strconv.ParseFloat(row[4], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert NewTime to float", err)
+				}
+
+				commit := row[0]
+				t := StrTime{Commit: commit, OldTime: ot, NewTime: nt, DiffTime: dt}
+				// mTime = append(mTime, t)
+				mTime[commit] = t
 			}
 		}
+		//}
 	}
 	fmt.Println("mTime: ", mTime)
 	return mTime
