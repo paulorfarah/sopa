@@ -157,7 +157,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 
 			// time
 			tpath := "results" + string(os.PathSeparator) + "sum" + string(os.PathSeparator) + filename
-			times := readTime(tpath)
+			metrics := readMetrics(tpath)
 
 			for currCommit, prevCommit := range commits {
 				fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
@@ -173,10 +173,10 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 					data = summarizeOrganicSmells(repoName, prevCommit, "Previous", designSmells, implSmells)
 				}
 
-				_, found := times[currCommit]
+				_, found := metrics[currCommit]
 				if found {
 					fmt.Println("found curr: ", currCommit)
-					oldTime := fmt.Sprintf("%f", times[currCommit].OldTime)
+					oldTime := fmt.Sprintf("%f", metrics[currCommit].oldTime)
 					data += "," + oldTime
 					//write previous commit results
 					// _, _ = wSumSmell.WriteString(data + "\n")
@@ -189,11 +189,11 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 						data += "," + summarizeOrganicSmells(repoName, currCommit, "Current", designSmells, implSmells)
 					}
 					//time
-					newTime := fmt.Sprintf("%f", times[currCommit].NewTime)
+					newTime := fmt.Sprintf("%f", metrics[currCommit].newTime)
 					data += "," + newTime
 
 					//diff time
-					diffTime := fmt.Sprintf("%f", times[currCommit].DiffTime)
+					diffTime := fmt.Sprintf("%f", metrics[currCommit].diffTime)
 					data += "," + diffTime
 
 					//save data file
@@ -520,15 +520,24 @@ func readSmellsCsv(path string, column int) map[string]int {
 	return sumSmells
 }
 
-type StrTime struct {
-	Commit   string
-	OldTime  float64
-	NewTime  float64
-	DiffTime float64
+type strMetrics struct {
+	commit     string
+	oldTime    float64
+	newTime    float64
+	diffTime   float64
+	oldCpu     float64
+	newCpu     float64
+	diffCpu    float64
+	oldMemory  float64
+	newMemory  float64
+	diffMemory float64
+	oldIo      float64
+	newIo      float64
+	diffIo     float64
 }
 
-func readTime(path string) map[string]StrTime {
-	mTime := make(map[string]StrTime)
+func readMetrics(path string) map[string]strMetrics {
+	mMetric := make(map[string]strMetrics)
 	f, err := os.Open(path)
 	if err != nil {
 		fmt.Println("Cannot open time file", err)
@@ -546,31 +555,74 @@ func readTime(path string) map[string]StrTime {
 		fmt.Println("time row: ", row)
 		//if i != 0 {
 		if row != nil {
-			fmt.Println(row)
+			// fmt.Println(row)
 			if len(row) > 2 {
+				commit := row[0]
+				//runtime
 				ot, err := strconv.ParseFloat(row[2], 32)
 				if err != nil {
-					fmt.Println("### ERROR: Cannot convert OldTime to float", err)
+					fmt.Println("### ERROR: Cannot convert OldMetric to float", err)
 				}
 				nt, err := strconv.ParseFloat(row[3], 32)
 				if err != nil {
-					fmt.Println("### ERROR: Cannot convert NewTime to float", err)
+					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
 				}
 				dt, err := strconv.ParseFloat(row[4], 32)
 				if err != nil {
-					fmt.Println("### ERROR: Cannot convert NewTime to float", err)
+					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
 				}
 
-				commit := row[0]
-				t := StrTime{Commit: commit, OldTime: ot, NewTime: nt, DiffTime: dt}
-				// mTime = append(mTime, t)
-				mTime[commit] = t
+				//cpu
+				oc, err := strconv.ParseFloat(row[5], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert OldMetric to float", err)
+				}
+				nc, err := strconv.ParseFloat(row[6], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
+				}
+				dc, err := strconv.ParseFloat(row[7], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
+				}
+
+				//mem
+				om, err := strconv.ParseFloat(row[8], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert OldMetric to float", err)
+				}
+				nm, err := strconv.ParseFloat(row[9], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
+				}
+				dm, err := strconv.ParseFloat(row[10], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
+				}
+
+				//io
+				oi, err := strconv.ParseFloat(row[11], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert OldMetric to float", err)
+				}
+				ni, err := strconv.ParseFloat(row[12], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
+				}
+				di, err := strconv.ParseFloat(row[13], 32)
+				if err != nil {
+					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
+				}
+				mMetric[commit] = strMetrics{commit: commit, oldTime: ot, newTime: nt, diffTime: dt,
+					oldCpu: oc, newCpu: nc, diffCpu: dc,
+					oldMemory: om, newMemory: nm, diffMemory: dm,
+					oldIo: oi, newIo: ni, diffIo: di}
 			}
 		}
 		//}
 	}
-	fmt.Println("mTime: ", mTime)
-	return mTime
+	fmt.Println("mMetric: ", mMetric)
+	return mMetric
 }
 
 //func main() {

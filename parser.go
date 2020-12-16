@@ -85,17 +85,21 @@ func ParsePeassResults() {
 	}
 }
 
-type hadoopResult struct {
+type commitPerf struct {
 	commit      string
 	prevCommit  string
 	runtime     string
 	prevRuntime string
+	diffRuntime float64
 	cpu         string
 	prevCpu     string
+	diffCpu     float64
 	memory      string
 	prevMemory  string
+	diffMemory  float64
 	io          string
 	prevIo      string
+	diffIo      float64
 }
 
 func ParseHadoopResults() {
@@ -119,7 +123,7 @@ func ParseHadoopResults() {
 	writer := csv.NewWriter(outfile)
 	defer writer.Flush()
 
-	hadoopCommits := make(map[string]*hadoopResult)
+	hadoopCommits := make(map[string]*commitPerf)
 
 	//commmit, prevCommit, runtime
 	metrics := []string{"runtime", "cpu", "memory", "io"}
@@ -131,11 +135,11 @@ func ParseHadoopResults() {
 			prevCommit := GetParentCommit(repo, plumbing.NewHash(commit))
 			mapMethodPrev := res[prevCommit]
 			mValue, prevValue := sumMetricRow(commit, prevCommit, mapMethod, mapMethodPrev)
-			// row := hadoopResult{commit: commit, prevCommit: prevCommit, runtime: runtime, prevRuntime: prevRuntime}
+			// row := commitPerf{commit: commit, prevCommit: prevCommit, runtime: runtime, prevRuntime: prevRuntime}
 
 			switch metric {
 			case "runtime":
-				hadoopCommits[commit] = &hadoopResult{commit: commit, prevCommit: prevCommit, runtime: mValue, prevRuntime: prevValue}
+				hadoopCommits[commit] = &commitPerf{commit: commit, prevCommit: prevCommit, runtime: mValue, prevRuntime: prevValue}
 			case "cpu":
 				(*hadoopCommits[commit]).cpu = mValue
 				(*hadoopCommits[commit]).prevCpu = prevValue
@@ -157,7 +161,7 @@ func ParseHadoopResults() {
 	// 	prevCommit := GetParentCommit(repo, plumbing.NewHash(commit))
 	// 	mapMethodPrev := res[prevCommit]
 	// 	runtime, prevRuntime := sumMetricRow(commit, prevCommit, mapMethod, mapMethodPrev)
-	// 	row := hadoopResult{commit: commit, prevCommit: prevCommit, runtime: runtime, prevRuntime: prevRuntime}
+	// 	row := commitPerf{commit: commit, prevCommit: prevCommit, runtime: runtime, prevRuntime: prevRuntime}
 	// 	hadoopCommits = append(hadoopCommits, row)
 	// }
 
@@ -328,38 +332,6 @@ func ParseTravisTorrent() {
 	}
 }
 
-/*///////////////
-		file, err := os.Create("results/" + resFilename)
-		if err != nil {
-			log.Fatal("Cannot create file", err)
-		}
-		defer file.Close()
-
-		writer := csv.NewWriter(file)
-		defer writer.Flush()
-
-		var result PeassResult
-		var data [][]string
-		s := []string{"commit", "method", "oldTime", "currTime", "diffTime", "changePercent"}
-		data = append(data, s)
-		json.Unmarshal([]byte(byteValue), &result)
-		for commit, v := range result.VersionChanges {
-			for _, w := range v.TestCaseChanges {
-				for _, j := range w {
-					currTime := j.OldTime + (j.OldTime * (j.ChangePercent / float64(100)))
-					diffTime := currTime - j.OldTime
-					s = []string{commit, j.Method, fmt.Sprintf("%f", j.OldTime), fmt.Sprintf("%f", currTime), fmt.Sprintf("%f", diffTime), fmt.Sprintf("%f", j.ChangePercent)}
-					data = append(data, s)
-				}
-			}
-		}
-		err = writer.WriteAll(data)
-		if err != nil {
-			log.Fatal("Cannot write to file", err)
-		}
-
-////////////////*/
-
 // difference returns the elements in `a` that aren't in `b`.
 func slicesDiff(a, b []string) []string {
 	mb := make(map[string]struct{}, len(b))
@@ -389,6 +361,9 @@ func getFiles(root string, fileExt string) []string {
 	return files
 }
 
+type Result struct {
+}
+
 func SummarizeResults() {
 	dir := filepath.FromSlash("results/")
 	abs, err := filepath.Abs(dir)
@@ -398,10 +373,11 @@ func SummarizeResults() {
 	files := getFiles(abs, ".csv")
 
 	for _, filename := range files {
-		mapPrevCommit := make(map[string]string)
-		mapOldTime := make(map[string]float64)
-		mapNewTime := make(map[string]float64)
-		mapDiffTime := make(map[string]float64)
+		// mapPrevCommit := make(map[string]string)
+		// mapOldTime := make(map[string]float64)
+		// mapNewTime := make(map[string]float64)
+		// mapDiffTime := make(map[string]float64)
+		mapCommitPerf := make(map[string]*commitPerf)
 		csvfile, err := os.Open("results/" + filename)
 		if err != nil {
 			log.Fatal("Cannot open file ", err)
@@ -410,7 +386,6 @@ func SummarizeResults() {
 		// Parse the file
 		r := csv.NewReader(csvfile)
 		// Iterate through the records
-		// firstLine := true
 		for {
 			// Read each record from csv
 			record, err := r.Read()
@@ -425,71 +400,78 @@ func SummarizeResults() {
 			if commit != "commit" {
 				fmt.Printf("row: %s\n", record)
 				//commit,method,oldTime,currTime,diffTime,changePercent
-				var prevCommit, oldTime, currTime, diffTime string
-				if len(record) > 5 {
-					prevCommit = record[1]
-					oldTime = record[3]
-					currTime = record[4]
-					diffTime = record[5]
+				// var prevCommit, oldTime, currTime, diffTime string
+				cols := len(record)
+				switch {
+				case cols > 5:
+					mapCommitPerf[commit].prevCommit = record[1]
+					//time
+					mapCommitPerf[commit].prevRuntime = record[3]
+					mapCommitPerf[commit].runtime = record[4]
+					dr, _ := strconv.ParseFloat(record[5], 64)
+					mapCommitPerf[commit].diffRuntime = dr
+					//cpu
+					mapCommitPerf[commit].prevCpu = record[6]
+					mapCommitPerf[commit].cpu = record[7]
+					dc, _ := strconv.ParseFloat(record[8], 64)
+					mapCommitPerf[commit].diffCpu = dc
+					//memory
+					mapCommitPerf[commit].prevMemory = record[9]
+					mapCommitPerf[commit].memory = record[10]
+					dm, _ := strconv.ParseFloat(record[11], 64)
+					mapCommitPerf[commit].diffMemory = dm
+					//io
+					mapCommitPerf[commit].prevIo = record[12]
+					mapCommitPerf[commit].io = record[13]
+					di, _ := strconv.ParseFloat(record[14], 64)
+					mapCommitPerf[commit].diffIo = di
+
 					// changePercent := record[5]
-				} else {
-					prevCommit = record[1]
-					oldTime = record[2]
-					currTime = record[3]
+				default:
+					mapCommitPerf[commit].prevCommit = record[1]
+					mapCommitPerf[commit].prevRuntime = record[2]
+					mapCommitPerf[commit].runtime = record[3]
 				}
 
-				mapPrevCommit[commit] = prevCommit
+				// // mapPrevCommit[commit] = prevCommit
 
-				// old time
-				ov, err := strconv.ParseFloat(oldTime, 64)
-				if oldTime != "" && err != nil {
-					fmt.Println("Cannot parse float value oldTime: ", err)
-				}
-				mapOldTime[commit] += ov
+				// // old time
+				// ov, err := strconv.ParseFloat(oldTime, 64)
+				// if oldTime != "" && err != nil {
+				// 	fmt.Println("Cannot parse float value oldTime: ", err)
+				// }
+				// mapOldTime[commit] += ov
 
-				// curr time
-				cv, err := strconv.ParseFloat(currTime, 64)
-				if currTime != "" && err != nil {
-					fmt.Println("Cannot parse float value currTime: ", err)
-				}
-				mapNewTime[commit] += cv
+				// // curr time
+				// cv, err := strconv.ParseFloat(currTime, 64)
+				// if currTime != "" && err != nil {
+				// 	fmt.Println("Cannot parse float value currTime: ", err)
+				// }
+				// mapNewTime[commit] += cv
 
-				// diff time
-				var dv float64
-				if diffTime == "" {
-					dv = cv - ov
-				} else {
-					dv, err = strconv.ParseFloat(diffTime, 64)
-					if dv == 0 {
-						dv = cv - ov
-					}
-
-					if err != nil {
-						fmt.Println("Cannot parse float value diffTime: ", err)
-					}
-				}
-				mapDiffTime[commit] += dv
+				// // diff time
+				// var dv float64
+				// if diffTime == "" {
+				// 	dv = cv - ov
 				// } else {
-				// 	if diffTime != "" {
-				// 		dv, err := strconv.ParseFloat(diffTime, 64)
-				// 		if err != nil {
-				// 			fmt.Println("Cannot parse float value diffTime: ", err)
-				// 		}
-				// 		mapDiffTime[commit] += dv
+				// 	dv, err = strconv.ParseFloat(diffTime, 64)
+				// 	if dv == 0 {
+				// 		dv = cv - ov
+				// 	}
+
+				// 	if err != nil {
+				// 		fmt.Println("Cannot parse float value diffTime: ", err)
 				// 	}
 				// }
+				// mapDiffTime[commit] += dv
 
+				if mapCommitPerf[commit].diffRuntime == 0 {
+					r, _ := strconv.ParseFloat(mapCommitPerf[commit].runtime, 64)
+					pr, _ := strconv.ParseFloat(mapCommitPerf[commit].prevRuntime, 64)
+					mapCommitPerf[commit].diffRuntime = r - pr
+				}
 			}
 		}
-		// fmt.Println("############ mapOldTime")
-		// for k, v := range mapOldTime {
-		// 	fmt.Println(k, v)
-		// }
-
-		// fmt.Println("############ mapNewTime")
-		// for k, v := range mapNewTime {
-		// 	fmt.Println(k, v)
-		// }
 
 		//save summary file
 		outfile, err := os.Create("results/sum/sum_" + filename)
@@ -500,19 +482,28 @@ func SummarizeResults() {
 
 		csvwriter := csv.NewWriter(outfile)
 
-		for k, v := range mapOldTime {
-			resOldTime := fmt.Sprintf("%f", v)
-			resNewTime := fmt.Sprintf("%f", mapNewTime[k])
-			refDiffTime := fmt.Sprintf("%f", mapDiffTime[k])
-			var res = []string{k, mapPrevCommit[k], resOldTime, resNewTime, refDiffTime}
+		// for k, v := range mapOldTime {
+		// 	resOldTime := fmt.Sprintf("%f", v)
+		// 	resNewTime := fmt.Sprintf("%f", mapNewTime[k])
+		// 	refDiffTime := fmt.Sprintf("%f", mapDiffTime[k])
+		// 	var res = []string{k, mapPrevCommit[k], resOldTime, resNewTime, refDiffTime}
+		// 	err = csvwriter.Write(res)
+		// 	if err != nil {
+		// 		fmt.Println("Cannot write sum to file: ", err)
+		// 	}
+		// }
+
+		for k, v := range mapCommitPerf {
+			var res = []string{k, v.prevCommit, v.prevRuntime, v.runtime, fmt.Sprintf("%f", v.diffRuntime),
+				v.prevCpu, v.cpu, fmt.Sprintf("%f", v.diffCpu),
+				v.prevMemory, v.memory, fmt.Sprintf("%f", v.diffMemory),
+				v.prevIo, v.io, fmt.Sprintf("%f", v.diffIo)}
 			err = csvwriter.Write(res)
 			if err != nil {
 				fmt.Println("Cannot write sum to file: ", err)
 			}
 		}
-
 		csvwriter.Flush()
-
 		csvfile.Close()
 	}
 }
