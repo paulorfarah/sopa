@@ -85,12 +85,17 @@ func ParsePeassResults() {
 	}
 }
 
-type HadoopResult struct {
-	Commit       string
-	Class        string
-	ResponseTime []float64
-	CpuUsage     []float64
-	MemoryUsage  []float64
+type hadoopResult struct {
+	commit      string
+	prevCommit  string
+	runtime     string
+	prevRuntime string
+	cpu         string
+	prevCpu     string
+	memory      string
+	prevMemory  string
+	io          string
+	prevIo      string
 }
 
 func ParseHadoopResults() {
@@ -104,8 +109,68 @@ func ParseHadoopResults() {
 
 	dir := "hadoop"
 	url := "https://github.com/apache/hadoop"
-	infile, errIn := os.Open("data/hadoop/hadoop2.csv")
+	repo := CloneRepo(url, dir)
+
 	outfile, errOut := os.Create("results/hadoop.csv")
+	if errOut != nil {
+		log.Fatal("Cannot create hadoop summary results file", errOut)
+	}
+	defer outfile.Close()
+	writer := csv.NewWriter(outfile)
+	defer writer.Flush()
+
+	hadoopCommits := make(map[string]*hadoopResult)
+
+	//commmit, prevCommit, runtime
+	metrics := []string{"runtime", "cpu", "memory", "io"}
+
+	for _, metric := range metrics {
+		f := "data/hadoop/hadoop_" + metric + ".csv"
+		res := readHadoopCsv(f)
+		for commit, mapMethod := range res {
+			prevCommit := GetParentCommit(repo, plumbing.NewHash(commit))
+			mapMethodPrev := res[prevCommit]
+			mValue, prevValue := sumMetricRow(commit, prevCommit, mapMethod, mapMethodPrev)
+			// row := hadoopResult{commit: commit, prevCommit: prevCommit, runtime: runtime, prevRuntime: prevRuntime}
+
+			switch metric {
+			case "runtime":
+				hadoopCommits[commit] = &hadoopResult{commit: commit, prevCommit: prevCommit, runtime: mValue, prevRuntime: prevValue}
+			case "cpu":
+				(*hadoopCommits[commit]).cpu = mValue
+				(*hadoopCommits[commit]).prevCpu = prevValue
+			case "memory":
+				(*hadoopCommits[commit]).cpu = mValue
+				(*hadoopCommits[commit]).prevCpu = prevValue
+			case "io":
+				(*hadoopCommits[commit]).io = mValue
+				(*hadoopCommits[commit]).prevIo = prevValue
+			}
+
+		}
+	}
+
+	// // cpu
+	// f = "data/hadoop/hadoop_cpu.csv"
+	// res = readHadoopCsv(f)
+	// for commit, mapMethod := range res {
+	// 	prevCommit := GetParentCommit(repo, plumbing.NewHash(commit))
+	// 	mapMethodPrev := res[prevCommit]
+	// 	runtime, prevRuntime := sumMetricRow(commit, prevCommit, mapMethod, mapMethodPrev)
+	// 	row := hadoopResult{commit: commit, prevCommit: prevCommit, runtime: runtime, prevRuntime: prevRuntime}
+	// 	hadoopCommits = append(hadoopCommits, row)
+	// }
+
+	for _, c := range hadoopCommits {
+		row := []string{c.commit, c.prevCommit, c.runtime, c.prevRuntime, c.cpu, c.prevCpu, c.memory, c.prevMemory, c.io, c.prevIo}
+		writer.Write(row)
+	}
+
+}
+
+func readHadoopCsv(f string) map[string]map[string]float64 {
+
+	infile, errIn := os.Open(f)
 
 	var res = make(map[string]map[string]float64)
 	if errIn != nil {
@@ -117,14 +182,6 @@ func ParseHadoopResults() {
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	if errOut != nil {
-		log.Fatal("Cannot create hadoop summary results file", errOut)
-	}
-	defer outfile.Close()
-
-	writer := csv.NewWriter(outfile)
-	defer writer.Flush()
 
 	// var commits []string
 	for _, line := range lines {
@@ -144,58 +201,41 @@ func ParseHadoopResults() {
 		}
 		avg := sum / float64(30)
 		res[commit][method] = avg
-		// commits = append(commits, commit)
+	}
+	return res
+}
+
+func sumMetricRow(commit, prevCommit string, mapMethodCur, mapMethodPrev map[string]float64) (string, string) {
+	var (
+		sumStr     string
+		sumPrevStr string
+	)
+
+	sumMetric := make(map[string]float64)
+	// current commit
+	sum := float64(0)
+	methods := []string{}
+	for methodName, methodMetric := range mapMethodCur {
+		sum += methodMetric
+		methods = append(methods, methodName)
+	}
+	sumMetric[commit] = sum
+
+	//previous commit
+	// prevCommit := GetParentCommit(repo, plumbing.NewHash(commit))
+	sumPrev := float64(0)
+	methodsPrev := []string{}
+	for methodName, methodMetric := range mapMethodPrev {
+		sumPrev += methodMetric
+		methodsPrev = append(methodsPrev, methodName)
 	}
 
-	// var repo *git.Repository
-
-	repo := CloneRepo(url, dir)
-	// var prevCommits = make(map[string]string)
-	// for _, hash := range commits {
-	// 	parents := GetParentsFromCommit(repo, hash)
-	// 	if len(parents) == 1 {
-	// 		prevCommits[hash] = parents[0]
-	// 	}
-	// }
-	// prevCommits := TraverseCommitsWithPrevious(repo, commits)
-	sumRespTime := make(map[string]float64)
-	for commit, mapMethod := range res {
-		// current commit
-		// fmt.Println(commit, mapMethod)
-		sum := float64(0)
-		methods := []string{}
-		for methodName, methodTime := range mapMethod {
-			sum += methodTime
-			methods = append(methods, methodName)
-		}
-		sumRespTime[commit] = sum
-		// fmt.Println(">>> ", commit, sum)
-
-		//previous commit
-		// prevCommit := prevCommits[commit]
-		prevCommit := GetParentCommit(repo, plumbing.NewHash(commit))
-		sumPrev := float64(0)
-		methodsPrev := []string{}
-		for methodName, methodTime := range res[prevCommit] {
-			sumPrev += methodTime
-			methodsPrev = append(methodsPrev, methodName)
-		}
-		// fmt.Println(">>> commit", commit)
-		// fmt.Println("methods: ", methods)
-		// fmt.Println("*** PrevCommit: ", prevCommit)
-		// fmt.Println("methodsPrev: ", methodsPrev)
-		// fmt.Println("---------------")
-		methodsDiff := slicesDiff(methods, methodsPrev)
-		if len(methodsDiff) == 0 {
-			// fmt.Printf("curr: %s sum: %f -  prev: %s sum: %f\n", commit, sum, prevCommit, sumPrev)
-			// fmt.Printf("methodsCurr: %v\n", methods)
-			// fmt.Printf("methodsPrev: %v\n", methodsPrev)
-			sumStr := fmt.Sprintf("%f", sum)
-			sumPrevStr := fmt.Sprintf("%f", sumPrev)
-			var row = []string{commit, prevCommit, sumPrevStr, sumStr}
-			writer.Write(row)
-		}
+	methodsDiff := slicesDiff(methods, methodsPrev)
+	if len(methodsDiff) == 0 {
+		sumStr = fmt.Sprintf("%f", sum)
+		sumPrevStr = fmt.Sprintf("%f", sumPrev)
 	}
+	return sumStr, sumPrevStr
 }
 
 // type TravisBuild struct {
