@@ -407,7 +407,7 @@ func SummarizeResults() {
 					fmt.Println("mapCommitPerf")
 					fmt.Println(commit)
 					fmt.Println(mapCommitPerf)
-					// fmt.Println(mapCommitPerf[commit])
+					fmt.Println(record)
 					_, exists := mapCommitPerf[commit]
 					if exists {
 						mapCommitPerf[commit].prevCommit = record[1]
