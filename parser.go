@@ -418,25 +418,25 @@ func SummarizeResults() {
 				// var prevCommit, oldTime, currTime, diffTime string
 				cols := len(record)
 				switch {
-				case cols >= 8:
+				case cols >= 14:
 					fmt.Println(len(record))
 					if len(record) >= 14 {
-						dr, _ := strconv.ParseFloat(record[5], 64)
-						dc, _ := strconv.ParseFloat(record[8], 64)
-						dm, _ := strconv.ParseFloat(record[11], 64)
-						di, _ := strconv.ParseFloat(record[14], 64)
+						dr, _ := strconv.ParseFloat(record[4], 64)
+						dc, _ := strconv.ParseFloat(record[7], 64)
+						dm, _ := strconv.ParseFloat(record[10], 64)
+						di, _ := strconv.ParseFloat(record[13], 64)
 						mapCommitPerf[commit] = &commitPerf{prevCommit: record[1],
-							prevRuntime: record[3],
-							runtime:     record[4],
+							prevRuntime: record[2],
+							runtime:     record[3],
 							diffRuntime: dr,
-							prevCpu:     record[6],
-							cpu:         record[7],
+							prevCpu:     record[5],
+							cpu:         record[6],
 							diffCpu:     dc,
-							prevMemory:  record[9],
-							memory:      record[10],
+							prevMemory:  record[8],
+							memory:      record[9],
 							diffMemory:  dm,
-							prevIo:      record[12],
-							io:          record[13],
+							prevIo:      record[11],
+							io:          record[12],
 							diffIo:      di,
 						}
 					}
