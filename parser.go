@@ -436,34 +436,34 @@ func SummarizeResults() {
 				fmt.Printf("row: %s\n", record)
 				//commit,method,oldTime,currTime,diffTime,changePercent
 				// var prevCommit, oldTime, currTime, diffTime string
-				dr, _ := strconv.ParseFloat(record[4], 64)
-				mapCommitPerf[commit] = &commitPerf{prevCommit: record[1],
-					prevRuntime: record[2],
-					runtime:     record[3],
+				dr, _ := strconv.ParseFloat(record[5], 64)
+				mapCommitPerf[commit] = &commitPerf{prevCommit: record[2],
+					prevRuntime: record[3],
+					runtime:     record[4],
 					diffRuntime: dr,
 				}
 				cols := len(record)
 				if cols >= 15 {
 					//cpu
-					mapCommitPerf[commit].prevCpu = record[5]
-					mapCommitPerf[commit].cpu = record[6]
-					dc, _ := strconv.ParseFloat(record[7], 64)
+					mapCommitPerf[commit].prevCpu = record[6]
+					mapCommitPerf[commit].cpu = record[7]
+					dc, _ := strconv.ParseFloat(record[8], 64)
 					mapCommitPerf[commit].diffCpu = dc
 					//memory
-					mapCommitPerf[commit].prevMemory = record[8]
-					mapCommitPerf[commit].memory = record[9]
-					dm, _ := strconv.ParseFloat(record[10], 64)
+					mapCommitPerf[commit].prevMemory = record[9]
+					mapCommitPerf[commit].memory = record[10]
+					dm, _ := strconv.ParseFloat(record[11], 64)
 					mapCommitPerf[commit].diffMemory = dm
 					//io
-					mapCommitPerf[commit].prevIo = record[11]
-					mapCommitPerf[commit].io = record[12]
-					di, _ := strconv.ParseFloat(record[13], 64)
+					mapCommitPerf[commit].prevIo = record[12]
+					mapCommitPerf[commit].io = record[13]
+					di, _ := strconv.ParseFloat(record[14], 64)
 					mapCommitPerf[commit].diffIo = di
 				} else {
 					// changePercent := record[5]
-					mapCommitPerf[commit].prevCommit = record[1]
-					mapCommitPerf[commit].prevRuntime = record[2]
-					mapCommitPerf[commit].runtime = record[3]
+					mapCommitPerf[commit].prevCommit = record[2]
+					mapCommitPerf[commit].prevRuntime = record[3]
+					mapCommitPerf[commit].runtime = record[4]
 				}
 
 				// // mapPrevCommit[commit] = prevCommit
