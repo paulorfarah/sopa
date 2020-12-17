@@ -432,23 +432,25 @@ func SummarizeResults() {
 						di, _ := strconv.ParseFloat(record[14], 64)
 						mapCommitPerf[commit].diffIo = di
 					} else {
-						dr, _ := strconv.ParseFloat(record[5], 64)
-						dc, _ := strconv.ParseFloat(record[8], 64)
-						dm, _ := strconv.ParseFloat(record[11], 64)
-						di, _ := strconv.ParseFloat(record[14], 64)
-						mapCommitPerf[commit] = &commitPerf{prevCommit: record[1],
-							prevRuntime: record[3],
-							runtime:     record[4],
-							diffRuntime: dr,
-							prevCpu:     record[6],
-							cpu:         record[7],
-							diffCpu:     dc,
-							prevMemory:  record[9],
-							memory:      record[10],
-							diffMemory:  dm,
-							prevIo:      record[12],
-							io:          record[13],
-							diffIo:      di,
+						if len(record) == 15 {
+							dr, _ := strconv.ParseFloat(record[5], 64)
+							dc, _ := strconv.ParseFloat(record[8], 64)
+							dm, _ := strconv.ParseFloat(record[11], 64)
+							di, _ := strconv.ParseFloat(record[14], 64)
+							mapCommitPerf[commit] = &commitPerf{prevCommit: record[1],
+								prevRuntime: record[3],
+								runtime:     record[4],
+								diffRuntime: dr,
+								prevCpu:     record[6],
+								cpu:         record[7],
+								diffCpu:     dc,
+								prevMemory:  record[9],
+								memory:      record[10],
+								diffMemory:  dm,
+								prevIo:      record[12],
+								io:          record[13],
+								diffIo:      di,
+							}
 						}
 					}
 					// changePercent := record[5]
@@ -490,10 +492,13 @@ func SummarizeResults() {
 				// }
 				// mapDiffTime[commit] += dv
 
-				if mapCommitPerf[commit].diffRuntime == 0 {
-					r, _ := strconv.ParseFloat(mapCommitPerf[commit].runtime, 64)
-					pr, _ := strconv.ParseFloat(mapCommitPerf[commit].prevRuntime, 64)
-					mapCommitPerf[commit].diffRuntime = r - pr
+				_, exists := mapCommitPerf[commit]
+				if exists {
+					if mapCommitPerf[commit].diffRuntime == 0 {
+						r, _ := strconv.ParseFloat(mapCommitPerf[commit].runtime, 64)
+						pr, _ := strconv.ParseFloat(mapCommitPerf[commit].prevRuntime, 64)
+						mapCommitPerf[commit].diffRuntime = r - pr
+					}
 				}
 			}
 		}
