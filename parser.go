@@ -407,29 +407,50 @@ func SummarizeResults() {
 					fmt.Println("mapCommitPerf")
 					fmt.Println(commit)
 					fmt.Println(mapCommitPerf)
-					fmt.Println(mapCommitPerf[commit])
-					mapCommitPerf[commit].prevCommit = record[1]
-					//time
-					mapCommitPerf[commit].prevRuntime = record[3]
-					mapCommitPerf[commit].runtime = record[4]
-					dr, _ := strconv.ParseFloat(record[5], 64)
-					mapCommitPerf[commit].diffRuntime = dr
-					//cpu
-					mapCommitPerf[commit].prevCpu = record[6]
-					mapCommitPerf[commit].cpu = record[7]
-					dc, _ := strconv.ParseFloat(record[8], 64)
-					mapCommitPerf[commit].diffCpu = dc
-					//memory
-					mapCommitPerf[commit].prevMemory = record[9]
-					mapCommitPerf[commit].memory = record[10]
-					dm, _ := strconv.ParseFloat(record[11], 64)
-					mapCommitPerf[commit].diffMemory = dm
-					//io
-					mapCommitPerf[commit].prevIo = record[12]
-					mapCommitPerf[commit].io = record[13]
-					di, _ := strconv.ParseFloat(record[14], 64)
-					mapCommitPerf[commit].diffIo = di
-
+					// fmt.Println(mapCommitPerf[commit])
+					_, exists := mapCommitPerf[commit]
+					if exists {
+						mapCommitPerf[commit].prevCommit = record[1]
+						//time
+						mapCommitPerf[commit].prevRuntime = record[3]
+						mapCommitPerf[commit].runtime = record[4]
+						dr, _ := strconv.ParseFloat(record[5], 64)
+						mapCommitPerf[commit].diffRuntime = dr
+						//cpu
+						mapCommitPerf[commit].prevCpu = record[6]
+						mapCommitPerf[commit].cpu = record[7]
+						dc, _ := strconv.ParseFloat(record[8], 64)
+						mapCommitPerf[commit].diffCpu = dc
+						//memory
+						mapCommitPerf[commit].prevMemory = record[9]
+						mapCommitPerf[commit].memory = record[10]
+						dm, _ := strconv.ParseFloat(record[11], 64)
+						mapCommitPerf[commit].diffMemory = dm
+						//io
+						mapCommitPerf[commit].prevIo = record[12]
+						mapCommitPerf[commit].io = record[13]
+						di, _ := strconv.ParseFloat(record[14], 64)
+						mapCommitPerf[commit].diffIo = di
+					} else {
+						dr, _ := strconv.ParseFloat(record[5], 64)
+						dc, _ := strconv.ParseFloat(record[8], 64)
+						dm, _ := strconv.ParseFloat(record[11], 64)
+						di, _ := strconv.ParseFloat(record[14], 64)
+						mapCommitPerf[commit] = &commitPerf{prevCommit: record[1],
+							prevRuntime: record[3],
+							runtime:     record[4],
+							diffRuntime: dr,
+							prevCpu:     record[6],
+							cpu:         record[7],
+							diffCpu:     dc,
+							prevMemory:  record[9],
+							memory:      record[10],
+							diffMemory:  dm,
+							prevIo:      record[12],
+							io:          record[13],
+							diffIo:      di,
+						}
+					}
 					// changePercent := record[5]
 				default:
 					mapCommitPerf[commit].prevCommit = record[1]
