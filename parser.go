@@ -403,7 +403,7 @@ func SummarizeResults() {
 				// var prevCommit, oldTime, currTime, diffTime string
 				cols := len(record)
 				switch {
-				case cols > 5:
+				case cols == 15:
 					fmt.Println("mapCommitPerf")
 					fmt.Println(commit)
 					fmt.Println(mapCommitPerf)
@@ -454,10 +454,10 @@ func SummarizeResults() {
 						}
 					}
 					// changePercent := record[5]
-				default:
-					mapCommitPerf[commit].prevCommit = record[1]
-					mapCommitPerf[commit].prevRuntime = record[2]
-					mapCommitPerf[commit].runtime = record[3]
+					// default:
+					// 	mapCommitPerf[commit].prevCommit = record[1]
+					// 	mapCommitPerf[commit].prevRuntime = record[2]
+					// 	mapCommitPerf[commit].runtime = record[3]
 				}
 
 				// // mapPrevCommit[commit] = prevCommit
