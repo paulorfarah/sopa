@@ -404,10 +404,6 @@ func SummarizeResults() {
 				cols := len(record)
 				switch {
 				case cols == 15:
-					fmt.Println("mapCommitPerf")
-					fmt.Println(commit)
-					fmt.Println(mapCommitPerf)
-					fmt.Println(record)
 					_, exists := mapCommitPerf[commit]
 					if exists {
 						mapCommitPerf[commit].prevCommit = record[1]
@@ -524,6 +520,7 @@ func SummarizeResults() {
 		// }
 
 		for k, v := range mapCommitPerf {
+			fmt.Println(k, v)
 			var res = []string{k, v.prevCommit, v.prevRuntime, v.runtime, fmt.Sprintf("%f", v.diffRuntime),
 				v.prevCpu, v.cpu, fmt.Sprintf("%f", v.diffCpu),
 				v.prevMemory, v.memory, fmt.Sprintf("%f", v.diffMemory),
