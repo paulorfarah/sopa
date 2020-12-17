@@ -428,7 +428,8 @@ func SummarizeResults() {
 						di, _ := strconv.ParseFloat(record[14], 64)
 						mapCommitPerf[commit].diffIo = di
 					} else {
-						if len(record) == 15 {
+						fmt.Println(len(record))
+						if len(record) >= 14 {
 							dr, _ := strconv.ParseFloat(record[5], 64)
 							dc, _ := strconv.ParseFloat(record[8], 64)
 							dm, _ := strconv.ParseFloat(record[11], 64)
