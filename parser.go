@@ -140,15 +140,27 @@ func ParseHadoopResults() {
 			switch metric {
 			case "runtime":
 				hadoopCommits[commit] = &commitPerf{commit: commit, prevCommit: prevCommit, runtime: mValue, prevRuntime: prevValue}
+				v, _ := strconv.ParseFloat(mValue, 64)
+				p, _ := strconv.ParseFloat(prevValue, 64)
+				(*hadoopCommits[commit]).diffRuntime = v - p
 			case "cpu":
 				(*hadoopCommits[commit]).cpu = mValue
 				(*hadoopCommits[commit]).prevCpu = prevValue
+				v, _ := strconv.ParseFloat(mValue, 64)
+				p, _ := strconv.ParseFloat(prevValue, 64)
+				(*hadoopCommits[commit]).diffCpu = v - p
 			case "memory":
-				(*hadoopCommits[commit]).cpu = mValue
-				(*hadoopCommits[commit]).prevCpu = prevValue
+				(*hadoopCommits[commit]).memory = mValue
+				(*hadoopCommits[commit]).prevMemory = prevValue
+				v, _ := strconv.ParseFloat(mValue, 64)
+				p, _ := strconv.ParseFloat(prevValue, 64)
+				(*hadoopCommits[commit]).diffMemory = v - p
 			case "io":
 				(*hadoopCommits[commit]).io = mValue
 				(*hadoopCommits[commit]).prevIo = prevValue
+				v, _ := strconv.ParseFloat(mValue, 64)
+				p, _ := strconv.ParseFloat(prevValue, 64)
+				(*hadoopCommits[commit]).diffIo = v - p
 			}
 
 		}
@@ -166,7 +178,10 @@ func ParseHadoopResults() {
 	// }
 
 	for _, c := range hadoopCommits {
-		row := []string{c.commit, c.prevCommit, c.runtime, c.prevRuntime, c.cpu, c.prevCpu, c.memory, c.prevMemory, c.io, c.prevIo}
+		row := []string{c.commit, c.prevCommit, c.runtime, c.prevRuntime, fmt.Sprintf("%f", c.diffRuntime),
+			c.cpu, c.prevCpu, fmt.Sprintf("%f", c.diffCpu),
+			c.memory, c.prevMemory, fmt.Sprintf("%f", c.diffMemory),
+			c.io, c.prevIo, fmt.Sprintf("%f", c.diffIo)}
 		writer.Write(row)
 	}
 
@@ -361,8 +376,8 @@ func getFiles(root string, fileExt string) []string {
 	return files
 }
 
-type Result struct {
-}
+// type Result struct {
+// }
 
 func SummarizeResults() {
 	dir := filepath.FromSlash("results/")
@@ -404,50 +419,25 @@ func SummarizeResults() {
 				cols := len(record)
 				switch {
 				case cols >= 8:
-					_, exists := mapCommitPerf[commit]
-					if exists {
-						mapCommitPerf[commit].prevCommit = record[1]
-						//time
-						mapCommitPerf[commit].prevRuntime = record[3]
-						mapCommitPerf[commit].runtime = record[4]
+					fmt.Println(len(record))
+					if len(record) >= 14 {
 						dr, _ := strconv.ParseFloat(record[5], 64)
-						mapCommitPerf[commit].diffRuntime = dr
-						//cpu
-						mapCommitPerf[commit].prevCpu = record[6]
-						mapCommitPerf[commit].cpu = record[7]
 						dc, _ := strconv.ParseFloat(record[8], 64)
-						mapCommitPerf[commit].diffCpu = dc
-						//memory
-						mapCommitPerf[commit].prevMemory = record[9]
-						mapCommitPerf[commit].memory = record[10]
 						dm, _ := strconv.ParseFloat(record[11], 64)
-						mapCommitPerf[commit].diffMemory = dm
-						//io
-						mapCommitPerf[commit].prevIo = record[12]
-						mapCommitPerf[commit].io = record[13]
 						di, _ := strconv.ParseFloat(record[14], 64)
-						mapCommitPerf[commit].diffIo = di
-					} else {
-						fmt.Println(len(record))
-						if len(record) >= 14 {
-							dr, _ := strconv.ParseFloat(record[5], 64)
-							dc, _ := strconv.ParseFloat(record[8], 64)
-							dm, _ := strconv.ParseFloat(record[11], 64)
-							di, _ := strconv.ParseFloat(record[14], 64)
-							mapCommitPerf[commit] = &commitPerf{prevCommit: record[1],
-								prevRuntime: record[3],
-								runtime:     record[4],
-								diffRuntime: dr,
-								prevCpu:     record[6],
-								cpu:         record[7],
-								diffCpu:     dc,
-								prevMemory:  record[9],
-								memory:      record[10],
-								diffMemory:  dm,
-								prevIo:      record[12],
-								io:          record[13],
-								diffIo:      di,
-							}
+						mapCommitPerf[commit] = &commitPerf{prevCommit: record[1],
+							prevRuntime: record[3],
+							runtime:     record[4],
+							diffRuntime: dr,
+							prevCpu:     record[6],
+							cpu:         record[7],
+							diffCpu:     dc,
+							prevMemory:  record[9],
+							memory:      record[10],
+							diffMemory:  dm,
+							prevIo:      record[12],
+							io:          record[13],
+							diffIo:      di,
 						}
 					}
 					// changePercent := record[5]
