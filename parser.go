@@ -519,6 +519,9 @@ func SummarizeResults() {
 		// 	}
 		// }
 
+		fmt.Println("mapCommitPerf...")
+		fmt.Println(mapCommitPerf)
+
 		for k, v := range mapCommitPerf {
 			fmt.Println(k, v)
 			var res = []string{k, v.prevCommit, v.prevRuntime, v.runtime, fmt.Sprintf("%f", v.diffRuntime),
