@@ -403,7 +403,7 @@ func SummarizeResults() {
 				// var prevCommit, oldTime, currTime, diffTime string
 				cols := len(record)
 				switch {
-				case cols == 15:
+				case cols >= 8:
 					_, exists := mapCommitPerf[commit]
 					if exists {
 						mapCommitPerf[commit].prevCommit = record[1]
