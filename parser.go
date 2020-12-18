@@ -236,7 +236,7 @@ func ParseHadoopResults() {
 	hadoopCommits := make(map[string]*commitPerf)
 
 	//commmit, prevCommit, runtime
-	metrics := []string{"runtime", "cpu", "memory", "io"}
+	metrics := []string{"runtime2"} //, "cpu", "memory", "io"}
 
 	for _, metric := range metrics {
 		infile := "data/hadoop/hadoop_" + metric + ".csv"
@@ -358,9 +358,10 @@ func sumMetricRow(commit, prevCommit string, mapMethodCur, mapMethodPrev map[str
 		sumPrev += methodMetric
 		methodsPrev = append(methodsPrev, methodName)
 	}
+	methodsDiff := slicesDiff(methods, methodsPrev)
 	fmt.Println("methods: ", methods)
 	fmt.Println("methodsPrev: ", methodsPrev)
-	methodsDiff := slicesDiff(methods, methodsPrev)
+	fmt.Println("methodsDiff: ", methodsDiff)
 	if len(methodsDiff) == 0 {
 		sumStr = fmt.Sprintf("%f", sum)
 		sumPrevStr = fmt.Sprintf("%f", sumPrev)
