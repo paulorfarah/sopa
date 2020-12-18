@@ -340,7 +340,7 @@ func sumMetricRow(commit, prevCommit string, mapMethodCur, mapMethodPrev map[str
 		sumPrevStr string
 	)
 
-	sumMetric := make(map[string]float64)
+	// sumMetric := make(map[string]float64)
 	// current commit
 	sum := float64(0)
 	methods := []string{}
@@ -348,7 +348,7 @@ func sumMetricRow(commit, prevCommit string, mapMethodCur, mapMethodPrev map[str
 		sum += methodMetric
 		methods = append(methods, methodName)
 	}
-	sumMetric[commit] = sum
+	// sumMetric[commit] = sum
 
 	//previous commit
 	// prevCommit := GetParentCommit(repo, plumbing.NewHash(commit))
