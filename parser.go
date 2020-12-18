@@ -358,7 +358,8 @@ func sumMetricRow(commit, prevCommit string, mapMethodCur, mapMethodPrev map[str
 		sumPrev += methodMetric
 		methodsPrev = append(methodsPrev, methodName)
 	}
-
+	fmt.Println("methods: ", methods)
+	fmt.Println("methodsPrev: ", methodsPrev)
 	methodsDiff := slicesDiff(methods, methodsPrev)
 	if len(methodsDiff) == 0 {
 		sumStr = fmt.Sprintf("%f", sum)
