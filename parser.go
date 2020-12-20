@@ -370,17 +370,45 @@ func sumMetricRow(commit, prevCommit string, mapMethodCur, mapMethodPrev map[str
 }
 
 // difference returns the elements in `a` that aren't in `b`.
-func slicesDiff(a, b []string) []string {
-	mb := make(map[string]struct{}, len(b))
-	for _, x := range b {
-		mb[x] = struct{}{}
-	}
+// func slicesDiff(a, b []string) []string {
+// 	mb := make(map[string]struct{}, len(b))
+// 	for _, x := range b {
+// 		mb[x] = struct{}{}
+// 	}
+// 	var diff []string
+// 	for _, x := range a {
+// 		if _, found := mb[x]; !found {
+// 			diff = append(diff, x)
+// 		}
+// 	}
+// 	return diff
+// }
+
+func slicesDiff(slice1 []string, slice2 []string) []string {
 	var diff []string
-	for _, x := range a {
-		if _, found := mb[x]; !found {
-			diff = append(diff, x)
+
+	// Loop two times, first to find slice1 strings not in slice2,
+	// second loop to find slice2 strings not in slice1
+	for i := 0; i < 2; i++ {
+		for _, s1 := range slice1 {
+			found := false
+			for _, s2 := range slice2 {
+				if s1 == s2 {
+					found = true
+					break
+				}
+			}
+			// String not found. We add it to return slice
+			if !found {
+				diff = append(diff, s1)
+			}
+		}
+		// Swap the slices, only if it was the first loop
+		if i == 0 {
+			slice1, slice2 = slice2, slice1
 		}
 	}
+
 	return diff
 }
 
