@@ -462,17 +462,31 @@ func SummarizeResults() {
 			if err != nil {
 				fmt.Println("Cannot read row: ", filename, err)
 			}
-			commit := strings.TrimSpace(record[0])
+			commit := strings.TrimSpace(record[1])
 
 			if commit != "commit" {
 				fmt.Printf("row: %s\n", record)
 				//commit,method,oldTime,currTime,diffTime,changePercent
 				// var prevCommit, oldTime, currTime, diffTime string
+
+				layout := "2006-01-02T15:04:05.000Z"
+				prevTime, err := time.Parse(layout, record[2])
+				if err != nil {
+					fmt.Println(err)
+				}
+				t, err := time.Parse(layout, record[0])
+				if err != nil {
+					fmt.Println(err)
+				}
 				dr, _ := strconv.ParseFloat(record[5], 64)
-				mapCommitPerf[commit] = &commitPerf{prevCommit: record[2],
-					prevRuntime: record[3],
-					runtime:     record[4],
-					diffRuntime: dr,
+
+				mapCommitPerf[commit] = &commitPerf{
+					commitTime:     t,
+					prevCommitTime: prevTime,
+					prevCommit:     record[3],
+					prevRuntime:    record[4],
+					runtime:        record[5],
+					diffRuntime:    dr,
 				}
 				cols := len(record)
 				if cols >= 15 {
@@ -566,7 +580,7 @@ func SummarizeResults() {
 
 		for k, v := range mapCommitPerf {
 			fmt.Println(k, v)
-			var res = []string{k, v.prevCommit, v.prevRuntime, v.runtime, fmt.Sprintf("%f", v.diffRuntime),
+			var res = []string{v.commitTime.String(), k, v.prevCommitTime.String(), v.prevCommit, v.prevRuntime, v.runtime, fmt.Sprintf("%f", v.diffRuntime),
 				v.prevCpu, v.cpu, fmt.Sprintf("%f", v.diffCpu),
 				v.prevMemory, v.memory, fmt.Sprintf("%f", v.diffMemory),
 				v.prevIo, v.io, fmt.Sprintf("%f", v.diffIo)}
