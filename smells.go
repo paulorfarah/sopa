@@ -13,6 +13,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing"
@@ -322,12 +323,14 @@ func GetParentsFromCommit(repo *git.Repository, hash string) []string {
 	return parentHashes
 }
 
-func GetParentCommit(repo *git.Repository, hash plumbing.Hash) string {
+func GetParentCommit(repo *git.Repository, hash plumbing.Hash) (string, time.Time, time.Time) {
 	var h string
 	var prevCommit *object.Commit
 	prevCommit = nil
 	var prevTree *object.Tree
 	prevTree = nil
+	var commiterWhen, prevCommiterWhen time.Time
+
 	if repo != nil {
 		cIter, err := repo.Log(&git.LogOptions{From: hash})
 		if err != nil {
@@ -336,11 +339,13 @@ func GetParentCommit(repo *git.Repository, hash plumbing.Hash) string {
 
 		err = cIter.ForEach(func(c *object.Commit) error {
 			// fmt.Printf("%s\n", c.Hash)
+			}
 			if prevCommit != nil {
 				if prevTree != nil {
 					if h == "" {
 						// h = fmt.Sprintf("%s", c.Hash)
 						h = c.Hash.String()
+						prevCommiterWhen = c.Author.When
 					}
 					// prevHash := fmt.Sprintf("%s", prevCommit.Hash)
 					// fmt.Printf("hash: %s | h: %s - prev: %s\n", h, prevHash)
@@ -349,16 +354,18 @@ func GetParentCommit(repo *git.Repository, hash plumbing.Hash) string {
 					// 	prevCommits[hash] = prevHash
 					// }
 				}
+			}else{
+				commiterWhen = c.Author.When
 			}
 			prevCommit = c
 			prevTree, _ = c.Tree()
-			return nil
+			return nil, commiterWhen, prevCommiterWhen
 		})
 		if err != nil {
 			fmt.Println("Error iterating over git log...")
 		}
 	}
-	return h
+	return h commiterWhen, prevCommiterWhen
 }
 
 func TraverseCommitsWithPrevious(repo *git.Repository, commits []string) map[string]string {
@@ -552,7 +559,7 @@ func readMetrics(path string) map[string]strMetrics {
 		fmt.Println("Cannot read csv data of time file", err)
 	}
 	for _, row := range rows {
-		fmt.Println("time row: ", row)
+		// fmt.Println("time row: ", row)
 		//if i != 0 {
 		if row != nil {
 			// fmt.Println(row)

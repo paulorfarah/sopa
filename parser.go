@@ -101,12 +101,12 @@ func ParsePeassResults() {
 		data = append(data, s)
 		json.Unmarshal([]byte(byteValue), &result)
 		for commit, v := range result.VersionChanges {
-			prevCommit := GetParentCommit(repo, plumbing.NewHash(commit))
+			prevCommit, commitTime, prevCommitTime := GetParentCommit(repo, plumbing.NewHash(commit))
 			for _, w := range v.TestCaseChanges {
 				for _, j := range w {
 					currTime := j.OldTime + (j.OldTime * (j.ChangePercent / float64(100)))
 					diffTime := currTime - j.OldTime
-					s = []string{commit, j.Method, prevCommit, fmt.Sprintf("%f", j.OldTime), fmt.Sprintf("%f", currTime), fmt.Sprintf("%f", diffTime), fmt.Sprintf("%f", j.ChangePercent)}
+					s = []string{commitTime.String(), commit, j.Method, prevCommitTime.String(), prevCommit, fmt.Sprintf("%f", j.OldTime), fmt.Sprintf("%f", currTime), fmt.Sprintf("%f", diffTime), fmt.Sprintf("%f", j.ChangePercent)}
 					data = append(data, s)
 				}
 			}
@@ -294,7 +294,6 @@ func ParseHadoopResults() {
 			c.prevIo, c.io, fmt.Sprintf("%f", c.diffIo)}
 		writer.Write(row)
 	}
-
 }
 
 func readHadoopCsv(f string) map[string]map[string]float64 {
@@ -359,9 +358,9 @@ func sumMetricRow(commit, prevCommit string, mapMethodCur, mapMethodPrev map[str
 		methodsPrev = append(methodsPrev, methodName)
 	}
 	methodsDiff := slicesDiff(methods, methodsPrev)
-	fmt.Println("methods: ", methods)
-	fmt.Println("methodsPrev: ", methodsPrev)
-	fmt.Println("methodsDiff: ", methodsDiff)
+	// fmt.Println("methods: ", methods)
+	// fmt.Println("methodsPrev: ", methodsPrev)
+	// fmt.Println("methodsDiff: ", methodsDiff)
 	if len(methodsDiff) == 0 {
 		sumStr = fmt.Sprintf("%f", sum)
 		sumPrevStr = fmt.Sprintf("%f", sumPrev)
