@@ -23,7 +23,7 @@ func main() {
 	// ParsePeassResults()
 	ParseHadoopResults()
 	// ParseTravisTorrent()
-	// SummarizeResults()
+	SummarizeResults()
 
 	// urls := map[string]string{
 	// 	// "okhttp": "https://github.com/square/okhttp",
