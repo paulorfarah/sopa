@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/go-git/go-git/v5/plumbing"
 )
@@ -36,20 +37,22 @@ type Measurement struct {
 }
 
 type commitPerf struct {
-	commit      string
-	prevCommit  string
-	runtime     string
-	prevRuntime string
-	diffRuntime float64
-	cpu         string
-	prevCpu     string
-	diffCpu     float64
-	memory      string
-	prevMemory  string
-	diffMemory  float64
-	io          string
-	prevIo      string
-	diffIo      float64
+	commitTime     time.Time
+	commit         string
+	prevCommitTime time.Time
+	prevCommit     string
+	runtime        string
+	prevRuntime    string
+	diffRuntime    float64
+	cpu            string
+	prevCpu        string
+	diffCpu        float64
+	memory         string
+	prevMemory     string
+	diffMemory     float64
+	io             string
+	prevIo         string
+	diffIo         float64
 }
 
 func ParsePeassResults() {
@@ -189,7 +192,7 @@ func ParseTravisTorrent() {
 		// diffTime := currTime - j.OldTime
 		commit := build["tr_original_commit"]
 		method := build["tr_log_tests"]
-		prevCommit := GetParentCommit(repo, plumbing.NewHash(fmt.Sprintf("%v", commit)))
+		prevCommit, commitTime, prevCommitTime := GetParentCommit(repo, plumbing.NewHash(fmt.Sprintf("%v", commit)))
 		tests_num := build["tr_log_tests_num"]
 		tests_duration := build["tr_log_tests_duration"]
 		if method != nil && method != "" {
@@ -201,7 +204,7 @@ func ParseTravisTorrent() {
 				fmt.Println(methods[i])
 				fmt.Println(nums[i])
 				fmt.Println(durations[i])
-				s = []string{commit.(string), methods[i], prevCommit, "", "", durations[i], ""}
+				s = []string{commitTime.String(), commit.(string), methods[i], prevCommitTime.String(), prevCommit, "", "", durations[i], ""}
 				data = append(data, s)
 			}
 		}
@@ -242,14 +245,14 @@ func ParseHadoopResults() {
 		infile := "data/hadoop/hadoop_" + metric + ".csv"
 		inRes := readHadoopCsv(infile)
 		for commit, mapMethod := range inRes {
-			prevCommit := GetParentCommit(repo, plumbing.NewHash(commit))
+			prevCommit, commitTime, prevCommitTime := GetParentCommit(repo, plumbing.NewHash(commit))
 			mapMethodPrev := inRes[prevCommit]
 			mValue, prevValue := sumMetricRow(commit, prevCommit, mapMethod, mapMethodPrev)
 			// row := commitPerf{commit: commit, prevCommit: prevCommit, runtime: runtime, prevRuntime: prevRuntime}
 
 			switch metric {
 			case "runtime":
-				hadoopCommits[commit] = &commitPerf{commit: commit, prevCommit: prevCommit, runtime: mValue, prevRuntime: prevValue}
+				hadoopCommits[commit] = &commitPerf{commitTime: commitTime, commit: commit, prevCommitTime: prevCommitTime, prevCommit: prevCommit, runtime: mValue, prevRuntime: prevValue}
 				v, _ := strconv.ParseFloat(mValue, 64)
 				p, _ := strconv.ParseFloat(prevValue, 64)
 				(*hadoopCommits[commit]).diffRuntime = v - p

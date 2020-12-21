@@ -339,7 +339,6 @@ func GetParentCommit(repo *git.Repository, hash plumbing.Hash) (string, time.Tim
 
 		err = cIter.ForEach(func(c *object.Commit) error {
 			// fmt.Printf("%s\n", c.Hash)
-			}
 			if prevCommit != nil {
 				if prevTree != nil {
 					if h == "" {
@@ -354,18 +353,18 @@ func GetParentCommit(repo *git.Repository, hash plumbing.Hash) (string, time.Tim
 					// 	prevCommits[hash] = prevHash
 					// }
 				}
-			}else{
+			} else {
 				commiterWhen = c.Author.When
 			}
 			prevCommit = c
 			prevTree, _ = c.Tree()
-			return nil, commiterWhen, prevCommiterWhen
+			return nil
 		})
 		if err != nil {
 			fmt.Println("Error iterating over git log...")
 		}
 	}
-	return h commiterWhen, prevCommiterWhen
+	return h, commiterWhen, prevCommiterWhen
 }
 
 func TraverseCommitsWithPrevious(repo *git.Repository, commits []string) map[string]string {
