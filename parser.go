@@ -476,7 +476,7 @@ func SummarizeResults() {
 				//commit,method,oldTime,currTime,diffTime,changePercent
 				// var prevCommit, oldTime, currTime, diffTime string
 
-				prevTime, err := time.Parse(layout, record[2])
+				prevTime, err := time.Parse(layout, record[3])
 				if err != nil {
 					fmt.Println("Cannot parse prevTime", err)
 				}
@@ -486,27 +486,27 @@ func SummarizeResults() {
 				mapCommitPerf[commit] = &commitPerf{
 					commitTime:     t,
 					prevCommitTime: prevTime,
-					prevCommit:     record[3],
-					prevRuntime:    record[4],
-					runtime:        record[5],
+					prevCommit:     record[4],
+					prevRuntime:    record[5],
+					runtime:        record[6],
 					diffRuntime:    dr,
 				}
 				cols := len(record)
 				if cols >= 15 {
 					//cpu
-					mapCommitPerf[commit].prevCpu = record[6]
-					mapCommitPerf[commit].cpu = record[7]
-					dc, _ := strconv.ParseFloat(record[8], 64)
+					mapCommitPerf[commit].prevCpu = record[7]
+					mapCommitPerf[commit].cpu = record[8]
+					dc, _ := strconv.ParseFloat(record[9], 64)
 					mapCommitPerf[commit].diffCpu = dc
 					//memory
-					mapCommitPerf[commit].prevMemory = record[9]
-					mapCommitPerf[commit].memory = record[10]
-					dm, _ := strconv.ParseFloat(record[11], 64)
+					mapCommitPerf[commit].prevMemory = record[10]
+					mapCommitPerf[commit].memory = record[11]
+					dm, _ := strconv.ParseFloat(record[12], 64)
 					mapCommitPerf[commit].diffMemory = dm
 					//io
-					mapCommitPerf[commit].prevIo = record[12]
-					mapCommitPerf[commit].io = record[13]
-					di, _ := strconv.ParseFloat(record[14], 64)
+					mapCommitPerf[commit].prevIo = record[13]
+					mapCommitPerf[commit].io = record[14]
+					di, _ := strconv.ParseFloat(record[15], 64)
 					mapCommitPerf[commit].diffIo = di
 				} else {
 					// changePercent := record[5]
