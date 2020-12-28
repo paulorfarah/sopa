@@ -81,7 +81,7 @@ func ReadSmellsFromCommits(urls map[string]string) {
 	smellTool := "organic" //"designite"
 
 	//header columns
-	header := "project,commit,order"
+	header := "project, timestamp, commit,order"
 	var designSmells []string
 	var implSmells []string
 
@@ -111,7 +111,7 @@ func ReadSmellsFromCommits(urls map[string]string) {
 		}
 	}
 
-	header += ", resptime"
+	header += ", runtime"
 	runSmellTool(urls, smellTool, header, designSmells, implSmells)
 }
 
@@ -138,6 +138,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 
 			rSumFile := csv.NewReader(sumFile)
 			commits := make(map[string]string)
+			timestamps := make(map[string]time.Time)
 			for {
 				commit, err := rSumFile.Read()
 				if err == io.EOF {
@@ -147,7 +148,11 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 					fmt.Println(">>> [ERROR]: Cannot read commit: ", err)
 				}
 				if commit[0] != "commit" {
-					commits[commit[0]] = commit[1]
+					layout := "2006-01-02T15:04:05.000Z"
+					str := commit[0]
+					t, _ := time.Parse(layout, str)
+					timestamps[commit[1]] = t
+					commits[commit[1]] = commit[2]
 				}
 			}
 			// repo := CloneRepo(urls[repoName], repoName)
@@ -176,7 +181,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 
 				_, found := metrics[currCommit]
 				if found {
-					fmt.Println("found curr: ", currCommit)
+					// fmt.Println("found curr: ", currCommit)
 					oldTime := fmt.Sprintf("%f", metrics[currCommit].oldTime)
 					data += "," + oldTime
 					//write previous commit results

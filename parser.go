@@ -221,14 +221,15 @@ func ParseHadoopResults() {
 	*/
 	// dir := "refactoring-python-code"
 	// url := "https://github.com/paulorfarah/refactoring-python-code"
-	// infile, errIn := os.Open("data/hadoop/rpc.csv")
 	// outfile, errOut := os.Create("results/rpc.csv")
+	// infile := "data/hadoop/rpc.csv"
 
 	dir := "hadoop"
 	url := "https://github.com/apache/hadoop"
+	outfile, errOut := os.Create("results/hadoop.csv")
+
 	repo := CloneRepo(url, dir)
 
-	outfile, errOut := os.Create("results/hadoop.csv")
 	if errOut != nil {
 		log.Fatal("Cannot create hadoop summary results file", errOut)
 	}
@@ -462,6 +463,11 @@ func SummarizeResults() {
 			if err != nil {
 				fmt.Println("Cannot read row: ", filename, err)
 			}
+			layout := "2006-01-02T15:04:05.000Z"
+			t, err := time.Parse(layout, record[0])
+			if err != nil {
+				fmt.Println("Cannot parse currTime", err)
+			}
 			commit := strings.TrimSpace(record[1])
 
 			if commit != "commit" {
@@ -469,15 +475,11 @@ func SummarizeResults() {
 				//commit,method,oldTime,currTime,diffTime,changePercent
 				// var prevCommit, oldTime, currTime, diffTime string
 
-				layout := "2006-01-02T15:04:05.000Z"
 				prevTime, err := time.Parse(layout, record[2])
 				if err != nil {
-					fmt.Println(err)
+					fmt.Println("Cannot parse prevTime", err)
 				}
-				t, err := time.Parse(layout, record[0])
-				if err != nil {
-					fmt.Println(err)
-				}
+
 				dr, _ := strconv.ParseFloat(record[5], 64)
 
 				mapCommitPerf[commit] = &commitPerf{

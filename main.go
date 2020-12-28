@@ -25,10 +25,10 @@ func main() {
 	// ParseTravisTorrent()
 	SummarizeResults()
 
-	// urls := map[string]string{
-	// 	// "okhttp": "https://github.com/square/okhttp",
-	// 	"hadoop": "https://github.com/apache/hadoop",
-	// 	// "rpc": "https://github.com/paulorfarah/refactoring-python-code",
-	// }
-	// ReadSmellsFromCommits(urls)
+	urls := map[string]string{
+		// "okhttp": "https://github.com/square/okhttp",
+		// "hadoop": "https://github.com/apache/hadoop",
+		"rpc": "https://github.com/paulorfarah/refactoring-python-code",
+	}
+	ReadSmellsFromCommits(urls)
 }
