@@ -152,7 +152,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 					str := commit[0]
 					t, _ := time.Parse(layout, str)
 					timestamps[commit[1]] = t
-					commits[commit[1]] = commit[2]
+					commits[commit[1]] = commit[3]
 				}
 			}
 			// repo := CloneRepo(urls[repoName], repoName)
