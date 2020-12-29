@@ -296,7 +296,21 @@ func ParseHadoopResults() {
 			c.prevCpu, c.cpu, fmt.Sprintf("%f", c.diffCpu),
 			c.prevMemory, c.memory, fmt.Sprintf("%f", c.diffMemory),
 			c.prevIo, c.io, fmt.Sprintf("%f", c.diffIo)}
-		writer.Write(row)
+		if c.prevRuntime != "" &&
+			c.runtime != "" &&
+			c.diffRuntime != float64(0) &&
+			c.prevCpu != "" &&
+			c.cpu != "" &&
+			c.diffCpu != float64(0) &&
+			c.prevMemory != "" &&
+			c.memory != "" &&
+			c.diffMemory != float64(0) &&
+			c.prevIo != "" &&
+			c.io != "" &&
+			c.diffIo != float64(0) {
+			writer.Write(row)
+		}
+
 	}
 }
 
