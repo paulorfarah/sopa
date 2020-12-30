@@ -75,13 +75,19 @@ type ClassMetrics struct {
 	IsAbstract              float32
 }
 
+type timestamps struct {
+	prevCommit    string
+	timestamp     time.Time
+	prevTimestamp time.Time
+}
+
 func ReadSmellsFromCommits(urls map[string]string) {
 
 	//Designite
 	smellTool := "organic" //"designite"
 
 	//header columns
-	header := "project, timestamp, commit,order"
+	header := "project, timestamp, commit, order"
 	var designSmells []string
 	var implSmells []string
 
@@ -137,8 +143,9 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 			}
 
 			rSumFile := csv.NewReader(sumFile)
-			commits := make(map[string]string)
-			timestamps := make(map[string]time.Time)
+			// commits := make(map[string]string)
+			// timestamps := make(map[string]time.Time)
+			commits := make(map[string]timestamps)
 			for {
 				commit, err := rSumFile.Read()
 				if err == io.EOF {
@@ -147,12 +154,19 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 				if err != nil {
 					fmt.Println(">>> [ERROR]: Cannot read commit: ", err)
 				}
-				if commit[0] != "commit" {
+				if commit[1] != "commit" {
 					layout := "2006-01-02T15:04:05.000Z"
 					str := commit[0]
 					t, _ := time.Parse(layout, str)
-					timestamps[commit[1]] = t
-					commits[commit[1]] = commit[3]
+					strp := commit[2]
+					pt, _ := time.Parse(layout, strp)
+					var ts timestamps
+					ts.timestamp = t
+					ts.prevTimestamp = pt
+					ts.prevCommit = commit[3]
+					commits[commit[1]] = ts
+					// timestamps[commit[1]] = t
+					// commits[commit[1]] = commit[3]
 				}
 			}
 			// repo := CloneRepo(urls[repoName], repoName)
@@ -165,23 +179,25 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 			tpath := "results" + string(os.PathSeparator) + "sum" + string(os.PathSeparator) + filename
 			metrics := readMetrics(tpath)
 
-			for currCommit, prevCommit := range commits {
-				fmt.Printf("curr: %s, prev: %s\n", currCommit, prevCommit)
+			for currCommit, ts := range commits {
+				fmt.Printf("curr: %s %s, prev:%s %s\n", ts.timestamp, currCommit, ts.prevTimestamp, ts.prevCommit)
 				//curr commit
 				processCommit(repoName, currCommit)
 				// previous commit
-				processCommit(repoName, prevCommit)
+				processCommit(repoName, ts.prevCommit)
 				// //summarize results
-				var data string
+				// var data string
+				data := repoName + "," + ts.prevCommit + "," + ts.prevTimestamp.String() + "," + "Previous"
 				if smellTool == "designite" {
-					data = summarizeDesigniteSmells(repoName, prevCommit, "Previous", designSmells, implSmells)
+					data += summarizeDesigniteSmells(repoName, ts.prevCommit, designSmells, implSmells)
 				} else if smellTool == "organic" {
-					data = summarizeOrganicSmells(repoName, prevCommit, "Previous", designSmells, implSmells)
+					data += summarizeOrganicSmells(repoName, ts.prevCommit, designSmells, implSmells)
 				}
 
 				_, found := metrics[currCommit]
 				if found {
 					// fmt.Println("found curr: ", currCommit)
+					data += currCommit + ", " + ts.timestamp.String() + ", " + "Current"
 					oldTime := fmt.Sprintf("%f", metrics[currCommit].oldTime)
 					data += "," + oldTime
 					//write previous commit results
@@ -190,9 +206,9 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 
 					// //curr commit
 					if smellTool == "designite" {
-						data += "," + summarizeDesigniteSmells(repoName, currCommit, "Current", designSmells, implSmells)
+						data += "," + summarizeDesigniteSmells(repoName, currCommit, designSmells, implSmells)
 					} else if smellTool == "organic" {
-						data += "," + summarizeOrganicSmells(repoName, currCommit, "Current", designSmells, implSmells)
+						data += "," + summarizeOrganicSmells(repoName, currCommit, designSmells, implSmells)
 					}
 					//time
 					newTime := fmt.Sprintf("%f", metrics[currCommit].newTime)
@@ -224,10 +240,10 @@ func processCommit(repoName, commit string) {
 	ProcessSmells(repoName, commit)
 }
 
-func summarizeDesigniteSmells(repoName, commit, order string, designSmells, implSmells []string) string {
+func summarizeDesigniteSmells(repoName, commit string, designSmells, implSmells []string) string {
 	//summarize results
 	pathSmells := "results" + string(os.PathSeparator) + repoName + string(os.PathSeparator) + commit + string(os.PathSeparator) + "smells" + string(os.PathSeparator)
-	data := repoName + "," + commit + "," + order
+	data := ", " //repoName + "," + commit + "," + order
 
 	//design smells
 	sumDSmells := readSmellsCsv(pathSmells+"DesignSmells.csv", 3)
@@ -243,9 +259,9 @@ func summarizeDesigniteSmells(repoName, commit, order string, designSmells, impl
 	return data
 }
 
-func summarizeOrganicSmells(repoName, commit, order string, classSmells, methodSmells []string) string {
+func summarizeOrganicSmells(repoName, commit string, classSmells, methodSmells []string) string {
 	//summarize results
-	data := repoName + "," + commit + "," + order
+	data := ", " //repoName + "," + commit + "," + order
 	pathSmells := "results" + string(os.PathSeparator) + repoName + string(os.PathSeparator) + commit + string(os.PathSeparator) + "smells" + string(os.PathSeparator)
 	jsonFile, err := os.Open(pathSmells + "smells_organic.json")
 	if err != nil {
