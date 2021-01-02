@@ -180,7 +180,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 			metrics := readMetrics(tpath)
 
 			for currCommit, ts := range commits {
-				fmt.Printf("curr: %s %s, prev:%s %s\n", ts.timestamp, currCommit, ts.prevTimestamp, ts.prevCommit)
+				fmt.Printf("prev: %s %s, curr:%s %s\n", ts.prevTimestamp, ts.prevCommit, ts.timestamp, currCommit)
 				//curr commit
 				processCommit(repoName, currCommit)
 				// previous commit
@@ -219,6 +219,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 					data += "," + diffTime
 
 					//save data file
+					fmt.Println("save data: ", data)
 					_, _ = wSumSmell.WriteString(data + "\n")
 					wSumSmell.Flush()
 				}
