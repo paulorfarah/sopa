@@ -250,7 +250,7 @@ func ParseHadoopResults() {
 			mapMethodPrev := inRes[prevCommit]
 			mValue, prevValue := sumMetricRow(commit, prevCommit, mapMethod, mapMethodPrev)
 			// row := commitPerf{commit: commit, prevCommit: prevCommit, runtime: runtime, prevRuntime: prevRuntime}
-
+			fmt.Println(metric)
 			switch metric {
 			case "runtime":
 				hadoopCommits[commit] = &commitPerf{commitTime: commitTime, commit: commit, prevCommitTime: prevCommitTime, prevCommit: prevCommit, runtime: mValue, prevRuntime: prevValue}
