@@ -240,7 +240,7 @@ func ParseHadoopResults() {
 	hadoopCommits := make(map[string]*commitPerf)
 
 	//commmit, prevCommit, runtime
-	metrics := []string{"runtime", "cpu", "memory", "io"}
+	metrics := []string{"runtime"]//, "cpu", "memory", "io"}
 
 	for _, metric := range metrics {
 		infile := "data/hadoop/hadoop_" + metric + ".csv"
