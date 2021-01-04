@@ -580,8 +580,7 @@ func readMetrics(path string) map[string]strMetrics {
 		fmt.Println("Cannot read csv data of time file", err)
 	}
 	for _, row := range rows {
-		// fmt.Println("time row: ", row)
-		//if i != 0 {
+		fmt.Println("time row: ", row)
 		if row != nil {
 			// fmt.Println(row)
 			if len(row) > 2 {
