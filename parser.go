@@ -294,23 +294,24 @@ func ParseHadoopResults() {
 	// }
 
 	for _, c := range hadoopCommits {
-		fmt.Println(c)
-		row := []string{c.commitTime.String(), c.commit, "method name", c.prevCommitTime.String(), c.prevCommit, c.prevRuntime, c.runtime, fmt.Sprintf("%f", c.diffRuntime),
+		row := []string{c.commitTime.String(), c.commit, "method name", c.prevCommitTime.String(), c.prevCommit, c.prevRuntime, 
+		    c.runtime, fmt.Sprintf("%f", c.diffRuntime),
 			c.prevCpu, c.cpu, fmt.Sprintf("%f", c.diffCpu),
 			c.prevMemory, c.memory, fmt.Sprintf("%f", c.diffMemory),
 			c.prevIo, c.io, fmt.Sprintf("%f", c.diffIo)}
+
 		if c.prevRuntime != "" &&
 			c.runtime != "" &&
-			c.diffRuntime != float64(0) &&
+			// c.diffRuntime != float64(0) &&
 			c.prevCpu != "" &&
 			c.cpu != "" &&
-			c.diffCpu != float64(0) &&
+			// c.diffCpu != float64(0) &&
 			c.prevMemory != "" &&
 			c.memory != "" &&
-			c.diffMemory != float64(0) &&
+			// c.diffMemory != float64(0) &&
 			c.prevIo != "" &&
 			c.io != "" &&
-			c.diffIo != float64(0) {
+			// c.diffIo != float64(0) {
 			writer.Write(row)
 		}
 
