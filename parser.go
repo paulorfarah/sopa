@@ -246,11 +246,11 @@ func ParseHadoopResults() {
 		infile := "data/hadoop/hadoop_" + metric + ".csv"
 		inRes := readHadoopCsv(infile)
 		for commit, mapMethod := range inRes {
+			fmt.Println(commit, mapMethod)
 			prevCommit, commitTime, prevCommitTime := GetParentCommit(repo, plumbing.NewHash(commit))
 			mapMethodPrev := inRes[prevCommit]
 			mValue, prevValue := sumMetricRow(commit, prevCommit, mapMethod, mapMethodPrev)
 			// row := commitPerf{commit: commit, prevCommit: prevCommit, runtime: runtime, prevRuntime: prevRuntime}
-			fmt.Println(metric)
 			switch metric {
 			case "runtime":
 				hadoopCommits[commit] = &commitPerf{commitTime: commitTime, commit: commit, prevCommitTime: prevCommitTime, prevCommit: prevCommit, runtime: mValue, prevRuntime: prevValue}
