@@ -314,7 +314,9 @@ func ParseHadoopResults() {
 		// 	// c.diffIo != float64(0) {
 		// 	writer.Write(row)
 		// }
-		writer.Write(row)
+		if len(c.prevRuntime) > 0 {
+			writer.Write(row)
+		}
 	}
 }
 
