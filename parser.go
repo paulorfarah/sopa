@@ -483,8 +483,7 @@ func SummarizeResults() {
 			if err != nil {
 				fmt.Println("Cannot read row: ", filename, err)
 			}
-			layout := "2006-01-02 15:04:05 -0700 -0700" //"2006-01-02T15:04:05.000Z"
-			//"2017-06-28 10:50:09 +0900 +0900"
+			layout := "2006-01-02 15:04:05 -0700 -0700"
 			t, err := time.Parse(layout, record[0])
 			if err != nil {
 				fmt.Println("Cannot parse currTime", err)
