@@ -155,7 +155,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 					fmt.Println(">>> [ERROR]: Cannot read commit: ", err)
 				}
 				if commit[1] != "commit" {
-					layout := "2006-01-02T15:04:05.000Z"
+					layout := "2006-01-02 15:04:05 -0700 -0700"
 					str := commit[0]
 					t, _ := time.Parse(layout, str)
 					strp := commit[2]
@@ -169,11 +169,6 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 					// commits[commit[1]] = commit[3]
 				}
 			}
-			// repo := CloneRepo(urls[repoName], repoName)
-
-			// prevCommits := TraverseCommitsWithPrevious(repo, commits)
-			// fmt.Println("--- prevCommits ---")
-			// fmt.Println(prevCommits)
 
 			// time
 			tpath := "results" + string(os.PathSeparator) + "sum" + string(os.PathSeparator) + filename
@@ -186,7 +181,6 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 				// previous commit
 				processCommit(repoName, ts.prevCommit)
 				// //summarize results
-				// var data string
 				data := repoName + "," + ts.prevCommit + "," + ts.prevTimestamp.String() + "," + "Previous"
 				if smellTool == "designite" {
 					data += summarizeDesigniteSmells(repoName, ts.prevCommit, designSmells, implSmells)
@@ -586,57 +580,57 @@ func readMetrics(path string) map[string]strMetrics {
 			if len(row) > 2 {
 				commit := row[0]
 				//runtime
-				ot, err := strconv.ParseFloat(row[2], 32)
+				ot, err := strconv.ParseFloat(row[4], 32)
 				if err != nil {
 					fmt.Println("### ERROR: Cannot convert OldMetric to float", err)
 				}
-				nt, err := strconv.ParseFloat(row[3], 32)
+				nt, err := strconv.ParseFloat(row[5], 32)
 				if err != nil {
 					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
 				}
-				dt, err := strconv.ParseFloat(row[4], 32)
+				dt, err := strconv.ParseFloat(row[6], 32)
 				if err != nil {
 					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
 				}
 
 				//cpu
-				oc, err := strconv.ParseFloat(row[5], 32)
+				oc, err := strconv.ParseFloat(row[7], 32)
 				if err != nil {
 					fmt.Println("### ERROR: Cannot convert OldMetric to float", err)
 				}
-				nc, err := strconv.ParseFloat(row[6], 32)
+				nc, err := strconv.ParseFloat(row[8], 32)
 				if err != nil {
 					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
 				}
-				dc, err := strconv.ParseFloat(row[7], 32)
+				dc, err := strconv.ParseFloat(row[9], 32)
 				if err != nil {
 					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
 				}
 
 				//mem
-				om, err := strconv.ParseFloat(row[8], 32)
+				om, err := strconv.ParseFloat(row[10], 32)
 				if err != nil {
 					fmt.Println("### ERROR: Cannot convert OldMetric to float", err)
 				}
-				nm, err := strconv.ParseFloat(row[9], 32)
+				nm, err := strconv.ParseFloat(row[11], 32)
 				if err != nil {
 					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
 				}
-				dm, err := strconv.ParseFloat(row[10], 32)
+				dm, err := strconv.ParseFloat(row[12], 32)
 				if err != nil {
 					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
 				}
 
 				//io
-				oi, err := strconv.ParseFloat(row[11], 32)
+				oi, err := strconv.ParseFloat(row[13], 32)
 				if err != nil {
 					fmt.Println("### ERROR: Cannot convert OldMetric to float", err)
 				}
-				ni, err := strconv.ParseFloat(row[12], 32)
+				ni, err := strconv.ParseFloat(row[14], 32)
 				if err != nil {
 					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
 				}
-				di, err := strconv.ParseFloat(row[13], 32)
+				di, err := strconv.ParseFloat(row[15], 32)
 				if err != nil {
 					fmt.Println("### ERROR: Cannot convert NewMetric to float", err)
 				}
