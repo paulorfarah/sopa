@@ -194,7 +194,7 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 					// fmt.Println("found curr: ", currCommit)
 					oldTime := fmt.Sprintf("%f", metrics[currCommit].oldTime)
 					data += currCommit + ", " + ts.timestamp.String() + ", " + "Current, " + oldTime
-					
+
 					// //curr commit
 					if smellTool == "designite" {
 						data += "," + summarizeDesigniteSmells(repoName, currCommit, designSmells, implSmells)
@@ -595,17 +595,18 @@ func readMetrics(path string) map[string]strMetrics {
 				nc := float64(0.0)
 				dc := float64(0.0)
 				if row[10] != "" && row[11] != "" {
-				oc, err = strconv.ParseFloat(row[7], 32)
-				if err != nil {
-					fmt.Println("### ERROR: Cannot convert cpu OldMetric to float", err)
-				}
-				nc, err = strconv.ParseFloat(row[8], 32)
-				if err != nil {
-					fmt.Println("### ERROR: Cannot convert cpu NewMetric to float", err)
-				}
-				dc, err = strconv.ParseFloat(row[9], 32)
-				if err != nil {
-					fmt.Println("### ERROR: Cannot convert cpu DiffMetric to float", err)
+					oc, err = strconv.ParseFloat(row[7], 32)
+					if err != nil {
+						fmt.Println("### ERROR: Cannot convert cpu OldMetric to float", err)
+					}
+					nc, err = strconv.ParseFloat(row[8], 32)
+					if err != nil {
+						fmt.Println("### ERROR: Cannot convert cpu NewMetric to float", err)
+					}
+					dc, err = strconv.ParseFloat(row[9], 32)
+					if err != nil {
+						fmt.Println("### ERROR: Cannot convert cpu DiffMetric to float", err)
+					}
 				}
 
 				//mem
