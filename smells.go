@@ -575,7 +575,7 @@ func readMetrics(path string) map[string]strMetrics {
 		if row != nil {
 			// fmt.Println(row)
 			if len(row) > 2 {
-				commit := row[0]
+				commit := row[1]
 				//runtime
 				ot, err := strconv.ParseFloat(row[4], 32)
 				if err != nil {
