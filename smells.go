@@ -189,7 +189,6 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 				}
 
 				_, found := metrics[currCommit]
-				fmt.Println(currCommit, found)
 				if found {
 					// fmt.Println("found curr: ", currCommit)
 					oldTime := fmt.Sprintf("%f", metrics[currCommit].oldTime)
@@ -208,6 +207,30 @@ func runSmellTool(urls map[string]string, smellTool, header string, designSmells
 					//diff time
 					diffTime := fmt.Sprintf("%f", metrics[currCommit].diffTime)
 					data += "," + diffTime
+
+					//cpu
+					oldCpu := fmt.Sprintf("%f", metrics[currCommit].oldCpu)
+					data += "," + oldCpu
+					newCpu := fmt.Sprintf("%f", metrics[currCommit].newCpu)
+					data += "," + newCpu
+					diffCpu := fmt.Sprintf("%f", metrics[currCommit].diffCpu)
+					data += "," + diffCpu
+
+					//memory
+					oldMemory := fmt.Sprintf("%f", metrics[currCommit].oldMemory)
+					data += "," + oldMemory
+					newMemory := fmt.Sprintf("%f", metrics[currCommit].newMemory)
+					data += "," + newMemory
+					diffMemory := fmt.Sprintf("%f", metrics[currCommit].diffMemory)
+					data += "," + diffMemory
+
+					//io
+					oldIo := fmt.Sprintf("%f", metrics[currCommit].oldIo)
+					data += "," + oldIo
+					newIo := fmt.Sprintf("%f", metrics[currCommit].newIo)
+					data += "," + newIo
+					diffIo := fmt.Sprintf("%f", metrics[currCommit].diffIo)
+					data += "," + diffIo
 
 					//save data file
 					fmt.Println("save data: ", data)
