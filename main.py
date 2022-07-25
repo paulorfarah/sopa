@@ -9,7 +9,7 @@ def resources():
     # print(df.columns)
     c = 0
     for idx, row in df.iterrows():
-        res = dataset.read_resources_of_method(row['run_id'], row['start_time'], row['duration'])
+        res = dataset.read_resources_of_method(row['run_id'], row['method_started_at'], row['duration'])
         row['cpu_percent'] = res['cpu_percent'].mean()
         row['mem_percent'] = res['mem_percent'].mean()
         row['rss'] = res['rss'].mean()
@@ -29,6 +29,7 @@ def resources():
         row['child_major_faults'] = res['child_major_faults'].mean()
         c += 1
         print(datetime.datetime.now(), c)
+    df.to_csv('resources.csv')
 
 if __name__ == '__main__':
     resources()
