@@ -24,7 +24,7 @@ def read_methods():
     try:
         mydb = connection.connect(host="localhost", database="perfrt", user="root", passwd="password", use_pure=True)
         query = "SELECT c.committer_date, commit_hash, f.name AS classname, r.id AS run_id, m.name AS method_name, "
-        query += "m.caller_id, m.own_duration, m.created_at AS method_started_at, m.cumulative_duration "
+        query += "m.caller_id, m.own_duration, m.cumulative_duration m.created_at AS method_started_at, m.cumulative_duration "
         query += "FROM perfrt.commits AS c INNER JOIN perfrt.files AS f ON f.commit_id = c.id "
         query += "INNER JOIN perfrt.methods AS m ON m.file_id = f.id INNER JOIN perfrt.runs as r ON m.run_id = r.id "
         query += "WHERE m.finished = true ORDER BY c.committer_date, f.name"
