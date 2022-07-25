@@ -8,7 +8,7 @@ def resources():
     print(df.columns)
     # print(df.columns)
     c = 0
-    for idx, row in df.iterrows():
+    for idx, row in df.itertuples():
         res = dataset.read_resources_of_method(row['run_id'], row['method_started_at'], row['cumulative_duration'])
         row['cpu_percent'] = res['cpu_percent'].mean()
         row['mem_percent'] = res['mem_percent'].mean()
