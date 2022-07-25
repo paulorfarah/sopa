@@ -5,6 +5,7 @@ import charts
 
 def resources():
     df = dataset.read_methods()
+    print(df.columns)
     # print(df.columns)
     c = 0
     for idx, row in df.iterrows():
