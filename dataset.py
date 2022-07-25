@@ -38,15 +38,15 @@ def read_methods():
 
 def read_resources_of_method(run_id, start, duration):
     # "2022-06-27 19:33:59.469"
-    date_format = "%Y-%m-%d %H:%M:%S.%f"
-    start_time = datetime.datetime.strptime(start, date_format)
+    # date_format = "%Y-%m-%d %H:%M:%S.%f"
+    start_time = start #datetime.datetime.strptime(start, date_format)
     end_time = start_time + datetime.timedelta(seconds=duration)
     # print("start_time:", start_time)
     # print("end_time:", end_time)
 
     try:
         mydb = connection.connect(host="localhost", database="perfrt", user="root", passwd="password", use_pure=True)
-        query = "SELECT * FROM perfrt.resources WHERE run_id=" + run_id + " AND created_at BETWEEN start_time AND end_time;"
+        query = "SELECT * FROM perfrt.resources WHERE run_id=" + run_id + " AND created_at BETWEEN '" + start_time + "' AND '" + end_time +"';"
         ds = pd.read_sql(query, mydb)
         mydb.close()
         return ds
