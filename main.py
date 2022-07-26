@@ -8,7 +8,9 @@ def resources():
     print(df.columns)
     # print(df.columns)
     c = 0
+    print(df['cumulative_duration'].head())
     df['method_ended_at'] = df['method_started_at'] + pd.to_timedelta(df['cumulative_duration'], unit='s')
+
     for idx in range(len(df)):
         res = dataset.read_resources_of_method(df['run_id'].iloc[idx], df['method_started_at'].iloc[idx], df['method_ended_at'].iloc[idx])
         df['cpu_percent'].iloc[idx] = res['cpu_percent'].mean()
