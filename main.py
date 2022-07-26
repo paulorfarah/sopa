@@ -1,32 +1,33 @@
 import datetime
 
 import dataset
-import charts
+import pandas as pd
 
 def resources():
     df = dataset.read_methods()
     print(df.columns)
     # print(df.columns)
     c = 0
-    for idx, row in df.itertuples():
-        res = dataset.read_resources_of_method(row['run_id'], row['method_started_at'], row['cumulative_duration'])
-        row['cpu_percent'] = res['cpu_percent'].mean()
-        row['mem_percent'] = res['mem_percent'].mean()
-        row['rss'] = res['rss'].mean()
-        row['hwm'] = res['hwm'].mean()
-        row['data'] = res['data'].mean()
-        row['stack'] = res['stack'].mean()
-        row['locked'] = res['locked'].mean()
-        row['swap'] = res['swap'].mean()
-        row['read_count'] = res['read_count'].mean()
-        row['write_count'] = res['write_count'].mean()
-        row['read_bytes'] = res['read_bytes'].mean()
-        row['write_bytes'] = res['write_bytes'].mean()
-        row['minor_faults'] = res['minor_faults'].mean()
-        row['major_faults'] = res['major_faults'].mean()
-        row['child_minor_faults'] = res['child_minor_faults'].mean()
-        row['child_major_faults'] = res['child_major_faults'].mean()
-        row['child_major_faults'] = res['child_major_faults'].mean()
+    df['method_ended_at'] = df['method_started_at'] + pd.to_timedelta(df['cumulative_duration'], unit='s')
+    for idx in range(len(df)):
+        res = dataset.read_resources_of_method(df['run_id'].iloc[idx], df['method_started_at'].iloc[idx], df['method_ended_at'].iloc[idx])
+        df['cpu_percent'].iloc[idx] = res['cpu_percent'].mean()
+        df['mem_percent'].iloc[idx] = res['mem_percent'].mean()
+        df['rss'].iloc[idx] = res['rss'].mean()
+        df['hwm'].iloc[idx] = res['hwm'].mean()
+        df['data'].iloc[idx] = res['data'].mean()
+        df['stack'].iloc[idx] = res['stack'].mean()
+        df['locked'].iloc[idx] = res['locked'].mean()
+        df['swap'].iloc[idx] = res['swap'].mean()
+        df['read_count'].iloc[idx] = res['read_count'].mean()
+        df['write_count'].iloc[idx] = res['write_count'].mean()
+        df['read_bytes'].iloc[idx] = res['read_bytes'].mean()
+        df['write_bytes'].iloc[idx] = res['write_bytes'].mean()
+        df['minor_faults'].iloc[idx] = res['minor_faults'].mean()
+        df['major_faults'].iloc[idx] = res['major_faults'].mean()
+        df['child_minor_faults'].iloc[idx] = res['child_minor_faults'].mean()
+        df['child_major_faults'].iloc[idx] = res['child_major_faults'].mean()
+        df['child_major_faults'].iloc[idx] = res['child_major_faults'].mean()
         c += 1
         print(datetime.datetime.now(), c)
     df.to_csv('resources.csv')

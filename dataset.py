@@ -35,14 +35,7 @@ def read_methods():
         mydb.close()
         print(str(e))
 
-
-def read_resources_of_method(run_id, start, duration):
-    # "2022-06-27 19:33:59.469"
-    # date_format = "%Y-%m-%d %H:%M:%S.%f"
-    start_time = start #datetime.datetime.strptime(start, date_format)
-    end_time = start_time + datetime.timedelta(seconds=duration)
-    # print("start_time:", start_time)
-    # print("end_time:", end_time)
+def read_resources_of_method(run_id, start_time, end_time):
 
     try:
         mydb = connection.connect(host="localhost", database="perfrt", user="root", passwd="password", use_pure=True)
