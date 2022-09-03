@@ -1,8 +1,9 @@
 import numpy as np
 import pandas as pd
-import seaborn
+import seaborn as sns
 from sklearn import datasets
 import matplotlib.pyplot as plt
+import plotly.figure_factory as ff
 
 def ridgeline(df):
     # getting the data
@@ -32,10 +33,10 @@ def ridgeline(df):
     temp['mean_month'] = temp['month'].map(month_mean_serie)
 
     # we generate a color palette with Seaborn.color_palette()
-    pal = seaborn.color_palette(palette='coolwarm', n_colors=12)
+    pal = sns.color_palette(palette='coolwarm', n_colors=12)
 
     # in the sns.FacetGrid class, the 'hue' argument is the one that is the one that will be represented by colors with 'palette'
-    g = seaborn.FacetGrid(temp, row='month', hue='mean_month', aspect=15, height=0.75, palette=pal)
+    g = sns.FacetGrid(temp, row='month', hue='mean_month', aspect=15, height=0.75, palette=pal)
 
     # then we add the densities kdeplots for each month
     g.map(sns.kdeplot, 'Mean_TemperatureC',
@@ -75,15 +76,50 @@ def ridgeline(df):
 
     plt.show()
 
-def boxplot(df):
-    seaborn.set(style='whitegrid')
-    # seaborn.boxplot(x='commit_hash', y='cpu_percent', data=df, palette="deep")
+def boxplot(df, col):
+    sns.set(style='whitegrid')
 
-    fig, axs = plt.subplots(nrows=2)
-    seaborn.boxplot(x='commit_hash', y='duration', data=df, ax=axs[0])
-    # seaborn.boxplot(x='commit_hash', y='mem_percent', data=df, ax=axs[1])
+    # sns.boxplot(x='commit_hash', y='cpu_percent', data=df, palette="deep")
 
+    fig, axs = plt.subplots(figsize=(10, 6))
+    # sns.boxplot(x='commit_hash', y='duration', data=df, ax=axs[0], color='plum', width=0.5)
+    sns.boxplot(data=df, color='plum',  width=0.5, orient='v')
+    plt.title(col, fontsize=14)
+    plt.xlabel('date')
+    sns.despine()
+    # sns.boxplot(x='commit_hash', y='mem_percent', data=df, ax=axs[1])
+    plt.tight_layout()
     plt.show()
+
+def violin(df, col):
+    sns.set(style='whitegrid')
+
+    # sns.boxplot(x='commit_hash', y='cpu_percent', data=df, palette="deep")
+
+    fig, axs = plt.subplots(figsize=(10, 6))
+    # sns.boxplot(x='commit_hash', y='duration', data=df, ax=axs[0], color='plum', width=0.5)
+    sns.violinplot(data=df, color='plum', width=0.5)
+    plt.title(col['name'], fontsize=14)
+    plt.xlabel('date')
+    plt.ylabel(col['unit'])
+
+    locs, labels = plt.xticks()
+    # x_ticks = []
+    new_xticks = []
+    for l in labels:
+        new_xticks.append(str(l)[12:-15])
+        # print(str(l)[12:-15])
+
+    # new_xticks = [d[:11] for d in locs]
+    plt.xticks(locs, new_xticks, rotation=45, horizontalalignment='right')
+
+    sns.despine()
+    # sns.boxplot(x='commit_hash', y='mem_percent', data=df, ax=axs[1])
+    plt.tight_layout()
+    plt.show()
+
+
+
 
 def correlation(df):
 
@@ -94,6 +130,62 @@ def correlation(df):
     corr = df.corr()
     fig, ax = plt.subplots(figsize=(9, 6))
     mask = np.triu(np.ones_like(corr, dtype=bool))
-    cmap = seaborn.diverging_palette(230, 20, as_cmap=True)
-    seaborn.heatmap(corr, annot=True, mask=mask, cmap=cmap)
+    cmap = sns.diverging_palette(230, 20, as_cmap=True)
+    sns.heatmap(corr, annot=True, mask=mask, cmap=cmap)
     plt.show()
+
+
+def pdf_cdf(df, col):
+    # https: // stackoverflow.com / questions / 25577352 / plotting - cdf - of - a - pandas - series - in -python
+    # print(df.columns)
+    s = pd.Series(df[col], name='value')
+    df = pd.DataFrame(s)
+    # print(df.head)
+
+    # Get the frequency, PDF and CDF for each value in the series
+
+    # Frequency
+    stats_df = df.groupby('value')['value'].agg('count').pipe(pd.DataFrame).rename(columns={'value': 'frequency'})
+
+    # PDF
+    stats_df['pdf'] = stats_df['frequency'] / sum(stats_df['frequency'])
+
+    # CDF
+    stats_df['cdf'] = stats_df['pdf'].cumsum()
+    stats_df = stats_df.reset_index()
+    print(stats_df)
+    # Plot the discrete Probability Mass Function and CDF.
+    # Technically, the 'pdf label in the legend and the table the should be 'pmf'
+    # (Probability Mass Function) since the distribution is discrete.
+
+    # If you don't have too many values / usually discrete case
+    stats_df.plot.bar(x='value', y=['pdf', 'cdf'], grid=True)
+
+    # Define your series
+    s = pd.Series(np.random.normal(loc=10, scale=0.1, size=1000), name='value')
+
+    # Plot
+    stats_df.plot(x='value', y=['pdf', 'cdf'], grid=True)
+
+    stats_df.plot(x='value', y=['pdf'], grid=True)
+
+    stats_df.plot(x='value', y=['cdf'], grid=True)
+    plt.show()
+
+def gantt():
+    df = [dict(Task="Job-1", Start='2017-01-01', Finish='2017-02-02', Resource='Complete'),
+          dict(Task="Job-1", Start='2017-02-15', Finish='2017-03-15', Resource='Incomplete'),
+          dict(Task="Job-2", Start='2017-01-17', Finish='2017-02-17', Resource='Not Started'),
+          dict(Task="Job-2", Start='2017-01-17', Finish='2017-02-17', Resource='Complete'),
+          dict(Task="Job-3", Start='2017-03-10', Finish='2017-03-20', Resource='Not Started'),
+          dict(Task="Job-3", Start='2017-04-01', Finish='2017-04-20', Resource='Not Started'),
+          dict(Task="Job-3", Start='2017-05-18', Finish='2017-06-18', Resource='Not Started'),
+          dict(Task="Job-4", Start='2017-01-14', Finish='2017-03-14', Resource='Complete')]
+
+    colors = {'Not Started': 'rgb(220, 0, 0)',
+              'Incomplete': (1, 0.9, 0.16),
+              'Complete': 'rgb(0, 255, 100)'}
+
+    fig = ff.create_gantt(df, colors=colors, index_col='Resource', show_colorbar=True,
+                          group_tasks=True)
+    fig.show()

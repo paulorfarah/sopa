@@ -1,0 +1,7 @@
+,committer_date,commit_hash,classname,methodName,duration
+0,2022-04-23 11:07:47,b17c08c9a57d0cf2f11ff8b6f03ebf87a5743e1d,src/main/java/com/github/paulorfarah/mavenproject/App.java,public void com.github.paulorfarah.mavenproject.App.testJavaExceptionThrow() throws java.lang.Exception,10213.4444
+1,2022-04-23 11:07:47,b17c08c9a57d0cf2f11ff8b6f03ebf87a5743e1d,src/test/java/com/github/paulorfarah/mavenproject/AppTest.java,public void com.github.paulorfarah.mavenproject.AppTest.testAppHasAGreeting(),805.0
+2,2022-05-03 11:52:36,f2269f2d012c35c0829186c8582409934ec0f2ca,src/main/java/com/github/paulorfarah/mavenproject/App.java,public void com.github.paulorfarah.mavenproject.App.justPrintMessage(),15212.1667
+3,2022-05-03 11:52:36,f2269f2d012c35c0829186c8582409934ec0f2ca,src/test/java/com/github/paulorfarah/mavenproject/AppTest.java,public void com.github.paulorfarah.mavenproject.AppTest.testAppHasAGreeting(),639.0
+4,2022-05-31 20:54:01,6ceaede78681cd088d80cd5d00c59e3f0f428e25,src/main/java/com/github/paulorfarah/mavenproject/App.java,public void com.github.paulorfarah.mavenproject.App.justPrintMessage(),33.6667
+5,2022-05-31 20:54:01,6ceaede78681cd088d80cd5d00c59e3f0f428e25,src/test/java/com/github/paulorfarah/mavenproject/AppTest.java,public void com.github.paulorfarah.mavenproject.AppTest.testAppHasAGreeting(),386.0
