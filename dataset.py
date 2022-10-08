@@ -91,3 +91,30 @@ def averages():
         return ds
     except Exception as e:
         print(str(e))
+
+def commits_avg(df, col):
+
+    df_methods = df.groupby(['commit_hash', 'class_name', 'method_name'])
+    # print(df_methods.head())
+    df_methods = df_methods.aggregate('mean')
+    # print(df_methods)
+
+    df_classes = df_methods.groupby(['commit_hash', 'class_name'])
+    df_classes = df_classes.aggregate(col['measure'])
+    # print(df_classes)
+    df_res = pd.pivot_table(df_classes, values=col['name'],
+                   index=['class_name'],
+                   columns='commit_hash')
+    return df_res
+
+def commits_classes_avg(df):
+
+    df_methods = df.groupby(['commit_hash', 'class_name', 'method_name'], as_index=False)
+    df_methods = df_methods.aggregate('mean')
+    df_classes = df_methods.groupby(['commit_hash', 'class_name'], as_index=False)
+    # df_classes = df_classes.aggregate(col['measure']).reset_index()
+    # print(df_classes.columns)
+    #  print(df_classes[['commit_hash', 'class_name', 'own_duration']].head())
+
+    return df_classes
+

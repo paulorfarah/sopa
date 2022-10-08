@@ -1,6 +1,7 @@
 import datetime
 import sys
 
+import matplotlib
 import pandas
 
 import charts
@@ -8,14 +9,16 @@ import dataset
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from stats import get_group_statistics, get_statistics
+from statsmodels.graphics.tsaplots import plot_acf
+
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
+
 
 def resources():
     db = "maven-project"
     df = dataset.read_commits(db)
-
-
 
     # col = 'duration'
     # charts.pdf_cdf(df, col)
@@ -67,22 +70,49 @@ def resources():
     # print(dfg.head())
     df.to_csv('resources.csv')
 
-def commits_avg(csv, col):
-    df = pandas.read_csv(csv)
-    df_methods = df.groupby(['committer_date', 'class_name', 'method_name'])
+def commits_avg(df, col):
+
+    df_methods = df.groupby(['commit_hash', 'class_name', 'method_name'])
     # print(df_methods.head())
     df_methods = df_methods.aggregate('mean')
     # print(df_methods)
 
-    df_classes = df_methods.groupby(['committer_date', 'class_name'])
+    df_classes = df_methods.groupby(['commit_hash', 'class_name'])
     df_classes = df_classes.aggregate(col['measure'])
-    print(df_classes)
+    # print(df_classes)
     df_res = pd.pivot_table(df_classes, values=col['name'],
                    index=['class_name'],
-                   columns='committer_date')
+                   columns='commit_hash')
     return df_res
 
+
+def calls(df):
+    # conns = {}
+    calls = pd.DataFrame(columns=['commit_hash', 'class_name_source', 'method_name_source', 'class_name_dest',
+                                  'method_name_dest', 'own_duration', 'cumulative_duration'])
+    # print(df.head())
+    for index, row in df.iterrows():
+        commit_hash = row['commit_hash']
+        class_name_dest = row['class_name']
+        method_name_dest = row['method_name']
+        caller_id = row['caller_id']
+        if caller_id:
+            caller = df.loc[(df['commit_hash'] == commit_hash) & (df['id'] == caller_id)]
+            if len(caller):
+                class_name_source = caller['class_name'].iloc[0]
+                method_name_source = caller['method_name'].iloc[0]
+            calls.loc[len(calls.index)] = [commit_hash, class_name_source, method_name_source, class_name_dest,
+                                    method_name_dest, row['own_duration'], row['cumulative_duration']]
+
+    calls.to_csv('results/calls.csv', index=False)
+    calls_gb = calls.groupby(['commit_hash', 'class_name_source', 'class_name_dest'])['class_name_source', 'class_name_dest'].count()
+    calls_gb.to_csv('results/calls_gb.csv', index=False)
+
+
+
+
 if __name__ == '__main__':
+    pd.options.display.max_colwidth
 #     cols = ['own_duration', 'cumulative_duration', 'AVG(active)', 'AVG(available)', 'AVG(buffers)', 'AVG(cached)',
 #             'AVG(child_major_faults)', 'AVG(child_minor_faults)', 'AVG(commit_limit)', 'AVG(committed_as)',
 # 'AVG(cpu_percent)', 'AVG(data)', 'AVG(dirty)', 'AVG(free)', 'AVG(high_free)', 'AVG(high_total)', 'AVG(huge_pages_total)', 'AVG(huge_pages_free)', 'AVG(huge_pages_total)',
@@ -98,12 +128,79 @@ if __name__ == '__main__':
         {'name': 'AVG(cpu_percent)', 'unit': '%', 'measure': 'mean'},
         {'name': 'AVG(mem_percent)', 'unit': '%', 'measure': 'mean'},
         ]
-    easymock = 'data/maven-project.csv'
+    csv = 'data/bcel5.csv'
+    df = pandas.read_csv(csv)
+    df['commit_hash_short'] = df.commit_hash.str[:6]
+    df['class_name_short'] = df.class_name.str[30:] #replace('src/main/java/org/apache/bcel/', '')
+    df['method_name_short'] = df.method_name.str.split('org.apache.bcel.').str[-1]
+    df.method_name_short = df.method_name_short.str.split(' throws').str[0]
+
+    # for i, v in df.loc[df['class_name'] == 'src/main/java/org/apache/bcel/util/AbstractClassPathRepository.java'].iterrows():
+    #     print(v['method_name'])
+
+
     for col in cols:
-        df = commits_avg(easymock, col)
-        charts.violin(df, col)
+        # print(col['name'])
+        # print(df[[col['name']]].describe())
+        # get_statistics(df, col['name'])
+        # get_group_statistics(df, 'commit_hash', col['name'])
+        # df_col = dataset.commits_avg(df, col)
+        # charts.violin(df_col, col)
+        # print(df2.head())
+        # df3 = df2
+        # plot_acf(df2)
+
+        #surface
+
+        df_commits_classes = dataset.commits_classes_avg(df)
+        # print(df_commits_classes.columns)
+        # print(df_commits_classes.head())
+        # charts.surface(df_commits_classes, col)
+        # charts.lines(df[['commit_hash_short', 'class_name', col['name']]], col)
+
+
+        # charts.multiple_area(df[['commit_hash_short', 'class_name_short', col['name']]], col)
+
         # df.boxplot()
         # plt.savefig('results/' + col + '.pdf')
+
+
+    # waterfall chart
+    commit = 'fa271c5d7ed94dd1d9ef31c52f32d1746d5636dc'
+
+    # ok:
+    # class_name = 'src/main/java/org/apache/bcel/classfile/AnnotationElementValue.java'
+    # method_name = 'final int org.apache.bcel.classfile.ElementValue.getType()'
+
+    # class_name = 'src/test/java/org/apache/bcel/util/ClassPathRepositoryTestCase.java'
+    # method_name = 'private void org.apache.bcel.util.ClassPathRepositoryTestCase.verifyCaching(org.apache.bcel.util.AbstractClassPathRepository) throws java.lang.ClassNotFoundException'
+
+    #error:
+    # class_name = 'src/main/java/org/apache/bcel/BCELBenchmark.java'
+    # method_name = 'public void baseline(Blackhole bh) throws IOException'
+
+    # class_name = 'src/test/java/org/apache/bcel/util/ClassPathRepositoryTestCase.java'
+    # method_name = 'public void org.apache.bcel.util.ClassPathRepositoryTestCase.testClassPathRepository() throws java.lang.ClassNotFoundException,java.io.IOException'
+
+    # class_name = 'src/test/java/org/apache/bcel/verifier/VerifierReturnTestCase.java'
+    # method_name = 'public void org.apache.bcel.verifier.VerifierReturnTestCase.testInvalidReturn()'
+    # method = df[(df['commit_hash'] == commit) & (df['class_name'] == class_name) & (df['method_name'].str.startswith(method_name))]
+    # print(method['method_name'])
+    # method_name = str(method['method_name'])
+    #
+    # print(method_name)
+    # if method['method_name'].any():
+    #     charts.waterfall_method(df, commit, class_name, method)
+    # else:
+    #     print('No method found!')
+
+    # calls(df)
+
+
+    class_name_df = df[(df['class_name_short'].str.contains("TestCase.java")) & (df['commit_hash'] == commit)].drop_duplicates(subset=['class_name', 'method_name'])
+    for idx, tc in class_name_df.iterrows():
+        charts.waterfall_method(df, commit, tc['class_name'], tc['method_name'])
+
     # charts.gantt()
     # commits_avg('data/nailgun.csv')
     # resources()
@@ -127,5 +224,5 @@ if __name__ == '__main__':
     # desc.to_csv('results/bcel.csv')
     # charts.correlation()
 
-    plt.show()
 
+    plt.show()
