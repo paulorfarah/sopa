@@ -16,6 +16,7 @@ def methods_diff():
 
     # print(df.head())
     df['diff'] = df.groupby(['class_name', 'method_name'])['mean'].diff()
-    # print(df.sort_values('diff', ascending=False).head())
+
+    df['pct_ch'] = df.groupby(['class_name', 'method_name'])['mean'].pct_change()
     df.sort_values('diff', ascending=False).to_csv('results/res_diff.csv', index=False)
 
