@@ -9,6 +9,7 @@ import dataset
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from diff import methods_diff
 from stats import get_group_statistics, get_statistics
 from statsmodels.graphics.tsaplots import plot_acf
 
@@ -139,7 +140,7 @@ if __name__ == '__main__':
     #     print(v['method_name'])
 
 
-    for col in cols:
+    # for col in cols:
         # print(col['name'])
         # print(df[[col['name']]].describe())
         # get_statistics(df, col['name'])
@@ -152,7 +153,7 @@ if __name__ == '__main__':
 
         #surface
 
-        df_commits_classes = dataset.commits_classes_avg(df)
+        # df_commits_classes = dataset.commits_classes_avg(df)
         # print(df_commits_classes.columns)
         # print(df_commits_classes.head())
         # charts.surface(df_commits_classes, col)
@@ -197,9 +198,9 @@ if __name__ == '__main__':
     # calls(df)
 
 
-    class_name_df = df[(df['class_name_short'].str.contains("TestCase.java")) & (df['commit_hash'] == commit)].drop_duplicates(subset=['class_name', 'method_name'])
-    for idx, tc in class_name_df.iterrows():
-        charts.waterfall_method(df, commit, tc['class_name'], tc['method_name'])
+    # class_name_df = df[(df['class_name_short'].str.contains("TestCase.java")) & (df['commit_hash'] == commit)].drop_duplicates(subset=['class_name', 'method_name'])
+    # for idx, tc in class_name_df.iterrows():
+    #     charts.waterfall_method(df, commit, tc['class_name'], tc['method_name'])
 
     # charts.gantt()
     # commits_avg('data/nailgun.csv')
@@ -225,4 +226,6 @@ if __name__ == '__main__':
     # charts.correlation()
 
 
-    plt.show()
+    # plt.show()
+
+    methods_diff()
