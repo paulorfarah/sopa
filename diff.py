@@ -10,13 +10,22 @@ def methods_diff():
 'AVG(sout)', 'AVG(sreclaimable)', 'AVG(stack)', 'AVG(sunreclaim)', 'AVG(swap)', 'AVG(swap_cached)', 'AVG(swap_free)', 'AVG(swap_total)', 'AVG(swap_used)', 'AVG(swap_used_percent) ',
 'AVG(total)', 'AVG(used)', 'AVG(used_percent)', 'AVG(vm_s)', 'AVG(vmalloc_chunk)', 'AVG(vmalloc_total)', 'AVG(vmalloc_used)', 'AVG(wired)', 'AVG(write_back)', 'AVG(write_back_tmp)',
 'AVG(write_bytes)', 'AVG(write_count)']
+
+
     df = pd.read_csv('data/bcel-res.csv', sep=';', names=res_cols, index_col=False)
-    df = df.groupby(['class_name', 'method_name', 'commit_hash', 'committer_date'])['own_duration'].agg(['count', 'mean']) \
-        .reset_index()
 
-    # print(df.head())
-    df['diff'] = df.groupby(['class_name', 'method_name'])['mean'].diff()
-
-    df['pct_ch'] = df.groupby(['class_name', 'method_name'])['mean'].pct_change()
-    df.sort_values('diff', ascending=False).to_csv('results/res_diff.csv', index=False)
+    df_all = pd.DataFrame()
+    for col in res_cols[9:]:
+        df_temp = df.groupby(['class_name', 'method_name', 'commit_hash', 'committer_date'])[col].agg(['count', 'mean'])\
+            .add_prefix(col + '_').reset_index()
+        # df_temp[col + '_count'] = df_temp.groupby(['class_name', 'method_name'])['count'].diff()
+        df_temp[col + '_diff'] = df_temp.groupby(['class_name', 'method_name'])[col + '_mean'].diff()
+        df_temp[col + '_pct'] = df_temp.groupby(['class_name', 'method_name'])[col + '_mean'].pct_change()
+        if df_all.empty:
+            df_all = df_temp
+        else:
+            df_all = pd.merge(left=df_all, right=df_temp, on=['class_name', 'method_name', 'commit_hash'], how='outer')
+    # print(df_all.head())
+    # print(df_temp.keys())
+    df_all.to_csv('results/res_diff.csv', index=False)
 
