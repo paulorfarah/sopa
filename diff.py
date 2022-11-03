@@ -1,7 +1,9 @@
 import pandas as pd
 
+def methods_avg(csv_file):
 
-def methods_diff():
+
+def methods_diff(csv_file):
     res_cols = ['method_id', 'committer_date', 'commit_hash', 'run', 'class_name', 'method_name', 'method_started_at', 'method_ended_at', 'caller_id',
                 'own_duration', 'cumulative_duration', 'AVG(active)', 'AVG(available)', 'AVG(buffers)', 'AVG(cached) ', 'AVG(child_major_faults)', 'AVG(child_minor_faults)', 'AVG(commit_limit)', 'AVG(committed_as)',
 'AVG(cpu_percent)', 'AVG(data)', 'AVG(dirty)', 'AVG(free)', 'AVG(high_free)', 'AVG(high_total)', 'AVG(huge_pages_total)', 'AVG(huge_pages_free)',
@@ -12,7 +14,8 @@ def methods_diff():
 'AVG(write_bytes)', 'AVG(write_count)']
 
 
-    df = pd.read_csv('data/bcel-res.csv', sep=';', names=res_cols, index_col=False)
+    df = pd.read_csv(csv_file6
+                     , sep=';', names=res_cols, index_col=False)
 
     df_all = pd.DataFrame()
     for col in res_cols[9:]:
