@@ -176,6 +176,9 @@ if __name__ == '__main__':
     # class_name = 'src/test/java/org/apache/bcel/util/ClassPathRepositoryTestCase.java'
     # method_name = 'private void org.apache.bcel.util.ClassPathRepositoryTestCase.verifyCaching(org.apache.bcel.util.AbstractClassPathRepository) throws java.lang.ClassNotFoundException'
 
+    # generic/MethodGenTestCase.java  # generic.MethodGenTestCase.testRemoveLocalVariables()
+    class_name = 'src/test/java/org/apache/bcel/generic/MethodGenTestCase.java'
+    method_name = 'generic.MethodGenTestCase.testRemoveLocalVariables()'
     #error:
     # class_name = 'src/main/java/org/apache/bcel/BCELBenchmark.java'
     # method_name = 'public void baseline(Blackhole bh) throws IOException'
@@ -198,9 +201,9 @@ if __name__ == '__main__':
     # calls(df)
 
 
-    # class_name_df = df[(df['class_name_short'].str.contains("TestCase.java")) & (df['commit_hash'] == commit)].drop_duplicates(subset=['class_name', 'method_name'])
-    # for idx, tc in class_name_df.iterrows():
-    #     charts.waterfall_method(df, commit, tc['class_name'], tc['method_name'])
+    class_name_df = df[(df['class_name_short'].str.contains("TestCase.java")) & (df['commit_hash'] == commit)].drop_duplicates(subset=['class_name', 'method_name'])
+    for idx, tc in class_name_df.iterrows():
+        charts.waterfall_method(df, commit, tc['class_name'], tc['method_name'])
 
     # charts.gantt()
     # commits_avg('data/nailgun.csv')
@@ -228,4 +231,4 @@ if __name__ == '__main__':
 
     # plt.show()
 
-    methods_diff()
+    # methods_diff()

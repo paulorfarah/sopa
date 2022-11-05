@@ -1,6 +1,6 @@
 import pandas as pd
 
-def methods_avg(csv_file):
+# def methods_avg(csv_file):
 
 
 def methods_diff(csv_file):

@@ -382,6 +382,9 @@ def waterfall_method(df, commit_hash, class_name, method_name):
 
 
 def waterfall_chart(data):
+    font = {'size': 20}
+
+    matplotlib.rc('font', **font)
     ##### DATA PREP #####
 
     df = pd.DataFrame(data)
@@ -393,6 +396,8 @@ def waterfall_chart(data):
     df['time_start_to_end'] = df.end_num - df.start_num
     df['total_time'] = df.start_num + df.end_num
     # df = df[df["time_start_to_end"] > 0].head(50)
+
+    # method id
     counter = 1
     for i, row in df.iterrows():
         df.at[i, 'method_label'] = str(counter) + '-' + row['method_name_short']
@@ -400,7 +405,7 @@ def waterfall_chart(data):
 
     # df['current_num'] = (df.time_start_to_end * df.completion)
 
-    print(df[['method_label', 'method_started_at', 'method_ended_at', 'start_num', 'end_num', 'time_start_to_end']])
+    # print(df[['method_label', 'method_started_at', 'method_ended_at', 'start_num', 'end_num', 'time_start_to_end']])
     if df['class_name_short'].any():
         class_name_short = df['class_name_short'].iloc[0]
         commit_hash_short = df['commit_hash_short'].iloc[0]
@@ -408,7 +413,7 @@ def waterfall_chart(data):
 
         # create a column with the color for each department
         def color(row):
-            list_colors = list(matplotlib.colors.cnames.values())[8:]
+            list_colors = list(matplotlib.colors.cnames.values())[9:]
             colors = dict(zip(df['class_name_short'].unique(),
                               (f'{c}' for c in list_colors)))
             return colors[row['class_name_short']]
@@ -425,7 +430,7 @@ def waterfall_chart(data):
         # x_labels = [(df.start_num + dt.timedelta(seconds=i)).strftime('%S.%f')
         #             for i in x_ticks]
 
-        fig, (ax, ax1) = plt.subplots(2, figsize=(25, 15), gridspec_kw={'height_ratios': [len(df.index), 1]})
+        fig, (ax, ax1) = plt.subplots(2, figsize=(28, 15), gridspec_kw={'height_ratios': [len(df.index), 1]})
 
         # bars
         hbars1 = ax.barh(df.method_label, df.time_start_to_end, left=df.start_num, color=df.color)  # , color=df.color
@@ -443,7 +448,7 @@ def waterfall_chart(data):
         plt.gca().invert_yaxis()
 
         # # ticks
-        xticks = np.arange(0, df.total_time.max(), 1)
+        xticks = np.arange(0, df.end_num.max() + 1, 1)
         # xticks_labels = pd.date_range(proj_start, end=df.method_ended_at.max()).strftime("%S")
         # xticks_minor = np.arange(0, df.end_num.max() + 1, 1)
         ax.set_xticks(xticks)
@@ -486,7 +491,7 @@ def waterfall_chart(data):
         # ax_top.spines['top'].set_visible(False)
 
         plt.suptitle(
-            'Cumulative duration of ' + class_name_short + '#' + method_name_short + ' in ' + commit_hash_short)
+            'Cumulative duration of ' + method_name_short + ' in ' + commit_hash_short)
 
         ##### LEGENDS #####
         legend_elements = []
@@ -496,7 +501,7 @@ def waterfall_chart(data):
             patch = Patch(facecolor=str(cl['color']), label=str(cl['class_name_short']))
             legend_elements.append(patch)
 
-        ax1.legend(handles=legend_elements, loc='upper center', ncol=5, frameon=False)
+        ax1.legend(handles=legend_elements, loc='upper center', ncol=3, frameon=False)
 
         # clean second axis
         ax1.spines['right'].set_visible(False)
@@ -508,7 +513,6 @@ def waterfall_chart(data):
 
         # # Label with specially formatted floats
 
-        # ax.bar_label(hbars1, fmt='%.2f')
         ax.bar_label(hbars1, labels=df.time_start_to_end.round(2).tolist(), fmt='%.2f')
         # ax.bar_label(hbars2, fmt='%.f')
         # ax.set_xlim(right=15)  # adjust xlim to fit labels
