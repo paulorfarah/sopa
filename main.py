@@ -9,6 +9,7 @@ import dataset
 import pandas as pd
 import matplotlib.pyplot as plt
 
+import resources
 from diff import methods_diff
 from stats import get_group_statistics, get_statistics
 from statsmodels.graphics.tsaplots import plot_acf
@@ -17,9 +18,9 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 
 
-def resources():
-    db = "maven-project"
-    df = dataset.read_commits(db)
+# def resources():
+#     db = "maven-project"
+#     df = dataset.read_commits(db)
 
     # col = 'duration'
     # charts.pdf_cdf(df, col)
@@ -69,7 +70,7 @@ def resources():
 
     # dfg = df['classname', 'committer_date'].groupby(['classname']).mean()#.T.plot.line(x='committer_date', color='crimson', ax=ax)
     # print(dfg.head())
-    df.to_csv('resources.csv')
+    # df.to_csv('resources.csv')
 
 def commits_avg(df, col):
 
@@ -110,49 +111,117 @@ def calls(df):
     calls_gb.to_csv('results/calls_gb.csv', index=False)
 
 
+def testcases_by_commit_waterfall(df, commit):
+    class_name_df = df[(df['class_name_short'].str.contains("TestCase.java")) & (df['commit_hash'] == commit)].drop_duplicates(subset=['class_name', 'method_name'])
+    for idx, tc in class_name_df.iterrows():
+        charts.testcase_waterfall(df, commit, tc['class_name'], tc['method_name'])
 
 
 if __name__ == '__main__':
     pd.options.display.max_colwidth
-#     cols = ['own_duration', 'cumulative_duration', 'AVG(active)', 'AVG(available)', 'AVG(buffers)', 'AVG(cached)',
-#             'AVG(child_major_faults)', 'AVG(child_minor_faults)', 'AVG(commit_limit)', 'AVG(committed_as)',
-# 'AVG(cpu_percent)', 'AVG(data)', 'AVG(dirty)', 'AVG(free)', 'AVG(high_free)', 'AVG(high_total)', 'AVG(huge_pages_total)', 'AVG(huge_pages_free)', 'AVG(huge_pages_total)',
-# 'AVG(hwm)', 'AVG(inactive)', 'AVG(laundry)', 'AVG(load1)', 'AVG(load5)', 'AVG(load15)', 'AVG(locked)', 'AVG(low_free)', 'AVG(low_total)', 'AVG(major_faults)', 'AVG(mapped)', 'AVG(mem_percent)',
-# 'AVG(minor_faults)', 'AVG(page_tables)', 'AVG(pg_fault)', 'AVG(pg_in)', 'AVG(pg_maj_faults)', 'AVG(pg_out)', 'AVG(read_bytes)', 'AVG(read_count)', 'AVG(rss)', 'AVG(shared)', 'AVG(sin)', 'AVG(slab)',
-# 'AVG(sout)', 'AVG(sreclaimable)', 'AVG(stack)', 'AVG(sunreclaim)', 'AVG(swap)', 'AVG(swap_cached)', 'AVG(swap_free)', 'AVG(swap_total)', 'AVG(swap_used)', 'AVG(swap_used_percent)',
-# 'AVG(total)', 'AVG(used)', 'AVG(used_percent)', 'AVG(vm_s)', 'AVG(vmalloc_chunk)', 'AVG(vmalloc_total)', 'AVG(vmalloc_used)', 'AVG(wired)', 'AVG(write_back)', 'AVG(write_back_tmp)',
-# 'AVG(write_bytes)', 'AVG(write_count)'
-# ]
+
     cols = [
         {'name': 'own_duration', 'unit': 'ns', 'measure': 'sum'},
         {'name': 'cumulative_duration', 'unit': 'ns', 'measure': 'sum'},
         {'name': 'AVG(cpu_percent)', 'unit': '%', 'measure': 'mean'},
         {'name': 'AVG(mem_percent)', 'unit': '%', 'measure': 'mean'},
-        ]
-    csv = 'data/bcel5.csv'
-    df = pandas.read_csv(csv)
-    df['commit_hash_short'] = df.commit_hash.str[:6]
+        {'name': 'AVG(swap)', '': 'Bytes', 'measure': 'mean'},
+        {'name': 'AVG(swap_cached)', '': 'Bytes', 'measure': 'mean'},
+        {'name': 'AVG(swap_free)', '': 'Bytes', 'measure': 'mean'},
+        {'name': 'AVG(swap_total)', '': 'Bytes', 'measure': 'mean'},
+        {'name': 'AVG(swap_used)', 'unit': '%', 'measure': 'mean'},
+        {'name': 'AVG(swap_used_percent)', 'unit': '%', 'measure': 'mean'},
+        {'name': 'AVG(rss)', 'unit': 'Bytes', 'measure': 'mean'},
+        {'name': 'AVG(hwm)', 'unit': 'Bytes', 'measure': 'mean'},
+        {'name': 'AVG(load1)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(load5)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(load15)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(mapped)', 'unit': 'Bytes', 'measure': 'mean'},
+        {'name': 'AVG(locked)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(cached)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(read_bytes)', 'unit': 'Bytes', 'measure': 'mean'},
+        {'name': 'AVG(read_count)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(write_bytes)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(write_count)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(data)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(dirty)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(free)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(high_total)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(data)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(huge_pages_total)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(huge_pages_free)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(active)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(inactive)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(available)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(buffers)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(data)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(major_faults)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(minor_faults)', '': 'Bytes', 'measure': 'mean'},
+        {'name': 'AVG(child_major_faults)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(child_minor_faults)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(commit_limit)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(committed_as)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(laundry)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(low_free)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(low_total)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(page_tables)', '': '', 'measure': 'mean'},
+        {'name': 'AVG(pg_fault)', '': '', 'measure': 'mean'},
+        {'name': 'AVG(pg_in)', '': '', 'measure': 'mean'},
+        {'name': 'AVG(pg_maj_faults)', '': '', 'measure': 'mean'},
+        {'name': 'AVG(pg_out)', '': '', 'measure': 'mean'},
+        {'name': 'AVG(shared)', '': 'Bytes', 'measure': 'mean'},
+        {'name': 'AVG(sin)', '': '', 'measure': 'mean'},
+        {'name': 'AVG(slab)', '': '', 'measure': 'mean'},
+        {'name': 'AVG(sout)', '': '', 'measure': 'mean'},
+        {'name': 'AVG(sreclaimable)', '': '', 'measure': 'mean'},
+        {'name': 'AVG(stack)', '': 'Bytes', 'measure': 'mean'},
+        {'name': 'AVG(sunreclaim)', '': '', 'measure': 'mean'},
+        {'name': 'AVG(sunreclaim)', '': '', 'measure': 'mean'},
+        {'name': 'AVG(total)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(used)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(used_percent)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(vm_s)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(data)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(vmalloc_chunk)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(vmalloc_total)', 'unit': 'Bytes', 'measure': 'mean'},
+        {'name': 'AVG(vmalloc_used)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(data)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(wired)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(write_back)', 'unit': '', 'measure': 'mean'},
+        {'name': 'AVG(write_back_tmp)', 'unit': '', 'measure': 'mean'},
+    ]
+
+
+    df = resources.avg()
+    df['commit_hash_short'] = df.commit_hash.str[:7]
     df['class_name_short'] = df.class_name.str[30:] #replace('src/main/java/org/apache/bcel/', '')
     df['method_name_short'] = df.method_name.str.split('org.apache.bcel.').str[-1]
     df.method_name_short = df.method_name_short.str.split(' throws').str[0]
 
-    # for i, v in df.loc[df['class_name'] == 'src/main/java/org/apache/bcel/util/AbstractClassPathRepository.java'].iterrows():
-    #     print(v['method_name'])
+#violin chart
+    commit = 'a9c13ede0e565fae0593c1fde3b774d93abf3f71'
+    class_name = 'src/main/java/org/apache/bcel/classfile/AnnotationElementValue.java'
+    method_name = 'final int org.apache.bcel.classfile.ElementValue.getType()'
 
-
-    # for col in cols:
+    for col in cols:
         # print(col['name'])
         # print(df[[col['name']]].describe())
         # get_statistics(df, col['name'])
         # get_group_statistics(df, 'commit_hash', col['name'])
-        # df_col = dataset.commits_avg(df, col)
-        # charts.violin(df_col, col)
+
+        ### violin chart by commit
+        # df_commits = dataset.commits_avg(df, col)
+        # charts.violin(df_commits, col)
+
+        ### violin chart by method
+        # df_method = dataset.method_avg(df, class_name, method_name, col)
+        # charts.violin(df_method, col)
+
         # print(df2.head())
         # df3 = df2
         # plot_acf(df2)
 
         #surface
-
         # df_commits_classes = dataset.commits_classes_avg(df)
         # print(df_commits_classes.columns)
         # print(df_commits_classes.head())
@@ -160,14 +229,24 @@ if __name__ == '__main__':
         # charts.lines(df[['commit_hash_short', 'class_name', col['name']]], col)
 
 
+        ### classes multiple area
         # charts.multiple_area(df[['commit_hash_short', 'class_name_short', col['name']]], col)
+
+        ### testcases multiple area
+        tc_df = df[
+            (df['class_name_short'].str.contains("PLSETestCase.java"))]#.drop_duplicates(subset=['class_name', 'method_name'])
+        charts.multiple_area(tc_df[['commit_hash_short', 'method_name_short', col['name']]], col)
+
 
         # df.boxplot()
         # plt.savefig('results/' + col + '.pdf')
 
 
     # waterfall chart
-    commit = 'fa271c5d7ed94dd1d9ef31c52f32d1746d5636dc'
+    # commit = 'fa271c5d7ed94dd1d9ef31c52f32d1746d5636dc'
+    # commit = 'bbaf623d750f030d186ed026dc201995145c63ec'
+    # commit = 'bebe70de81f2f8912857ddb33e82d3ccc146a24e'
+    commit = 'a9c13ede0e565fae0593c1fde3b774d93abf3f71'
 
     # ok:
     # class_name = 'src/main/java/org/apache/bcel/classfile/AnnotationElementValue.java'
@@ -200,10 +279,8 @@ if __name__ == '__main__':
 
     # calls(df)
 
-
-    class_name_df = df[(df['class_name_short'].str.contains("TestCase.java")) & (df['commit_hash'] == commit)].drop_duplicates(subset=['class_name', 'method_name'])
-    for idx, tc in class_name_df.iterrows():
-        charts.waterfall_method(df, commit, tc['class_name'], tc['method_name'])
+    ### testcases by commit waterfall chart
+    # testcases_by_commit_waterfall(df, commit)
 
     # charts.gantt()
     # commits_avg('data/nailgun.csv')
